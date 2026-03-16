@@ -4,30 +4,32 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dhilipdharan V | Protection & Commissioning Engineer</title>
-  <meta name="description" content="Premium animated resume website for Dhilipdharan V, Electrical / Protection & Commissioning Engineer." />
+  <meta name="description" content="Premium animated resume website for Dhilipdharan V, Protection & Commissioning Engineer." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #edf3fb;
-      --bg-soft: rgba(255,255,255,0.68);
-      --surface: rgba(255,255,255,0.8);
-      --surface-strong: rgba(255,255,255,0.92);
-      --surface-deep: rgba(255,255,255,0.97);
-      --text: #10233d;
-      --muted: #5d738f;
-      --line: rgba(16,35,61,0.1);
-      --primary: #1565ff;
-      --primary-soft: rgba(21,101,255,0.12);
-      --accent: #20c6ff;
-      --accent-2: #7b61ff;
-      --success: #0ca678;
-      --warning: #ff9f43;
-      --shadow: 0 18px 50px rgba(32, 68, 135, 0.14);
-      --shadow-soft: 0 10px 28px rgba(32, 68, 135, 0.09);
-      --shadow-3d: 0 28px 60px rgba(16, 35, 61, 0.18);
-      --radius: 26px;
+      --bg: #edf4ff;
+      --bg-2: #f9fbff;
+      --surface: rgba(255,255,255,0.56);
+      --surface-strong: rgba(255,255,255,0.74);
+      --surface-deep: rgba(255,255,255,0.88);
+      --text: #0f2340;
+      --muted: #5c7290;
+      --line: rgba(15, 35, 64, 0.09);
+      --primary: #1d63ff;
+      --primary-2: #3a86ff;
+      --accent: #28d7ff;
+      --accent-2: #7a6bff;
+      --success: #09b27e;
+      --warning: #ff9d42;
+      --glass-stroke: rgba(255,255,255,0.68);
+      --glass-inner: rgba(255,255,255,0.38);
+      --shadow: 0 24px 60px rgba(23, 63, 138, 0.14);
+      --shadow-soft: 0 14px 34px rgba(23, 63, 138, 0.10);
+      --shadow-strong: 0 28px 80px rgba(16, 35, 61, 0.20);
+      --radius: 28px;
       --max: 1240px;
     }
 
@@ -36,15 +38,15 @@
 
     body {
       margin: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
       font-family: 'Inter', system-ui, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 10%, rgba(32,198,255,.20), transparent 22%),
-        radial-gradient(circle at 90% 12%, rgba(123,97,255,.14), transparent 22%),
-        radial-gradient(circle at 50% 100%, rgba(21,101,255,.10), transparent 35%),
-        linear-gradient(180deg, #f8fbff 0%, #eef4fb 52%, #e8f0fa 100%);
-      overflow-x: hidden;
-      min-height: 100vh;
+        radial-gradient(circle at 10% 12%, rgba(40,215,255,.22), transparent 18%),
+        radial-gradient(circle at 90% 10%, rgba(122,107,255,.16), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(29,99,255,.12), transparent 30%),
+        linear-gradient(180deg, #f8fbff 0%, #eef5ff 48%, #e8f0fb 100%);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
@@ -53,70 +55,90 @@
     body::after {
       content: "";
       position: fixed;
-      width: 42vw;
-      height: 42vw;
+      width: 38vw;
+      height: 38vw;
       border-radius: 50%;
-      filter: blur(70px);
-      z-index: -4;
-      opacity: .38;
+      z-index: -6;
+      filter: blur(78px);
       pointer-events: none;
+      opacity: .42;
     }
 
     body::before {
-      top: -10vw;
+      top: -8vw;
       right: -8vw;
-      background: rgba(21,101,255,.22);
-      animation: floatOrb 14s ease-in-out infinite;
+      background: rgba(29,99,255,.24);
+      animation: orbDrift 16s ease-in-out infinite;
     }
 
     body::after {
-      bottom: -12vw;
-      left: -10vw;
-      background: rgba(32,198,255,.16);
-      animation: floatOrb 18s ease-in-out infinite reverse;
+      bottom: -10vw;
+      left: -8vw;
+      background: rgba(40,215,255,.18);
+      animation: orbDrift 19s ease-in-out infinite reverse;
+    }
+
+    img, svg { display: block; max-width: 100%; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
     }
 
     .ambient-light,
     .grid-overlay,
+    .noise-layer,
     .circuit-layer,
     .pulse-layer,
-    .noise-layer {
+    .particle-layer,
+    .lightning-layer {
       position: fixed;
       inset: 0;
       pointer-events: none;
     }
 
     .ambient-light {
-      z-index: -3;
+      z-index: -5;
       background:
-        radial-gradient(circle at 12% 18%, rgba(21,101,255,.12), transparent 18%),
-        radial-gradient(circle at 84% 14%, rgba(32,198,255,.12), transparent 22%),
-        radial-gradient(circle at 50% 48%, rgba(123,97,255,.08), transparent 28%),
-        radial-gradient(circle at 50% 110%, rgba(21,101,255,.10), transparent 30%);
-      filter: blur(16px);
+        radial-gradient(circle at 14% 18%, rgba(29,99,255,.15), transparent 20%),
+        radial-gradient(circle at 82% 16%, rgba(40,215,255,.14), transparent 22%),
+        radial-gradient(circle at 50% 46%, rgba(122,107,255,.09), transparent 24%),
+        radial-gradient(circle at 50% 96%, rgba(29,99,255,.10), transparent 28%);
+      filter: blur(18px);
       animation: ambientShift 18s ease-in-out infinite alternate;
     }
 
     .grid-overlay {
-      z-index: -2;
+      z-index: -4;
       background-image:
-        linear-gradient(rgba(16,35,61,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(16,35,61,0.04) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
+        linear-gradient(rgba(15,35,64,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15,35,64,0.04) 1px, transparent 1px);
+      background-size: 54px 54px;
+      mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
     }
 
     .noise-layer {
-      z-index: -1;
-      opacity: .16;
-      background-image:
-        radial-gradient(rgba(255,255,255,.6) 0.8px, transparent 0.8px);
-      background-size: 14px 14px;
+      z-index: -3;
+      opacity: .17;
       mix-blend-mode: soft-light;
+      background-image: radial-gradient(rgba(255,255,255,.7) 0.8px, transparent 0.8px);
+      background-size: 13px 13px;
     }
 
-    .circuit-layer,
-    .pulse-layer { z-index: -2; }
+    .particle-layer { z-index: -2; overflow: hidden; }
+    .particle-layer span {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,.95), rgba(40,215,255,.35) 55%, transparent 75%);
+      box-shadow: 0 0 14px rgba(40,215,255,.25);
+      animation: particleFloat linear infinite;
+      opacity: .55;
+    }
+
+    .lightning-layer { z-index: -1; mix-blend-mode: screen; }
+    .lightning-layer svg,
     .circuit-layer svg,
     .pulse-layer svg {
       width: 100%;
@@ -124,18 +146,43 @@
       display: block;
     }
 
-    img, svg { max-width: 100%; display: block; }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
     .nav {
       position: sticky;
       top: 10px;
-      z-index: 50;
+      z-index: 60;
       padding: 12px 0 0;
+    }
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.34));
+      border: 1px solid var(--glass-stroke);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(22px) saturate(180%);
+      -webkit-backdrop-filter: blur(22px) saturate(180%);
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .glass::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.58), transparent 24%, rgba(40,215,255,.08) 75%, rgba(29,99,255,.10)),
+        radial-gradient(circle at top left, rgba(255,255,255,.48), transparent 30%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .glass::after {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      border-radius: inherit;
+      border: 1px solid rgba(255,255,255,.22);
+      pointer-events: none;
+      opacity: .9;
     }
 
     .nav-shell {
@@ -144,22 +191,16 @@
       justify-content: space-between;
       gap: 16px;
       padding: 14px 18px;
-      background: rgba(255,255,255,.64);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,.7);
       border-radius: 999px;
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
     }
 
-    .nav-shell::before {
-      content: "";
+    .nav-shell .sweep {
       position: absolute;
       inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.48), transparent);
-      transform: translateX(-100%);
-      animation: navSweep 8s linear infinite;
+      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.44) 48%, transparent 74%);
+      transform: translateX(-120%);
+      animation: glassSweep 8s linear infinite;
+      pointer-events: none;
     }
 
     .brand {
@@ -171,15 +212,14 @@
     }
 
     .brand-mark {
-      width: 46px;
-      height: 46px;
+      position: relative;
+      width: 48px;
+      height: 48px;
       flex-shrink: 0;
       border-radius: 16px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 12px 24px rgba(21,101,255,.25);
-      position: relative;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 16px 26px rgba(29,99,255,.24);
       overflow: hidden;
-      transform-style: preserve-3d;
       animation: markFloat 5.5s ease-in-out infinite;
     }
 
@@ -187,37 +227,37 @@
     .brand-mark::after {
       content: "";
       position: absolute;
-      background: rgba(255,255,255,.92);
+      background: rgba(255,255,255,.95);
       border-radius: 999px;
     }
 
     .brand-mark::before {
       width: 18px;
       height: 3px;
-      left: 14px;
-      top: 21px;
-      transform: rotate(-55deg);
+      left: 15px;
+      top: 22px;
+      transform: rotate(-56deg);
     }
 
     .brand-mark::after {
       width: 18px;
       height: 3px;
-      left: 14px;
-      top: 21px;
-      transform: rotate(55deg);
+      left: 15px;
+      top: 22px;
+      transform: rotate(56deg);
     }
 
-    .brand-text { min-width: 0; }
     .brand-text strong {
       display: block;
       font-family: 'Manrope', sans-serif;
       font-size: 1rem;
       letter-spacing: -.02em;
     }
+
     .brand-text span {
       display: block;
-      font-size: .8rem;
       color: var(--muted);
+      font-size: .82rem;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -235,37 +275,34 @@
     .btn {
       text-decoration: none;
       color: var(--text);
-      border: 1px solid transparent;
       padding: 11px 16px;
       border-radius: 999px;
       font-size: .92rem;
-      font-weight: 600;
-      transition: transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease;
+      font-weight: 700;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
-      cursor: pointer;
+      border: 1px solid transparent;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
       will-change: transform;
     }
 
     .nav-links a:hover,
-    .nav-links a:focus-visible,
     .btn:hover,
+    .nav-links a:focus-visible,
     .btn:focus-visible {
       transform: translateY(-2px);
       box-shadow: var(--shadow-soft);
       outline: none;
     }
 
-    .nav-links a:hover {
-      background: rgba(255,255,255,.84);
-    }
+    .nav-links a:hover { background: rgba(255,255,255,.66); }
 
     .btn-primary {
       color: white !important;
       background: linear-gradient(135deg, var(--primary), var(--accent-2));
-      box-shadow: 0 14px 28px rgba(21,101,255,.22);
+      box-shadow: 0 16px 34px rgba(29,99,255,.24);
       position: relative;
       overflow: hidden;
     }
@@ -274,7 +311,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.32) 45%, transparent 80%);
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.34) 45%, transparent 80%);
       transform: translateX(-120%);
       transition: transform .8s ease;
     }
@@ -285,8 +322,8 @@
     }
 
     .btn-secondary {
-      background: rgba(255,255,255,.76);
-      border: 1px solid rgba(16,35,61,.08);
+      background: rgba(255,255,255,.58);
+      border-color: rgba(15,35,64,.08);
       box-shadow: var(--shadow-soft);
     }
 
@@ -297,7 +334,7 @@
       min-height: calc(100vh - 110px);
       display: grid;
       align-items: start;
-      padding: 42px 0 18px;
+      padding: 40px 0 18px;
     }
 
     .hero-shell {
@@ -308,28 +345,12 @@
     }
 
     .panel {
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,.76);
-      backdrop-filter: blur(18px);
-      box-shadow: var(--shadow);
       border-radius: var(--radius);
-      position: relative;
-      overflow: hidden;
       transform-style: preserve-3d;
-      isolation: isolate;
-    }
-
-    .panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,.55), transparent 34%, rgba(32,198,255,.06));
-      pointer-events: none;
-      z-index: -1;
     }
 
     .hero-copy {
-      padding: 40px 44px 30px;
+      padding: 40px 42px 30px;
     }
 
     .eyebrow {
@@ -338,16 +359,16 @@
       gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,.82);
-      border: 1px solid rgba(16,35,61,.08);
-      font-size: .84rem;
-      font-weight: 700;
-      letter-spacing: .02em;
-      color: var(--primary);
-      margin-bottom: 18px;
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(255,255,255,.70);
       box-shadow: var(--shadow-soft);
-      position: relative;
+      font-size: .84rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: .02em;
+      margin-bottom: 18px;
       overflow: hidden;
+      position: relative;
     }
 
     .eyebrow::after {
@@ -356,7 +377,7 @@
       inset: 0;
       background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
       transform: translateX(-100%);
-      animation: navSweep 7s linear infinite;
+      animation: glassSweep 7s linear infinite;
       opacity: .8;
     }
 
@@ -365,14 +386,14 @@
       height: 10px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--primary));
-      box-shadow: 0 0 0 8px rgba(21,101,255,.08);
-      animation: pulseDot 2.4s ease-in-out infinite;
+      box-shadow: 0 0 0 8px rgba(29,99,255,.08);
+      animation: dotPulse 2.4s ease-in-out infinite;
       z-index: 1;
     }
 
     h1, h2, h3 {
       margin: 0;
-      line-height: 1.02;
+      line-height: 1.03;
       letter-spacing: -.04em;
       font-family: 'Manrope', sans-serif;
     }
@@ -380,31 +401,24 @@
     h1 {
       font-size: clamp(3rem, 7vw, 6rem);
       max-width: 10ch;
-      position: relative;
     }
 
     .hero-gradient {
-      position: relative;
       display: inline-block;
-      background: linear-gradient(135deg, #0f2340 0%, #1163ff 42%, #3f86ff 72%, #31d5ff 100%);
+      background: linear-gradient(135deg, #0f2340 0%, #1565ff 42%, #40a2ff 72%, #2cd7ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      text-shadow: 0 8px 28px rgba(21,101,255,.12);
+      filter: drop-shadow(0 8px 24px rgba(29,99,255,.15));
       animation: heroGlow 5.5s ease-in-out infinite alternate;
-    }
-
-    .hero-gradient.shake {
-      animation: heroGlow 5.5s ease-in-out infinite alternate, subtleShake 7s cubic-bezier(.36,.07,.19,.97) infinite;
-      transform-origin: center;
     }
 
     .subtitle {
       margin-top: 18px;
-      font-size: clamp(1rem, 1.45vw, 1.18rem);
-      line-height: 1.75;
+      max-width: 62ch;
       color: var(--muted);
-      max-width: 60ch;
+      font-size: clamp(1rem, 1.45vw, 1.18rem);
+      line-height: 1.78;
     }
 
     .hero-actions {
@@ -421,15 +435,24 @@
       margin-top: 28px;
     }
 
+    .metric,
+    .card,
+    .timeline-item,
+    .cert-card,
+    .cta-box {
+      position: relative;
+      overflow: hidden;
+    }
+
     .metric {
-      background: rgba(255,255,255,.62);
-      border: 1px solid rgba(16,35,61,.08);
-      border-radius: 22px;
       padding: 18px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.34));
+      border: 1px solid rgba(255,255,255,.70);
       box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px) saturate(180%);
       transition: transform .35s ease, box-shadow .35s ease;
       transform-style: preserve-3d;
-      position: relative;
     }
 
     .metric::after {
@@ -467,22 +490,14 @@
     }
 
     .schematic {
-      min-height: 900px;
+      min-height: 980px;
+      padding: 26px;
       border-radius: 34px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.99), rgba(240,247,255,.95)),
-        linear-gradient(135deg, rgba(21,101,255,.10), rgba(32,198,255,.16));
-      border: 1px solid rgba(16,35,61,.08);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.95),
-        0 30px 70px rgba(32, 68, 135, 0.16),
-        0 14px 28px rgba(21,101,255,.10);
       position: relative;
       overflow: hidden;
-      padding: 26px;
-      transform-style: preserve-3d;
-      perspective: 2200px;
       isolation: isolate;
+      perspective: 2200px;
+      transform-style: preserve-3d;
       transform: perspective(2200px) rotateX(0deg) rotateY(0deg);
       transition: transform .18s ease-out, box-shadow .35s ease;
       animation: depthBreath 7s ease-in-out infinite;
@@ -493,10 +508,10 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 18% 24%, rgba(21,101,255,.18), transparent 18%),
-        radial-gradient(circle at 82% 18%, rgba(32,198,255,.18), transparent 20%),
-        radial-gradient(circle at 50% 82%, rgba(123,97,255,.15), transparent 22%),
-        linear-gradient(180deg, rgba(255,255,255,.35), transparent 20%, transparent 80%, rgba(21,101,255,.05));
+        radial-gradient(circle at 18% 22%, rgba(29,99,255,.20), transparent 18%),
+        radial-gradient(circle at 84% 16%, rgba(40,215,255,.18), transparent 20%),
+        radial-gradient(circle at 50% 86%, rgba(122,107,255,.14), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,.25), transparent 22%, transparent 82%, rgba(29,99,255,.05));
       pointer-events: none;
     }
 
@@ -505,12 +520,121 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(125deg, rgba(255,255,255,.36), transparent 20%, transparent 60%, rgba(255,255,255,.24)),
+        linear-gradient(125deg, rgba(255,255,255,.36), transparent 18%, transparent 60%, rgba(255,255,255,.24)),
         radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(49,213,255,.22), transparent 22%);
       mix-blend-mode: screen;
       pointer-events: none;
       opacity: .95;
       z-index: 1;
+    }
+
+    .schematic .lightning-flash {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, transparent 0%, rgba(255,255,255,.08) 48%, transparent 100%),
+        radial-gradient(circle at 50% 28%, rgba(255,255,255,.22), transparent 22%);
+      opacity: .5;
+      mix-blend-mode: screen;
+      animation: lightningFlash 6s ease-in-out infinite;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .schematic svg {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      z-index: 3;
+      transform-style: preserve-3d;
+    }
+
+    .schematic text {
+      paint-order: stroke;
+      stroke: rgba(255,255,255,.72);
+      stroke-width: 2px;
+      letter-spacing: .02em;
+      text-rendering: geometricPrecision;
+      filter: drop-shadow(0 2px 8px rgba(16,35,61,.10));
+    }
+
+    .glass-card {
+      fill: rgba(255,255,255,.56);
+      stroke: rgba(255,255,255,.82);
+      filter: url(#cardShadow);
+    }
+
+    .glass-card-soft {
+      fill: rgba(255,255,255,.68);
+      stroke: rgba(21,101,255,.12);
+      filter: url(#cardShadow);
+    }
+
+    .schematic-line,
+    .schematic-pulse,
+    .schematic-node,
+    .schematic-bolt {
+      transform-origin: center;
+      will-change: transform, opacity, filter;
+    }
+
+    .schematic-line {
+      animation: pulseLine 5.4s ease-in-out infinite;
+    }
+
+    .schematic-pulse {
+      animation: moveDash 3s linear infinite;
+    }
+
+    .schematic-node {
+      animation: nodeGlow 3.2s ease-in-out infinite;
+    }
+
+    .schematic-bolt {
+      animation: boltPulse 2.8s ease-in-out infinite;
+    }
+
+    .hero-focus {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform .22s ease;
+    }
+
+    section { padding: 36px 0; }
+
+    .section-head {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-head p {
+      max-width: 64ch;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 10px 0 0;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 800;
+      font-size: .88rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .section-tag::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
     }
 
     .timeline {
@@ -524,12 +648,11 @@
       gap: 20px;
       padding: 24px;
       border-radius: 24px;
-      background: var(--surface-strong);
-      border: 1px solid rgba(16,35,61,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.56), rgba(255,255,255,.36));
+      border: 1px solid rgba(255,255,255,.72);
       box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(18px) saturate(180%);
       transition: transform .35s ease, box-shadow .35s ease;
-      position: relative;
-      overflow: hidden;
     }
 
     .timeline-item::before {
@@ -561,48 +684,11 @@
       font-size: 1.16rem;
     }
 
-    section { padding: 36px 0; }
-
-    .section-head {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .section-head p {
-      max-width: 64ch;
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 10px 0 0;
-    }
-
-    .section-tag {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      color: var(--primary);
-      font-weight: 700;
-      font-size: .88rem;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-
-    .section-tag::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      border-radius: 999px;
-    }
-
     .skills-grid,
     .project-grid,
     .tool-grid,
-    .software-grid,
-    .relay-grid {
+    .relay-grid,
+    .cert-grid {
       display: grid;
       gap: 18px;
     }
@@ -610,32 +696,34 @@
     .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .software-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .relay-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cert-grid { grid-template-columns: 1fr; }
 
-    .card {
-      background: var(--surface-deep);
-      border: 1px solid rgba(16,35,61,.08);
-      border-radius: 24px;
+    .card,
+    .cert-card {
       padding: 22px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.56), rgba(255,255,255,.34));
+      border: 1px solid rgba(255,255,255,.74);
       box-shadow: var(--shadow-soft);
       transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
+      backdrop-filter: blur(20px) saturate(180%);
       transform-style: preserve-3d;
       will-change: transform;
+      isolation: isolate;
     }
 
-    .card::before {
+    .card::before,
+    .cert-card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(21,101,255,.06), transparent 45%, rgba(32,198,255,.08));
+      background: linear-gradient(135deg, rgba(29,99,255,.06), transparent 45%, rgba(40,215,255,.08));
       z-index: -2;
     }
 
-    .card::after {
+    .card::after,
+    .cert-card::after {
       content: "";
       position: absolute;
       inset: -1px;
@@ -647,18 +735,23 @@
     }
 
     .card:hover,
-    .card:focus-within {
+    .card:focus-within,
+    .cert-card:hover,
+    .cert-card:focus-within {
       transform: translateY(-8px) rotateX(6deg) rotateY(-4deg);
-      box-shadow: var(--shadow-3d);
-      border-color: rgba(21,101,255,.18);
+      box-shadow: var(--shadow-strong);
+      border-color: rgba(29,99,255,.18);
     }
 
     .card:hover::after,
-    .card:focus-within::after {
+    .card:focus-within::after,
+    .cert-card:hover::after,
+    .cert-card:focus-within::after {
       opacity: 1;
     }
 
-    .card h3 {
+    .card h3,
+    .cert-card h3 {
       font-size: 1.12rem;
       margin-bottom: 10px;
     }
@@ -666,7 +759,8 @@
     .card p,
     .card li,
     .timeline p,
-    .timeline li {
+    .timeline li,
+    .cert-card p {
       color: var(--muted);
       line-height: 1.72;
       font-size: .96rem;
@@ -689,10 +783,10 @@
     .pill {
       padding: 10px 13px;
       border-radius: 999px;
-      background: rgba(21,101,255,.08);
-      border: 1px solid rgba(21,101,255,.08);
+      background: rgba(29,99,255,.08);
+      border: 1px solid rgba(29,99,255,.08);
       color: #2153b8;
-      font-weight: 600;
+      font-weight: 700;
       font-size: .86rem;
       transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
       position: relative;
@@ -701,8 +795,8 @@
 
     .pill:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(21,101,255,.12);
-      background: rgba(21,101,255,.12);
+      box-shadow: 0 10px 18px rgba(29,99,255,.12);
+      background: rgba(29,99,255,.12);
     }
 
     .project-card h3 {
@@ -713,17 +807,108 @@
       flex-wrap: wrap;
     }
 
-    .project-badge {
+    .project-badge,
+    .cert-badge {
       padding: 6px 10px;
       font-size: .72rem;
       font-weight: 800;
       border-radius: 999px;
-      background: rgba(12,166,120,.11);
-      color: var(--success);
       letter-spacing: .04em;
       text-transform: uppercase;
       flex-shrink: 0;
+    }
+
+    .project-badge {
+      background: rgba(12,166,120,.11);
+      color: var(--success);
       box-shadow: inset 0 0 0 1px rgba(12,166,120,.12);
+    }
+
+    .cert-badge {
+      background: rgba(29,99,255,.10);
+      color: var(--primary);
+      box-shadow: inset 0 0 0 1px rgba(29,99,255,.12);
+    }
+
+    .cert-card {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+    }
+
+    .cert-logo {
+      width: 62px;
+      height: 62px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #ef3c31, #ff7a59);
+      box-shadow: 0 16px 28px rgba(239,60,49,.18), inset 0 1px 0 rgba(255,255,255,.38);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .cert-logo::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,.12);
+      clip-path: polygon(50% 0%, 100% 28%, 100% 72%, 50% 100%, 0% 72%, 0% 28%);
+      border-radius: 10px;
+    }
+
+    .cert-logo::after {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 18px;
+      width: 32px;
+      height: 24px;
+      background: white;
+      clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 18% 100%, 0% 35%);
+      opacity: .95;
+    }
+
+    .cert-title {
+      min-width: 0;
+    }
+
+    .cert-title h3 {
+      margin-bottom: 4px;
+      font-size: 1.26rem;
+    }
+
+    .cert-title .issuer {
+      font-weight: 700;
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .cert-meta {
+      margin-top: 8px;
+      display: grid;
+      gap: 5px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .cert-side {
+      display: grid;
+      justify-items: end;
+      gap: 10px;
+    }
+
+    .cert-glow-line {
+      width: 110px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      box-shadow: 0 0 18px rgba(40,215,255,.25);
+      opacity: .7;
     }
 
     .cta {
@@ -732,17 +917,20 @@
       grid-template-columns: 1.15fr .85fr;
       gap: 24px;
       align-items: center;
-      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(242,248,255,.92));
+      background: linear-gradient(135deg, rgba(255,255,255,.54), rgba(255,255,255,.34));
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,.76);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px) saturate(180%);
     }
 
     .cta-box {
       padding: 24px;
       border-radius: 26px;
-      background: linear-gradient(135deg, #0e2340, #1f5fff 70%, #32cfff 100%);
+      background: linear-gradient(135deg, #0e2340, #1f5fff 68%, #32cfff 100%);
       color: white;
       box-shadow: 0 24px 46px rgba(17, 64, 149, .25);
       position: relative;
-      overflow: hidden;
     }
 
     .cta-box::before {
@@ -753,7 +941,7 @@
       pointer-events: none;
     }
 
-    .cta-box p { color: rgba(255,255,255,.82); }
+    .cta-box p { color: rgba(255,255,255,.84); }
 
     footer {
       padding: 16px 0 10px;
@@ -777,56 +965,38 @@
       animation: floatCard 7s ease-in-out infinite;
     }
 
-    .schematic svg {
-      width: 100%;
-      height: 100%;
-      transform-style: preserve-3d;
-      position: relative;
-      z-index: 2;
-    }
-
-    .schematic text {
-      paint-order: stroke;
-      stroke: rgba(255,255,255,.62);
-      stroke-width: 2px;
-      letter-spacing: .02em;
-      text-rendering: geometricPrecision;
-      filter: drop-shadow(0 2px 8px rgba(16,35,61,.10));
-    }
-
-    .schematic-line,
-    .schematic-pulse {
-      animation-timing-function: ease-in-out;
-      animation-iteration-count: infinite;
-      transform-origin: center;
-      will-change: transform, opacity, filter;
-    }
-
-    .schematic-line {
-      animation-name: pulseLine;
-      animation-duration: 5.4s;
-    }
-
-    .schematic-pulse {
-      animation-name: moveDash;
-      animation-duration: 2.8s;
-    }
-
-    .hero-focus {
-      transform-style: preserve-3d;
-      will-change: transform;
-      transition: transform .22s ease;
-    }
-
-    @keyframes floatOrb {
-      0%, 100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(16px, 18px, 0) scale(1.06); }
+    @keyframes orbDrift {
+      0%,100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(18px,20px,0) scale(1.08); }
     }
 
     @keyframes ambientShift {
       0% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(-10px, 6px, 0) scale(1.04); }
-      100% { transform: translate3d(8px, -10px, 0) scale(1.02); }
+      50% { transform: translate3d(-10px,6px,0) scale(1.04); }
+      100% { transform: translate3d(8px,-10px,0) scale(1.02); }
+    }
+
+    @keyframes particleFloat {
+      0% { transform: translate3d(0, 105vh, 0) scale(.6); opacity: 0; }
+      10% { opacity: .55; }
+      100% { transform: translate3d(30px, -20vh, 0) scale(1.08); opacity: 0; }
+    }
+
+    @keyframes lightningPulse {
+      0%, 80%, 100% { opacity: 0; }
+      82% { opacity: .15; }
+      84% { opacity: .7; }
+      86% { opacity: .2; }
+      88% { opacity: .58; }
+      90% { opacity: 0; }
+    }
+
+    @keyframes lightningFlash {
+      0%, 76%, 100% { opacity: .18; }
+      78% { opacity: .7; }
+      79% { opacity: .2; }
+      80% { opacity: .55; }
+      82% { opacity: .15; }
     }
 
     @keyframes floatCard {
@@ -839,14 +1009,19 @@
       50% { transform: translateY(-4px) rotate(-3deg); }
     }
 
-    @keyframes pulseDot {
-      0%,100% { box-shadow: 0 0 0 0 rgba(21,101,255,.16); }
-      50% { box-shadow: 0 0 0 8px rgba(21,101,255,.03); }
+    @keyframes dotPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(29,99,255,.16); }
+      50% { box-shadow: 0 0 0 8px rgba(29,99,255,.03); }
     }
 
-    @keyframes glowNode {
-      0%,100% { opacity: .72; filter: drop-shadow(0 0 0 rgba(21,101,255,.1)); }
-      50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(21,101,255,.28)); }
+    @keyframes nodeGlow {
+      0%,100% { opacity: .74; filter: drop-shadow(0 0 0 rgba(29,99,255,.12)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(29,99,255,.28)); }
+    }
+
+    @keyframes boltPulse {
+      0%,100% { opacity: .6; filter: drop-shadow(0 0 0 rgba(40,215,255,.14)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(40,215,255,.34)); }
     }
 
     @keyframes pulseLine {
@@ -860,76 +1035,43 @@
     }
 
     @keyframes heroGlow {
-      0%, 100% { filter: drop-shadow(0 0 0 rgba(21,101,255,.1)); }
-      50% { filter: drop-shadow(0 8px 18px rgba(21,101,255,.25)); }
+      0%,100% { filter: drop-shadow(0 0 0 rgba(29,99,255,.1)); }
+      50% { filter: drop-shadow(0 8px 18px rgba(29,99,255,.25)); }
     }
 
     @keyframes chartFloat {
-      0%, 100% {
-        transform: translateY(0px) rotateX(0deg) rotateY(0deg) scale(1);
-      }
-      25% {
-        transform: translateY(-4px) rotateX(1.2deg) rotateY(-1.2deg) scale(1.002);
-      }
-      50% {
-        transform: translateY(-8px) rotateX(-.8deg) rotateY(1.4deg) scale(1.006);
-      }
-      75% {
-        transform: translateY(-3px) rotateX(1deg) rotateY(.6deg) scale(1.002);
-      }
+      0%,100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg) scale(1); }
+      25% { transform: translateY(-4px) rotateX(1.2deg) rotateY(-1.2deg) scale(1.002); }
+      50% { transform: translateY(-8px) rotateX(-.8deg) rotateY(1.4deg) scale(1.006); }
+      75% { transform: translateY(-3px) rotateX(1deg) rotateY(.6deg) scale(1.002); }
     }
 
     @keyframes chartPulseGlow {
-      0%, 100% {
-        filter: drop-shadow(0 10px 18px rgba(21,101,255,.08)) drop-shadow(0 0 0 rgba(49,213,255,.10));
-      }
-      50% {
-        filter: drop-shadow(0 22px 38px rgba(21,101,255,.16)) drop-shadow(0 0 18px rgba(49,213,255,.20));
-      }
-    }
-
-    @keyframes nodePop {
-      0%, 100% { transform: scale(1) translateY(0); }
-      50% { transform: scale(1.02) translateY(-1px); }
+      0%,100% { filter: drop-shadow(0 10px 18px rgba(29,99,255,.08)) drop-shadow(0 0 0 rgba(49,213,255,.10)); }
+      50% { filter: drop-shadow(0 22px 38px rgba(29,99,255,.16)) drop-shadow(0 0 18px rgba(49,213,255,.20)); }
     }
 
     @keyframes labelFlicker {
-      0%, 100% {
-        opacity: 1;
-        filter: drop-shadow(0 2px 6px rgba(16,35,61,.06));
-      }
-      50% {
-        opacity: .985;
-        filter: drop-shadow(0 6px 12px rgba(21,101,255,.10));
-      }
+      0%,100% { opacity: 1; filter: drop-shadow(0 2px 6px rgba(16,35,61,.06)); }
+      50% { opacity: .985; filter: drop-shadow(0 6px 12px rgba(29,99,255,.10)); }
     }
 
     @keyframes depthBreath {
-      0%, 100% {
+      0%,100% {
         box-shadow:
           inset 0 1px 0 rgba(255,255,255,.95),
           0 30px 70px rgba(32, 68, 135, 0.16),
-          0 14px 28px rgba(21,101,255,.10);
+          0 14px 28px rgba(29,99,255,.10);
       }
       50% {
         box-shadow:
           inset 0 1px 0 rgba(255,255,255,.98),
           0 42px 92px rgba(32, 68, 135, 0.22),
-          0 20px 42px rgba(21,101,255,.16);
+          0 20px 42px rgba(29,99,255,.16);
       }
     }
 
-    @keyframes subtleShake {
-      0%, 90%, 100% { transform: translate3d(0,0,0); }
-      91% { transform: translate3d(-.4px,.2px,0); }
-      92% { transform: translate3d(.4px,-.2px,0); }
-      93% { transform: translate3d(-.6px,.25px,0); }
-      94% { transform: translate3d(.55px,-.15px,0); }
-      95% { transform: translate3d(-.25px,.15px,0); }
-      96% { transform: translate3d(.2px,-.1px,0); }
-    }
-
-    @keyframes navSweep {
+    @keyframes glassSweep {
       to { transform: translateX(120%); }
     }
 
@@ -939,10 +1081,10 @@
       .skills-grid,
       .project-grid,
       .relay-grid,
-      .software-grid,
       .tool-grid {
         grid-template-columns: 1fr 1fr;
       }
+    }
 
     @media (max-width: 760px) {
       .container { width: min(calc(100% - 20px), var(--max)); }
@@ -959,13 +1101,8 @@
         flex-direction: column;
       }
 
-      .brand {
-        width: 100%;
-      }
-
-      .brand-text span {
-        white-space: normal;
-      }
+      .brand { width: 100%; }
+      .brand-text span { white-space: normal; }
 
       .nav-links {
         justify-content: flex-start;
@@ -979,9 +1116,7 @@
         font-size: .9rem;
       }
 
-      .hero {
-        padding-top: 24px;
-      }
+      .hero { padding-top: 24px; }
 
       .hero-copy,
       .hero-visual,
@@ -1000,13 +1135,14 @@
         line-height: 1.7;
       }
 
+      .hero-shell,
       .metric-row,
       .skills-grid,
       .project-grid,
       .relay-grid,
-      .software-grid,
       .tool-grid,
-      .cta {
+      .cta,
+      .cert-card {
         grid-template-columns: 1fr;
       }
 
@@ -1017,11 +1153,11 @@
 
       .schematic {
         min-height: auto;
-        aspect-ratio: 1 / 1.55;
+        aspect-ratio: 1 / 1.6;
       }
 
       .schematic svg {
-        min-height: 760px;
+        min-height: 800px;
       }
 
       .schematic text {
@@ -1029,15 +1165,16 @@
         stroke-width: 1.2px;
       }
 
-      .project-card h3 {
-        align-items: flex-start;
+      .cert-side {
+        justify-items: start;
       }
 
-      .panel,
       .card,
       .metric,
       .timeline-item,
-      .cta-box {
+      .cta-box,
+      .cert-card,
+      .schematic {
         transform: none !important;
       }
     }
@@ -1063,7 +1200,7 @@
       }
 
       .schematic svg {
-        min-height: 700px;
+        min-height: 720px;
       }
 
       .schematic text {
@@ -1074,7 +1211,8 @@
       .card,
       .timeline-item,
       .cta-box,
-      .cta {
+      .cta,
+      .cert-card {
         padding: 18px;
         border-radius: 20px;
       }
@@ -1098,13 +1236,50 @@
   <div class="grid-overlay"></div>
   <div class="noise-layer"></div>
 
+  <div class="particle-layer" aria-hidden="true">
+    <span style="left:6%; animation-duration:18s; animation-delay:-2s;"></span>
+    <span style="left:12%; animation-duration:15s; animation-delay:-7s; width:4px; height:4px;"></span>
+    <span style="left:20%; animation-duration:20s; animation-delay:-5s;"></span>
+    <span style="left:28%; animation-duration:17s; animation-delay:-10s; width:5px; height:5px;"></span>
+    <span style="left:36%; animation-duration:22s; animation-delay:-3s;"></span>
+    <span style="left:45%; animation-duration:16s; animation-delay:-8s; width:4px; height:4px;"></span>
+    <span style="left:54%; animation-duration:19s; animation-delay:-6s;"></span>
+    <span style="left:63%; animation-duration:14s; animation-delay:-11s; width:5px; height:5px;"></span>
+    <span style="left:72%; animation-duration:20s; animation-delay:-5s;"></span>
+    <span style="left:81%; animation-duration:17s; animation-delay:-9s; width:4px; height:4px;"></span>
+    <span style="left:90%; animation-duration:23s; animation-delay:-4s;"></span>
+  </div>
+
+  <div class="lightning-layer" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lightningStroke" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="rgba(255,255,255,0)" />
+          <stop offset="45%" stop-color="rgba(86,204,255,.18)" />
+          <stop offset="50%" stop-color="rgba(255,255,255,.90)" />
+          <stop offset="55%" stop-color="rgba(86,204,255,.18)" />
+          <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+        </linearGradient>
+        <filter id="lightningGlow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
+          <feMerge>
+            <feMergeNode in="blur"></feMergeNode>
+            <feMergeNode in="SourceGraphic"></feMergeNode>
+          </feMerge>
+        </filter>
+      </defs>
+      <path d="M1180 0 L1122 110 L1170 110 L1088 250 L1140 250 L1010 480" stroke="url(#lightningStroke)" stroke-width="3.5" fill="none" filter="url(#lightningGlow)" style="animation: lightningPulse 9s ease-in-out infinite;"></path>
+      <path d="M320 0 L278 90 L315 90 L250 210 L292 210 L188 420" stroke="url(#lightningStroke)" stroke-width="3" fill="none" filter="url(#lightningGlow)" style="animation: lightningPulse 11s ease-in-out infinite 1.4s;"></path>
+    </svg>
+  </div>
+
   <div class="pulse-layer" aria-hidden="true">
     <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
       <defs>
         <linearGradient id="pulseStroke" x1="0%" x2="100%">
-          <stop offset="0%" stop-color="rgba(21,101,255,0)" />
-          <stop offset="50%" stop-color="rgba(21,101,255,.35)" />
-          <stop offset="100%" stop-color="rgba(32,198,255,0)" />
+          <stop offset="0%" stop-color="rgba(29,99,255,0)" />
+          <stop offset="50%" stop-color="rgba(29,99,255,.35)" />
+          <stop offset="100%" stop-color="rgba(40,215,255,0)" />
         </linearGradient>
       </defs>
       <path d="M0,250 C240,180 320,320 520,260 C750,190 850,340 1050,270 C1250,200 1390,300 1600,240" fill="none" stroke="url(#pulseStroke)" stroke-width="2" stroke-dasharray="4 12" class="schematic-pulse"/>
@@ -1114,13 +1289,13 @@
 
   <div class="circuit-layer" aria-hidden="true">
     <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
-      <g stroke="rgba(21,101,255,.08)" stroke-width="2" fill="none" class="schematic-line">
+      <g stroke="rgba(29,99,255,.08)" stroke-width="2" fill="none" class="schematic-line">
         <path d="M120 170 H310 V250 H470 V210 H630" />
         <path d="M1020 160 H1230 V260 H1430" />
         <path d="M180 690 H390 V600 H610 V710 H790" />
         <path d="M1040 690 H1280 V610 H1480" />
       </g>
-      <g fill="rgba(21,101,255,.14)">
+      <g fill="rgba(29,99,255,.14)">
         <circle cx="120" cy="170" r="7" class="schematic-node" />
         <circle cx="310" cy="170" r="7" class="schematic-node" style="animation-delay:.3s" />
         <circle cx="470" cy="250" r="7" class="schematic-node" style="animation-delay:.6s" />
@@ -1140,7 +1315,8 @@
   </div>
 
   <nav class="nav container">
-    <div class="nav-shell">
+    <div class="nav-shell glass">
+      <div class="sweep"></div>
       <div class="brand">
         <div class="brand-mark"></div>
         <div class="brand-text">
@@ -1152,6 +1328,7 @@
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
         <a href="#tools">Tools</a>
         <a href="#contact" class="btn btn-primary">Contact</a>
       </div>
@@ -1161,10 +1338,10 @@
   <main>
     <section class="hero container">
       <div class="hero-shell">
-        <div class="panel hero-copy reveal visible hero-focus">
+        <div class="panel glass hero-copy reveal visible hero-focus">
           <div class="eyebrow"><span class="dot"></span> Electrical Engineering Portfolio</div>
           <h1>
-            High-voltage <span class="hero-gradient shake">protection</span> engineered with precision.
+            High-voltage <span class="hero-gradient">protection</span> engineered with precision.
           </h1>
           <p class="subtitle">
             Dhilipdharan V is a Protection, Testing &amp; Commissioning Engineer focused on secondary protection testing, primary equipment validation, IEC 61850 communication, remote integration, and full commissioning delivery across substations, power plants, renewables, BESS, and heavy industrial infrastructure.
@@ -1189,9 +1366,10 @@
           </div>
         </div>
 
-        <div class="panel hero-visual reveal visible hero-focus">
-          <div class="schematic float hero-focus" aria-hidden="true" id="flow3d">
-            <svg viewBox="0 0 1200 1160" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+        <div class="panel glass hero-visual reveal visible hero-focus">
+          <div class="schematic glass float hero-focus" aria-hidden="true" id="flow3d">
+            <div class="lightning-flash"></div>
+            <svg viewBox="0 0 1200 1180" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
               <defs>
                 <linearGradient id="mainStroke" x1="0%" x2="100%">
                   <stop offset="0%" stop-color="#1b6bff" />
@@ -1205,15 +1383,19 @@
                   <stop offset="0%" stop-color="#11b886" />
                   <stop offset="100%" stop-color="#2bd7ff" />
                 </linearGradient>
+                <linearGradient id="boltStroke" x1="0%" x2="100%">
+                  <stop offset="0%" stop-color="#ffffff" />
+                  <stop offset="100%" stop-color="#6fe7ff" />
+                </linearGradient>
                 <filter id="softGlowLarge" x="-40%" y="-40%" width="180%" height="180%">
-                  <feGaussianBlur stdDeviation="6" result="blur"/>
+                  <feGaussianBlur stdDeviation="6" result="blur"></feGaussianBlur>
                   <feMerge>
-                    <feMergeNode in="blur"/>
-                    <feMergeNode in="SourceGraphic"/>
+                    <feMergeNode in="blur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
                   </feMerge>
                 </filter>
                 <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="rgba(16,35,61,.18)"/>
+                  <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="rgba(16,35,61,.18)"></feDropShadow>
                 </filter>
               </defs>
 
@@ -1233,7 +1415,13 @@
                 </g>
               </g>
 
-              <g fill="none" stroke="url(#mainStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)" style="transform: translateZ(20px); transform-origin:center;">
+              <g class="schematic-bolt" filter="url(#softGlowLarge)">
+                <path d="M580 56 L614 56 L595 98 L622 98 L571 162 L589 112 L564 112 Z" fill="url(#boltStroke)" opacity=".78"></path>
+                <path d="M1022 88 L1048 88 L1036 114 L1058 114 L1018 168 L1028 128 L1010 128 Z" fill="url(#boltStroke)" opacity=".62" style="animation-delay:1s"></path>
+                <path d="M144 742 L168 742 L157 767 L178 767 L139 818 L149 781 L132 781 Z" fill="url(#boltStroke)" opacity=".62" style="animation-delay:1.4s"></path>
+              </g>
+
+              <g fill="none" stroke="url(#mainStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
                 <path d="M600 285 H390 V180 H165" />
                 <path d="M600 285 H390 V255 H165" />
                 <path d="M600 285 H390 V330 H165" />
@@ -1285,45 +1473,33 @@
                 <path d="M600 735 H810 V1030 H1035" style="animation-duration:4.0s"/>
               </g>
 
-              <g filter="url(#cardShadow)">
-                <g>
-                  <rect x="355" y="30" rx="28" ry="28" width="490" height="74" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
-                  <rect x="365" y="160" rx="28" ry="28" width="470" height="94" fill="rgba(255,255,255,.95)" stroke="rgba(21,101,255,.14)"/>
-                  <rect x="365" y="380" rx="28" ry="28" width="470" height="94" fill="rgba(255,255,255,.95)" stroke="rgba(123,97,255,.14)"/>
-                  <rect x="365" y="600" rx="28" ry="28" width="470" height="94" fill="rgba(255,255,255,.95)" stroke="rgba(12,166,120,.14)"/>
-                  <rect x="375" y="920" rx="28" ry="28" width="450" height="74" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
-                </g>
+              <g>
+                <rect x="355" y="30" rx="28" ry="28" width="490" height="74" class="glass-card"></rect>
+                <rect x="365" y="160" rx="28" ry="28" width="470" height="94" class="glass-card"></rect>
+                <rect x="365" y="380" rx="28" ry="28" width="470" height="94" class="glass-card"></rect>
+                <rect x="365" y="600" rx="28" ry="28" width="470" height="94" class="glass-card"></rect>
+                <rect x="375" y="920" rx="28" ry="28" width="450" height="74" class="glass-card"></rect>
 
-                <g>
-                  <rect x="22" y="146" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
-                  <rect x="22" y="221" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
-                  <rect x="22" y="296" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(123,97,255,.12)"/>
-                  <rect x="22" y="371" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
-                  <rect x="22" y="446" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
-                  <rect x="22" y="521" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
-                </g>
+                <rect x="22" y="146" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
+                <rect x="22" y="221" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
+                <rect x="22" y="296" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
+                <rect x="22" y="371" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
+                <rect x="22" y="446" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
+                <rect x="22" y="521" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
 
-                <g>
-                  <rect x="928" y="156" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
-                  <rect x="928" y="251" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
-                  <rect x="928" y="346" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
-                  <rect x="928" y="441" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(123,97,255,.12)"/>
-                </g>
+                <rect x="928" y="156" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
+                <rect x="928" y="251" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
+                <rect x="928" y="346" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
+                <rect x="928" y="441" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
 
-                <g>
-                  <rect x="18" y="804" rx="22" ry="22" width="262" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
-                  <rect x="18" y="904" rx="22" ry="22" width="262" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(123,97,255,.12)"/>
-                  <rect x="18" y="1004" rx="22" ry="22" width="262" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
-                </g>
+                <rect x="18" y="804" rx="22" ry="22" width="262" height="58" class="glass-card-soft"></rect>
+                <rect x="18" y="904" rx="22" ry="22" width="262" height="58" class="glass-card-soft"></rect>
+                <rect x="18" y="1004" rx="22" ry="22" width="262" height="58" class="glass-card-soft"></rect>
 
-                <g>
-                  <rect x="920" y="804" rx="22" ry="22" width="260" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
-                  <rect x="920" y="904" rx="22" ry="22" width="260" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
-                  <rect x="920" y="1004" rx="22" ry="22" width="260" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
-                </g>
+                <rect x="920" y="804" rx="22" ry="22" width="260" height="58" class="glass-card-soft"></rect>
+                <rect x="920" y="904" rx="22" ry="22" width="260" height="58" class="glass-card-soft"></rect>
+                <rect x="920" y="1004" rx="22" ry="22" width="260" height="58" class="glass-card-soft"></rect>
               </g>
-
-              
 
               <g fill="#10233d" font-family="Inter, sans-serif" font-weight="800" style="animation: labelFlicker 5s ease-in-out infinite;">
                 <text x="600" y="76" text-anchor="middle" font-size="28">Protection &amp; Commissioning Engineering</text>
@@ -1410,9 +1586,7 @@
           <div class="section-tag">Skill Set</div>
           <h2>Core engineering capabilities</h2>
         </div>
-        <p>
-          A complete skills showcase built to reflect technical depth, field execution capability, and multi-vendor protection expertise without needing a profile photo.
-        </p>
+        
       </div>
       <div class="skills-grid">
         <article class="card">
@@ -1485,9 +1659,7 @@
           <div class="section-tag">Relay Platforms</div>
           <h2>Relays handled</h2>
         </div>
-        <p>
-          Multi-vendor experience across utility, industrial, generation, renewable, and balance-of-plant applications.
-        </p>
+        
       </div>
       <div class="relay-grid">
         <article class="card"><h3>ABB</h3><p>REG670, REM543, REL670, REL650, REC670, REC650, RED670, RED615, RET670, RET650, RET615, REF615.</p></article>
@@ -1499,15 +1671,41 @@
       </div>
     </section>
 
+    <section id="certifications" class="container reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Licenses &amp; Certifications</div>
+          <h2>Professional credentials</h2>
+        </div>
+        
+      </div>
+      <div class="cert-grid">
+        <article class="cert-card">
+          <div class="cert-logo" aria-hidden="true"></div>
+          <div class="cert-title">
+            <div class="cert-badge">Engineers Australia</div>
+            <h3>Professional Electrical Engineer</h3>
+            <div class="issuer">Engineers Australia</div>
+            <div class="cert-meta">
+              <span>Issued Aug 2025</span>
+              <span>Credential ID 10819280</span>
+            </div>
+          </div>
+          <div class="cert-side">
+            <div class="cert-glow-line"></div>
+            <span class="pill">Recognised Credential</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section id="tools" class="container reveal">
       <div class="section-head">
         <div>
           <div class="section-tag">Testing Tools</div>
           <h2>Field instruments &amp; engineering software</h2>
         </div>
-        <p>
-          A premium recruiter-facing presentation of the hardware and software stack used for testing, analysis, and commissioning delivery.
-        </p>
+        
       </div>
       <div class="tool-grid">
         <article class="card">
@@ -1546,9 +1744,7 @@
           <div class="section-tag">Projects</div>
           <h2>Signature projects</h2>
         </div>
-        <p>
-          Featured project cards highlight grid, industrial, renewable, and commissioning experience in a way that feels polished, executive, and technically credible.
-        </p>
+        
       </div>
       <div class="project-grid">
         <article class="card project-card">
@@ -1579,7 +1775,7 @@
     </section>
 
     <section class="container reveal">
-      <div class="panel cta">
+      <div class="cta">
         <div>
           <div class="section-tag">Dhilipdharan Venu</div>
           <h2>Electrical / Protection &amp; Commissioning Engineer</h2>
@@ -1590,15 +1786,8 @@
         <div class="cta-box" id="contact">
           <h3>Contact</h3>
           <p>Ready for protection testing, commissioning, electrical integration, and high-voltage project delivery opportunities.</p>
-
-          <p style="margin-top:12px;font-weight:600;">
-            📧 Email: <a href="mailto:dhilipdharan.v@gmail.com" style="color:white;text-decoration:underline;">dhilipdharan.v@gmail.com</a>
-          </p>
-
-          <p style="margin-top:6px;font-weight:600;">
-            🔗 LinkedIn: <a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" style="color:white;text-decoration:underline;">View Profile</a>
-          </p>
-
+          <p style="margin-top:12px;font-weight:600;">📧 Email: <a href="mailto:dhilipdharan.v@gmail.com" style="color:white;text-decoration:underline;">dhilipdharan.v@gmail.com</a></p>
+          <p style="margin-top:6px;font-weight:600;">🔗 LinkedIn: <a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" style="color:white;text-decoration:underline;">View Profile</a></p>
           <div class="pill-row">
             <span class="pill" style="background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.12); color: white;">Perth, Australia</span>
             <span class="pill" style="background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.12); color: white;">Available for Engineering Roles</span>
@@ -1608,22 +1797,20 @@
     </section>
 
     <footer class="container">
-      DharanXtreme.
+      DHARANXTREME
     </footer>
   </main>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    document.querySelectorAll('.card, .metric').forEach((item) => {
+    document.querySelectorAll('.card, .metric, .cert-card').forEach((item) => {
       item.addEventListener('mousemove', (e) => {
         if (window.innerWidth <= 760) return;
         const rect = item.getBoundingClientRect();
@@ -1663,15 +1850,6 @@
         flow3d.style.setProperty('--gy', '50%');
       });
     }
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('mouseenter', () => {
-        if (window.innerWidth > 760) link.style.transform = 'translateY(-2px)';
-      });
-      link.addEventListener('mouseleave', () => {
-        link.style.transform = '';
-      });
-    });
   </script>
 </body>
 </html>
