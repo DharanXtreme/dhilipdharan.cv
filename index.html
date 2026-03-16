@@ -3,62 +3,92 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dhilipdharan Venu | Electrical Protection Engineer</title>
-  <meta name="description" content="Professional animated resume website for Dhilipdharan Venu, Electrical Protection Engineer." />
+  <title>Dhilipdharan V | Protection & Commissioning Engineer</title>
+  <meta name="description" content="Premium animated resume website for Dhilipdharan V, Electrical / Protection & Commissioning Engineer." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f5f9ff;
-      --bg-soft: rgba(255,255,255,0.72);
-      --panel: rgba(255,255,255,0.86);
-      --panel-strong: rgba(255,255,255,0.94);
-      --text: #0d1b2a;
-      --muted: #4b5b72;
-      --line: rgba(86, 117, 168, 0.18);
-      --primary: #1463ff;
-      --primary-2: #00a3ff;
-      --accent: #18c2ff;
-      --shadow: 0 20px 60px rgba(14, 40, 84, 0.12);
-      --radius: 24px;
-      --radius-sm: 18px;
-      --max: 1200px;
+      --bg: #edf3fb;
+      --bg-soft: rgba(255,255,255,0.68);
+      --surface: rgba(255,255,255,0.8);
+      --surface-strong: rgba(255,255,255,0.92);
+      --text: #10233d;
+      --muted: #5d738f;
+      --line: rgba(16,35,61,0.1);
+      --primary: #1565ff;
+      --primary-soft: rgba(21,101,255,0.12);
+      --accent: #20c6ff;
+      --accent-2: #7b61ff;
+      --success: #0ca678;
+      --shadow: 0 18px 50px rgba(32, 68, 135, 0.14);
+      --shadow-soft: 0 10px 28px rgba(32, 68, 135, 0.09);
+      --radius: 26px;
+      --max: 1240px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: 'Inter', system-ui, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 10% 20%, rgba(20, 99, 255, 0.09), transparent 26%),
-        radial-gradient(circle at 90% 15%, rgba(24, 194, 255, 0.12), transparent 22%),
-        radial-gradient(circle at 80% 70%, rgba(20, 99, 255, 0.08), transparent 24%),
-        linear-gradient(180deg, #f8fbff 0%, #edf5ff 100%);
+        radial-gradient(circle at 10% 10%, rgba(32,198,255,.20), transparent 22%),
+        radial-gradient(circle at 90% 12%, rgba(123,97,255,.14), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(21,101,255,.10), transparent 35%),
+        linear-gradient(180deg, #f8fbff 0%, #eef4fb 52%, #e8f0fa 100%);
       overflow-x: hidden;
     }
 
-    .grid-bg,
-    .energy-lines,
-    .sparks {
+    body::before,
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto;
+      width: 42vw;
+      height: 42vw;
+      border-radius: 50%;
+      filter: blur(60px);
+      z-index: -3;
+      opacity: .38;
+      pointer-events: none;
+    }
+
+    body::before {
+      top: -10vw;
+      right: -8vw;
+      background: rgba(21,101,255,.22);
+      animation: floatOrb 14s ease-in-out infinite;
+    }
+
+    body::after {
+      bottom: -12vw;
+      left: -10vw;
+      background: rgba(32,198,255,.16);
+      animation: floatOrb 18s ease-in-out infinite reverse;
+    }
+
+    .grid-overlay,
+    .circuit-layer,
+    .pulse-layer {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: 0;
+      z-index: -2;
     }
 
-    .grid-bg {
+    .grid-overlay {
       background-image:
-        linear-gradient(rgba(20,99,255,0.045) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(20,99,255,0.045) 1px, transparent 1px);
-      background-size: 36px 36px;
-      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
+        linear-gradient(rgba(16,35,61,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16,35,61,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
     }
 
-    .energy-lines svg,
-    .sparks svg {
+    .circuit-layer svg,
+    .pulse-layer svg {
       width: 100%;
       height: 100%;
       display: block;
@@ -67,856 +97,1085 @@
     .container {
       width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 30;
-      backdrop-filter: blur(20px);
-      background: rgba(245, 249, 255, 0.7);
-      border-bottom: 1px solid rgba(20,99,255,0.08);
     }
 
     .nav {
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      padding: 12px 0 0;
+    }
+
+    .nav-shell {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      min-height: 76px;
       gap: 16px;
+      padding: 14px 18px;
+      background: rgba(255,255,255,.62);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.7);
+      border-radius: 999px;
+      box-shadow: var(--shadow-soft);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      text-decoration: none;
-      font-family: "Space Grotesk", Inter, sans-serif;
+      gap: 14px;
+      min-width: 0;
     }
 
     .brand-mark {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      color: white;
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 14px 28px rgba(20,99,255,0.26);
-      font-size: 1.1rem;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 12px 24px rgba(21,101,255,.25);
+      position: relative;
+      overflow: hidden;
     }
 
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 22px;
-      padding: 0;
-      margin: 0;
-      flex-wrap: wrap;
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      background: rgba(255,255,255,.92);
+      border-radius: 999px;
     }
 
-    nav a {
+    .brand-mark::before {
+      width: 18px;
+      height: 3px;
+      left: 14px;
+      top: 21px;
+      transform: rotate(-55deg);
+    }
+
+    .brand-mark::after {
+      width: 18px;
+      height: 3px;
+      left: 14px;
+      top: 21px;
+      transform: rotate(55deg);
+    }
+
+    .brand-text { min-width: 0; }
+    .brand-text strong {
+      display: block;
+      font-family: 'Manrope', sans-serif;
+      font-size: 1rem;
+      letter-spacing: -.02em;
+    }
+    .brand-text span {
+      display: block;
+      font-size: .8rem;
       color: var(--muted);
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.25s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    nav a:hover { color: var(--primary); }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
 
-    .btn,
-    .btn-outline {
+    .nav-links a,
+    .btn {
+      text-decoration: none;
+      color: var(--text);
+      border: 1px solid transparent;
+      padding: 11px 16px;
+      border-radius: 999px;
+      font-size: .92rem;
+      font-weight: 600;
+      transition: .28s ease;
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 10px;
-      border: 0;
-      padding: 14px 20px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      cursor: pointer;
     }
 
-    .btn {
-      color: #fff;
-      background: linear-gradient(135deg, var(--primary), var(--primary-2));
-      box-shadow: 0 16px 34px rgba(20,99,255,0.24);
+    .nav-links a:hover {
+      background: rgba(255,255,255,.8);
+      box-shadow: var(--shadow-soft);
+      transform: translateY(-1px);
     }
 
-    .btn-outline {
-      color: var(--text);
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(20,99,255,0.12);
+    .btn-primary {
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent-2));
+      box-shadow: 0 14px 28px rgba(21,101,255,.22);
     }
 
-    .btn:hover,
-    .btn-outline:hover {
-      transform: translateY(-2px);
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(16,35,61,.08);
+      box-shadow: var(--shadow-soft);
     }
+
+    main { padding-bottom: 72px; }
 
     .hero {
-      padding: 72px 0 48px;
-      min-height: calc(100vh - 76px);
-      display: grid;
-      align-items: center;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.25fr 0.95fr;
-      gap: 34px;
-      align-items: center;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(255,255,255,0.84);
-      border: 1px solid rgba(20,99,255,0.12);
-      border-radius: 999px;
-      padding: 12px 16px;
-      box-shadow: var(--shadow);
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .pulse-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #32d9ff, #1463ff);
-      box-shadow: 0 0 0 0 rgba(20,99,255,0.4);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      70% { box-shadow: 0 0 0 14px rgba(20,99,255,0); }
-      100% { box-shadow: 0 0 0 0 rgba(20,99,255,0); }
-    }
-
-    h1 {
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: clamp(2.7rem, 6vw, 5.3rem);
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      margin: 0 0 18px;
-    }
-
-    .gradient-text {
-      background: linear-gradient(135deg, #0d1b2a 0%, #1463ff 55%, #00a3ff 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .lead {
-      font-size: clamp(1rem, 1.4vw, 1.15rem);
-      line-height: 1.9;
-      color: var(--muted);
-      max-width: 760px;
-      margin: 0 0 24px;
-    }
-
-    .hero-actions,
-    .hero-meta {
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .hero-meta {
-      margin-top: 24px;
-      color: var(--muted);
-      font-weight: 600;
-      gap: 18px;
-    }
-
-    .meta-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(20,99,255,0.1);
-    }
-
-    .profile-card {
       position: relative;
-      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.8));
-      border: 1px solid rgba(20,99,255,0.12);
-      border-radius: 34px;
-      box-shadow: 0 30px 70px rgba(14, 40, 84, 0.16);
-      padding: 28px;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .profile-card::before {
-      content: "";
-      position: absolute;
-      inset: -40% auto auto -10%;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,163,255,0.18), transparent 70%);
-      z-index: -1;
-    }
-
-    .profile-photo-wrap {
-      position: relative;
-      width: min(100%, 360px);
-      aspect-ratio: 4/5;
-      margin: 0 auto 22px;
-      border-radius: 28px;
-      overflow: hidden;
-      background:
-        linear-gradient(135deg, rgba(20,99,255,0.15), rgba(24,194,255,0.08)),
-        #eef6ff;
-      border: 1px solid rgba(20,99,255,0.12);
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 24px 50px rgba(20,99,255,0.14);
-    }
-
-    .profile-photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo-fallback {
-      height: 100%;
+      min-height: calc(100vh - 110px);
       display: grid;
-      place-items: center;
-      text-align: center;
-      padding: 24px;
-      color: var(--muted);
-      font-weight: 700;
-      line-height: 1.6;
+      align-items: start;
+      padding: 42px 0 18px;
     }
 
-    .orb, .orb-2 {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(8px);
-      opacity: 0.75;
-    }
-
-    .orb {
-      width: 90px;
-      height: 90px;
-      top: 18px;
-      right: 12px;
-      background: radial-gradient(circle, rgba(20,99,255,0.35), rgba(20,99,255,0));
-      animation: floatY 4.5s ease-in-out infinite;
-    }
-
-    .orb-2 {
-      width: 120px;
-      height: 120px;
-      left: -20px;
-      bottom: 50px;
-      background: radial-gradient(circle, rgba(0,163,255,0.24), rgba(0,163,255,0));
-      animation: floatY 5.2s ease-in-out infinite reverse;
-    }
-
-    @keyframes floatY {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-    }
-
-    .small-panel {
+    .hero-shell {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 12px;
-      margin-top: 18px;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      align-items: stretch;
     }
 
-    .mini {
-      padding: 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.74);
-      border: 1px solid rgba(20,99,255,0.09);
-    }
-
-    .mini strong {
-      display: block;
-      font-size: 1.15rem;
-      margin-bottom: 4px;
-      color: var(--primary);
-    }
-
-    section {
-      padding: 34px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 18px;
-      margin-bottom: 22px;
-      flex-wrap: wrap;
-    }
-
-    h2 {
-      font-family: "Space Grotesk", Inter, sans-serif;
-      font-size: clamp(1.85rem, 4vw, 3rem);
-      margin: 0;
-      letter-spacing: -0.04em;
-    }
-
-    .section-heading p {
-      margin: 8px 0 0;
-      color: var(--muted);
-      max-width: 760px;
-      line-height: 1.8;
-    }
-
-    .glass {
-      background: var(--panel);
-      border: 1px solid rgba(20,99,255,0.1);
+    .panel {
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,.76);
+      backdrop-filter: blur(18px);
       box-shadow: var(--shadow);
       border-radius: var(--radius);
-      backdrop-filter: blur(18px);
-    }
-
-    .about-grid,
-    .skills-grid,
-    .projects-grid,
-    .contact-grid,
-    .stats-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    .about-grid {
-      grid-template-columns: 1.1fr 0.9fr;
-    }
-
-    .content-card,
-    .timeline,
-    .project-card,
-    .skill-card,
-    .contact-card,
-    .stat-card {
-      padding: 26px;
-    }
-
-    .content-card p,
-    .timeline p,
-    .project-card p,
-    .contact-card p,
-    .skill-card p {
-      color: var(--muted);
-      line-height: 1.85;
-      margin: 0;
-    }
-
-    .info-list {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
-    }
-
-    .info-item {
-      display: flex;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 14px 16px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.64);
-      border: 1px solid rgba(20,99,255,0.08);
-      flex-wrap: wrap;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 16px;
-    }
-
-    .timeline-item {
       position: relative;
-      padding-left: 22px;
-      border-left: 2px solid rgba(20,99,255,0.16);
+      overflow: hidden;
     }
 
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -7px;
-      top: 7px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: 0 0 0 6px rgba(20,99,255,0.08);
-    }
-
-    .timeline-item h3,
-    .project-card h3,
-    .skill-card h3,
-    .contact-card h3 {
-      margin: 0 0 8px;
-      font-size: 1.08rem;
+    .hero-copy {
+      padding: 40px 44px 30px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.86rem;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(16,35,61,.08);
+      font-size: .84rem;
+      font-weight: 700;
+      letter-spacing: .02em;
       color: var(--primary);
-      margin-bottom: 12px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow-soft);
     }
 
-    .stats-grid {
-      grid-template-columns: repeat(4, 1fr);
-      margin-top: 20px;
+    .eyebrow .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow: 0 0 0 8px rgba(21,101,255,.08);
+      animation: pulseDot 2.4s ease-in-out infinite;
     }
 
-    .stat-card {
-      text-align: center;
-      background: rgba(255,255,255,0.72);
+    h1, h2, h3 {
+      margin: 0;
+      line-height: 1.02;
+      letter-spacing: -.04em;
+      font-family: 'Manrope', sans-serif;
     }
 
-    .stat-card strong {
-      display: block;
-      font-size: 2rem;
-      margin-bottom: 6px;
-      color: var(--primary);
-      font-family: "Space Grotesk", Inter, sans-serif;
+    h1 {
+      font-size: clamp(3rem, 7vw, 6.1rem);
+      max-width: 10ch;
     }
 
-    .skills-grid {
-      grid-template-columns: repeat(3, 1fr);
+    .hero-gradient {
+      background: linear-gradient(135deg, #0f2340 0%, #1163ff 52%, #3f86ff 72%, #31d5ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
 
-    .skill-card ul {
-      margin: 14px 0 0;
-      padding-left: 18px;
+    .subtitle {
+      margin-top: 18px;
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      line-height: 1.75;
       color: var(--muted);
-      line-height: 1.9;
+      max-width: 60ch;
     }
 
-    .projects-grid {
+    .hero-actions {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .metric-row {
+      display: grid;
       grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 28px;
     }
 
-    .project-card {
+    .metric {
+      background: rgba(255,255,255,.62);
+      border: 1px solid rgba(16,35,61,.08);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1.45rem;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      font-size: .92rem;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .hero-visual {
+      padding: 18px;
+      display: grid;
+      gap: 18px;
+      align-content: stretch;
+    }
+
+    .schematic {
+      min-height: 780px;
+      border-radius: 32px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.97), rgba(240,247,255,.92)),
+        linear-gradient(135deg, rgba(21,101,255,.08), rgba(32,198,255,.12));
+      border: 1px solid rgba(16,35,61,.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 24px 54px rgba(32, 68, 135, 0.12);
       position: relative;
       overflow: hidden;
+      padding: 28px;
     }
 
-    .project-card::after {
+    .schematic::before {
       content: "";
       position: absolute;
-      inset: auto -10% -55% auto;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(20,99,255,0.12), transparent 70%);
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 28%, rgba(21,101,255,.12), transparent 18%),
+        radial-gradient(circle at 78% 25%, rgba(32,198,255,.14), transparent 16%),
+        radial-gradient(circle at 52% 82%, rgba(123,97,255,.12), transparent 18%);
     }
 
-    .tags {
+    .legend {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .legend-card {
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,.76);
+      border: 1px solid rgba(16,35,61,.08);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .legend-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .legend-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: .92rem;
+    }
+
+    section {
+      padding: 36px 0;
+    }
+
+    .section-head {
       display: flex;
-      gap: 8px;
       flex-wrap: wrap;
+      gap: 14px;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 24px;
+    }
+
+    .section-head p {
+      max-width: 64ch;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 10px 0 0;
+    }
+
+    .section-tag {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      color: var(--primary);
+      font-weight: 700;
+      font-size: .88rem;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+
+    .section-tag::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      border-radius: 999px;
+    }
+
+    .skills-grid,
+    .project-grid,
+    .tool-grid,
+    .software-grid,
+    .relay-grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .software-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .relay-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--surface-strong);
+      border: 1px solid rgba(16,35,61,.08);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: var(--shadow-soft);
+      transition: .35s ease;
+      position: relative;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(21,101,255,.06), transparent 45%, rgba(32,198,255,.07));
+      z-index: -1;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 42px rgba(32,68,135,.15);
+    }
+
+    .card h3 {
+      font-size: 1.12rem;
+      margin-bottom: 10px;
+    }
+
+    .card p,
+    .card li,
+    .timeline p,
+    .timeline li {
+      color: var(--muted);
+      line-height: 1.72;
+      font-size: .96rem;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-top: 16px;
     }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
+    .pill {
+      padding: 10px 13px;
       border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 0.86rem;
-      font-weight: 700;
-      color: var(--primary);
-      background: rgba(20,99,255,0.08);
-      border: 1px solid rgba(20,99,255,0.08);
+      background: rgba(21,101,255,.08);
+      border: 1px solid rgba(21,101,255,.08);
+      color: #2153b8;
+      font-weight: 600;
+      font-size: .86rem;
     }
 
-    .contact-grid {
-      grid-template-columns: 1fr 1fr;
+    .timeline {
+      display: grid;
+      gap: 18px;
     }
 
-    .contact-card a {
-      color: var(--primary);
-      font-weight: 700;
-      text-decoration: none;
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      padding: 24px;
+      border-radius: 24px;
+      background: var(--surface-strong);
+      border: 1px solid rgba(16,35,61,.08);
+      box-shadow: var(--shadow-soft);
     }
+
+    .timeline-year {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: .94rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .timeline h3 {
+      margin-bottom: 8px;
+      font-size: 1.16rem;
+    }
+
+    .timeline ul,
+    .card ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
+    }
+
+    .project-card h3 {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    .project-badge {
+      padding: 6px 10px;
+      font-size: .72rem;
+      font-weight: 800;
+      border-radius: 999px;
+      background: rgba(12,166,120,.11);
+      color: var(--success);
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .cta {
+      padding: 30px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 24px;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(255,255,255,.92), rgba(242,248,255,.92));
+    }
+
+    .cta-box {
+      padding: 24px;
+      border-radius: 26px;
+      background: linear-gradient(135deg, #0e2340, #1f5fff 70%, #32cfff 100%);
+      color: white;
+      box-shadow: 0 24px 46px rgba(17, 64, 149, .25);
+    }
+
+    .cta-box p { color: rgba(255,255,255,.82); }
 
     footer {
-      padding: 24px 0 60px;
+      padding: 16px 0 10px;
       color: var(--muted);
+      font-size: .92rem;
       text-align: center;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(22px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(26px) scale(.98);
+      transition: opacity .7s ease, transform .7s ease;
     }
 
     .reveal.visible {
       opacity: 1;
-      transform: translateY(0);
+      transform: translateY(0) scale(1);
     }
 
-    @media (max-width: 1080px) {
-      .hero-wrap,
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
+    .float {
+      animation: floatCard 7s ease-in-out infinite;
+    }
 
+    .schematic-node,
+    .schematic-line,
+    .schematic-pulse {
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+
+    .schematic-node { animation-name: glowNode; animation-duration: 3.6s; }
+    .schematic-line { animation-name: pulseLine; animation-duration: 4.8s; }
+    .schematic-pulse { animation-name: moveDash; animation-duration: 3s; }
+
+    @keyframes floatOrb {
+      0%, 100% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(16px, 18px, 0) scale(1.06); }
+    }
+
+    @keyframes floatCard {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes pulseDot {
+      0%,100% { box-shadow: 0 0 0 0 rgba(21,101,255,.16); }
+      50% { box-shadow: 0 0 0 8px rgba(21,101,255,.03); }
+    }
+
+    @keyframes glowNode {
+      0%,100% { opacity: .72; filter: drop-shadow(0 0 0 rgba(21,101,255,.1)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(21,101,255,.28)); }
+    }
+
+    @keyframes pulseLine {
+      0%,100% { opacity: .5; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes moveDash {
+      from { stroke-dashoffset: 180; }
+      to { stroke-dashoffset: 0; }
+    }
+
+    @media (max-width: 1100px) {
+      .cta,
       .skills-grid,
-      .projects-grid {
-        grid-template-columns: repeat(2, 1fr);
+      .project-grid,
+      .relay-grid,
+      .software-grid,
+      .tool-grid {
+        grid-template-columns: 1fr 1fr;
       }
-
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+      .hero-shell { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      h1 { max-width: 100%; }
+      .schematic { min-height: 700px; }
     }
 
     @media (max-width: 760px) {
-      .nav {
-        min-height: auto;
-        padding: 14px 0;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      nav ul { gap: 14px; }
-
-      .hero { padding-top: 42px; }
-
+      .nav-shell,
+      .brand,
+      .hero-actions,
+      .section-head,
+      .metric-row,
       .skills-grid,
-      .projects-grid,
-      .stats-grid,
-      .small-panel {
+      .project-grid,
+      .relay-grid,
+      .software-grid,
+      .tool-grid,
+      .legend,
+      .cta {
         grid-template-columns: 1fr;
       }
-
-      .content-card,
-      .timeline,
-      .project-card,
-      .skill-card,
-      .contact-card,
-      .stat-card,
-      .profile-card {
-        padding: 20px;
+      .nav-shell {
+        border-radius: 24px;
+        padding: 16px;
       }
-
-      .hero-actions .btn,
-      .hero-actions .btn-outline {
-        width: 100%;
-        justify-content: center;
+      .nav-links { justify-content: flex-start; }
+      .hero-copy,
+      .hero-visual,
+      .cta,
+      .schematic { padding: 22px; }
+      .timeline-item {
+        grid-template-columns: 1fr;
       }
+      .metric-row { display: grid; }
+      h1 { font-size: clamp(2.6rem, 13vw, 4rem); }
     }
   </style>
 </head>
 <body>
-  <div class="grid-bg"></div>
-
-  <div class="energy-lines" aria-hidden="true">
+  <div class="grid-overlay"></div>
+  <div class="pulse-layer" aria-hidden="true">
     <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
       <defs>
-        <linearGradient id="lineGlow" x1="0%" x2="100%">
-          <stop offset="0%" stop-color="#1463ff" stop-opacity="0" />
-          <stop offset="50%" stop-color="#1463ff" stop-opacity="0.7" />
-          <stop offset="100%" stop-color="#00a3ff" stop-opacity="0" />
+        <linearGradient id="pulseStroke" x1="0%" x2="100%">
+          <stop offset="0%" stop-color="rgba(21,101,255,0)" />
+          <stop offset="50%" stop-color="rgba(21,101,255,.35)" />
+          <stop offset="100%" stop-color="rgba(32,198,255,0)" />
         </linearGradient>
       </defs>
-      <path d="M-50 170 C 250 60, 370 290, 640 190 S 1080 80, 1650 220" fill="none" stroke="url(#lineGlow)" stroke-width="2.4" stroke-linecap="round">
-        <animate attributeName="stroke-dasharray" values="0,2000;220,1780;0,2000" dur="8s" repeatCount="indefinite"/>
-        <animate attributeName="stroke-dashoffset" values="0;-240;0" dur="8s" repeatCount="indefinite"/>
-      </path>
-      <path d="M-20 650 C 240 510, 480 810, 760 650 S 1170 520, 1610 720" fill="none" stroke="url(#lineGlow)" stroke-width="2" stroke-linecap="round">
-        <animate attributeName="stroke-dasharray" values="0,1800;180,1620;0,1800" dur="9s" repeatCount="indefinite"/>
-        <animate attributeName="stroke-dashoffset" values="0;-210;0" dur="9s" repeatCount="indefinite"/>
-      </path>
-      <path d="M210 -30 C 260 120, 120 240, 270 360 S 430 620, 300 930" fill="none" stroke="url(#lineGlow)" stroke-width="1.8" stroke-linecap="round">
-        <animate attributeName="stroke-dasharray" values="0,1400;150,1250;0,1400" dur="7.5s" repeatCount="indefinite"/>
-      </path>
-      <path d="M1320 -10 C 1180 200, 1500 300, 1280 520 S 1320 740, 1230 940" fill="none" stroke="url(#lineGlow)" stroke-width="1.8" stroke-linecap="round">
-        <animate attributeName="stroke-dasharray" values="0,1450;140,1310;0,1450" dur="7.8s" repeatCount="indefinite"/>
-      </path>
+      <path d="M0,250 C240,180 320,320 520,260 C750,190 850,340 1050,270 C1250,200 1390,300 1600,240" fill="none" stroke="url(#pulseStroke)" stroke-width="2" stroke-dasharray="4 12" class="schematic-pulse"/>
+      <path d="M0,640 C210,560 360,720 560,650 C760,580 920,740 1120,670 C1320,600 1430,700 1600,630" fill="none" stroke="url(#pulseStroke)" stroke-width="2" stroke-dasharray="4 12" class="schematic-pulse" style="animation-duration:4.2s"/>
     </svg>
   </div>
 
-  <div class="sparks" aria-hidden="true">
+  <div class="circuit-layer" aria-hidden="true">
     <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
-      <g fill="#6ccfff" opacity="0.7">
-        <circle cx="220" cy="180" r="2.2">
-          <animate attributeName="cy" values="180;145;180" dur="4.6s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.2;1;0.2" dur="4.6s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="1280" cy="120" r="2.4">
-          <animate attributeName="cy" values="120;90;120" dur="3.8s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.15;0.95;0.15" dur="3.8s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="1420" cy="700" r="2">
-          <animate attributeName="cy" values="700;660;700" dur="4.9s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.25;1;0.25" dur="4.9s" repeatCount="indefinite" />
-        </circle>
-        <circle cx="420" cy="760" r="1.8">
-          <animate attributeName="cy" values="760;720;760" dur="5.5s" repeatCount="indefinite" />
-          <animate attributeName="opacity" values="0.2;0.9;0.2" dur="5.5s" repeatCount="indefinite" />
-        </circle>
+      <g stroke="rgba(21,101,255,.08)" stroke-width="2" fill="none" class="schematic-line">
+        <path d="M120 170 H310 V250 H470 V210 H630" />
+        <path d="M1020 160 H1230 V260 H1430" />
+        <path d="M180 690 H390 V600 H610 V710 H790" />
+        <path d="M1040 690 H1280 V610 H1480" />
+      </g>
+      <g fill="rgba(21,101,255,.14)">
+        <circle cx="120" cy="170" r="7" class="schematic-node" />
+        <circle cx="310" cy="170" r="7" class="schematic-node" style="animation-delay:.3s" />
+        <circle cx="470" cy="250" r="7" class="schematic-node" style="animation-delay:.6s" />
+        <circle cx="630" cy="210" r="7" class="schematic-node" style="animation-delay:.9s" />
+        <circle cx="1020" cy="160" r="7" class="schematic-node" style="animation-delay:.3s" />
+        <circle cx="1230" cy="160" r="7" class="schematic-node" style="animation-delay:.8s" />
+        <circle cx="1430" cy="260" r="7" class="schematic-node" style="animation-delay:1.2s" />
+        <circle cx="180" cy="690" r="7" class="schematic-node" />
+        <circle cx="390" cy="690" r="7" class="schematic-node" style="animation-delay:.4s" />
+        <circle cx="610" cy="600" r="7" class="schematic-node" style="animation-delay:.8s" />
+        <circle cx="790" cy="710" r="7" class="schematic-node" style="animation-delay:1.1s" />
+        <circle cx="1040" cy="690" r="7" class="schematic-node" style="animation-delay:1.4s" />
+        <circle cx="1280" cy="610" r="7" class="schematic-node" style="animation-delay:1.7s" />
+        <circle cx="1480" cy="610" r="7" class="schematic-node" style="animation-delay:2s" />
       </g>
     </svg>
   </div>
 
-  <header>
-    <div class="container nav">
-      <a href="#home" class="brand">
-        <span class="brand-mark">⚡</span>
-        <span>Dhilipdharan Venu</span>
-      </a>
-      <nav>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
+  <nav class="nav container">
+    <div class="nav-shell">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <div class="brand-text">
+          <strong>Dhilipdharan V</strong>
+          <span>Protection, Testing & Commissioning Engineer</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#tools">Tools</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
+      </div>
     </div>
-  </header>
+  </nav>
 
   <main>
-    <section class="hero" id="home">
-      <div class="container hero-wrap">
-        <div class="hero-copy reveal">
-          <div class="badge"><span class="pulse-dot"></span> Available for engineering opportunities & collaborations</div>
+    <section class="hero container">
+      <div class="hero-shell">
+        <div class="panel hero-copy reveal visible">
+          <div class="eyebrow"><span class="dot"></span> Electrical Engineering Portfolio</div>
           <h1>
-            Electrical <span class="gradient-text">Protection</span><br>
-            Engineer with a sharp focus on reliability.
+            High-voltage <span class="hero-gradient">protection</span> engineered with precision.
           </h1>
-          <p class="lead">
-            I’m <strong>Dhilipdharan Venu, MIEAust</strong> — an Electrical / Protection Engineer experienced in power system protection, relay testing, substation commissioning, IEC 61850 integration, and high-voltage project delivery. I build dependable systems with precision, safety, and strong site execution.
+          <p class="subtitle">
+            Dhilipdharan V is a Protection, Testing &amp; Commissioning Engineer focused on secondary protection testing, primary equipment validation, IEC 61850 communication, remote integration, and full commissioning delivery across substations, power plants, renewables, BESS, and heavy industrial infrastructure.
           </p>
           <div class="hero-actions">
-            <a class="btn" href="#contact">Let’s Connect</a>
-            <a class="btn-outline" href="YOUR-RESUME.pdf" target="_blank" rel="noopener">Download Resume</a>
+            <a class="btn btn-primary" href="#contact">Let’s Connect</a>
+            <a class="btn btn-secondary" href="#projects">View Signature Projects</a>
           </div>
-          <div class="hero-meta">
-            <span class="meta-chip">📍 Perth, Australia</span>
-            <span class="meta-chip">⚙️ Protection & Commissioning</span>
-            <span class="meta-chip">🔗 IEC 61850 / GOOSE</span>
+          <div class="metric-row">
+            <div class="metric">
+              <strong>6+ Years</strong>
+              <span>Protection testing, commissioning, logic verification, and energisation support.</span>
+            </div>
+            <div class="metric">
+              <strong>Multi-OEM</strong>
+              <span>ABB, Siemens, GE, SEL, Micom, NR, Reyrolle, Schneider, and more.</span>
+            </div>
+            <div class="metric">
+              <strong>Utility to Renewables</strong>
+              <span>Experience across substations, gas plants, solar, wind, BESS, and industrial systems.</span>
+            </div>
           </div>
         </div>
 
-        <aside class="profile-card reveal">
-          <div class="orb"></div>
-          <div class="orb-2"></div>
-          <div class="profile-photo-wrap">
-            <!-- Replace profile.jpg with your own image file in the same folder -->
-            <img src="profile.jpg" alt="Dhilipdharan Venu" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
-            <div class="photo-fallback" style="display:none;">
-              Add your passport photo as <strong>profile.jpg</strong><br>in the same folder as this HTML file.
-            </div>
-          </div>
-          <div class="eyebrow">Professional Snapshot</div>
-          <h3 style="margin:0 0 10px; font-size:1.4rem;">Dhilipdharan Venu</h3>
-          <p style="margin:0; color:var(--muted); line-height:1.8;">Electrical Protection Engineer focused on protection relays, testing, commissioning, and power system reliability across utility, industrial, and energy projects.</p>
-          <div class="small-panel">
-            <div class="mini"><strong>MIEAust</strong><span>Engineers Australia</span></div>
-            <div class="mini"><strong>HV Projects</strong><span>Protection & commissioning</span></div>
-            <div class="mini"><strong>Relays</strong><span>GE / SEL / ABB</span></div>
-            <div class="mini"><strong>Standards</strong><span>IEC 61850 / Grid practices</span></div>
-          </div>
-        </aside>
-      </div>
-    </section>
+        <div class="panel hero-visual reveal visible">
+          <div class="schematic float" aria-hidden="true">
+            <svg viewBox="0 0 1100 820" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+              <defs>
+                <linearGradient id="mainStroke" x1="0%" x2="100%">
+                  <stop offset="0%" stop-color="#1b6bff" />
+                  <stop offset="100%" stop-color="#2bd7ff" />
+                </linearGradient>
+                <linearGradient id="branchStroke" x1="0%" x2="100%">
+                  <stop offset="0%" stop-color="#7b61ff" />
+                  <stop offset="100%" stop-color="#1b6bff" />
+                </linearGradient>
+                <linearGradient id="commStroke" x1="0%" x2="100%">
+                  <stop offset="0%" stop-color="#11b886" />
+                  <stop offset="100%" stop-color="#2bd7ff" />
+                </linearGradient>
+                <filter id="softGlowLarge">
+                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                  <feMerge>
+                    <feMergeNode in="blur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                  </feMerge>
+                </filter>
+              </defs>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">About Me</div>
-            <h2>Engineering with field discipline and system intelligence.</h2>
+              <g fill="none" stroke="url(#mainStroke)" stroke-width="9" stroke-linecap="round" class="schematic-line">
+                <path d="M550 98 V196" />
+                <path d="M550 236 V344" />
+                <path d="M550 384 V492" />
+                <path d="M550 532 V650" />
+              </g>
+
+              <g fill="none" stroke="url(#branchStroke)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="18 18" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M550 98 V196" style="animation-duration:2.8s"/>
+                <path d="M550 236 V344" style="animation-duration:3.1s"/>
+                <path d="M550 384 V492" style="animation-duration:3.4s"/>
+                <path d="M550 532 V650" style="animation-duration:3.7s"/>
+              </g>
+
+              <g fill="none" stroke="url(#mainStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
+                <path d="M550 216 H360 V132 H150" />
+                <path d="M550 216 H360 V192 H150" />
+                <path d="M550 216 H360 V252 H150" />
+                <path d="M550 216 H360 V312 H150" />
+                <path d="M550 216 H360 V372 H150" />
+                <path d="M550 216 H360 V432 H150" />
+              </g>
+              <g fill="none" stroke="url(#branchStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M550 216 H360 V132 H150" style="animation-duration:3.0s"/>
+                <path d="M550 216 H360 V192 H150" style="animation-duration:3.2s"/>
+                <path d="M550 216 H360 V252 H150" style="animation-duration:3.4s"/>
+                <path d="M550 216 H360 V312 H150" style="animation-duration:3.6s"/>
+                <path d="M550 216 H360 V372 H150" style="animation-duration:3.8s"/>
+                <path d="M550 216 H360 V432 H150" style="animation-duration:4.0s"/>
+              </g>
+
+              <g fill="none" stroke="url(#commStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
+                <path d="M550 216 H740 V142 H930" />
+                <path d="M550 216 H740 V222 H930" />
+                <path d="M550 216 H740 V302 H930" />
+                <path d="M550 216 H740 V382 H930" />
+              </g>
+              <g fill="none" stroke="url(#commStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M550 216 H740 V142 H930" style="animation-duration:3.1s"/>
+                <path d="M550 216 H740 V222 H930" style="animation-duration:3.4s"/>
+                <path d="M550 216 H740 V302 H930" style="animation-duration:3.7s"/>
+                <path d="M550 216 H740 V382 H930" style="animation-duration:4.0s"/>
+              </g>
+
+              <g fill="none" stroke="url(#mainStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
+                <path d="M550 512 H360 V576 H150" />
+                <path d="M550 512 H360 V646 H150" />
+                <path d="M550 512 H360 V716 H150" />
+              </g>
+              <g fill="none" stroke="url(#branchStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M550 512 H360 V576 H150" style="animation-duration:3.3s"/>
+                <path d="M550 512 H360 V646 H150" style="animation-duration:3.7s"/>
+                <path d="M550 512 H360 V716 H150" style="animation-duration:4.1s"/>
+              </g>
+
+              <g fill="none" stroke="url(#commStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
+                <path d="M550 512 H740 V576 H930" />
+                <path d="M550 512 H740 V646 H930" />
+                <path d="M550 512 H740 V716 H930" />
+              </g>
+              <g fill="none" stroke="url(#commStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M550 512 H740 V576 H930" style="animation-duration:3.2s"/>
+                <path d="M550 512 H740 V646 H930" style="animation-duration:3.6s"/>
+                <path d="M550 512 H740 V716 H930" style="animation-duration:4.0s"/>
+              </g>
+
+              <g>
+                <circle cx="550" cy="74" r="22" fill="#1565ff" class="schematic-node" />
+                <circle cx="550" cy="216" r="26" fill="#31d5ff" class="schematic-node" style="animation-delay:.2s"/>
+                <circle cx="550" cy="364" r="26" fill="#7b61ff" class="schematic-node" style="animation-delay:.5s"/>
+                <circle cx="550" cy="512" r="26" fill="#0ca678" class="schematic-node" style="animation-delay:.8s"/>
+                <circle cx="550" cy="680" r="22" fill="#1565ff" class="schematic-node" style="animation-delay:1.1s"/>
+              </g>
+
+              <g>
+                <circle cx="150" cy="132" r="12" fill="#1565ff" class="schematic-node" />
+                <circle cx="150" cy="192" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:.2s"/>
+                <circle cx="150" cy="252" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.4s"/>
+                <circle cx="150" cy="312" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
+                <circle cx="150" cy="372" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.8s"/>
+                <circle cx="150" cy="432" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:1s"/>
+
+                <circle cx="930" cy="142" r="12" fill="#0ca678" class="schematic-node" />
+                <circle cx="930" cy="222" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:.25s"/>
+                <circle cx="930" cy="302" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.5s"/>
+                <circle cx="930" cy="382" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.75s"/>
+
+                <circle cx="150" cy="576" r="12" fill="#1565ff" class="schematic-node" />
+                <circle cx="150" cy="646" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.3s"/>
+                <circle cx="150" cy="716" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
+
+                <circle cx="930" cy="576" r="12" fill="#2bd7ff" class="schematic-node" />
+                <circle cx="930" cy="646" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.3s"/>
+                <circle cx="930" cy="716" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
+              </g>
+
+              <g fill="#10233d" font-family="Inter, sans-serif" font-weight="700">
+                <text x="550" y="38" text-anchor="middle" font-size="20">Protection &amp; Commissioning Engineering</text>
+                <text x="550" y="185" text-anchor="middle" font-size="18">Secondary Protection Testing</text>
+                <text x="550" y="332" text-anchor="middle" font-size="18">Protection Logic &amp; Analysis</text>
+                <text x="550" y="480" text-anchor="middle" font-size="18">Primary Equipment Testing</text>
+                <text x="550" y="648" text-anchor="middle" font-size="18">Completions Engineering</text>
+               
+
+                <text x="126" y="138" text-anchor="end" font-size="15">Line </text>
+                <text x="126" y="198" text-anchor="end" font-size="15">Feeder</text>
+                <text x="126" y="258" text-anchor="end" font-size="15">Transformer</text>
+                <text x="126" y="318" text-anchor="end" font-size="15">Busbar</text>
+                <text x="126" y="378" text-anchor="end" font-size="15">Motor</text>
+                <text x="126" y="438" text-anchor="end" font-size="15">Generator</text>
+
+                <text x="954" y="148" text-anchor="start" font-size="15">GOOSE</text>
+                <text x="954" y="228" text-anchor="start" font-size="15">IEC 61850</text>
+                <text x="954" y="308" text-anchor="start" font-size="15">DNP / Modbus</text>
+                <text x="954" y="388" text-anchor="start" font-size="15">Remote Ops</text>
+
+                <text x="126" y="582" text-anchor="end" font-size="15">Circuit Breakers</text>
+                <text x="126" y="652" text-anchor="end" font-size="15">CT / VT</text>
+                <text x="126" y="722" text-anchor="end" font-size="15">Transformers</text>
+
+                <text x="954" y="582" text-anchor="start" font-size="15">Full Commissioning</text>
+                <text x="954" y="652" text-anchor="start" font-size="15">Primary Equipments</text>
+                <text x="954" y="722" text-anchor="start" font-size="15">Signal testing</text>
+              </g>
+            </svg>
           </div>
-          <p>I combine site execution, technical analysis, and protection engineering depth to deliver robust electrical systems. My work spans commissioning, relay logic verification, secondary injection, troubleshooting, and detailed coordination across project teams.</p>
-        </div>
-
-        <div class="about-grid">
-          <article class="content-card glass reveal">
-            <p>
-              My background is centered on power system protection and substation work, with hands-on involvement in relay configuration, testing, fault analysis, drawing verification, and commissioning support. I enjoy solving complex technical issues, streamlining commissioning workflows, and contributing to safe energisation outcomes.
-            </p>
-            <div class="info-list">
-              <div class="info-item"><strong>Specialisation</strong><span>Power System Protection & Commissioning</span></div>
-              <div class="info-item"><strong>Core Focus</strong><span>Protection Relays, Testing, IEC 61850, Site Delivery</span></div>
-              <div class="info-item"><strong>Professional Style</strong><span>Detail-oriented, safety-driven, solution-focused</span></div>
-              <div class="info-item"><strong>LinkedIn</strong><span><a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" rel="noopener">View Professional Profile</a></span></div>
-            </div>
-          </article>
-
-          <aside class="timeline glass reveal" id="experience">
-            <div class="eyebrow">Experience Highlights</div>
+          <div class="timeline">
             <div class="timeline-item">
-              <h3>Protection & Commissioning Engineering</h3>
-              <p>Hands-on exposure to substation and industrial projects, relay validation, logic checks, test plans, and energisation readiness activities.</p>
+              <h3>Engineering Focus</h3>
+              <p>Secondary protection testing, primary equipment validation, scheme checking, IEC 61850 integration, troubleshooting, and energisation readiness.</p>
             </div>
-            <div class="timeline-item">
-              <h3>Relay & Scheme Expertise</h3>
-              <p>Worked with protection platforms such as GE, SEL, and ABB, including transformer, feeder, line, and busbar-related applications.</p>
-            </div>
-            <div class="timeline-item">
-              <h3>Digital Substation & Control Integration</h3>
-              <p>Involved in IEC 61850 workflows, GOOSE communication concepts, control interface verification, and engineering documentation alignment.</p>
-            </div>
-          </aside>
-        </div>
-
-        <div class="stats-grid reveal">
-          <div class="stat-card glass"><strong>Protection</strong><span>Testing, logic and commissioning focus</span></div>
-          <div class="stat-card glass"><strong>IEC 61850</strong><span>GOOSE and digital substation workflows</span></div>
-          <div class="stat-card glass"><strong>HV Projects</strong><span>Utility, industrial and energy environments</span></div>
-          <div class="stat-card glass"><strong>Field Ready</strong><span>Execution, safety and troubleshooting mindset</span></div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">Technical Strengths</div>
-            <h2>Skills built for modern power infrastructure.</h2>
+            
           </div>
-          <p>These sections can be expanded further with your exact projects, relay models, software tools, and test equipment.</p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card glass reveal">
-            <h3>Protection Engineering</h3>
-            <p>Design understanding, scheme validation, relay logic interpretation, settings review, and fault-oriented troubleshooting.</p>
-            <ul>
-              <li>Transformer, feeder and line protection concepts</li>
-              <li>Differential, overcurrent and distance scheme familiarity</li>
-              <li>Relay testing & coordination awareness</li>
-            </ul>
-          </article>
-
-          <article class="skill-card glass reveal">
-            <h3>Testing & Commissioning</h3>
-            <p>Practical site work involving pre-commissioning checks, test procedures, punch list closure, and energisation support.</p>
-            <ul>
-              <li>Secondary injection & functional checks</li>
-              <li>CT / VT verification workflows</li>
-              <li>As-built review and site coordination</li>
-            </ul>
-          </article>
-
-          <article class="skill-card glass reveal">
-            <h3>Digital & Control Systems</h3>
-            <p>Integration understanding for digital substations and intelligent devices across protection and control environments.</p>
-            <ul>
-              <li>IEC 61850 / GOOSE fundamentals</li>
-              <li>SCADA / control interface awareness</li>
-              <li>Interlocking and signal validation</li>
-            </ul>
-          </article>
         </div>
       </div>
     </section>
 
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading reveal">
+    <section id="about" class="container reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">About</div>
+          <h2>Protection & commissioning profile</h2>
+        </div>
+        <p>
+          Electrical & Electronics Engineering graduate with hands-on experience across relay testing, commissioning, control and relay scheme validation, IEC 61850 / GOOSE communication, disturbance analysis, work pack preparation, asset validation, and project handover support.
+        </p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-year">2022 — Present</div>
           <div>
-            <div class="eyebrow">Featured Work</div>
-            <h2>Project-ready, site-tested, detail-driven.</h2>
+            <h3>Sun & Jay Engineering Consultants Pvt. Ltd.</h3>
+            <p>Electrical Engineer — High Voltage Protection Relay Testing</p>
+            <ul>
+              <li>Testing and commissioning of protection systems, switchgear, switchyard equipment, CTs, CVTs, breakers, isolators, earth switches, and lightning arresters.</li>
+              <li>Scheme checking for relay and control panels, switchgear interlocks, yard interlocks, and DG auto changeover logic.</li>
+              <li>Commissioning delivery across projects including Hunter Power Project, Waitsia Gas Plant 2, Broad Sound Solar Farm, Wambo 2 Wind Farm, and Swanbank BESS.</li>
+            </ul>
           </div>
-          <p>Replace these sample cards with your exact project names, responsibilities, technologies, and achievements.</p>
         </div>
-
-        <div class="projects-grid">
-          <article class="project-card glass reveal">
-            <div class="eyebrow">Project 01</div>
-            <h3>Substation Protection & Commissioning</h3>
-            <p>Supported protection testing, scheme checks, documentation review, and commissioning activities to improve readiness and reliability before energisation.</p>
-            <div class="tags">
-              <span class="tag">Protection Relays</span>
-              <span class="tag">Testing</span>
-              <span class="tag">Commissioning</span>
-            </div>
-          </article>
-
-          <article class="project-card glass reveal">
-            <div class="eyebrow">Project 02</div>
-            <h3>Industrial / Energy Facility Electrical Scope</h3>
-            <p>Contributed to power system-related execution tasks involving control checks, interface validation, and site coordination across multidisciplinary teams.</p>
-            <div class="tags">
-              <span class="tag">HV Systems</span>
-              <span class="tag">Site Delivery</span>
-              <span class="tag">Troubleshooting</span>
-            </div>
-          </article>
-
-          <article class="project-card glass reveal">
-            <div class="eyebrow">Project 03</div>
-            <h3>Digital Protection Integration</h3>
-            <p>Worked with relay-related data, control logic, and communication-oriented workflows aligned with modern protection and automation practices.</p>
-            <div class="tags">
-              <span class="tag">IEC 61850</span>
-              <span class="tag">GOOSE</span>
-              <span class="tag">Control Logic</span>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="section-heading reveal">
+        <div class="timeline-item">
+          <div class="timeline-year">2019 — 2022</div>
           <div>
-            <div class="eyebrow">Contact</div>
-            <h2>Let’s build something dependable.</h2>
+            <h3>POG Engineering Consultants Pvt. Ltd.</h3>
+            <p>Protection Engineer</p>
+            <ul>
+              <li>Relay configuration, testing, fault analysis, protection scheme validation, and commissioning for utilities, substations, thermal, industrial, and overseas projects.</li>
+              <li>Worked across transformer, generator, line differential, feeder, motor, distance, and busbar protection applications.</li>
+            </ul>
           </div>
-          <p>Use this section for recruiters, project managers, engineering teams, and professional connections.</p>
-        </div>
-
-        <div class="contact-grid">
-          <article class="contact-card glass reveal">
-            <h3>Professional Contact</h3>
-            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a><br>
-            LinkedIn: <a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" rel="noopener">linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8</a><br>
-            Location: Perth, Western Australia</p>
-          </article>
-
-          <article class="contact-card glass reveal">
-            <h3>What to Update Before Publishing</h3>
-            <p>Replace the email address, add your real resume PDF, upload your profile image as <strong>profile.jpg</strong>, and update the project cards with your actual project names and achievements.</p>
-          </article>
         </div>
       </div>
     </section>
+
+    <section id="skills" class="container reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Skill Set</div>
+          <h2>Core engineering capabilities</h2>
+        </div>
+        <p>
+          A complete skills showcase built to reflect technical depth, field execution capability, and multi-vendor protection expertise without needing a profile photo.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <article class="card">
+          <h3>Protection Relay Testing</h3>
+          <p>Secondary injection testing, logic verification, relay validation, troubleshooting, and performance confirmation across multiple relay families and protection functions.</p>
+          <div class="pill-row">
+            <span class="pill">Distance</span>
+            <span class="pill">Transformer Differential</span>
+            <span class="pill">Generator</span>
+            <span class="pill">Feeder</span>
+            <span class="pill">Busbar</span>
+            <span class="pill">REF / OC / EF</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Scheme Checking & Interlocks</h3>
+          <p>Control and relay panel verification, switchyard and switchgear interlocks, auto changeover schemes, functional logic checks, and energisation readiness review.</p>
+          <div class="pill-row">
+            <span class="pill">CRP / RCP</span>
+            <span class="pill">Interlocks</span>
+            <span class="pill">Logic Test</span>
+            <span class="pill">Point-to-Point</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>IEC 61850 & GOOSE</h3>
+          <p>Relay-to-relay communication setup, signal validation, carrier and direct transfer schemes, SCADA integration support, and GOOSE mapping / signal verification.</p>
+          <div class="pill-row">
+            <span class="pill">GOOSE</span>
+            <span class="pill">SAS Integration</span>
+            <span class="pill">Signal Mapping</span>
+            <span class="pill">Gateway Support</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Primary Testing</h3>
+          <p>CT / VT primary injection, breaker timing, CRM, insulation resistance, leakage testing, transformer stability, and busbar stability / sensitivity testing.</p>
+          <div class="pill-row">
+            <span class="pill">CT / VT</span>
+            <span class="pill">CB Timing</span>
+            <span class="pill">Stability Test</span>
+            <span class="pill">Sensitivity Test</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Fault & Disturbance Analysis</h3>
+          <p>Disturbance recorder analysis, waveform interpretation, harmonic review, sequence component review, timing analysis, and event-based troubleshooting support.</p>
+          <div class="pill-row">
+            <span class="pill">Waveform Analysis</span>
+            <span class="pill">Harmonics</span>
+            <span class="pill">Sequence Components</span>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Completions & Handover</h3>
+          <p>Asset and ITR validation, drawing cross-checking with P&amp;IDs and isometrics, work pack preparation, walkdowns, LOSH boundary verification, and handover readiness.</p>
+          <div class="pill-row">
+            <span class="pill">CCMS</span>
+            <span class="pill">ITR Validation</span>
+            <span class="pill">Walkdowns</span>
+            <span class="pill">Handover Packs</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="container reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Relay Platforms</div>
+          <h2>Relays handled</h2>
+        </div>
+        <p>
+          Multi-vendor experience across utility, industrial, generation, renewable, and balance-of-plant applications.
+        </p>
+      </div>
+      <div class="relay-grid">
+        <article class="card"><h3>ABB</h3><p>REG670, REM543, REL670, REL650, REC670, REC650, RED670, RED615, RET670, RET650, RET615, REF615.</p></article>
+        <article class="card"><h3>Siemens</h3><p>7SA522, 7UT613, 7VK61, 7SR5110 and associated feeder, distance, transformer, and LBB applications.</p></article>
+        <article class="card"><h3>Micom / Alstom</h3><p>P342, P343, P442, P444, P543, P545, P111, P141, P142, P642, P243 and related variants.</p></article>
+        <article class="card"><h3>GE</h3><p>D60, T60, F650, G60 and commissioning support across transformer, generator, feeder, and distance protection.</p></article>
+        <article class="card"><h3>SEL</h3><p>SEL-700G, SEL-751/751A, SEL-387E, SEL-787, SEL-487E, SEL-487B, SEL-451 and associated schemes.</p></article>
+        <article class="card"><h3>NR / Reyrolle / Others</h3><p>PCS 961, PCS 931, PCS 9671, PCS 915C/915D, TPRO 4500, LPRO 200, Schneider and Easun Reyrolle families.</p></article>
+      </div>
+    </section>
+
+    <section id="tools" class="container reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Testing Tools</div>
+          <h2>Field instruments & engineering software</h2>
+        </div>
+        <p>
+          A premium recruiter-facing presentation of the hardware and software stack used for testing, analysis, and commissioning delivery.
+        </p>
+      </div>
+      <div class="tool-grid">
+        <article class="card">
+          <h3>Testing Kits Handled</h3>
+          <ul>
+            <li>Omicron CMC256, CMC256-6, CMC256 Plus, CMC353, CMC356</li>
+            <li>Doble F6150</li>
+            <li>Ponovo</li>
+            <li>Megger SMRT410, SMRT46, SMRT36</li>
+            <li>Omicron CPC 100</li>
+            <li>CIBANO 500 / CB timing test kits</li>
+            <li>Fluke / Rishabh multimeters</li>
+            <li>Primary injection kit, CRM kit, IR testers, leakage testers</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Software Platforms</h3>
+          <ul>
+            <li>ABB PCM, REBCON500, HMI500, REBWIN, commissioning tools</li>
+            <li>Siemens DIGSI 4 &amp; 5</li>
+            <li>GE Enervista</li>
+            <li>NR PCS Explorer</li>
+            <li>Micom S1 Agile / Schneider S1 Studio / Easergy Pro</li>
+            <li>SEL AcSELerator</li>
+            <li>OMICRON Test Universe 5.0</li>
+            <li>Doble F6 Test / F6 Control Panel</li>
+            <li>Microsoft Office Suite</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="container reveal">
+      <div class="section-head">
+        <div>
+          <div class="section-tag">Projects</div>
+          <h2>Signature projects</h2>
+        </div>
+        <p>
+          Featured project cards highlight grid, industrial, renewable, and commissioning experience in a way that feels polished, executive, and technically credible.
+        </p>
+      </div>
+      <div class="project-grid">
+        <article class="card project-card">
+          <h3>Hunter Power Project <span class="project-badge">132kV</span></h3>
+          <p>Point-to-point testing, logical schematic testing, IEC 61850 signal checks, SEL feeder relays, GE T60, SEL 487E / 487B, protection scheme testing, CT primary injection, transformer and busbar stability testing.</p>
+        </article>
+        <article class="card project-card">
+          <h3>Waitsia Gas Plant 2 <span class="project-badge">WA</span></h3>
+          <p>Completions engineering support across E&amp;I and SMP disciplines using CCMS smart completions, asset and ITR validation, drawing verification, LOSH checks, and handover pack preparation.</p>
+        </article>
+        <article class="card project-card">
+          <h3>Broad Sound Solar Farm <span class="project-badge">275/33kV</span></h3>
+          <p>Scheme checking, relay testing for SEL and GE platforms, primary injection busbar stability, CT/CVT testing, CIBANO breaker testing, IEC 61850 integration, interlocks, and GOOSE verification.</p>
+        </article>
+        <article class="card project-card">
+          <h3>Wambo 2 Wind Farm <span class="project-badge">33kV</span></h3>
+          <p>Point-to-point verification, relay testing across SEL, ABB, and Siemens platforms, plus CT and VT primary testing for renewable generation infrastructure.</p>
+        </article>
+        <article class="card project-card">
+          <h3>Swanbank BESS <span class="project-badge">33kV</span></h3>
+          <p>Testing and commissioning of Siemens feeder RMU relays, breaker testing, and current transformer primary validation within battery energy storage infrastructure.</p>
+        </article>
+        <article class="card project-card">
+          <h3>International & Utility Projects <span class="project-badge">Multi-site</span></h3>
+          <p>KPTCL, PGCIL, HVPNL, GETCL, UPPTCL, RFCL, HPCL, NLC, NTTPS, Nigeria substations, offshore oil facilities, and multiple thermal and industrial sites.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="container reveal">
+      <div class="panel cta">
+        <div>
+          <div class="section-tag">Dhilipdharan Venu</div>
+          <h2>Electrical / Protection & Commissioning Engineer</h2>
+          <p style="color: var(--muted); line-height: 1.8; max-width: 62ch;">
+            technical depth, field execution capability, and multi-vendor protection expertise.
+          </p>
+        </div>
+        <div class="cta-box" id="contact">
+          <h3>Contact</h3>
+          <p>Ready for protection testing, commissioning, electrical integration, and high-voltage project delivery opportunities.</p>
+          <div class="pill-row">
+            <span class="pill" style="background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.12); color: white;">Perth, Australia</span>
+            <span class="pill" style="background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.12); color: white;">Available for Engineering Roles</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="container">
+      DharanXtreme.
+    </footer>
   </main>
-
-  <footer>
-    <div class="container">
-      © 2026 Dhilipdharan Venu • Electrical Protection Engineer • Designed for a modern professional web resume.
-    </div>
-  </footer>
 
   <script>
     const observer = new IntersectionObserver((entries) => {
@@ -925,17 +1184,17 @@
           entry.target.classList.add('visible');
         }
       });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.12 });
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // Subtle parallax glow movement
-    window.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth - 0.5) * 12;
-      const y = (e.clientY / window.innerHeight - 0.5) * 12;
-      document.querySelectorAll('.profile-card, .glass').forEach((el, index) => {
-        const factor = index % 2 === 0 ? 1 : 0.65;
-        el.style.transform = `translate3d(${x * factor * 0.18}px, ${y * factor * 0.18}px, 0)`;
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        link.style.transform = 'translateY(-2px)';
+      });
+      link.addEventListener('mouseleave', () => {
+        link.style.transform = '';
       });
     });
   </script>
