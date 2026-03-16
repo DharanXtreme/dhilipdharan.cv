@@ -14,6 +14,7 @@
       --bg-soft: rgba(255,255,255,0.68);
       --surface: rgba(255,255,255,0.8);
       --surface-strong: rgba(255,255,255,0.92);
+      --surface-deep: rgba(255,255,255,0.97);
       --text: #10233d;
       --muted: #5d738f;
       --line: rgba(16,35,61,0.1);
@@ -22,14 +23,17 @@
       --accent: #20c6ff;
       --accent-2: #7b61ff;
       --success: #0ca678;
+      --warning: #ff9f43;
       --shadow: 0 18px 50px rgba(32, 68, 135, 0.14);
       --shadow-soft: 0 10px 28px rgba(32, 68, 135, 0.09);
+      --shadow-3d: 0 28px 60px rgba(16, 35, 61, 0.18);
       --radius: 26px;
       --max: 1240px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
@@ -40,18 +44,20 @@
         radial-gradient(circle at 50% 100%, rgba(21,101,255,.10), transparent 35%),
         linear-gradient(180deg, #f8fbff 0%, #eef4fb 52%, #e8f0fa 100%);
       overflow-x: hidden;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
 
     body::before,
     body::after {
       content: "";
       position: fixed;
-      inset: auto;
       width: 42vw;
       height: 42vw;
       border-radius: 50%;
-      filter: blur(60px);
-      z-index: -3;
+      filter: blur(70px);
+      z-index: -4;
       opacity: .38;
       pointer-events: none;
     }
@@ -70,16 +76,29 @@
       animation: floatOrb 18s ease-in-out infinite reverse;
     }
 
+    .ambient-light,
     .grid-overlay,
     .circuit-layer,
-    .pulse-layer {
+    .pulse-layer,
+    .noise-layer {
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -2;
+    }
+
+    .ambient-light {
+      z-index: -3;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(21,101,255,.12), transparent 18%),
+        radial-gradient(circle at 84% 14%, rgba(32,198,255,.12), transparent 22%),
+        radial-gradient(circle at 50% 48%, rgba(123,97,255,.08), transparent 28%),
+        radial-gradient(circle at 50% 110%, rgba(21,101,255,.10), transparent 30%);
+      filter: blur(16px);
+      animation: ambientShift 18s ease-in-out infinite alternate;
     }
 
     .grid-overlay {
+      z-index: -2;
       background-image:
         linear-gradient(rgba(16,35,61,0.04) 1px, transparent 1px),
         linear-gradient(90deg, rgba(16,35,61,0.04) 1px, transparent 1px);
@@ -87,12 +106,25 @@
       mask-image: radial-gradient(circle at center, black 30%, transparent 95%);
     }
 
+    .noise-layer {
+      z-index: -1;
+      opacity: .16;
+      background-image:
+        radial-gradient(rgba(255,255,255,.6) 0.8px, transparent 0.8px);
+      background-size: 14px 14px;
+      mix-blend-mode: soft-light;
+    }
+
+    .circuit-layer,
+    .pulse-layer { z-index: -2; }
     .circuit-layer svg,
     .pulse-layer svg {
       width: 100%;
       height: 100%;
       display: block;
     }
+
+    img, svg { max-width: 100%; display: block; }
 
     .container {
       width: min(calc(100% - 32px), var(--max));
@@ -101,7 +133,7 @@
 
     .nav {
       position: sticky;
-      top: 12px;
+      top: 10px;
       z-index: 50;
       padding: 12px 0 0;
     }
@@ -112,11 +144,22 @@
       justify-content: space-between;
       gap: 16px;
       padding: 14px 18px;
-      background: rgba(255,255,255,.62);
+      background: rgba(255,255,255,.64);
       backdrop-filter: blur(18px);
       border: 1px solid rgba(255,255,255,.7);
       border-radius: 999px;
       box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-shell::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.48), transparent);
+      transform: translateX(-100%);
+      animation: navSweep 8s linear infinite;
     }
 
     .brand {
@@ -124,16 +167,20 @@
       align-items: center;
       gap: 14px;
       min-width: 0;
+      z-index: 1;
     }
 
     .brand-mark {
       width: 46px;
       height: 46px;
+      flex-shrink: 0;
       border-radius: 16px;
       background: linear-gradient(135deg, var(--primary), var(--accent));
       box-shadow: inset 0 1px 0 rgba(255,255,255,.45), 0 12px 24px rgba(21,101,255,.25);
       position: relative;
       overflow: hidden;
+      transform-style: preserve-3d;
+      animation: markFloat 5.5s ease-in-out infinite;
     }
 
     .brand-mark::before,
@@ -181,6 +228,7 @@
       gap: 8px;
       flex-wrap: wrap;
       justify-content: flex-end;
+      z-index: 1;
     }
 
     .nav-links a,
@@ -192,27 +240,49 @@
       border-radius: 999px;
       font-size: .92rem;
       font-weight: 600;
-      transition: .28s ease;
+      transition: transform .28s ease, box-shadow .28s ease, background .28s ease, color .28s ease, border-color .28s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 10px;
       cursor: pointer;
+      will-change: transform;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible,
+    .btn:hover,
+    .btn:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+      outline: none;
     }
 
     .nav-links a:hover {
-      background: rgba(255,255,255,.8);
-      box-shadow: var(--shadow-soft);
-      transform: translateY(-1px);
+      background: rgba(255,255,255,.84);
     }
 
     .btn-primary {
-      color: white;
+      color: white !important;
       background: linear-gradient(135deg, var(--primary), var(--accent-2));
       box-shadow: 0 14px 28px rgba(21,101,255,.22);
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.32) 45%, transparent 80%);
+      transform: translateX(-120%);
+      transition: transform .8s ease;
+    }
+
+    .btn-primary:hover::before,
+    .btn-primary:focus-visible::before {
+      transform: translateX(120%);
+    }
 
     .btn-secondary {
       background: rgba(255,255,255,.76);
@@ -232,7 +302,7 @@
 
     .hero-shell {
       display: grid;
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
       gap: 24px;
       align-items: stretch;
     }
@@ -245,6 +315,17 @@
       border-radius: var(--radius);
       position: relative;
       overflow: hidden;
+      transform-style: preserve-3d;
+      isolation: isolate;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.55), transparent 34%, rgba(32,198,255,.06));
+      pointer-events: none;
+      z-index: -1;
     }
 
     .hero-copy {
@@ -257,7 +338,7 @@
       gap: 10px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,.78);
+      background: rgba(255,255,255,.82);
       border: 1px solid rgba(16,35,61,.08);
       font-size: .84rem;
       font-weight: 700;
@@ -265,6 +346,18 @@
       color: var(--primary);
       margin-bottom: 18px;
       box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .eyebrow::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+      transform: translateX(-100%);
+      animation: navSweep 7s linear infinite;
+      opacity: .8;
     }
 
     .eyebrow .dot {
@@ -274,6 +367,7 @@
       background: linear-gradient(135deg, var(--accent), var(--primary));
       box-shadow: 0 0 0 8px rgba(21,101,255,.08);
       animation: pulseDot 2.4s ease-in-out infinite;
+      z-index: 1;
     }
 
     h1, h2, h3 {
@@ -284,20 +378,30 @@
     }
 
     h1 {
-      font-size: clamp(3rem, 7vw, 6.1rem);
+      font-size: clamp(3rem, 7vw, 6rem);
       max-width: 10ch;
+      position: relative;
     }
 
     .hero-gradient {
-      background: linear-gradient(135deg, #0f2340 0%, #1163ff 52%, #3f86ff 72%, #31d5ff 100%);
+      position: relative;
+      display: inline-block;
+      background: linear-gradient(135deg, #0f2340 0%, #1163ff 42%, #3f86ff 72%, #31d5ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      text-shadow: 0 8px 28px rgba(21,101,255,.12);
+      animation: heroGlow 5.5s ease-in-out infinite alternate;
+    }
+
+    .hero-gradient.shake {
+      animation: heroGlow 5.5s ease-in-out infinite alternate, subtleShake 7s cubic-bezier(.36,.07,.19,.97) infinite;
+      transform-origin: center;
     }
 
     .subtitle {
       margin-top: 18px;
-      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      font-size: clamp(1rem, 1.45vw, 1.18rem);
       line-height: 1.75;
       color: var(--muted);
       max-width: 60ch;
@@ -312,7 +416,7 @@
 
     .metric-row {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
       margin-top: 28px;
     }
@@ -323,6 +427,24 @@
       border-radius: 22px;
       padding: 18px;
       box-shadow: var(--shadow-soft);
+      transition: transform .35s ease, box-shadow .35s ease;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .metric::after {
+      content: "";
+      position: absolute;
+      inset: auto 14px 0 14px;
+      height: 3px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: .42;
+    }
+
+    .metric:hover {
+      transform: translateY(-5px) rotateX(6deg);
+      box-shadow: 0 20px 42px rgba(32,68,135,.15);
     }
 
     .metric strong {
@@ -345,16 +467,22 @@
     }
 
     .schematic {
-      min-height: 780px;
-      border-radius: 32px;
+      min-height: 900px;
+      border-radius: 34px;
       background:
-        linear-gradient(180deg, rgba(255,255,255,.97), rgba(240,247,255,.92)),
-        linear-gradient(135deg, rgba(21,101,255,.08), rgba(32,198,255,.12));
+        linear-gradient(180deg, rgba(255,255,255,.985), rgba(240,247,255,.94)),
+        linear-gradient(135deg, rgba(21,101,255,.10), rgba(32,198,255,.16));
       border: 1px solid rgba(16,35,61,.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.85), 0 24px 54px rgba(32, 68, 135, 0.12);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.95),
+        0 30px 70px rgba(32, 68, 135, 0.16),
+        0 14px 28px rgba(21,101,255,.10);
       position: relative;
       overflow: hidden;
-      padding: 28px;
+      padding: 26px;
+      transform-style: preserve-3d;
+      perspective: 1600px;
+      isolation: isolate;
     }
 
     .schematic::before {
@@ -362,40 +490,75 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(circle at 18% 28%, rgba(21,101,255,.12), transparent 18%),
-        radial-gradient(circle at 78% 25%, rgba(32,198,255,.14), transparent 16%),
-        radial-gradient(circle at 52% 82%, rgba(123,97,255,.12), transparent 18%);
+        radial-gradient(circle at 18% 24%, rgba(21,101,255,.18), transparent 18%),
+        radial-gradient(circle at 82% 18%, rgba(32,198,255,.18), transparent 20%),
+        radial-gradient(circle at 50% 82%, rgba(123,97,255,.15), transparent 22%),
+        linear-gradient(180deg, rgba(255,255,255,.35), transparent 20%, transparent 80%, rgba(21,101,255,.05));
+      pointer-events: none;
     }
 
-    .legend {
+    .schematic::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(125deg, rgba(255,255,255,.34), transparent 22%, transparent 64%, rgba(255,255,255,.22)),
+        radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(49,213,255,.20), transparent 24%);
+      mix-blend-mode: screen;
+      pointer-events: none;
+      opacity: .9;
+      z-index: 1;
+    }
+
+    .timeline {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
+      gap: 18px;
     }
 
-    .legend-card {
-      padding: 16px 18px;
-      border-radius: 20px;
-      background: rgba(255,255,255,.76);
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      padding: 24px;
+      border-radius: 24px;
+      background: var(--surface-strong);
       border: 1px solid rgba(16,35,61,.08);
       box-shadow: var(--shadow-soft);
+      transition: transform .35s ease, box-shadow .35s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .legend-card h3 {
-      font-size: 1rem;
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      opacity: .7;
+    }
+
+    .timeline-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 42px rgba(32,68,135,.15);
+    }
+
+    .timeline-year {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: .94rem;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .timeline h3 {
       margin-bottom: 8px;
+      font-size: 1.16rem;
     }
 
-    .legend-card p {
-      margin: 0;
-      color: var(--muted);
-      line-height: 1.6;
-      font-size: .92rem;
-    }
-
-    section {
-      padding: 36px 0;
-    }
+    section { padding: 36px 0; }
 
     .section-head {
       display: flex;
@@ -448,28 +611,48 @@
     .relay-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
     .card {
-      background: var(--surface-strong);
+      background: var(--surface-deep);
       border: 1px solid rgba(16,35,61,.08);
       border-radius: 24px;
       padding: 22px;
       box-shadow: var(--shadow-soft);
-      transition: .35s ease;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
       position: relative;
       overflow: hidden;
       isolation: isolate;
+      transform-style: preserve-3d;
+      will-change: transform;
     }
 
     .card::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(21,101,255,.06), transparent 45%, rgba(32,198,255,.07));
-      z-index: -1;
+      background: linear-gradient(135deg, rgba(21,101,255,.06), transparent 45%, rgba(32,198,255,.08));
+      z-index: -2;
     }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 42px rgba(32,68,135,.15);
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(49,213,255,.18), transparent 26%);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity .35s ease;
+      pointer-events: none;
+    }
+
+    .card:hover,
+    .card:focus-within {
+      transform: translateY(-8px) rotateX(6deg) rotateY(-4deg);
+      box-shadow: var(--shadow-3d);
+      border-color: rgba(21,101,255,.18);
+    }
+
+    .card:hover::after,
+    .card:focus-within::after {
+      opacity: 1;
     }
 
     .card h3 {
@@ -484,6 +667,13 @@
       color: var(--muted);
       line-height: 1.72;
       font-size: .96rem;
+      margin-top: 0;
+    }
+
+    .card ul,
+    .timeline ul {
+      padding-left: 18px;
+      margin: 10px 0 0;
     }
 
     .pill-row {
@@ -501,41 +691,15 @@
       color: #2153b8;
       font-weight: 600;
       font-size: .86rem;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 20px;
-      padding: 24px;
-      border-radius: 24px;
-      background: var(--surface-strong);
-      border: 1px solid rgba(16,35,61,.08);
-      box-shadow: var(--shadow-soft);
-    }
-
-    .timeline-year {
-      font-weight: 800;
-      color: var(--primary);
-      font-size: .94rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .timeline h3 {
-      margin-bottom: 8px;
-      font-size: 1.16rem;
-    }
-
-    .timeline ul,
-    .card ul {
-      padding-left: 18px;
-      margin: 10px 0 0;
+    .pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 18px rgba(21,101,255,.12);
+      background: rgba(21,101,255,.12);
     }
 
     .project-card h3 {
@@ -543,6 +707,7 @@
       align-items: center;
       gap: 10px;
       justify-content: space-between;
+      flex-wrap: wrap;
     }
 
     .project-badge {
@@ -555,6 +720,7 @@
       letter-spacing: .04em;
       text-transform: uppercase;
       flex-shrink: 0;
+      box-shadow: inset 0 0 0 1px rgba(12,166,120,.12);
     }
 
     .cta {
@@ -572,6 +738,16 @@
       background: linear-gradient(135deg, #0e2340, #1f5fff 70%, #32cfff 100%);
       color: white;
       box-shadow: 0 24px 46px rgba(17, 64, 149, .25);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-box::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(255,255,255,.22), transparent 30%);
+      pointer-events: none;
     }
 
     .cta-box p { color: rgba(255,255,255,.82); }
@@ -585,7 +761,7 @@
 
     .reveal {
       opacity: 0;
-      transform: translateY(26px) scale(.98);
+      transform: translateY(26px) scale(.985);
       transition: opacity .7s ease, transform .7s ease;
     }
 
@@ -596,6 +772,23 @@
 
     .float {
       animation: floatCard 7s ease-in-out infinite;
+    }
+
+    .schematic svg {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      position: relative;
+      z-index: 2;
+    }
+
+    .schematic text {
+      paint-order: stroke;
+      stroke: rgba(255,255,255,.62);
+      stroke-width: 2px;
+      letter-spacing: .02em;
+      text-rendering: geometricPrecision;
+      filter: drop-shadow(0 2px 8px rgba(16,35,61,.10));
     }
 
     .schematic-node,
@@ -609,14 +802,31 @@
     .schematic-line { animation-name: pulseLine; animation-duration: 4.8s; }
     .schematic-pulse { animation-name: moveDash; animation-duration: 3s; }
 
+    .hero-focus {
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform .22s ease;
+    }
+
     @keyframes floatOrb {
       0%, 100% { transform: translate3d(0,0,0) scale(1); }
       50% { transform: translate3d(16px, 18px, 0) scale(1.06); }
     }
 
+    @keyframes ambientShift {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(-10px, 6px, 0) scale(1.04); }
+      100% { transform: translate3d(8px, -10px, 0) scale(1.02); }
+    }
+
     @keyframes floatCard {
       0%,100% { transform: translateY(0); }
       50% { transform: translateY(-8px); }
+    }
+
+    @keyframes markFloat {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(-3deg); }
     }
 
     @keyframes pulseDot {
@@ -626,7 +836,7 @@
 
     @keyframes glowNode {
       0%,100% { opacity: .72; filter: drop-shadow(0 0 0 rgba(21,101,255,.1)); }
-      50% { opacity: 1; filter: drop-shadow(0 0 10px rgba(21,101,255,.28)); }
+      50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(21,101,255,.28)); }
     }
 
     @keyframes pulseLine {
@@ -639,7 +849,47 @@
       to { stroke-dashoffset: 0; }
     }
 
+    @keyframes heroGlow {
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(21,101,255,.1)); }
+      50% { filter: drop-shadow(0 8px 18px rgba(21,101,255,.25)); }
+    }
+
+    @keyframes chartFloat {
+      0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+      50% { transform: translateY(-6px) rotateX(1.4deg) rotateY(-1.4deg); }
+    }
+
+    @keyframes chartPulseGlow {
+      0%, 100% { filter: drop-shadow(0 0 0 rgba(21,101,255,.10)); }
+      50% { filter: drop-shadow(0 0 16px rgba(49,213,255,.24)); }
+    }
+
+    @keyframes nodePop {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+    }
+
+    @keyframes labelFlicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .94; }
+    }
+
+    @keyframes subtleShake {
+      0%, 90%, 100% { transform: translate3d(0,0,0); }
+      91% { transform: translate3d(-.4px,.2px,0); }
+      92% { transform: translate3d(.4px,-.2px,0); }
+      93% { transform: translate3d(-.6px,.25px,0); }
+      94% { transform: translate3d(.55px,-.15px,0); }
+      95% { transform: translate3d(-.25px,.15px,0); }
+      96% { transform: translate3d(.2px,-.1px,0); }
+    }
+
+    @keyframes navSweep {
+      to { transform: translateX(120%); }
+    }
+
     @media (max-width: 1100px) {
+      .hero-shell,
       .cta,
       .skills-grid,
       .project-grid,
@@ -648,46 +898,173 @@
       .tool-grid {
         grid-template-columns: 1fr 1fr;
       }
+
       .hero-shell { grid-template-columns: 1fr; }
       .hero { min-height: auto; }
       h1 { max-width: 100%; }
-      .schematic { min-height: 700px; }
+      .schematic { min-height: 760px; }
+    }
+
+      .hero-shell { grid-template-columns: 1fr; }
+      .hero { min-height: auto; }
+      h1 { max-width: 100%; }
+      .schematic { min-height: 680px; }
     }
 
     @media (max-width: 760px) {
-      .nav-shell,
-      .brand,
-      .hero-actions,
-      .section-head,
+      .container { width: min(calc(100% - 20px), var(--max)); }
+
+      .nav {
+        top: 6px;
+        padding-top: 8px;
+      }
+
+      .nav-shell {
+        border-radius: 24px;
+        padding: 14px;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .brand {
+        width: 100%;
+      }
+
+      .brand-text span {
+        white-space: normal;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+        width: 100%;
+        gap: 8px;
+      }
+
+      .nav-links a,
+      .btn {
+        padding: 10px 14px;
+        font-size: .9rem;
+      }
+
+      .hero {
+        padding-top: 24px;
+      }
+
+      .hero-copy,
+      .hero-visual,
+      .cta,
+      .schematic {
+        padding: 22px;
+      }
+
+      h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+        line-height: .98;
+      }
+
+      .subtitle {
+        max-width: 100%;
+        line-height: 1.7;
+      }
+
       .metric-row,
       .skills-grid,
       .project-grid,
       .relay-grid,
       .software-grid,
       .tool-grid,
-      .legend,
       .cta {
         grid-template-columns: 1fr;
       }
-      .nav-shell {
-        border-radius: 24px;
-        padding: 16px;
-      }
-      .nav-links { justify-content: flex-start; }
-      .hero-copy,
-      .hero-visual,
-      .cta,
-      .schematic { padding: 22px; }
+
       .timeline-item {
         grid-template-columns: 1fr;
+        padding: 20px;
       }
-      .metric-row { display: grid; }
-      h1 { font-size: clamp(2.6rem, 13vw, 4rem); }
+
+      .schematic {
+        min-height: auto;
+        aspect-ratio: 1 / 1.55;
+      }
+
+      .schematic svg {
+        min-height: 760px;
+      }
+
+      .schematic text {
+        font-size: 16px !important;
+        stroke-width: 1.2px;
+      }
+
+      .project-card h3 {
+        align-items: flex-start;
+      }
+
+      .panel,
+      .card,
+      .metric,
+      .timeline-item,
+      .cta-box {
+        transform: none !important;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body::before,
+      body::after {
+        width: 62vw;
+        height: 62vw;
+      }
+
+      .hero-copy {
+        padding: 22px 18px 18px;
+      }
+
+      .hero-visual {
+        padding: 14px;
+      }
+
+      .schematic {
+        padding: 12px;
+        border-radius: 24px;
+      }
+
+      .schematic svg {
+        min-height: 700px;
+      }
+
+      .schematic text {
+        font-size: 14px !important;
+      }
+
+      .metric,
+      .card,
+      .timeline-item,
+      .cta-box,
+      .cta {
+        padding: 18px;
+        border-radius: 20px;
+      }
+
+      .pill-row { gap: 8px; }
+      .pill { padding: 8px 11px; font-size: .8rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="ambient-light"></div>
   <div class="grid-overlay"></div>
+  <div class="noise-layer"></div>
+
   <div class="pulse-layer" aria-hidden="true">
     <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
       <defs>
@@ -735,7 +1112,7 @@
         <div class="brand-mark"></div>
         <div class="brand-text">
           <strong>Dhilipdharan V</strong>
-          <span>Protection, Testing & Commissioning Engineer</span>
+          <span>Protection, Testing &amp; Commissioning Engineer</span>
         </div>
       </div>
       <div class="nav-links">
@@ -751,10 +1128,10 @@
   <main>
     <section class="hero container">
       <div class="hero-shell">
-        <div class="panel hero-copy reveal visible">
+        <div class="panel hero-copy reveal visible hero-focus">
           <div class="eyebrow"><span class="dot"></span> Electrical Engineering Portfolio</div>
           <h1>
-            High-voltage <span class="hero-gradient">protection</span> engineered with precision.
+            High-voltage <span class="hero-gradient shake">protection</span> engineered with precision.
           </h1>
           <p class="subtitle">
             Dhilipdharan V is a Protection, Testing &amp; Commissioning Engineer focused on secondary protection testing, primary equipment validation, IEC 61850 communication, remote integration, and full commissioning delivery across substations, power plants, renewables, BESS, and heavy industrial infrastructure.
@@ -779,9 +1156,9 @@
           </div>
         </div>
 
-        <div class="panel hero-visual reveal visible">
-          <div class="schematic float" aria-hidden="true">
-            <svg viewBox="0 0 1100 820" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
+        <div class="panel hero-visual reveal visible hero-focus">
+          <div class="schematic float hero-focus" aria-hidden="true" id="flow3d">
+            <svg viewBox="0 0 1200 1160" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
               <defs>
                 <linearGradient id="mainStroke" x1="0%" x2="100%">
                   <stop offset="0%" stop-color="#1b6bff" />
@@ -795,147 +1172,191 @@
                   <stop offset="0%" stop-color="#11b886" />
                   <stop offset="100%" stop-color="#2bd7ff" />
                 </linearGradient>
-                <filter id="softGlowLarge">
-                  <feGaussianBlur stdDeviation="4" result="blur"/>
+                <filter id="softGlowLarge" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="6" result="blur"/>
                   <feMerge>
                     <feMergeNode in="blur"/>
                     <feMergeNode in="SourceGraphic"/>
                   </feMerge>
                 </filter>
+                <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="rgba(16,35,61,.18)"/>
+                </filter>
               </defs>
 
-              <g fill="none" stroke="url(#mainStroke)" stroke-width="9" stroke-linecap="round" class="schematic-line">
-                <path d="M550 98 V196" />
-                <path d="M550 236 V344" />
-                <path d="M550 384 V492" />
-                <path d="M550 532 V650" />
+              <g style="transform: translateZ(30px); transform-origin:center; animation: chartFloat 7s ease-in-out infinite, chartPulseGlow 6s ease-in-out infinite;">
+                <g fill="none" stroke="url(#mainStroke)" stroke-width="12" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
+                  <path d="M600 110 V240" />
+                  <path d="M600 330 V460" />
+                  <path d="M600 550 V680" />
+                  <path d="M600 770 V910" />
+                </g>
+
+                <g fill="none" stroke="url(#branchStroke)" stroke-width="4.2" stroke-linecap="round" stroke-dasharray="18 18" class="schematic-pulse" filter="url(#softGlowLarge)">
+                  <path d="M600 110 V240" style="animation-duration:2.8s"/>
+                  <path d="M600 330 V460" style="animation-duration:3.1s"/>
+                  <path d="M600 550 V680" style="animation-duration:3.4s"/>
+                  <path d="M600 770 V910" style="animation-duration:3.7s"/>
+                </g>
               </g>
 
-              <g fill="none" stroke="url(#branchStroke)" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="18 18" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M550 98 V196" style="animation-duration:2.8s"/>
-                <path d="M550 236 V344" style="animation-duration:3.1s"/>
-                <path d="M550 384 V492" style="animation-duration:3.4s"/>
-                <path d="M550 532 V650" style="animation-duration:3.7s"/>
+              <g fill="none" stroke="url(#mainStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)" style="transform: translateZ(20px); transform-origin:center;">
+                <path d="M600 285 H390 V180 H165" />
+                <path d="M600 285 H390 V255 H165" />
+                <path d="M600 285 H390 V330 H165" />
+                <path d="M600 285 H390 V405 H165" />
+                <path d="M600 285 H390 V480 H165" />
+                <path d="M600 285 H390 V555 H165" />
+              </g>
+              <g fill="none" stroke="url(#branchStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M600 285 H390 V180 H165" style="animation-duration:3.0s"/>
+                <path d="M600 285 H390 V255 H165" style="animation-duration:3.2s"/>
+                <path d="M600 285 H390 V330 H165" style="animation-duration:3.4s"/>
+                <path d="M600 285 H390 V405 H165" style="animation-duration:3.6s"/>
+                <path d="M600 285 H390 V480 H165" style="animation-duration:3.8s"/>
+                <path d="M600 285 H390 V555 H165" style="animation-duration:4.0s"/>
               </g>
 
-              <g fill="none" stroke="url(#mainStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
-                <path d="M550 216 H360 V132 H150" />
-                <path d="M550 216 H360 V192 H150" />
-                <path d="M550 216 H360 V252 H150" />
-                <path d="M550 216 H360 V312 H150" />
-                <path d="M550 216 H360 V372 H150" />
-                <path d="M550 216 H360 V432 H150" />
+              <g fill="none" stroke="url(#commStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
+                <path d="M600 285 H810 V190 H1035" />
+                <path d="M600 285 H810 V285 H1035" />
+                <path d="M600 285 H810 V380 H1035" />
+                <path d="M600 285 H810 V475 H1035" />
               </g>
-              <g fill="none" stroke="url(#branchStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M550 216 H360 V132 H150" style="animation-duration:3.0s"/>
-                <path d="M550 216 H360 V192 H150" style="animation-duration:3.2s"/>
-                <path d="M550 216 H360 V252 H150" style="animation-duration:3.4s"/>
-                <path d="M550 216 H360 V312 H150" style="animation-duration:3.6s"/>
-                <path d="M550 216 H360 V372 H150" style="animation-duration:3.8s"/>
-                <path d="M550 216 H360 V432 H150" style="animation-duration:4.0s"/>
+              <g fill="none" stroke="url(#commStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M600 285 H810 V190 H1035" style="animation-duration:3.1s"/>
+                <path d="M600 285 H810 V285 H1035" style="animation-duration:3.4s"/>
+                <path d="M600 285 H810 V380 H1035" style="animation-duration:3.7s"/>
+                <path d="M600 285 H810 V475 H1035" style="animation-duration:4.0s"/>
               </g>
 
-              <g fill="none" stroke="url(#commStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
-                <path d="M550 216 H740 V142 H930" />
-                <path d="M550 216 H740 V222 H930" />
-                <path d="M550 216 H740 V302 H930" />
-                <path d="M550 216 H740 V382 H930" />
+              <g fill="none" stroke="url(#mainStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
+                <path d="M600 735 H390 V830 H165" />
+                <path d="M600 735 H390 V930 H165" />
+                <path d="M600 735 H390 V1030 H165" />
               </g>
-              <g fill="none" stroke="url(#commStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M550 216 H740 V142 H930" style="animation-duration:3.1s"/>
-                <path d="M550 216 H740 V222 H930" style="animation-duration:3.4s"/>
-                <path d="M550 216 H740 V302 H930" style="animation-duration:3.7s"/>
-                <path d="M550 216 H740 V382 H930" style="animation-duration:4.0s"/>
+              <g fill="none" stroke="url(#branchStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M600 735 H390 V830 H165" style="animation-duration:3.3s"/>
+                <path d="M600 735 H390 V930 H165" style="animation-duration:3.7s"/>
+                <path d="M600 735 H390 V1030 H165" style="animation-duration:4.1s"/>
               </g>
 
-              <g fill="none" stroke="url(#mainStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
-                <path d="M550 512 H360 V576 H150" />
-                <path d="M550 512 H360 V646 H150" />
-                <path d="M550 512 H360 V716 H150" />
+              <g fill="none" stroke="url(#commStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
+                <path d="M600 735 H810 V830 H1035" />
+                <path d="M600 735 H810 V930 H1035" />
+                <path d="M600 735 H810 V1030 H1035" />
               </g>
-              <g fill="none" stroke="url(#branchStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M550 512 H360 V576 H150" style="animation-duration:3.3s"/>
-                <path d="M550 512 H360 V646 H150" style="animation-duration:3.7s"/>
-                <path d="M550 512 H360 V716 H150" style="animation-duration:4.1s"/>
+              <g fill="none" stroke="url(#commStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
+                <path d="M600 735 H810 V830 H1035" style="animation-duration:3.2s"/>
+                <path d="M600 735 H810 V930 H1035" style="animation-duration:3.6s"/>
+                <path d="M600 735 H810 V1030 H1035" style="animation-duration:4.0s"/>
               </g>
 
-              <g fill="none" stroke="url(#commStroke)" stroke-width="6" stroke-linecap="round" class="schematic-line">
-                <path d="M550 512 H740 V576 H930" />
-                <path d="M550 512 H740 V646 H930" />
-                <path d="M550 512 H740 V716 H930" />
+              <g filter="url(#cardShadow)">
+                <g>
+                  <rect x="355" y="30" rx="28" ry="28" width="490" height="74" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
+                  <rect x="365" y="160" rx="28" ry="28" width="470" height="94" fill="rgba(255,255,255,.95)" stroke="rgba(21,101,255,.14)"/>
+                  <rect x="365" y="380" rx="28" ry="28" width="470" height="94" fill="rgba(255,255,255,.95)" stroke="rgba(123,97,255,.14)"/>
+                  <rect x="365" y="600" rx="28" ry="28" width="470" height="94" fill="rgba(255,255,255,.95)" stroke="rgba(12,166,120,.14)"/>
+                  <rect x="375" y="920" rx="28" ry="28" width="450" height="74" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
+                </g>
+
+                <g>
+                  <rect x="22" y="146" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
+                  <rect x="22" y="221" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
+                  <rect x="22" y="296" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(123,97,255,.12)"/>
+                  <rect x="22" y="371" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
+                  <rect x="22" y="446" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
+                  <rect x="22" y="521" rx="22" ry="22" width="250" height="52" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
+                </g>
+
+                <g>
+                  <rect x="928" y="156" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
+                  <rect x="928" y="251" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
+                  <rect x="928" y="346" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
+                  <rect x="928" y="441" rx="22" ry="22" width="248" height="56" fill="rgba(255,255,255,.92)" stroke="rgba(123,97,255,.12)"/>
+                </g>
+
+                <g>
+                  <rect x="18" y="804" rx="22" ry="22" width="262" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
+                  <rect x="18" y="904" rx="22" ry="22" width="262" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(123,97,255,.12)"/>
+                  <rect x="18" y="1004" rx="22" ry="22" width="262" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
+                </g>
+
+                <g>
+                  <rect x="920" y="804" rx="22" ry="22" width="260" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(32,198,255,.12)"/>
+                  <rect x="920" y="904" rx="22" ry="22" width="260" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(21,101,255,.12)"/>
+                  <rect x="920" y="1004" rx="22" ry="22" width="260" height="58" fill="rgba(255,255,255,.92)" stroke="rgba(12,166,120,.12)"/>
+                </g>
               </g>
-              <g fill="none" stroke="url(#commStroke)" stroke-width="2.8" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M550 512 H740 V576 H930" style="animation-duration:3.2s"/>
-                <path d="M550 512 H740 V646 H930" style="animation-duration:3.6s"/>
-                <path d="M550 512 H740 V716 H930" style="animation-duration:4.0s"/>
+
+              <g style="animation: nodePop 3.6s ease-in-out infinite; transform-origin:center;">
+                <circle cx="600" cy="67" r="22" fill="#1565ff" class="schematic-node" />
+                <circle cx="600" cy="285" r="28" fill="#31d5ff" class="schematic-node" style="animation-delay:.2s"/>
+                <circle cx="600" cy="505" r="28" fill="#7b61ff" class="schematic-node" style="animation-delay:.5s"/>
+                <circle cx="600" cy="735" r="28" fill="#0ca678" class="schematic-node" style="animation-delay:.8s"/>
+                <circle cx="600" cy="957" r="22" fill="#1565ff" class="schematic-node" style="animation-delay:1.1s"/>
               </g>
 
               <g>
-                <circle cx="550" cy="74" r="22" fill="#1565ff" class="schematic-node" />
-                <circle cx="550" cy="216" r="26" fill="#31d5ff" class="schematic-node" style="animation-delay:.2s"/>
-                <circle cx="550" cy="364" r="26" fill="#7b61ff" class="schematic-node" style="animation-delay:.5s"/>
-                <circle cx="550" cy="512" r="26" fill="#0ca678" class="schematic-node" style="animation-delay:.8s"/>
-                <circle cx="550" cy="680" r="22" fill="#1565ff" class="schematic-node" style="animation-delay:1.1s"/>
+                <circle cx="165" cy="180" r="12" fill="#1565ff" class="schematic-node" />
+                <circle cx="165" cy="255" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:.2s"/>
+                <circle cx="165" cy="330" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.4s"/>
+                <circle cx="165" cy="405" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
+                <circle cx="165" cy="480" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.8s"/>
+                <circle cx="165" cy="555" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:1s"/>
+
+                <circle cx="1035" cy="190" r="12" fill="#0ca678" class="schematic-node" />
+                <circle cx="1035" cy="285" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:.25s"/>
+                <circle cx="1035" cy="380" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.5s"/>
+                <circle cx="1035" cy="475" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.75s"/>
+
+                <circle cx="165" cy="830" r="12" fill="#1565ff" class="schematic-node" />
+                <circle cx="165" cy="930" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.3s"/>
+                <circle cx="165" cy="1030" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
+
+                <circle cx="1035" cy="830" r="12" fill="#2bd7ff" class="schematic-node" />
+                <circle cx="1035" cy="930" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.3s"/>
+                <circle cx="1035" cy="1030" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
               </g>
 
-              <g>
-                <circle cx="150" cy="132" r="12" fill="#1565ff" class="schematic-node" />
-                <circle cx="150" cy="192" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:.2s"/>
-                <circle cx="150" cy="252" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.4s"/>
-                <circle cx="150" cy="312" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
-                <circle cx="150" cy="372" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.8s"/>
-                <circle cx="150" cy="432" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:1s"/>
+              <g fill="#10233d" font-family="Inter, sans-serif" font-weight="800" style="animation: labelFlicker 5s ease-in-out infinite;">
+                <text x="600" y="76" text-anchor="middle" font-size="28">Protection &amp; Commissioning Engineering</text>
+                <text x="600" y="218" text-anchor="middle" font-size="24">Secondary Protection Testing</text>
+                <text x="600" y="438" text-anchor="middle" font-size="24">Protection Logic &amp; Analysis</text>
+                <text x="600" y="658" text-anchor="middle" font-size="24">Primary Equipment Testing</text>
+                <text x="600" y="966" text-anchor="middle" font-size="26">Completions Engineering</text>
 
-                <circle cx="930" cy="142" r="12" fill="#0ca678" class="schematic-node" />
-                <circle cx="930" cy="222" r="12" fill="#2bd7ff" class="schematic-node" style="animation-delay:.25s"/>
-                <circle cx="930" cy="302" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.5s"/>
-                <circle cx="930" cy="382" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.75s"/>
+                <text x="145" y="186" text-anchor="middle" font-size="19">Line Protection</text>
+                <text x="145" y="261" text-anchor="middle" font-size="19">Feeder Protection</text>
+                <text x="145" y="336" text-anchor="middle" font-size="19">Transformer Protection</text>
+                <text x="145" y="411" text-anchor="middle" font-size="19">Busbar Protection</text>
+                <text x="145" y="486" text-anchor="middle" font-size="19">Motor Protection</text>
+                <text x="145" y="561" text-anchor="middle" font-size="19">Generator Protection</text>
 
-                <circle cx="150" cy="576" r="12" fill="#1565ff" class="schematic-node" />
-                <circle cx="150" cy="646" r="12" fill="#7b61ff" class="schematic-node" style="animation-delay:.3s"/>
-                <circle cx="150" cy="716" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
+                <text x="1052" y="196" text-anchor="middle" font-size="19">GOOSE</text>
+                <text x="1052" y="291" text-anchor="middle" font-size="19">IEC 61850</text>
+                <text x="1052" y="386" text-anchor="middle" font-size="19">DNP / Modbus</text>
+                <text x="1052" y="481" text-anchor="middle" font-size="19">Remote Ops</text>
 
-                <circle cx="930" cy="576" r="12" fill="#2bd7ff" class="schematic-node" />
-                <circle cx="930" cy="646" r="12" fill="#1565ff" class="schematic-node" style="animation-delay:.3s"/>
-                <circle cx="930" cy="716" r="12" fill="#0ca678" class="schematic-node" style="animation-delay:.6s"/>
-              </g>
+                <text x="149" y="836" text-anchor="middle" font-size="19">Circuit Breakers</text>
+                <text x="149" y="936" text-anchor="middle" font-size="19">CT / VT</text>
+                <text x="149" y="1036" text-anchor="middle" font-size="19">Transformers</text>
 
-              <g fill="#10233d" font-family="Inter, sans-serif" font-weight="700">
-                <text x="550" y="38" text-anchor="middle" font-size="20">Protection &amp; Commissioning Engineering</text>
-                <text x="550" y="185" text-anchor="middle" font-size="18">Secondary Protection Testing</text>
-                <text x="550" y="332" text-anchor="middle" font-size="18">Protection Logic &amp; Analysis</text>
-                <text x="550" y="480" text-anchor="middle" font-size="18">Primary Equipment Testing</text>
-                <text x="550" y="648" text-anchor="middle" font-size="18">Completions Engineering</text>
-               
-
-                <text x="126" y="138" text-anchor="end" font-size="15">Line </text>
-                <text x="126" y="198" text-anchor="end" font-size="15">Feeder</text>
-                <text x="126" y="258" text-anchor="end" font-size="15">Transformer</text>
-                <text x="126" y="318" text-anchor="end" font-size="15">Busbar</text>
-                <text x="126" y="378" text-anchor="end" font-size="15">Motor</text>
-                <text x="126" y="438" text-anchor="end" font-size="15">Generator</text>
-
-                <text x="954" y="148" text-anchor="start" font-size="15">GOOSE</text>
-                <text x="954" y="228" text-anchor="start" font-size="15">IEC 61850</text>
-                <text x="954" y="308" text-anchor="start" font-size="15">DNP / Modbus</text>
-                <text x="954" y="388" text-anchor="start" font-size="15">Remote Ops</text>
-
-                <text x="126" y="582" text-anchor="end" font-size="15">Circuit Breakers</text>
-                <text x="126" y="652" text-anchor="end" font-size="15">CT / VT</text>
-                <text x="126" y="722" text-anchor="end" font-size="15">Transformers</text>
-
-                <text x="954" y="582" text-anchor="start" font-size="15">Full Commissioning</text>
-                <text x="954" y="652" text-anchor="start" font-size="15">Primary Equipments</text>
-                <text x="954" y="722" text-anchor="start" font-size="15">Signal testing</text>
+                <text x="1050" y="836" text-anchor="middle" font-size="19">Full Commissioning</text>
+                <text x="1050" y="936" text-anchor="middle" font-size="19">Primary Equipments</text>
+                <text x="1050" y="1036" text-anchor="middle" font-size="19">Signal Testing</text>
               </g>
             </svg>
           </div>
           <div class="timeline">
             <div class="timeline-item">
-              <h3>Engineering Focus</h3>
-              <p>Secondary protection testing, primary equipment validation, scheme checking, IEC 61850 integration, troubleshooting, and energisation readiness.</p>
+              <div class="timeline-year">Focus</div>
+              <div>
+                <h3>Engineering Focus</h3>
+                <p>Secondary protection testing, primary equipment validation, scheme checking, IEC 61850 integration, troubleshooting, and energisation readiness.</p>
+              </div>
             </div>
-            
           </div>
         </div>
       </div>
@@ -945,17 +1366,17 @@
       <div class="section-head">
         <div>
           <div class="section-tag">About</div>
-          <h2>Protection & commissioning profile</h2>
+          <h2>Protection &amp; commissioning profile</h2>
         </div>
         <p>
-          Electrical & Electronics Engineering graduate with hands-on experience across relay testing, commissioning, control and relay scheme validation, IEC 61850 / GOOSE communication, disturbance analysis, work pack preparation, asset validation, and project handover support.
+          Electrical &amp; Electronics Engineering graduate with hands-on experience across relay testing, commissioning, control and relay scheme validation, IEC 61850 / GOOSE communication, disturbance analysis, work pack preparation, asset validation, and project handover support.
         </p>
       </div>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-year">2022 — Present</div>
           <div>
-            <h3>Sun & Jay Engineering Consultants Pvt. Ltd.</h3>
+            <h3>Sun &amp; Jay Engineering Consultants Pvt. Ltd.</h3>
             <p>Electrical Engineer — High Voltage Protection Relay Testing</p>
             <ul>
               <li>Testing and commissioning of protection systems, switchgear, switchyard equipment, CTs, CVTs, breakers, isolators, earth switches, and lightning arresters.</li>
@@ -1002,7 +1423,7 @@
           </div>
         </article>
         <article class="card">
-          <h3>Scheme Checking & Interlocks</h3>
+          <h3>Scheme Checking &amp; Interlocks</h3>
           <p>Control and relay panel verification, switchyard and switchgear interlocks, auto changeover schemes, functional logic checks, and energisation readiness review.</p>
           <div class="pill-row">
             <span class="pill">CRP / RCP</span>
@@ -1012,7 +1433,7 @@
           </div>
         </article>
         <article class="card">
-          <h3>IEC 61850 & GOOSE</h3>
+          <h3>IEC 61850 &amp; GOOSE</h3>
           <p>Relay-to-relay communication setup, signal validation, carrier and direct transfer schemes, SCADA integration support, and GOOSE mapping / signal verification.</p>
           <div class="pill-row">
             <span class="pill">GOOSE</span>
@@ -1032,7 +1453,7 @@
           </div>
         </article>
         <article class="card">
-          <h3>Fault & Disturbance Analysis</h3>
+          <h3>Fault &amp; Disturbance Analysis</h3>
           <p>Disturbance recorder analysis, waveform interpretation, harmonic review, sequence component review, timing analysis, and event-based troubleshooting support.</p>
           <div class="pill-row">
             <span class="pill">Waveform Analysis</span>
@@ -1041,7 +1462,7 @@
           </div>
         </article>
         <article class="card">
-          <h3>Completions & Handover</h3>
+          <h3>Completions &amp; Handover</h3>
           <p>Asset and ITR validation, drawing cross-checking with P&amp;IDs and isometrics, work pack preparation, walkdowns, LOSH boundary verification, and handover readiness.</p>
           <div class="pill-row">
             <span class="pill">CCMS</span>
@@ -1077,7 +1498,7 @@
       <div class="section-head">
         <div>
           <div class="section-tag">Testing Tools</div>
-          <h2>Field instruments & engineering software</h2>
+          <h2>Field instruments &amp; engineering software</h2>
         </div>
         <p>
           A premium recruiter-facing presentation of the hardware and software stack used for testing, analysis, and commissioning delivery.
@@ -1146,7 +1567,7 @@
           <p>Testing and commissioning of Siemens feeder RMU relays, breaker testing, and current transformer primary validation within battery energy storage infrastructure.</p>
         </article>
         <article class="card project-card">
-          <h3>International & Utility Projects <span class="project-badge">Multi-site</span></h3>
+          <h3>International &amp; Utility Projects <span class="project-badge">Multi-site</span></h3>
           <p>KPTCL, PGCIL, HVPNL, GETCL, UPPTCL, RFCL, HPCL, NLC, NTTPS, Nigeria substations, offshore oil facilities, and multiple thermal and industrial sites.</p>
         </article>
       </div>
@@ -1156,9 +1577,9 @@
       <div class="panel cta">
         <div>
           <div class="section-tag">Dhilipdharan Venu</div>
-          <h2>Electrical / Protection & Commissioning Engineer</h2>
+          <h2>Electrical / Protection &amp; Commissioning Engineer</h2>
           <p style="color: var(--muted); line-height: 1.8; max-width: 62ch;">
-            technical depth, field execution capability, and multi-vendor protection expertise.
+            Technical depth, field execution capability, and multi-vendor protection expertise.
           </p>
         </div>
         <div class="cta-box" id="contact">
@@ -1188,10 +1609,29 @@
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
+    document.querySelectorAll('.card, .metric, .hero-focus').forEach((item) => {
+      item.addEventListener('mousemove', (e) => {
+        if (window.innerWidth <= 760) return;
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const rotateX = ((y / rect.height) - 0.5) * -8;
+        const rotateY = ((x / rect.width) - 0.5) * 8;
+        item.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+        item.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
+        item.style.setProperty('--my', `${(y / rect.height) * 100}%`);
+        item.style.setProperty('--gx', `${(x / rect.width) * 100}%`);
+        item.style.setProperty('--gy', `${(y / rect.height) * 100}%`);
+      });
+
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = '';
+      });
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('mouseenter', () => {
-        link.style.transform = 'translateY(-2px)';
+        if (window.innerWidth > 760) link.style.transform = 'translateY(-2px)';
       });
       link.addEventListener('mouseleave', () => {
         link.style.transform = '';
