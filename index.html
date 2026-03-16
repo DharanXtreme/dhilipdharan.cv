@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dhilipdharan Venu | Electrical Protection Engineer</title>
+  <meta name="description" content="Professional animated resume website for Dhilipdharan Venu, Electrical Protection Engineer." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f9ff;
+      --bg-soft: rgba(255,255,255,0.72);
+      --panel: rgba(255,255,255,0.86);
+      --panel-strong: rgba(255,255,255,0.94);
+      --text: #0d1b2a;
+      --muted: #4b5b72;
+      --line: rgba(86, 117, 168, 0.18);
+      --primary: #1463ff;
+      --primary-2: #00a3ff;
+      --accent: #18c2ff;
+      --shadow: 0 20px 60px rgba(14, 40, 84, 0.12);
+      --radius: 24px;
+      --radius-sm: 18px;
+      --max: 1200px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 20%, rgba(20, 99, 255, 0.09), transparent 26%),
+        radial-gradient(circle at 90% 15%, rgba(24, 194, 255, 0.12), transparent 22%),
+        radial-gradient(circle at 80% 70%, rgba(20, 99, 255, 0.08), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #edf5ff 100%);
+      overflow-x: hidden;
+    }
+
+    .grid-bg,
+    .energy-lines,
+    .sparks {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(20,99,255,0.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20,99,255,0.045) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.9), rgba(0,0,0,0.3));
+    }
+
+    .energy-lines svg,
+    .sparks svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(20px);
+      background: rgba(245, 249, 255, 0.7);
+      border-bottom: 1px solid rgba(20,99,255,0.08);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 76px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      text-decoration: none;
+      font-family: "Space Grotesk", Inter, sans-serif;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 14px 28px rgba(20,99,255,0.26);
+      font-size: 1.1rem;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 22px;
+      padding: 0;
+      margin: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    nav a:hover { color: var(--primary); }
+
+    .btn,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 0;
+      padding: 14px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+
+    .btn {
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      box-shadow: 0 16px 34px rgba(20,99,255,0.24);
+    }
+
+    .btn-outline {
+      color: var(--text);
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(20,99,255,0.12);
+    }
+
+    .btn:hover,
+    .btn-outline:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero {
+      padding: 72px 0 48px;
+      min-height: calc(100vh - 76px);
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.25fr 0.95fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(20,99,255,0.12);
+      border-radius: 999px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow);
+      color: var(--primary);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .pulse-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #32d9ff, #1463ff);
+      box-shadow: 0 0 0 0 rgba(20,99,255,0.4);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      70% { box-shadow: 0 0 0 14px rgba(20,99,255,0); }
+      100% { box-shadow: 0 0 0 0 rgba(20,99,255,0); }
+    }
+
+    h1 {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: clamp(2.7rem, 6vw, 5.3rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin: 0 0 18px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #0d1b2a 0%, #1463ff 55%, #00a3ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .lead {
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      line-height: 1.9;
+      color: var(--muted);
+      max-width: 760px;
+      margin: 0 0 24px;
+    }
+
+    .hero-actions,
+    .hero-meta {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .hero-meta {
+      margin-top: 24px;
+      color: var(--muted);
+      font-weight: 600;
+      gap: 18px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.72);
+      border: 1px solid rgba(20,99,255,0.1);
+    }
+
+    .profile-card {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.94), rgba(255,255,255,0.8));
+      border: 1px solid rgba(20,99,255,0.12);
+      border-radius: 34px;
+      box-shadow: 0 30px 70px rgba(14, 40, 84, 0.16);
+      padding: 28px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      inset: -40% auto auto -10%;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,163,255,0.18), transparent 70%);
+      z-index: -1;
+    }
+
+    .profile-photo-wrap {
+      position: relative;
+      width: min(100%, 360px);
+      aspect-ratio: 4/5;
+      margin: 0 auto 22px;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(135deg, rgba(20,99,255,0.15), rgba(24,194,255,0.08)),
+        #eef6ff;
+      border: 1px solid rgba(20,99,255,0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 24px 50px rgba(20,99,255,0.14);
+    }
+
+    .profile-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-fallback {
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .orb, .orb-2 {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(8px);
+      opacity: 0.75;
+    }
+
+    .orb {
+      width: 90px;
+      height: 90px;
+      top: 18px;
+      right: 12px;
+      background: radial-gradient(circle, rgba(20,99,255,0.35), rgba(20,99,255,0));
+      animation: floatY 4.5s ease-in-out infinite;
+    }
+
+    .orb-2 {
+      width: 120px;
+      height: 120px;
+      left: -20px;
+      bottom: 50px;
+      background: radial-gradient(circle, rgba(0,163,255,0.24), rgba(0,163,255,0));
+      animation: floatY 5.2s ease-in-out infinite reverse;
+    }
+
+    @keyframes floatY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .small-panel {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .mini {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.74);
+      border: 1px solid rgba(20,99,255,0.09);
+    }
+
+    .mini strong {
+      display: block;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+      color: var(--primary);
+    }
+
+    section {
+      padding: 34px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+    }
+
+    h2 {
+      font-family: "Space Grotesk", Inter, sans-serif;
+      font-size: clamp(1.85rem, 4vw, 3rem);
+      margin: 0;
+      letter-spacing: -0.04em;
+    }
+
+    .section-heading p {
+      margin: 8px 0 0;
+      color: var(--muted);
+      max-width: 760px;
+      line-height: 1.8;
+    }
+
+    .glass {
+      background: var(--panel);
+      border: 1px solid rgba(20,99,255,0.1);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      backdrop-filter: blur(18px);
+    }
+
+    .about-grid,
+    .skills-grid,
+    .projects-grid,
+    .contact-grid,
+    .stats-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .about-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    .content-card,
+    .timeline,
+    .project-card,
+    .skill-card,
+    .contact-card,
+    .stat-card {
+      padding: 26px;
+    }
+
+    .content-card p,
+    .timeline p,
+    .project-card p,
+    .contact-card p,
+    .skill-card p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin: 0;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.64);
+      border: 1px solid rgba(20,99,255,0.08);
+      flex-wrap: wrap;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-left: 22px;
+      border-left: 2px solid rgba(20,99,255,0.16);
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -7px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      box-shadow: 0 0 0 6px rgba(20,99,255,0.08);
+    }
+
+    .timeline-item h3,
+    .project-card h3,
+    .skill-card h3,
+    .contact-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.08rem;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.86rem;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+
+    .stats-grid {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 20px;
+    }
+
+    .stat-card {
+      text-align: center;
+      background: rgba(255,255,255,0.72);
+    }
+
+    .stat-card strong {
+      display: block;
+      font-size: 2rem;
+      margin-bottom: 6px;
+      color: var(--primary);
+      font-family: "Space Grotesk", Inter, sans-serif;
+    }
+
+    .skills-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .skill-card ul {
+      margin: 14px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .projects-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -55% auto;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(20,99,255,0.12), transparent 70%);
+    }
+
+    .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--primary);
+      background: rgba(20,99,255,0.08);
+      border: 1px solid rgba(20,99,255,0.08);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .contact-card a {
+      color: var(--primary);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    footer {
+      padding: 24px 0 60px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-wrap,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav {
+        min-height: auto;
+        padding: 14px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      nav ul { gap: 14px; }
+
+      .hero { padding-top: 42px; }
+
+      .skills-grid,
+      .projects-grid,
+      .stats-grid,
+      .small-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .content-card,
+      .timeline,
+      .project-card,
+      .skill-card,
+      .contact-card,
+      .stat-card,
+      .profile-card {
+        padding: 20px;
+      }
+
+      .hero-actions .btn,
+      .hero-actions .btn-outline {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-bg"></div>
+
+  <div class="energy-lines" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="lineGlow" x1="0%" x2="100%">
+          <stop offset="0%" stop-color="#1463ff" stop-opacity="0" />
+          <stop offset="50%" stop-color="#1463ff" stop-opacity="0.7" />
+          <stop offset="100%" stop-color="#00a3ff" stop-opacity="0" />
+        </linearGradient>
+      </defs>
+      <path d="M-50 170 C 250 60, 370 290, 640 190 S 1080 80, 1650 220" fill="none" stroke="url(#lineGlow)" stroke-width="2.4" stroke-linecap="round">
+        <animate attributeName="stroke-dasharray" values="0,2000;220,1780;0,2000" dur="8s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-dashoffset" values="0;-240;0" dur="8s" repeatCount="indefinite"/>
+      </path>
+      <path d="M-20 650 C 240 510, 480 810, 760 650 S 1170 520, 1610 720" fill="none" stroke="url(#lineGlow)" stroke-width="2" stroke-linecap="round">
+        <animate attributeName="stroke-dasharray" values="0,1800;180,1620;0,1800" dur="9s" repeatCount="indefinite"/>
+        <animate attributeName="stroke-dashoffset" values="0;-210;0" dur="9s" repeatCount="indefinite"/>
+      </path>
+      <path d="M210 -30 C 260 120, 120 240, 270 360 S 430 620, 300 930" fill="none" stroke="url(#lineGlow)" stroke-width="1.8" stroke-linecap="round">
+        <animate attributeName="stroke-dasharray" values="0,1400;150,1250;0,1400" dur="7.5s" repeatCount="indefinite"/>
+      </path>
+      <path d="M1320 -10 C 1180 200, 1500 300, 1280 520 S 1320 740, 1230 940" fill="none" stroke="url(#lineGlow)" stroke-width="1.8" stroke-linecap="round">
+        <animate attributeName="stroke-dasharray" values="0,1450;140,1310;0,1450" dur="7.8s" repeatCount="indefinite"/>
+      </path>
+    </svg>
+  </div>
+
+  <div class="sparks" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
+      <g fill="#6ccfff" opacity="0.7">
+        <circle cx="220" cy="180" r="2.2">
+          <animate attributeName="cy" values="180;145;180" dur="4.6s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.2;1;0.2" dur="4.6s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="1280" cy="120" r="2.4">
+          <animate attributeName="cy" values="120;90;120" dur="3.8s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.15;0.95;0.15" dur="3.8s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="1420" cy="700" r="2">
+          <animate attributeName="cy" values="700;660;700" dur="4.9s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.25;1;0.25" dur="4.9s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="420" cy="760" r="1.8">
+          <animate attributeName="cy" values="760;720;760" dur="5.5s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0.2;0.9;0.2" dur="5.5s" repeatCount="indefinite" />
+        </circle>
+      </g>
+    </svg>
+  </div>
+
+  <header>
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <span class="brand-mark">⚡</span>
+        <span>Dhilipdharan Venu</span>
+      </a>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-wrap">
+        <div class="hero-copy reveal">
+          <div class="badge"><span class="pulse-dot"></span> Available for engineering opportunities & collaborations</div>
+          <h1>
+            Electrical <span class="gradient-text">Protection</span><br>
+            Engineer with a sharp focus on reliability.
+          </h1>
+          <p class="lead">
+            I’m <strong>Dhilipdharan Venu, MIEAust</strong> — an Electrical / Protection Engineer experienced in power system protection, relay testing, substation commissioning, IEC 61850 integration, and high-voltage project delivery. I build dependable systems with precision, safety, and strong site execution.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#contact">Let’s Connect</a>
+            <a class="btn-outline" href="YOUR-RESUME.pdf" target="_blank" rel="noopener">Download Resume</a>
+          </div>
+          <div class="hero-meta">
+            <span class="meta-chip">📍 Perth, Australia</span>
+            <span class="meta-chip">⚙️ Protection & Commissioning</span>
+            <span class="meta-chip">🔗 IEC 61850 / GOOSE</span>
+          </div>
+        </div>
+
+        <aside class="profile-card reveal">
+          <div class="orb"></div>
+          <div class="orb-2"></div>
+          <div class="profile-photo-wrap">
+            <!-- Replace profile.jpg with your own image file in the same folder -->
+            <img src="profile.jpg" alt="Dhilipdharan Venu" onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';">
+            <div class="photo-fallback" style="display:none;">
+              Add your passport photo as <strong>profile.jpg</strong><br>in the same folder as this HTML file.
+            </div>
+          </div>
+          <div class="eyebrow">Professional Snapshot</div>
+          <h3 style="margin:0 0 10px; font-size:1.4rem;">Dhilipdharan Venu</h3>
+          <p style="margin:0; color:var(--muted); line-height:1.8;">Electrical Protection Engineer focused on protection relays, testing, commissioning, and power system reliability across utility, industrial, and energy projects.</p>
+          <div class="small-panel">
+            <div class="mini"><strong>MIEAust</strong><span>Engineers Australia</span></div>
+            <div class="mini"><strong>HV Projects</strong><span>Protection & commissioning</span></div>
+            <div class="mini"><strong>Relays</strong><span>GE / SEL / ABB</span></div>
+            <div class="mini"><strong>Standards</strong><span>IEC 61850 / Grid practices</span></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">About Me</div>
+            <h2>Engineering with field discipline and system intelligence.</h2>
+          </div>
+          <p>I combine site execution, technical analysis, and protection engineering depth to deliver robust electrical systems. My work spans commissioning, relay logic verification, secondary injection, troubleshooting, and detailed coordination across project teams.</p>
+        </div>
+
+        <div class="about-grid">
+          <article class="content-card glass reveal">
+            <p>
+              My background is centered on power system protection and substation work, with hands-on involvement in relay configuration, testing, fault analysis, drawing verification, and commissioning support. I enjoy solving complex technical issues, streamlining commissioning workflows, and contributing to safe energisation outcomes.
+            </p>
+            <div class="info-list">
+              <div class="info-item"><strong>Specialisation</strong><span>Power System Protection & Commissioning</span></div>
+              <div class="info-item"><strong>Core Focus</strong><span>Protection Relays, Testing, IEC 61850, Site Delivery</span></div>
+              <div class="info-item"><strong>Professional Style</strong><span>Detail-oriented, safety-driven, solution-focused</span></div>
+              <div class="info-item"><strong>LinkedIn</strong><span><a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" rel="noopener">View Professional Profile</a></span></div>
+            </div>
+          </article>
+
+          <aside class="timeline glass reveal" id="experience">
+            <div class="eyebrow">Experience Highlights</div>
+            <div class="timeline-item">
+              <h3>Protection & Commissioning Engineering</h3>
+              <p>Hands-on exposure to substation and industrial projects, relay validation, logic checks, test plans, and energisation readiness activities.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Relay & Scheme Expertise</h3>
+              <p>Worked with protection platforms such as GE, SEL, and ABB, including transformer, feeder, line, and busbar-related applications.</p>
+            </div>
+            <div class="timeline-item">
+              <h3>Digital Substation & Control Integration</h3>
+              <p>Involved in IEC 61850 workflows, GOOSE communication concepts, control interface verification, and engineering documentation alignment.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="stats-grid reveal">
+          <div class="stat-card glass"><strong>Protection</strong><span>Testing, logic and commissioning focus</span></div>
+          <div class="stat-card glass"><strong>IEC 61850</strong><span>GOOSE and digital substation workflows</span></div>
+          <div class="stat-card glass"><strong>HV Projects</strong><span>Utility, industrial and energy environments</span></div>
+          <div class="stat-card glass"><strong>Field Ready</strong><span>Execution, safety and troubleshooting mindset</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">Technical Strengths</div>
+            <h2>Skills built for modern power infrastructure.</h2>
+          </div>
+          <p>These sections can be expanded further with your exact projects, relay models, software tools, and test equipment.</p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card glass reveal">
+            <h3>Protection Engineering</h3>
+            <p>Design understanding, scheme validation, relay logic interpretation, settings review, and fault-oriented troubleshooting.</p>
+            <ul>
+              <li>Transformer, feeder and line protection concepts</li>
+              <li>Differential, overcurrent and distance scheme familiarity</li>
+              <li>Relay testing & coordination awareness</li>
+            </ul>
+          </article>
+
+          <article class="skill-card glass reveal">
+            <h3>Testing & Commissioning</h3>
+            <p>Practical site work involving pre-commissioning checks, test procedures, punch list closure, and energisation support.</p>
+            <ul>
+              <li>Secondary injection & functional checks</li>
+              <li>CT / VT verification workflows</li>
+              <li>As-built review and site coordination</li>
+            </ul>
+          </article>
+
+          <article class="skill-card glass reveal">
+            <h3>Digital & Control Systems</h3>
+            <p>Integration understanding for digital substations and intelligent devices across protection and control environments.</p>
+            <ul>
+              <li>IEC 61850 / GOOSE fundamentals</li>
+              <li>SCADA / control interface awareness</li>
+              <li>Interlocking and signal validation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">Featured Work</div>
+            <h2>Project-ready, site-tested, detail-driven.</h2>
+          </div>
+          <p>Replace these sample cards with your exact project names, responsibilities, technologies, and achievements.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card glass reveal">
+            <div class="eyebrow">Project 01</div>
+            <h3>Substation Protection & Commissioning</h3>
+            <p>Supported protection testing, scheme checks, documentation review, and commissioning activities to improve readiness and reliability before energisation.</p>
+            <div class="tags">
+              <span class="tag">Protection Relays</span>
+              <span class="tag">Testing</span>
+              <span class="tag">Commissioning</span>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal">
+            <div class="eyebrow">Project 02</div>
+            <h3>Industrial / Energy Facility Electrical Scope</h3>
+            <p>Contributed to power system-related execution tasks involving control checks, interface validation, and site coordination across multidisciplinary teams.</p>
+            <div class="tags">
+              <span class="tag">HV Systems</span>
+              <span class="tag">Site Delivery</span>
+              <span class="tag">Troubleshooting</span>
+            </div>
+          </article>
+
+          <article class="project-card glass reveal">
+            <div class="eyebrow">Project 03</div>
+            <h3>Digital Protection Integration</h3>
+            <p>Worked with relay-related data, control logic, and communication-oriented workflows aligned with modern protection and automation practices.</p>
+            <div class="tags">
+              <span class="tag">IEC 61850</span>
+              <span class="tag">GOOSE</span>
+              <span class="tag">Control Logic</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading reveal">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Let’s build something dependable.</h2>
+          </div>
+          <p>Use this section for recruiters, project managers, engineering teams, and professional connections.</p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card glass reveal">
+            <h3>Professional Contact</h3>
+            <p>Email: <a href="mailto:your-email@example.com">your-email@example.com</a><br>
+            LinkedIn: <a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" rel="noopener">linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8</a><br>
+            Location: Perth, Western Australia</p>
+          </article>
+
+          <article class="contact-card glass reveal">
+            <h3>What to Update Before Publishing</h3>
+            <p>Replace the email address, add your real resume PDF, upload your profile image as <strong>profile.jpg</strong>, and update the project cards with your actual project names and achievements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Dhilipdharan Venu • Electrical Protection Engineer • Designed for a modern professional web resume.
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+    // Subtle parallax glow movement
+    window.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 12;
+      const y = (e.clientY / window.innerHeight - 0.5) * 12;
+      document.querySelectorAll('.profile-card, .glass').forEach((el, index) => {
+        const factor = index % 2 === 0 ? 1 : 0.65;
+        el.style.transform = `translate3d(${x * factor * 0.18}px, ${y * factor * 0.18}px, 0)`;
+      });
+    });
+  </script>
+</body>
+</html>
