@@ -1,67 +1,86 @@
-# dhilipdharan.cv
+# Hi, I'm Dhilipdharan V 👋
 
-Professional portfolio website for **Dhilipdharan V**, an Electrical / Protection, Testing & Commissioning Engineer with experience across substations, power plants, renewables, BESS, and heavy industrial infrastructure.
+**Protection, Testing & Commissioning Engineer** focused on high-voltage protection systems, relay testing, primary and secondary equipment validation, IEC 61850 communication, remote integration, and commissioning delivery across substations, power plants, renewables, BESS, and industrial infrastructure.
 
-## Overview
+## About Me
 
-This repository contains the source code for a premium animated personal portfolio website focused on:
+I work across the full testing and commissioning lifecycle, including protection scheme validation, relay configuration support, logic checks, primary injection, interlocks, signal verification, disturbance analysis, and energisation readiness.
 
-- Protection relay testing
-- Primary and secondary equipment testing
+My background covers utility, industrial, gas, renewable, and battery energy storage projects, with hands-on experience delivering technical field outcomes across multi-vendor protection systems.
+
+## Core Expertise
+
+- Secondary protection testing
+- Primary equipment testing
+- Relay logic verification and scheme checking
 - IEC 61850 / GOOSE communication
-- Scheme checking and interlocks
-- Commissioning and energisation support
-- Completions engineering and handover readiness
+- Remote integration and signal validation
+- CT / VT testing and stability checks
+- Circuit breaker timing and commissioning support
+- Disturbance analysis and troubleshooting
+- Completions engineering and handover support
 
-The website presents engineering experience, project highlights, relay platforms handled, testing tools, software platforms, certifications, and contact information in a modern high-end visual format.
+## Protection Applications
 
-## Key Highlights
+- Line protection
+- Feeder protection
+- Transformer protection
+- Busbar protection
+- Motor protection
+- Generator protection
 
-- Premium light-theme portfolio design
-- Advanced glassmorphism and animated UI effects
-- Engineering flowchart / schematic hero section
-- Responsive layout for desktop and mobile
-- Skills, projects, certifications, relay platforms, and tools sections
-- Recruiter-friendly professional positioning
+## Relay Platforms
 
-## Featured Projects
+- **ABB:** REG670, REM543, REL670, REL650, REC670, REC650, RED670, RET670, RET650, REF615
+- **Siemens:** 7SA522, 7UT613, 7VK61, 7SR5110
+- **GE:** D60, T60, F650, G60
+- **SEL:** SEL-700G, SEL-751/751A, SEL-387E, SEL-787, SEL-487E, SEL-487B, SEL-451
+- **Micom / Alstom:** P342, P343, P442, P444, P543, P545, P141, P142, P642, P243
+- **NR / Reyrolle / Others:** PCS 961, PCS 931, PCS 9671, PCS 915C/915D, TPRO 4500, LPRO 200
 
-- **Hunter Power Project** — Protection scheme testing, SEL and GE relay work, CT primary injection, transformer and busbar stability testing
-- **Waitsia Gas Plant 2** — Completions engineering, asset and ITR validation, drawing verification, LOSH checks, and handover packs
-- **Broad Sound Solar Farm** — Relay testing, scheme checking, CIBANO breaker testing, IEC 61850 integration, and GOOSE verification
-- **Wambo 2 Wind Farm** — Relay testing and CT/VT primary testing for renewable generation infrastructure
+## Tools & Software
+
+**Test Equipment**
+- Omicron CMC256 / CMC353 / CMC356
+- Doble F6150
+- Megger SMRT series
+- Omicron CPC 100
+- CIBANO 500
+- Primary injection and CRM test kits
+
+**Engineering Software**
+- ABB PCM / REBCON500 / HMI500 / REBWIN
+- Siemens DIGSI 4 & 5
+- GE Enervista
+- SEL AcSELerator
+- NR PCS Explorer
+- Schneider / Micom engineering tools
+- OMICRON Test Universe
+
+## Project Highlights
+
+- **Hunter Power Project** — Protection scheme testing, SEL and GE relay testing, CT primary injection, transformer and busbar stability testing
+- **Waitsia Gas Plant 2** — Completions engineering, asset and ITR validation, drawing verification, LOSH checks, and handover pack preparation
+- **Broad Sound Solar Farm** — Relay testing, scheme checking, breaker testing, IEC 61850 integration, and GOOSE verification
+- **Wambo 2 Wind Farm** — Relay testing and CT / VT primary testing for renewable generation systems
 - **Swanbank BESS** — Feeder relay testing, breaker testing, and current transformer primary validation
 
-## Relay Platforms Covered
+## Professional Focus
 
-ABB, Siemens, GE, SEL, Micom, NR, Reyrolle, Schneider, and associated protection platforms.
+I’m passionate about:
+- High-quality commissioning delivery
+- Protection system reliability
+- Multi-vendor relay testing and troubleshooting
+- Modern substation communication and automation
+- Building a strong engineering career across Australia and international energy infrastructure
 
-## Technology Stack
+## Connect With Me
 
-- HTML5
-- CSS3
-- Vanilla JavaScript
-- SVG-based engineering visuals and motion effects
-- Google Fonts
-
-## Repository Structure
-
-- `index.html` — Main website file containing the layout, styling, animations, and interaction logic
-
-## Live Portfolio
-
-This repository can be deployed using **GitHub Pages** or linked to a custom domain such as **dhilipdharan.cv**.
-
-## Contact
-
-- **Email:** [dhilipdharan.v@gmail.com](mailto:dhilipdharan.v@gmail.com)
-- **LinkedIn:** [Dhilipdharan Venu](https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/)
+- **LinkedIn:** [dhilipdharan-venu-mieaust-7360811a8](https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/)
+- **Portfolio:** [dhilipdharan.cv](https://github.com/DharanXtreme/dhilipdharan.cv)
+- **Email:** dhilipdharan.v@gmail.com
 - **Location:** Perth, Australia
-
-## Notes
-
-This project is intended to serve as a professional engineering portfolio and personal brand website.
 
 ---
 
-Created and maintained by **Dhilipdharan V**.
+> Electrical / Protection & Commissioning Engineer | Relay Testing | IEC 61850 | Primary & Secondary Testing | Renewables | BESS | Substations | Industrial Infrastructure
