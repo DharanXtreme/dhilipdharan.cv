@@ -1371,12 +1371,13 @@
       }
 
       .nav-shell {
+        position: relative;
         display: grid;
-        grid-template-columns: 1fr auto;
-        gap: 12px;
+        grid-template-columns: minmax(0,1fr) auto;
+        gap: 10px;
         align-items: center;
-        border-radius: 26px;
-        padding: 12px;
+        border-radius: 24px;
+        padding: 10px 12px;
       }
 
       .nav-toggle {
@@ -1386,15 +1387,31 @@
       .brand {
         min-width: 0;
         width: auto;
+        gap: 10px;
+      }
+
+      .brand-text {
+        min-width: 0;
+      }
+
+      .brand-text strong {
+        font-size: .95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       .brand-text span {
-        max-width: 26ch;
+        display: none;
       }
 
       .nav-links {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
         width: 100%;
-        grid-column: 1 / -1;
+        grid-column: auto;
         display: grid;
         grid-template-columns: 1fr;
         gap: 8px;
@@ -1402,26 +1419,33 @@
         opacity: 0;
         overflow: hidden;
         pointer-events: none;
-        padding-top: 0;
+        padding: 0;
+        background: linear-gradient(180deg, rgba(255,255,255,.82), rgba(255,255,255,.58));
+        border: 1px solid rgba(255,255,255,.75);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(24px) saturate(190%);
+        -webkit-backdrop-filter: blur(24px) saturate(190%);
       }
 
       .nav-links a,
       .nav-links .btn {
         width: 100%;
         justify-content: flex-start;
-        border-radius: 16px;
-        background: rgba(255,255,255,.48);
+        gap: 10px;
+        border-radius: 14px;
+        background: rgba(255,255,255,.42);
       }
 
       .nav.menu-open .nav-links {
         max-height: 420px;
         opacity: 1;
         pointer-events: auto;
-        padding-top: 8px;
+        padding: 10px;
       }
 
       .nav.menu-open .nav-shell {
-        border-radius: 28px;
+        border-radius: 24px;
         backdrop-filter: blur(30px) saturate(200%);
         -webkit-backdrop-filter: blur(30px) saturate(200%);
       }
@@ -1439,37 +1463,39 @@
       }
 
       .nav.scrolled .nav-shell {
-        max-width: min(92vw, 430px);
+        max-width: min(94vw, 420px);
         margin-inline: auto;
         padding: 8px 10px;
         border-radius: 999px;
       }
 
-      .nav.scrolled .brand-text span,
+      .nav.scrolled .brand-mark {
+        width: 38px;
+        height: 38px;
+      }
+
       .nav.scrolled .brand-text strong {
-        opacity: 0;
-        max-width: 0;
-        overflow: hidden;
+        font-size: .88rem;
+        opacity: 1;
+        max-width: 18ch;
       }
 
       .nav.scrolled .brand {
-        gap: 0;
+        gap: 8px;
       }
 
       .nav.scrolled .nav-links {
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        right: 0;
-        background: linear-gradient(180deg, rgba(255,255,255,.72), rgba(255,255,255,.48));
-        border: 1px solid rgba(255,255,255,.7);
-        border-radius: 24px;
-        box-shadow: var(--shadow);
-        padding: 0 10px;
+        top: calc(100% + 8px);
       }
 
-      .nav.scrolled.menu-open .nav-links {
-        padding: 10px;
+      .nav.scrolled:not(.menu-open) .nav-label {
+        opacity: 1;
+        max-width: none;
+        transform: none;
+      }
+
+      .nav.scrolled:not(.menu-open) .nav-links a {
+        gap: 10px;
       }
     }
 
@@ -2156,7 +2182,6 @@
       nav.classList.add('menu-open');
       navToggle?.setAttribute('aria-expanded', 'true');
       navToggle?.setAttribute('aria-label', 'Close menu');
-      if (window.innerWidth <= 760) document.body.style.overflow = 'hidden';
     };
 
     navToggle?.addEventListener('click', () => {
@@ -2184,13 +2209,17 @@
     window.addEventListener('scroll', () => {
       const currentScrollY = window.scrollY;
       const isMobile = window.innerWidth <= 760;
+      const scrollingDown = currentScrollY > lastScrollY + 8;
+      const scrollingUp = currentScrollY < lastScrollY - 8;
 
       nav.classList.toggle('scrolled', currentScrollY > 40);
       nav.classList.toggle('island', currentScrollY > 40);
 
-      if (!nav.classList.contains('menu-open') && currentScrollY > lastScrollY && currentScrollY > 140) {
+      if (!nav.classList.contains('menu-open') && currentScrollY > 120 && scrollingDown) {
         nav.classList.add('hidden');
-      } else {
+      }
+
+      if (currentScrollY <= 20 || scrollingUp || nav.classList.contains('menu-open')) {
         nav.classList.remove('hidden');
       }
 
