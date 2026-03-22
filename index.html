@@ -194,22 +194,6 @@
       border-radius: 999px;
     }
 
-    .nav-shell::after {
-      content: "";
-      position: absolute;
-      width: 220px;
-      height: 220px;
-      left: var(--nav-liquid-x, 50%);
-      top: var(--nav-liquid-y, 50%);
-      transform: translate(-50%, -50%);
-      background: radial-gradient(circle, rgba(255,255,255,.34) 0%, rgba(117,214,255,.16) 35%, rgba(29,99,255,.08) 55%, transparent 72%);
-      filter: blur(18px);
-      opacity: var(--nav-liquid-opacity, 0);
-      transition: opacity .28s ease;
-      pointer-events: none;
-      z-index: 0;
-    }
-
     .nav-shell .sweep {
       position: absolute;
       inset: 0;
@@ -285,48 +269,6 @@
       flex-wrap: wrap;
       justify-content: flex-end;
       z-index: 1;
-      position: relative;
-      isolation: isolate;
-    }
-
-    .nav-indicator {
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 0;
-      height: 0;
-      border-radius: 999px;
-      background: linear-gradient(180deg, rgba(255,255,255,.30), rgba(255,255,255,.18));
-      backdrop-filter: blur(16px) saturate(180%);
-      -webkit-backdrop-filter: blur(16px) saturate(180%);
-      border: 1px solid rgba(255,255,255,.40);
-      box-shadow: 0 10px 28px rgba(12, 32, 71, 0.10), inset 0 1px 0 rgba(255,255,255,.35);
-      opacity: 0;
-      transform: translate3d(0,0,0) scale(.96);
-      transition: left .42s cubic-bezier(.22,1,.36,1), top .42s cubic-bezier(.22,1,.36,1), width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1), opacity .22s ease, transform .42s cubic-bezier(.22,1,.36,1);
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-
-    .nav-indicator::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, rgba(255,255,255,.36), transparent 35%, transparent 62%, rgba(255,255,255,.20));
-      opacity: .95;
-    }
-
-    .nav-indicator::after {
-      content: "";
-      position: absolute;
-      width: 68%;
-      height: 90%;
-      left: 16%;
-      top: 5%;
-      border-radius: inherit;
-      background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.32), transparent 56%);
-      opacity: .85;
     }
 
     .nav-links a,
@@ -342,11 +284,8 @@
       justify-content: center;
       gap: 10px;
       border: 1px solid transparent;
-      background: transparent;
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease, color .28s ease;
+      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
       will-change: transform;
-      position: relative;
-      z-index: 1;
     }
 
     .nav-links a:hover,
@@ -358,24 +297,11 @@
       outline: none;
     }
 
-    .nav-links a.magnetic-hover,
-    .nav-contact.magnetic-hover {
-      transition: transform .18s ease, color .22s ease, background .22s ease, box-shadow .22s ease;
-    }
-
-    .nav-links a:hover,
-    .nav-links a:focus-visible,
-    .nav-links a.active {
-      background: rgba(255,255,255,0.12);
-      color: var(--primary);
-      border-color: transparent;
-      box-shadow: none;
-    }
+    .nav-links a:hover { background: rgba(0, 0, 0, 0.836); }
 
     .btn-primary {
       color: white !important;
       background: linear-gradient(135deg, var(--primary), var(--accent-2));
-      border-color: transparent;
       box-shadow: 0 16px 34px rgba(29,99,255,.24);
       position: relative;
       overflow: hidden;
@@ -399,32 +325,6 @@
       background: rgba(255,255,255,.58);
       border-color: rgba(15,35,64,.08);
       box-shadow: var(--shadow-soft);
-    }
-
-    .nav-contact {
-      background: rgba(29,99,255,0.08);
-      border: 1px solid rgba(29,99,255,0.18);
-      color: var(--primary);
-      padding: 9px 14px;
-      font-size: .9rem;
-      backdrop-filter: blur(10px) saturate(160%);
-      -webkit-backdrop-filter: blur(10px) saturate(160%);
-      box-shadow: 0 4px 14px rgba(29,99,255,.08);
-    }
-
-    .nav-contact:hover {
-      background: rgba(29,99,255,0.14);
-      border-color: rgba(29,99,255,0.28);
-      transform: translateY(-1px);
-      box-shadow: 0 8px 20px rgba(29,99,255,.15);
-    }
-
-    .nav-contact:hover,
-    .nav-contact:focus-visible {
-      background: linear-gradient(135deg, var(--primary), var(--accent-2));
-      border-color: transparent;
-      color: white;
-      box-shadow: 0 16px 34px rgba(29,99,255,.24);
     }
 
     main { padding-bottom: 72px; }
@@ -942,7 +842,7 @@
       width: 62px;
       height: 62px;
       border-radius: 18px;
-      background: linear-gradient(135deg, #0f2340, #1565ff);
+      background: linear-gradient(135deg,  #0e2340, #1f5fff);
       box-shadow: 0 16px 28px rgba(239,60,49,.18), inset 0 1px 0 rgba(255,255,255,.38);
       position: relative;
       overflow: hidden;
@@ -1424,14 +1324,13 @@
           <span>Protection, Testing &amp; Commissioning Engineer</span>
         </div>
       </div>
-      <div class="nav-links" id="navLinks">
-        <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact" class="btn nav-contact">Contact</a>
+      <div class="nav-links">
+        <a href="#about" class="btn btn-primary">About</a>
+        <a href="#skills" class="btn btn-primary">Skills</a>
+        <a href="#projects" class="btn btn-primary">Projects</a>
+        <a href="#certifications" class="btn btn-primary">Certifications</a>
+        <a href="#tools" class="btn btn-primary">Tools</a>
+        <a href="#contact" class="btn btn-primary">Contact</a>
       </div>
     </div>
   </nav>
@@ -1442,10 +1341,10 @@
         <div class="panel glass hero-copy reveal visible hero-focus">
           <div class="eyebrow"><span class="dot"></span> Electrical Engineering Portfolio</div>
           <h1>
-            <span class="hero-gradient">High Voltage protection engineer.</span>
-            </h1>
+            High-voltage <span class="hero-gradient">protection</span> engineer
+          </h1>
           <p class="subtitle">
-            Hi, I'm Protection, Testing &amp; Commissioning Engineer focused on secondary protection testing, primary equipment validation, IEC 61850 communication, remote integration, and full commissioning delivery across substations, power plants, renewables, BESS, and heavy industrial infrastructure.
+            I'm Protection, Testing &amp; Commissioning Engineer focused on secondary protection testing, primary equipment validation, IEC 61850 communication, remote integration, and full commissioning delivery across substations, power plants, renewables, BESS, and heavy industrial infrastructure.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#contact">Let’s Connect</a>
@@ -1453,7 +1352,7 @@
           </div>
           <div class="metric-row">
             <div class="metric">
-              <strong>7+ Years</strong>
+              <strong>6+ Years</strong>
               <span>Protection testing, commissioning, logic verification, and energisation support.</span>
             </div>
             <div class="metric">
@@ -1806,7 +1705,7 @@
           <div class="section-tag">Testing Tools</div>
           <h2>Field instruments &amp; engineering software</h2>
         </div>
-       
+        
       </div>
       <div class="tool-grid">
         <article class="card">
@@ -1891,13 +1790,13 @@
           <p style="margin-top:6px;font-weight:600;">🔗 LinkedIn: <a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" style="color:white;text-decoration:underline;">View Profile</a></p>
           <div class="pill-row">
             <span class="pill" style="background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.12); color: white;">Perth, Australia</span>
-          </div>
+            </div>
         </div>
       </div>
     </section>
 
     <footer class="container">
-      DharanXtreme.
+      DHARANXTREME
     </footer>
   </main>
 
@@ -1950,95 +1849,6 @@
         flow3d.style.setProperty('--gy', '50%');
       });
     }
-
-    const navShell = document.querySelector('.nav-shell');
-    const navLinks = document.getElementById('navLinks');
-    const navIndicator = document.getElementById('navIndicator');
-    const navItems = navLinks ? [...navLinks.querySelectorAll('a')] : [];
-
-    function moveIndicator(target, immediate = false) {
-      if (!target || !navLinks || !navIndicator || window.innerWidth <= 760) return;
-      const containerRect = navLinks.getBoundingClientRect();
-      const targetRect = target.getBoundingClientRect();
-      if (immediate) navIndicator.style.transition = 'none';
-      navIndicator.style.opacity = '1';
-      navIndicator.style.left = `${targetRect.left - containerRect.left}px`;
-      navIndicator.style.top = `${targetRect.top - containerRect.top}px`;
-      navIndicator.style.width = `${targetRect.width}px`;
-      navIndicator.style.height = `${targetRect.height}px`;
-      navIndicator.style.transform = 'translate3d(0,0,0) scale(1)';
-      if (immediate) {
-        requestAnimationFrame(() => {
-          navIndicator.style.transition = 'left .42s cubic-bezier(.22,1,.36,1), top .42s cubic-bezier(.22,1,.36,1), width .42s cubic-bezier(.22,1,.36,1), height .42s cubic-bezier(.22,1,.36,1), opacity .22s ease, transform .42s cubic-bezier(.22,1,.36,1)';
-        });
-      }
-    }
-
-    function setActiveNavFromHash() {
-      const currentHash = window.location.hash || '#about';
-      let active = navItems.find(item => item.getAttribute('href') === currentHash);
-      if (!active) active = navItems[0];
-      navItems.forEach(item => item.classList.toggle('active', item === active));
-      moveIndicator(active, true);
-    }
-
-    navItems.forEach((item) => {
-      item.addEventListener('mouseenter', () => moveIndicator(item));
-      item.addEventListener('focus', () => moveIndicator(item));
-
-      item.addEventListener('mousemove', (e) => {
-        if (window.innerWidth <= 760) return;
-        const rect = item.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const moveX = ((x / rect.width) - 0.5) * 14;
-        const moveY = ((y / rect.height) - 0.5) * 10;
-        item.classList.add('magnetic-hover');
-        item.style.transform = `translate(${moveX}px, ${moveY - 2}px)`;
-      });
-
-      item.addEventListener('mouseleave', () => {
-        item.style.transform = '';
-        item.classList.remove('magnetic-hover');
-        const active = navLinks.querySelector('a.active');
-        if (active) moveIndicator(active);
-      });
-
-      item.addEventListener('click', () => {
-        navItems.forEach(link => link.classList.remove('active'));
-        item.classList.add('active');
-        moveIndicator(item);
-      });
-    });
-
-    if (navShell) {
-      navShell.addEventListener('mousemove', (e) => {
-        const rect = navShell.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        navShell.style.setProperty('--nav-liquid-x', `${x}px`);
-        navShell.style.setProperty('--nav-liquid-y', `${y}px`);
-        navShell.style.setProperty('--nav-liquid-opacity', '1');
-      });
-
-      navShell.addEventListener('mouseleave', () => {
-        navShell.style.setProperty('--nav-liquid-opacity', '0');
-        navItems.forEach(item => {
-          item.style.transform = '';
-          item.classList.remove('magnetic-hover');
-        });
-        const active = navLinks && navLinks.querySelector('a.active');
-        if (active) moveIndicator(active);
-      });
-    }
-
-    window.addEventListener('hashchange', setActiveNavFromHash);
-    window.addEventListener('resize', () => {
-      const active = navLinks && navLinks.querySelector('a.active');
-      if (active && window.innerWidth > 760) moveIndicator(active, true);
-    });
-
-    requestAnimationFrame(setActiveNavFromHash);
   </script>
 </body>
 </html>
