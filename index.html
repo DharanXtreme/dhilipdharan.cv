@@ -58,7 +58,7 @@
       z-index:-2;
     }
 
-    .mesh, .power-lines, .orbs {
+    .mesh, .power-lines {
       position:fixed;
       inset:0;
       pointer-events:none;
@@ -74,15 +74,7 @@
       animation: drift 18s ease-in-out infinite alternate;
     }
 
-    .orbs::before, .orbs::after {
-      content:"";
-      position:absolute;
-      width:38vw; height:38vw; border-radius:50%;
-      filter: blur(70px);
-      opacity:.18;
-    }
-    .orbs::before { background:#3e7dff; left:-8vw; top:10vh; animation: floatOrb 18s ease-in-out infinite; }
-    .orbs::after { background:#8e77ff; right:-8vw; top:20vh; animation: floatOrb 20s ease-in-out infinite reverse; }
+    /* .orbs bubble elements removed to disable floating background bubbles */
 
     .power-lines svg {
       width:100%; height:100%;
@@ -133,7 +125,8 @@
       letter-spacing:-0.03em;
     }
     h1 {
-      font-size:clamp(3rem, 7vw, 6.2rem);
+      /* match hero-stylish for consistent sizing */
+      font-size: clamp(2.2rem, 6.5vw, 3.6rem);
       line-height:.94;
     }
     h2 {
@@ -338,52 +331,46 @@
       display:inline-block;
       position:relative;
       z-index:2;
-      background: linear-gradient(90deg, #00d9ff 0%, #00a6ff 30%, #8cff35 62%, #b7ff8a 100%);
-      background-size: 240% 100%;
+      /* restrained, professional gradient */
+      background: linear-gradient(90deg, #6fb8ff 0%, #8f7cff 45%, #d0d8ff 100%);
+      background-size: 200% 100%;
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
-      font-size: clamp(2.4rem, 8vw, 4rem);
-      line-height: .9;
-      letter-spacing: -0.01em;
-      padding-right:8px;
-      text-shadow: 0 8px 36px rgba(0,166,255,0.10), 0 2px 12px rgba(140,255,53,0.06);
-      -webkit-text-stroke: 0.12px rgba(0,0,0,0.02);
-      transition: background-position 5s ease-in-out, transform .28s ease;
-      animation: gradientDrift 6s linear infinite;
+      font-size: inherit;
+      line-height: .94;
+      letter-spacing: -0.02em;
+      padding-right:6px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.08);
+      transition: background-position 8s ease-in-out, transform .28s ease, opacity .6s ease;
+      animation: gradientDrift 10s linear infinite, heroEntrance 900ms ease-out both;
     }
 
-    .hero-stylish::after {
-      content: "";
-      position:absolute;
-      left:-120%; top:-40%; bottom:-40%;
-      width:260%;
-      background: linear-gradient(90deg, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.06) 30%, rgba(255,255,255,0.06) 70%, rgba(255,255,255,0.85) 100%);
-      transform: skewX(-12deg) translateX(-100%);
-      filter: blur(14px) brightness(1.1);
-      mix-blend-mode: screen;
-      opacity:0.9;
-      pointer-events:none;
-      animation: lightSweep 2.8s cubic-bezier(.24,.9,.32,1) infinite;
-    }
+    .hero-stylish::after { display:none !important; }
 
     .hero-stylish::before {
       content: "";
       position:absolute;
       inset:0;
       border-radius:4px;
-      background: radial-gradient(ellipse at 20% 30%, rgba(0,220,255,0.06), transparent 18%), radial-gradient(ellipse at 80% 70%, rgba(140,255,60,0.04), transparent 18%);
+      background: radial-gradient(ellipse at 20% 30%, rgba(111,184,255,0.04), transparent 18%);
       mix-blend-mode: screen;
-      filter: blur(10px);
-      opacity:0.9;
+      filter: blur(8px);
+      opacity:0.7;
       pointer-events:none;
-      animation: subtlePulse 4.8s ease-in-out infinite;
+      /* subtle slow pulse for a refined look */
+      animation: subtlePulse 8s ease-in-out infinite;
     }
 
     @keyframes gradientDrift {
       0% { background-position: 0% 50%; }
-      50% { background-position: 80% 50%; }
+      50% { background-position: 60% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    @keyframes heroEntrance {
+      from { opacity: 0; transform: translateY(10px) scale(0.995); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     @keyframes lightSweep {
@@ -936,109 +923,27 @@
         max-width:130px;
       }
     }
-    /* ---- Advanced animated background styles ---- */
-    .bg-advanced { position:fixed; inset:0; z-index:-5; pointer-events:none; overflow:hidden; }
-    .bg-layer { position:absolute; inset:0; transform:translate3d(0,0,0); will-change:transform,opacity; }
-    .bg-back { transform:translateZ(-300px) scale(1.12); filter:blur(36px) saturate(120%); opacity:0.28; }
-    .bg-mid { transform:translateZ(-120px) scale(1.06); filter:blur(10px); opacity:0.6; }
-    .bg-front { transform:translateZ(0) scale(1); opacity:0.95; }
-    .bg-svg { width:100%; height:100%; display:block; }
-    #bgCanvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
-    .flow-line { stroke: url(#bgGradient); stroke-width:1.4; stroke-linecap:round; stroke-linejoin:round; fill:none; opacity:0.95; }
-    .flow-glow { stroke:rgba(95,168,255,0.18); stroke-width:6; filter:blur(10px); opacity:0.6; }
-    .pulse-node { fill: #9fd0ff; opacity:0.95; filter:drop-shadow(0 6px 18px rgba(95,168,255,0.12)); }
-    .grid-overlay { stroke: rgba(255,255,255,0.03); stroke-width:1; }
-    @media (max-width: 900px) {
-      .bg-back { opacity:0.18; }
-      .bg-mid { opacity:0.45; }
+    /* lightweight particle background */
+    .particle-canvas {
+      position:fixed;
+      inset:0;
+      width:100%;
+      height:100%;
+      z-index:-6;
+      pointer-events:none;
+      will-change:transform,opacity;
+      opacity:0.9;
+      mix-blend-mode: screen;
+      filter: blur(6px) saturate(110%);
     }
+    /* keep reduced-motion users comfortable */
     @media (prefers-reduced-motion: reduce) {
-      .bg-advanced { display:none !important; }
+      .particle-canvas { display:none !important; }
     }
   </style>
 </head>
 <body>
-  <!-- Advanced animated background: layered SVG + canvas (non-interactive, GPU-friendly) -->
-  <div class="bg-advanced" aria-hidden="true">
-    <div class="bg-layer bg-back">
-      <svg class="bg-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#68b6ff" stop-opacity="0.85"/>
-            <stop offset="50%" stop-color="#b99fff" stop-opacity="0.6"/>
-            <stop offset="100%" stop-color="#67b0ff" stop-opacity="0.4"/>
-          </linearGradient>
-        </defs>
-        <!-- distant soft arcs / lightning silhouettes (very subtle) -->
-        <g opacity="0.18">
-          <path d="M50 760 C 260 680, 360 820, 560 740 S 980 620, 1440 700" stroke="#cfe9ff" stroke-width="1" fill="none" opacity="0.12"/>
-          <path d="M0 120 C 220 40, 420 160, 640 120 S 1040 30, 1440 120" stroke="#e6e6ff" stroke-width="1" fill="none" opacity="0.08"/>
-        </g>
-      </svg>
-    </div>
-
-    <div class="bg-layer bg-mid">
-      <svg class="bg-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <linearGradient id="lineGrad2" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#6fb8ff" stop-opacity="1"/>
-            <stop offset="100%" stop-color="#af9cff" stop-opacity="0.9"/>
-          </linearGradient>
-        </defs>
-        <!-- CAD-inspired grid overlay -->
-        <g stroke-opacity="0.06">
-          <pattern id="grid" width="46" height="46" patternUnits="userSpaceOnUse">
-            <path d="M46 0 L0 0 0 46" stroke="#ffffff" stroke-width="0.6"/>
-          </pattern>
-          <rect width="100%" height="100%" fill="url(#grid)"/>
-        </g>
-
-        <!-- midground flow lines (paths used by JS pulses) -->
-        <g class="flows">
-          <path id="flowA" class="flow-line" d="M120 680 C 300 560, 420 760, 620 680 S 980 560, 1320 700"/>
-          <path id="flowB" class="flow-line" d="M40 420 C 200 360, 360 460, 540 420 S 860 340, 1280 420"/>
-          <path id="flowC" class="flow-line" d="M80 200 C 260 140, 460 220, 680 160 S 1000 80, 1360 160"/>
-        </g>
-        <!-- faint glow overlays -->
-        <g>
-          <path class="flow-glow" d="M120 680 C 300 560, 420 760, 620 680 S 980 560, 1320 700"/>
-          <path class="flow-glow" d="M40 420 C 200 360, 360 460, 540 420 S 860 340, 1280 420"/>
-        </g>
-      </svg>
-    </div>
-
-    <div class="bg-layer bg-front">
-      <canvas id="bgCanvas"></canvas>
-      <svg class="bg-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-        <!-- foreground nodes and subtle single-line diagram silhouettes -->
-        <g id="nodes" opacity="0.98">
-          <circle cx="620" cy="680" r="4" class="pulse-node"/>
-          <circle cx="980" cy="560" r="3" class="pulse-node"/>
-          <circle cx="300" cy="560" r="3" class="pulse-node"/>
-        </g>
-      </svg>
-    </div>
-  </div>
-  <div class="mesh"></div>
-  <div class="orbs"></div>
-  <div class="power-lines" aria-hidden="true">
-    <svg viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="lineGlow" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="#67b0ff" stop-opacity="0.55"/>
-          <stop offset="60%" stop-color="#af9cff" stop-opacity="0.3"/>
-          <stop offset="100%" stop-color="#67b0ff" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="M0 170 C 250 120, 360 240, 560 180 S 980 90, 1440 180" stroke="url(#lineGlow)" stroke-width="2" stroke-dasharray="8 14">
-        <animate attributeName="stroke-dashoffset" values="0;-600" dur="18s" repeatCount="indefinite"/>
-      </path>
-      <path d="M0 560 C 210 470, 380 650, 610 560 S 1040 440, 1440 600" stroke="url(#lineGlow)" stroke-width="1.5" stroke-dasharray="10 16">
-        <animate attributeName="stroke-dashoffset" values="0;-800" dur="22s" repeatCount="indefinite"/>
-      </path>
-      <path d="M200 0 L220 900 M720 0 L740 900 M1180 0 L1200 900" stroke="url(#lineGlow)" stroke-width="1" opacity=".4"/>
-    </svg>
-  </div>
+  <canvas id="particleCanvas" class="particle-canvas" aria-hidden="true"></canvas>
 
   <header id="siteHeader">
     <div class="nav-wrap glass">
@@ -1585,146 +1490,175 @@
   </footer>
 
   <script>
-    /* Advanced background animation script */
     (function(){
-      const root = document.querySelector('.bg-advanced');
-      if(!root) return;
-
-      const canvas = document.getElementById('bgCanvas');
-      const ctx = canvas && canvas.getContext ? canvas.getContext('2d') : null;
-      let w = 0, h = 0, DPR = Math.max(1, window.devicePixelRatio || 1);
+      const canvas = document.getElementById('particleCanvas');
+      if(!canvas) return;
+      const ctx = canvas.getContext && canvas.getContext('2d');
+      if(!ctx) return;
       const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(prefersReduced) return;
+
+      let DPR = Math.max(1, window.devicePixelRatio || 1);
+      let W = 0, H = 0;
+      const particles = [];
+      const shapes = [];
+      const MAX = window.innerWidth < 900 ? 48 : 110;
+      const LINE_DIST = 140;
+
+      function rand(min, max){ return min + Math.random()*(max-min); }
 
       function resize(){
-        w = canvas.width = Math.floor(window.innerWidth * DPR);
-        h = canvas.height = Math.floor(window.innerHeight * DPR);
+        DPR = Math.max(1, window.devicePixelRatio || 1);
+        W = canvas.width = Math.floor(window.innerWidth * DPR);
+        H = canvas.height = Math.floor(window.innerHeight * DPR);
         canvas.style.width = window.innerWidth + 'px';
         canvas.style.height = window.innerHeight + 'px';
-        ctx && ctx.setTransform(DPR,0,0,DPR,0,0);
+        ctx.setTransform(DPR,0,0,DPR,0,0);
       }
 
-      // Particles (ionized dust / sparks)
-      const particles = [];
-      const MAX_PARTICLES = window.innerWidth < 900 ? 28 : 78;
-      function spawnParticle(){
-        if(particles.length >= MAX_PARTICLES) return;
+      function spawnParticle(x,y){
+        if(particles.length >= MAX) return;
+        const size = rand(0.6, 1.6);
+        const angle = rand(-Math.PI, Math.PI);
+        const speed = rand(0.15, 0.9);
         particles.push({
-          x: Math.random()*window.innerWidth,
-          y: Math.random()*window.innerHeight,
-          r: Math.random()*1.6 + 0.6,
-          vx: (Math.random()-0.5)*0.2,
-          vy: (Math.random()-0.5)*0.12,
-          alpha: 0.08 + Math.random()*0.18
+          x: x ?? Math.random()*window.innerWidth,
+          y: y ?? Math.random()*window.innerHeight,
+          vx: Math.cos(angle)*speed,
+          vy: Math.sin(angle)*speed * 0.6 - 0.1,
+          size,
+          hue: rand(200,220),
+          alpha: rand(0.45, 0.95),
+          life: rand(6, 18),
+          t: Math.random()*1000
         });
       }
 
-      // Simple pulse along SVG paths
-      const paths = Array.from(document.querySelectorAll('.flows path'));
-      const pulses = [];
-      const MAX_PULSES = 12;
-
-      function spawnPulse(){
-        if(prefersReduced) return;
-        if(pulses.length >= MAX_PULSES) return;
-        const p = paths[Math.floor(Math.random()*paths.length)];
-        if(!p) return;
-        const len = p.getTotalLength();
-        pulses.push({path:p, len, t:0, speed:0.002 + Math.random()*0.004, size: 4 + Math.random()*5});
+      function spawnShape(){
+        // triangle or hexagon
+        const types = ['triangle','hex'];
+        const type = types[Math.floor(Math.random()*types.length)];
+        shapes.push({
+          x: Math.random()*window.innerWidth,
+          y: window.innerHeight + rand(10, 80),
+          size: rand(8, 28),
+          rot: rand(0, Math.PI*2),
+          rotV: rand(-0.003, 0.003),
+          vy: -rand(0.3, 1.0),
+          alpha: rand(0.18, 0.45),
+          type,
+          life: rand(8, 18)
+        });
       }
 
-      // Parallax
-      const layers = {back: document.querySelector('.bg-back'), mid: document.querySelector('.bg-mid'), front: document.querySelector('.bg-front')};
-      let mouseX = 0, mouseY = 0;
-      window.addEventListener('mousemove', (e)=>{ mouseX = (e.clientX/window.innerWidth - 0.5); mouseY = (e.clientY/window.innerHeight - 0.5); });
+      // seed
+      for(let i=0;i< (window.innerWidth<900?40:80); i++) spawnParticle();
+
+      // mouse influence
+      let mouseX = -9999, mouseY = -9999;
+      window.addEventListener('mousemove', (e)=>{ mouseX = e.clientX; mouseY = e.clientY; });
+      window.addEventListener('mouseleave', ()=>{ mouseX = -9999; mouseY = -9999; });
+
+      function update(dt){
+        const s = Math.max(0.04, dt * 0.06);
+
+        // particles
+        for(let i = particles.length-1; i>=0; i--){
+          const p = particles[i];
+          p.t += dt * 0.001;
+          // gentle curl motion
+          p.vx += Math.sin(p.t*1.2 + p.y*0.002)*0.002;
+          p.vy += Math.cos(p.t*0.9 + p.x*0.001)*0.001 - 0.0006;
+          // mouse repulse
+          if(mouseX > -9000){
+            const dx = p.x - mouseX, dy = p.y - mouseY; const d2 = dx*dx+dy*dy;
+            if(d2 < 120000){ p.vx += (dx/Math.sqrt(d2)) * 0.02; p.vy += (dy/Math.sqrt(d2)) * 0.02; }
+          }
+          p.x += p.vx * s * (1 + p.size*0.2);
+          p.y += p.vy * s * (1 + p.size*0.2);
+          p.alpha -= 0.0006 * dt;
+          if(p.alpha <= 0 || p.x < -120 || p.x > window.innerWidth + 120 || p.y < -120 || p.y > window.innerHeight + 120) particles.splice(i,1);
+        }
+
+        // shapes
+        for(let i = shapes.length-1; i>=0; i--){
+          const sObj = shapes[i];
+          sObj.y += sObj.vy * s * 60;
+          sObj.rot += sObj.rotV * dt;
+          sObj.alpha -= 0.0004 * dt;
+          if(sObj.alpha <= 0 || sObj.y < -200) shapes.splice(i,1);
+        }
+
+        // spawn control
+        if(Math.random() < 0.6) spawnParticle();
+        if(Math.random() < 0.009) spawnShape();
+      }
+
+      function drawShape(sObj){
+        ctx.save(); ctx.translate(sObj.x, sObj.y); ctx.rotate(sObj.rot);
+        ctx.globalAlpha = Math.max(0, sObj.alpha);
+        ctx.fillStyle = `rgba(140,160,220,${sObj.alpha*0.9})`;
+        ctx.strokeStyle = `rgba(180,200,255,${sObj.alpha*0.6})`;
+        ctx.lineWidth = 1;
+        const n = sObj.type === 'triangle' ? 3 : 6;
+        const r = sObj.size;
+        ctx.beginPath();
+        for(let k=0;k<n;k++){
+          const a = (k / n) * Math.PI*2;
+          const px = Math.cos(a) * r; const py = Math.sin(a) * r;
+          if(k===0) ctx.moveTo(px, py); else ctx.lineTo(px, py);
+        }
+        ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore();
+      }
 
       function draw(){
-        if(!ctx) return;
         ctx.clearRect(0,0,window.innerWidth, window.innerHeight);
-
-        // spawn and update particles
-        if(!prefersReduced){
-          if(Math.random() < 0.6) spawnParticle();
-          for(let i = particles.length-1;i>=0;i--){
-            const q = particles[i];
-            q.x += q.vx * (1 + Math.abs(mouseX)*2);
-            q.y += q.vy * (1 + Math.abs(mouseY)*2);
-            q.alpha *= 0.9998;
-            if(q.alpha < 0.02) particles.splice(i,1);
+        // draw connecting lines (O(n^2) but MAX kept reasonable)
+        for(let i=0;i<particles.length;i++){
+          const pi = particles[i];
+          for(let j=i+1;j<particles.length;j++){
+            const pj = particles[j];
+            const dx = pi.x - pj.x, dy = pi.y - pj.y;
+            const d = Math.sqrt(dx*dx+dy*dy);
+            if(d < LINE_DIST){
+              const a = 1 - (d / LINE_DIST);
+              ctx.strokeStyle = `rgba(150,185,255,${(a*0.18* (pi.alpha+pj.alpha)/1.8).toFixed(3)})`;
+              ctx.lineWidth = 0.9 * a;
+              ctx.beginPath(); ctx.moveTo(pi.x, pi.y); ctx.lineTo(pj.x, pj.y); ctx.stroke();
+            }
           }
         }
 
-        // draw particles
-        ctx.save();
+        // particles (draw on top)
         for(const p of particles){
-          ctx.beginPath();
-          const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r*6);
-          g.addColorStop(0, 'rgba(160,200,255,'+ (p.alpha*0.9) +')');
-          g.addColorStop(1, 'rgba(160,200,255,0)');
-          ctx.fillStyle = g;
-          ctx.fillRect(p.x - p.r*6, p.y - p.r*6, p.r*12, p.r*12);
-        }
-        ctx.restore();
-
-        // draw pulses along paths using small radial blur
-        if(!prefersReduced){
-          for(let i=pulses.length-1;i>=0;i--){
-            const P = pulses[i];
-            P.t += P.speed;
-            const pos = P.path.getPointAtLength((P.t % 1) * P.len);
-            const x = pos.x * (window.innerWidth/1440);
-            const y = pos.y * (window.innerHeight/900);
-            const radius = P.size;
-            const grad = ctx.createRadialGradient(x,y,0,x,y,radius*8);
-            grad.addColorStop(0, 'rgba(175,220,255,0.95)');
-            grad.addColorStop(0.2, 'rgba(120,180,255,0.5)');
-            grad.addColorStop(1, 'rgba(80,120,170,0)');
-            ctx.fillStyle = grad;
-            ctx.beginPath(); ctx.arc(x,y,radius*6,0,Math.PI*2); ctx.fill();
-            if(P.t > 1.02) pulses.splice(i,1);
-          }
+          const r = Math.max(0.6, p.size);
+          const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, r*6);
+          grad.addColorStop(0, `rgba(220,235,255,${Math.min(1,p.alpha)})`);
+          grad.addColorStop(0.2, `rgba(170,200,255,${Math.min(0.9,p.alpha*0.7)})`);
+          grad.addColorStop(1, 'rgba(120,150,190,0)');
+          ctx.fillStyle = grad;
+          ctx.beginPath(); ctx.arc(p.x, p.y, r*3.6, 0, Math.PI*2); ctx.fill();
         }
 
-        // parallax transforms
-        const px = mouseX * 12; const py = mouseY * 10;
-        if(layers.back) layers.back.style.transform = `translate3d(${px*0.2}px,${py*0.2}px,0) scale(1.02)`;
-        if(layers.mid) layers.mid.style.transform = `translate3d(${px*0.5}px,${py*0.6}px,0)`;
-        if(layers.front) layers.front.style.transform = `translate3d(${px}px,${py}px,0)`;
+        // shapes
+        for(const sObj of shapes) drawShape(sObj);
       }
 
-      // animate stroke-dashoffset for SVG flow-lines for continuous motion
-      function animateSVG(){
-        paths.forEach((p, idx)=>{
-          const len = p.getTotalLength();
-          p.style.strokeDasharray = Math.max(240, len/3);
-          const base = (Date.now() * (0.02 + idx*0.003)) % (len*2);
-          p.style.strokeDashoffset = -base;
-        });
+      let last = performance.now();
+      let raf = null;
+      function loop(now){
+        const dt = now - last; last = now;
+        update(dt);
+        draw();
+        raf = requestAnimationFrame(loop);
       }
 
-      let rafTick = null;
-      function loop(){
-        draw(); animateSVG();
-        // occasionally spawn pulses
-        if(!prefersReduced && Math.random() < 0.06) spawnPulse();
-        rafTick = requestAnimationFrame(loop);
-      }
-
-      function start(){
-        if(!ctx) return;
-        resize();
-        window.addEventListener('resize', resize, {passive:true});
-        // seed particles
-        for(let i=0;i< (window.innerWidth<900?18:38); i++) spawnParticle();
-        loop();
-      }
-
-      // initialize safely after DOM paints
-      requestAnimationFrame(()=>{
-        try{ if(!prefersReduced) start(); }catch(e){ /* fail gracefully */ }
-      });
-
-      // cleanup on unload
-      window.addEventListener('pagehide', ()=>{ cancelAnimationFrame(rafTick); });
+      resize();
+      window.addEventListener('resize', resize, { passive:true });
+      // seed a few shapes
+      for(let i=0;i<6;i++) if(Math.random()<0.6) spawnShape();
+      raf = requestAnimationFrame(loop);
+      window.addEventListener('pagehide', ()=> cancelAnimationFrame(raf));
     })();
     const header = document.getElementById('siteHeader');
     const menuToggle = document.getElementById('menuToggle');
