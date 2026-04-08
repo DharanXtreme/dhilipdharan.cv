@@ -1,1854 +1,2318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dhilipdharan V | Protection & Commissioning Engineer</title>
-  <meta name="description" content="Premium animated resume website for Dhilipdharan V, Protection & Commissioning Engineer." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #edf4ff;
-      --bg-2: #f9fbff;
-      --surface: rgba(255,255,255,0.56);
-      --surface-strong: rgba(255,255,255,0.74);
-      --surface-deep: rgba(255,255,255,0.88);
-      --text: #0f2340;
-      --muted: #5c7290;
-      --line: rgba(15, 35, 64, 0.09);
-      --primary: #1d63ff;
-      --primary-2: #3a86ff;
-      --accent: #28d7ff;
-      --accent-2: #7a6bff;
-      --success: #09b27e;
-      --warning: #ff9d42;
-      --glass-stroke: rgba(255,255,255,0.68);
-      --glass-inner: rgba(255,255,255,0.38);
-      --shadow: 0 24px 60px rgba(23, 63, 138, 0.14);
-      --shadow-soft: 0 14px 34px rgba(23, 63, 138, 0.10);
-      --shadow-strong: 0 28px 80px rgba(16, 35, 61, 0.20);
-      --radius: 28px;
-      --max: 1240px;
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      overflow-x: hidden;
-      font-family: 'Inter', system-ui, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 12%, rgba(40,215,255,.22), transparent 18%),
-        radial-gradient(circle at 90% 10%, rgba(122,107,255,.16), transparent 22%),
-        radial-gradient(circle at 50% 100%, rgba(29,99,255,.12), transparent 30%),
-        linear-gradient(180deg, #f8fbff 0%, #eef5ff 48%, #e8f0fb 100%);
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    body::before,
-    body::after {
-      content: "";
-      position: fixed;
-      width: 38vw;
-      height: 38vw;
-      border-radius: 50%;
-      z-index: -6;
-      filter: blur(78px);
-      pointer-events: none;
-      opacity: .42;
-    }
-
-    body::before {
-      top: -8vw;
-      right: -8vw;
-      background: rgba(29,99,255,.24);
-      animation: orbDrift 16s ease-in-out infinite;
-    }
-
-    body::after {
-      bottom: -10vw;
-      left: -8vw;
-      background: rgba(40,215,255,.18);
-      animation: orbDrift 19s ease-in-out infinite reverse;
-    }
-
-    img, svg { display: block; max-width: 100%; }
-
-    .container {
-      width: min(calc(100% - 32px), var(--max));
-      margin: 0 auto;
-    }
-
-    .ambient-light,
-    .grid-overlay,
-    .noise-layer,
-    .circuit-layer,
-    .pulse-layer,
-    .particle-layer,
-    .lightning-layer {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-    }
-
-    .ambient-light {
-      z-index: -5;
-      background:
-        radial-gradient(circle at 14% 18%, rgba(29,99,255,.15), transparent 20%),
-        radial-gradient(circle at 82% 16%, rgba(40,215,255,.14), transparent 22%),
-        radial-gradient(circle at 50% 46%, rgba(122,107,255,.09), transparent 24%),
-        radial-gradient(circle at 50% 96%, rgba(29,99,255,.10), transparent 28%);
-      filter: blur(18px);
-      animation: ambientShift 18s ease-in-out infinite alternate;
-    }
-
-    .grid-overlay {
-      z-index: -4;
-      background-image:
-        linear-gradient(rgba(15,35,64,0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(15,35,64,0.04) 1px, transparent 1px);
-      background-size: 54px 54px;
-      mask-image: radial-gradient(circle at center, black 35%, transparent 95%);
-    }
-
-    .noise-layer {
-      z-index: -3;
-      opacity: .17;
-      mix-blend-mode: soft-light;
-      background-image: radial-gradient(rgba(255,255,255,.7) 0.8px, transparent 0.8px);
-      background-size: 13px 13px;
-    }
-
-    .particle-layer { z-index: -2; overflow: hidden; }
-    .particle-layer span {
-      position: absolute;
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,.95), rgba(40,215,255,.35) 55%, transparent 75%);
-      box-shadow: 0 0 14px rgba(40,215,255,.25);
-      animation: particleFloat linear infinite;
-      opacity: .55;
-    }
-
-    .lightning-layer { z-index: -1; mix-blend-mode: screen; }
-    .lightning-layer svg,
-    .circuit-layer svg,
-    .pulse-layer svg {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .nav {
-      position: sticky;
-      top: 10px;
-      z-index: 60;
-      padding: 12px 0 0;
-    }
-
-    .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,.58), rgba(255,255,255,.34));
-      border: 1px solid var(--glass-stroke);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(22px) saturate(180%);
-      -webkit-backdrop-filter: blur(22px) saturate(180%);
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .glass::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(135deg, rgba(255,255,255,.58), transparent 24%, rgba(40,215,255,.08) 75%, rgba(29,99,255,.10)),
-        radial-gradient(circle at top left, rgba(255,255,255,.48), transparent 30%);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .glass::after {
-      content: "";
-      position: absolute;
-      inset: 1px;
-      border-radius: inherit;
-      border: 1px solid rgba(255,255,255,.22);
-      pointer-events: none;
-      opacity: .9;
-    }
-
-    .nav-shell {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 14px 18px;
-      border-radius: 999px;
-    }
-
-    .nav-shell .sweep {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(110deg, transparent 20%, rgba(255,255,255,.44) 48%, transparent 74%);
-      transform: translateX(-120%);
-      animation: glassSweep 8s linear infinite;
-      pointer-events: none;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-      z-index: 1;
-    }
-
-    .brand-mark {
-      position: relative;
-      width: 48px;
-      height: 48px;
-      flex-shrink: 0;
-      border-radius: 16px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.48), 0 16px 26px rgba(29,99,255,.24);
-      overflow: hidden;
-      animation: markFloat 5.5s ease-in-out infinite;
-    }
-
-    .brand-mark::before,
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      background: rgba(255,255,255,.95);
-      border-radius: 999px;
-    }
-
-    .brand-mark::before {
-      width: 18px;
-      height: 3px;
-      left: 15px;
-      top: 22px;
-      transform: rotate(-56deg);
-    }
-
-    .brand-mark::after {
-      width: 18px;
-      height: 3px;
-      left: 15px;
-      top: 22px;
-      transform: rotate(56deg);
-    }
-
-    .brand-text strong {
-      display: block;
-      font-family: 'Manrope', sans-serif;
-      font-size: 1rem;
-      letter-spacing: -.02em;
-    }
-
-    .brand-text span {
-      display: block;
-      color: var(--muted);
-      font-size: .82rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      z-index: 1;
-    }
-
-    .nav-links a,
-    .btn {
-      text-decoration: none;
-      color: var(--text);
-      padding: 11px 16px;
-      border-radius: 999px;
-      font-size: .92rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      border: 1px solid transparent;
-      transition: transform .28s ease, box-shadow .28s ease, border-color .28s ease, background .28s ease;
-      will-change: transform;
-    }
-
-    .nav-links a:hover,
-    .btn:hover,
-    .nav-links a:focus-visible,
-    .btn:focus-visible {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-soft);
-      outline: none;
-    }
-
-    .nav-links a:hover { background: rgba(255,255,255,.66); }
-
-    .btn-primary {
-      color: white !important;
-      background: linear-gradient(135deg, var(--primary), var(--accent-2));
-      box-shadow: 0 16px 34px rgba(29,99,255,.24);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,.34) 45%, transparent 80%);
-      transform: translateX(-120%);
-      transition: transform .8s ease;
-    }
-
-    .btn-primary:hover::before,
-    .btn-primary:focus-visible::before {
-      transform: translateX(120%);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,.58);
-      border-color: rgba(15,35,64,.08);
-      box-shadow: var(--shadow-soft);
-    }
-
-    main { padding-bottom: 72px; }
-
-    .hero {
-      position: relative;
-      min-height: calc(100vh - 110px);
-      display: grid;
-      align-items: start;
-      padding: 40px 0 18px;
-    }
-
-    .hero-shell {
-      display: grid;
-      grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr);
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .panel {
-      border-radius: var(--radius);
-      transform-style: preserve-3d;
-    }
-
-    .hero-copy {
-      padding: 40px 42px 30px;
-    }
-
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,.62);
-      border: 1px solid rgba(255,255,255,.70);
-      box-shadow: var(--shadow-soft);
-      font-size: .84rem;
-      font-weight: 800;
-      color: var(--primary);
-      letter-spacing: .02em;
-      margin-bottom: 18px;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .eyebrow::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
-      transform: translateX(-100%);
-      animation: glassSweep 7s linear infinite;
-      opacity: .8;
-    }
-
-    .eyebrow .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--primary));
-      box-shadow: 0 0 0 8px rgba(29,99,255,.08);
-      animation: dotPulse 2.4s ease-in-out infinite;
-      z-index: 1;
-    }
-
-    h1, h2, h3 {
-      margin: 0;
-      line-height: 1.03;
-      letter-spacing: -.04em;
-      font-family: 'Manrope', sans-serif;
-    }
-
-    h1 {
-      font-size: clamp(3rem, 7vw, 6rem);
-      max-width: 10ch;
-    }
-
-    .hero-gradient {
-      display: inline-block;
-      background: linear-gradient(135deg, #0f2340 0%, #1565ff 42%, #40a2ff 72%, #2cd7ff 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 8px 24px rgba(29,99,255,.15));
-      animation: heroGlow 5.5s ease-in-out infinite alternate;
-    }
-
-    .subtitle {
-      margin-top: 18px;
-      max-width: 62ch;
-      color: var(--muted);
-      font-size: clamp(1rem, 1.45vw, 1.18rem);
-      line-height: 1.78;
-    }
-
-    .hero-actions {
-      margin-top: 28px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-
-    .metric-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
-      margin-top: 28px;
-    }
-
-    .metric,
-    .card,
-    .timeline-item,
-    .cert-card,
-    .cta-box {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .metric {
-      padding: 18px;
-      border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.55), rgba(255,255,255,.34));
-      border: 1px solid rgba(255,255,255,.70);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(18px) saturate(180%);
-      transition: transform .35s ease, box-shadow .35s ease;
-      transform-style: preserve-3d;
-    }
-
-    .metric::after {
-      content: "";
-      position: absolute;
-      inset: auto 14px 0 14px;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      opacity: .42;
-    }
-
-    .metric:hover {
-      transform: translateY(-5px) rotateX(6deg);
-      box-shadow: 0 20px 42px rgba(32,68,135,.15);
-    }
-
-    .metric strong {
-      display: block;
-      font-size: 1.45rem;
-      margin-bottom: 6px;
-    }
-
-    .metric span {
-      font-size: .92rem;
-      color: var(--muted);
-      line-height: 1.45;
-    }
-
-    .hero-visual {
-      padding: 18px;
-      display: grid;
-      gap: 18px;
-      align-content: stretch;
-    }
-
-    .schematic {
-      min-height: 980px;
-      padding: 26px;
-      border-radius: 34px;
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      perspective: 2200px;
-      transform-style: preserve-3d;
-      transform: perspective(2200px) rotateX(0deg) rotateY(0deg);
-      transition: transform .18s ease-out, box-shadow .35s ease;
-      animation: depthBreath 7s ease-in-out infinite;
-    }
-
-    .schematic::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 18% 22%, rgba(29,99,255,.20), transparent 18%),
-        radial-gradient(circle at 84% 16%, rgba(40,215,255,.18), transparent 20%),
-        radial-gradient(circle at 50% 86%, rgba(122,107,255,.14), transparent 22%),
-        linear-gradient(180deg, rgba(255,255,255,.25), transparent 22%, transparent 82%, rgba(29,99,255,.05));
-      pointer-events: none;
-    }
-
-    .schematic::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(125deg, rgba(255,255,255,.36), transparent 18%, transparent 60%, rgba(255,255,255,.24)),
-        radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(49,213,255,.22), transparent 22%);
-      mix-blend-mode: screen;
-      pointer-events: none;
-      opacity: .95;
-      z-index: 1;
-    }
-
-    .schematic .lightning-flash {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(90deg, transparent 0%, rgba(255,255,255,.08) 48%, transparent 100%),
-        radial-gradient(circle at 50% 28%, rgba(255,255,255,.22), transparent 22%);
-      opacity: .5;
-      mix-blend-mode: screen;
-      animation: lightningFlash 6s ease-in-out infinite;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .schematic svg {
-      width: 100%;
-      height: 100%;
-      position: relative;
-      z-index: 3;
-      transform-style: preserve-3d;
-    }
-
-    .schematic text {
-      paint-order: stroke;
-      stroke: rgba(255,255,255,.72);
-      stroke-width: 2px;
-      letter-spacing: .02em;
-      text-rendering: geometricPrecision;
-      filter: drop-shadow(0 2px 8px rgba(16,35,61,.10));
-    }
-
-    .glass-card {
-      fill: rgba(255,255,255,.56);
-      stroke: rgba(255,255,255,.82);
-      filter: url(#cardShadow);
-    }
-
-    .glass-card-soft {
-      fill: rgba(255,255,255,.68);
-      stroke: rgba(21,101,255,.12);
-      filter: url(#cardShadow);
-    }
-
-    .schematic-line,
-    .schematic-pulse,
-    .schematic-node,
-    .schematic-bolt {
-      transform-origin: center;
-      will-change: transform, opacity, filter;
-    }
-
-    .schematic-line {
-      animation: pulseLine 5.4s ease-in-out infinite;
-    }
-
-    .schematic-pulse {
-      animation: moveDash 3s linear infinite;
-    }
-
-    .schematic-node {
-      animation: nodeGlow 3.2s ease-in-out infinite;
-    }
-
-    .schematic-bolt {
-      animation: boltPulse 2.8s ease-in-out infinite;
-    }
-
-    .hero-focus {
-      transform-style: preserve-3d;
-      will-change: transform;
-      transition: transform .22s ease;
-    }
-
-    section { padding: 36px 0; }
-
-    .section-head {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 24px;
-    }
-
-    .section-head p {
-      max-width: 64ch;
-      color: var(--muted);
-      line-height: 1.7;
-      margin: 10px 0 0;
-    }
-
-    .section-tag {
-      display: inline-flex;
-      gap: 8px;
-      align-items: center;
-      color: var(--primary);
-      font-weight: 800;
-      font-size: .88rem;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-    }
-
-    .section-tag::before {
-      content: "";
-      width: 24px;
-      height: 2px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-    }
-
-    .timeline {
-      display: grid;
-      gap: 18px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 130px 1fr;
-      gap: 20px;
-      padding: 24px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,.56), rgba(255,255,255,.36));
-      border: 1px solid rgba(255,255,255,.72);
-      box-shadow: var(--shadow-soft);
-      backdrop-filter: blur(18px) saturate(180%);
-      transition: transform .35s ease, box-shadow .35s ease;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, var(--primary), var(--accent));
-      opacity: .7;
-    }
-
-    .timeline-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 42px rgba(32,68,135,.15);
-    }
-
-    .timeline-year {
-      font-weight: 800;
-      color: var(--primary);
-      font-size: .94rem;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-    }
-
-    .timeline h3 {
-      margin-bottom: 8px;
-      font-size: 1.16rem;
-    }
-
-    .skills-grid,
-    .project-grid,
-    .tool-grid,
-    .relay-grid,
-    .cert-grid {
-      display: grid;
-      gap: 18px;
-    }
-
-    .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .project-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .tool-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .relay-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .cert-grid { grid-template-columns: 1fr; }
-
-    .card,
-    .cert-card {
-      padding: 22px;
-      border-radius: 24px;
-      background: linear-gradient(180deg, rgba(255,255,255,.56), rgba(255,255,255,.34));
-      border: 1px solid rgba(255,255,255,.74);
-      box-shadow: var(--shadow-soft);
-      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
-      backdrop-filter: blur(20px) saturate(180%);
-      transform-style: preserve-3d;
-      will-change: transform;
-      isolation: isolate;
-    }
-
-    .card::before,
-    .cert-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(29,99,255,.06), transparent 45%, rgba(40,215,255,.08));
-      z-index: -2;
-    }
-
-    .card::after,
-    .cert-card::after {
-      content: "";
-      position: absolute;
-      inset: -1px;
-      background: radial-gradient(circle at var(--mx,50%) var(--my,50%), rgba(49,213,255,.18), transparent 26%);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity .35s ease;
-      pointer-events: none;
-    }
-
-    .card:hover,
-    .card:focus-within,
-    .cert-card:hover,
-    .cert-card:focus-within {
-      transform: translateY(-8px) rotateX(6deg) rotateY(-4deg);
-      box-shadow: var(--shadow-strong);
-      border-color: rgba(29,99,255,.18);
-    }
-
-    .card:hover::after,
-    .card:focus-within::after,
-    .cert-card:hover::after,
-    .cert-card:focus-within::after {
-      opacity: 1;
-    }
-
-    .card h3,
-    .cert-card h3 {
-      font-size: 1.12rem;
-      margin-bottom: 10px;
-    }
-
-    .card p,
-    .card li,
-    .timeline p,
-    .timeline li,
-    .cert-card p {
-      color: var(--muted);
-      line-height: 1.72;
-      font-size: .96rem;
-      margin-top: 0;
-    }
-
-    .card ul,
-    .timeline ul {
-      padding-left: 18px;
-      margin: 10px 0 0;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 16px;
-    }
-
-    .pill {
-      padding: 10px 13px;
-      border-radius: 999px;
-      background: rgba(29,99,255,.08);
-      border: 1px solid rgba(29,99,255,.08);
-      color: #2153b8;
-      font-weight: 700;
-      font-size: .86rem;
-      transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pill:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 18px rgba(29,99,255,.12);
-      background: rgba(29,99,255,.12);
-    }
-
-    .project-card h3 {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-
-    .project-badge,
-    .cert-badge {
-      padding: 6px 10px;
-      font-size: .72rem;
-      font-weight: 800;
-      border-radius: 999px;
-      letter-spacing: .04em;
-      text-transform: uppercase;
-      flex-shrink: 0;
-    }
-
-    .project-badge {
-      background: rgba(12,166,120,.11);
-      color: var(--success);
-      box-shadow: inset 0 0 0 1px rgba(12,166,120,.12);
-    }
-
-    .cert-badge {
-      background: rgba(29,99,255,.10);
-      color: var(--primary);
-      box-shadow: inset 0 0 0 1px rgba(29,99,255,.12);
-    }
-
-    .cert-card {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
-      align-items: center;
-      gap: 18px;
-      padding: 22px;
-    }
-
-    .cert-logo {
-      width: 62px;
-      height: 62px;
-      border-radius: 18px;
-      background: linear-gradient(135deg, #ef3c31, #ff7a59);
-      box-shadow: 0 16px 28px rgba(239,60,49,.18), inset 0 1px 0 rgba(255,255,255,.38);
-      position: relative;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .cert-logo::before {
-      content: "";
-      position: absolute;
-      left: 10px;
-      top: 10px;
-      width: 42px;
-      height: 42px;
-      background: rgba(255,255,255,.12);
-      clip-path: polygon(50% 0%, 100% 28%, 100% 72%, 50% 100%, 0% 72%, 0% 28%);
-      border-radius: 10px;
-    }
-
-    .cert-logo::after {
-      content: "";
-      position: absolute;
-      left: 15px;
-      top: 18px;
-      width: 32px;
-      height: 24px;
-      background: white;
-      clip-path: polygon(50% 0%, 100% 35%, 82% 100%, 18% 100%, 0% 35%);
-      opacity: .95;
-    }
-
-    .cert-title {
-      min-width: 0;
-    }
-
-    .cert-title h3 {
-      margin-bottom: 4px;
-      font-size: 1.26rem;
-    }
-
-    .cert-title .issuer {
-      font-weight: 700;
-      color: var(--text);
-      font-size: 1rem;
-    }
-
-    .cert-meta {
-      margin-top: 8px;
-      display: grid;
-      gap: 5px;
-      color: var(--muted);
-      font-size: .95rem;
-    }
-
-    .cert-side {
-      display: grid;
-      justify-items: end;
-      gap: 10px;
-    }
-
-    .cert-glow-line {
-      width: 110px;
-      height: 3px;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      box-shadow: 0 0 18px rgba(40,215,255,.25);
-      opacity: .7;
-    }
-
-    .cta {
-      padding: 30px;
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 24px;
-      align-items: center;
-      background: linear-gradient(135deg, rgba(255,255,255,.54), rgba(255,255,255,.34));
-      border-radius: 28px;
-      border: 1px solid rgba(255,255,255,.76);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(20px) saturate(180%);
-    }
-
-    .cta-box {
-      padding: 24px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, #0e2340, #1f5fff 68%, #32cfff 100%);
-      color: white;
-      box-shadow: 0 24px 46px rgba(17, 64, 149, .25);
-      position: relative;
-    }
-
-    .cta-box::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(255,255,255,.22), transparent 30%);
-      pointer-events: none;
-    }
-
-    .cta-box p { color: rgba(255,255,255,.84); }
-
-    footer {
-      padding: 16px 0 10px;
-      color: var(--muted);
-      font-size: .92rem;
-      text-align: center;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px) scale(.985);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-
-    .float {
-      animation: floatCard 7s ease-in-out infinite;
-    }
-
-    @keyframes orbDrift {
-      0%,100% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(18px,20px,0) scale(1.08); }
-    }
-
-    @keyframes ambientShift {
-      0% { transform: translate3d(0,0,0) scale(1); }
-      50% { transform: translate3d(-10px,6px,0) scale(1.04); }
-      100% { transform: translate3d(8px,-10px,0) scale(1.02); }
-    }
-
-    @keyframes particleFloat {
-      0% { transform: translate3d(0, 105vh, 0) scale(.6); opacity: 0; }
-      10% { opacity: .55; }
-      100% { transform: translate3d(30px, -20vh, 0) scale(1.08); opacity: 0; }
-    }
-
-    @keyframes lightningPulse {
-      0%, 80%, 100% { opacity: 0; }
-      82% { opacity: .15; }
-      84% { opacity: .7; }
-      86% { opacity: .2; }
-      88% { opacity: .58; }
-      90% { opacity: 0; }
-    }
-
-    @keyframes lightningFlash {
-      0%, 76%, 100% { opacity: .18; }
-      78% { opacity: .7; }
-      79% { opacity: .2; }
-      80% { opacity: .55; }
-      82% { opacity: .15; }
-    }
-
-    @keyframes floatCard {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    @keyframes markFloat {
-      0%,100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-4px) rotate(-3deg); }
-    }
-
-    @keyframes dotPulse {
-      0%,100% { box-shadow: 0 0 0 0 rgba(29,99,255,.16); }
-      50% { box-shadow: 0 0 0 8px rgba(29,99,255,.03); }
-    }
-
-    @keyframes nodeGlow {
-      0%,100% { opacity: .74; filter: drop-shadow(0 0 0 rgba(29,99,255,.12)); }
-      50% { opacity: 1; filter: drop-shadow(0 0 12px rgba(29,99,255,.28)); }
-    }
-
-    @keyframes boltPulse {
-      0%,100% { opacity: .6; filter: drop-shadow(0 0 0 rgba(40,215,255,.14)); }
-      50% { opacity: 1; filter: drop-shadow(0 0 18px rgba(40,215,255,.34)); }
-    }
-
-    @keyframes pulseLine {
-      0%,100% { opacity: .5; }
-      50% { opacity: 1; }
-    }
-
-    @keyframes moveDash {
-      from { stroke-dashoffset: 180; }
-      to { stroke-dashoffset: 0; }
-    }
-
-    @keyframes heroGlow {
-      0%,100% { filter: drop-shadow(0 0 0 rgba(29,99,255,.1)); }
-      50% { filter: drop-shadow(0 8px 18px rgba(29,99,255,.25)); }
-    }
-
-    @keyframes chartFloat {
-      0%,100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg) scale(1); }
-      25% { transform: translateY(-4px) rotateX(1.2deg) rotateY(-1.2deg) scale(1.002); }
-      50% { transform: translateY(-8px) rotateX(-.8deg) rotateY(1.4deg) scale(1.006); }
-      75% { transform: translateY(-3px) rotateX(1deg) rotateY(.6deg) scale(1.002); }
-    }
-
-    @keyframes chartPulseGlow {
-      0%,100% { filter: drop-shadow(0 10px 18px rgba(29,99,255,.08)) drop-shadow(0 0 0 rgba(49,213,255,.10)); }
-      50% { filter: drop-shadow(0 22px 38px rgba(29,99,255,.16)) drop-shadow(0 0 18px rgba(49,213,255,.20)); }
-    }
-
-    @keyframes labelFlicker {
-      0%,100% { opacity: 1; filter: drop-shadow(0 2px 6px rgba(16,35,61,.06)); }
-      50% { opacity: .985; filter: drop-shadow(0 6px 12px rgba(29,99,255,.10)); }
-    }
-
-    @keyframes depthBreath {
-      0%,100% {
-        box-shadow:
-          inset 0 1px 0 rgba(255,255,255,.95),
-          0 30px 70px rgba(32, 68, 135, 0.16),
-          0 14px 28px rgba(29,99,255,.10);
-      }
-      50% {
-        box-shadow:
-          inset 0 1px 0 rgba(255,255,255,.98),
-          0 42px 92px rgba(32, 68, 135, 0.22),
-          0 20px 42px rgba(29,99,255,.16);
-      }
-    }
-
-    @keyframes glassSweep {
-      to { transform: translateX(120%); }
-    }
-
-    @media (max-width: 1100px) {
-      .hero-shell,
-      .cta,
-      .skills-grid,
-      .project-grid,
-      .relay-grid,
-      .tool-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 760px) {
-      .container { width: min(calc(100% - 20px), var(--max)); }
-
-      .nav {
-        top: 6px;
-        padding-top: 8px;
-      }
-
-      .nav-shell {
-        border-radius: 24px;
-        padding: 14px;
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .brand { width: 100%; }
-      .brand-text span { white-space: normal; }
-
-      .nav-links {
-        justify-content: flex-start;
-        width: 100%;
-        gap: 8px;
-      }
-
-      .nav-links a,
-      .btn {
-        padding: 10px 14px;
-        font-size: .9rem;
-      }
-
-      .hero { padding-top: 24px; }
-
-      .hero-copy,
-      .hero-visual,
-      .cta,
-      .schematic {
-        padding: 22px;
-      }
-
-      h1 {
-        font-size: clamp(2.5rem, 12vw, 4rem);
-        line-height: .98;
-      }
-
-      .subtitle {
-        max-width: 100%;
-        line-height: 1.7;
-      }
-
-      .hero-shell,
-      .metric-row,
-      .skills-grid,
-      .project-grid,
-      .relay-grid,
-      .tool-grid,
-      .cta,
-      .cert-card {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        padding: 20px;
-      }
-
-      .schematic {
-        min-height: auto;
-        aspect-ratio: 1 / 1.6;
-      }
-
-      .schematic svg {
-        min-height: 800px;
-      }
-
-      .schematic text {
-        font-size: 16px !important;
-        stroke-width: 1.2px;
-      }
-
-      .cert-side {
-        justify-items: start;
-      }
-
-      .card,
-      .metric,
-      .timeline-item,
-      .cta-box,
-      .cert-card,
-      .schematic {
-        transform: none !important;
-      }
-    }
-
-    @media (max-width: 520px) {
-      body::before,
-      body::after {
-        width: 62vw;
-        height: 62vw;
-      }
-
-      .hero-copy {
-        padding: 22px 18px 18px;
-      }
-
-      .hero-visual {
-        padding: 14px;
-      }
-
-      .schematic {
-        padding: 12px;
-        border-radius: 24px;
-      }
-
-      .schematic svg {
-        min-height: 720px;
-      }
-
-      .schematic text {
-        font-size: 14px !important;
-      }
-
-      .metric,
-      .card,
-      .timeline-item,
-      .cta-box,
-      .cta,
-      .cert-card {
-        padding: 18px;
-        border-radius: 20px;
-      }
-
-      .pill-row { gap: 8px; }
-      .pill { padding: 8px 11px; font-size: .8rem; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.001ms !important;
-        scroll-behavior: auto !important;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dhilipdharan V — Electrical Protection Engineer</title>
+<meta name="description" content="Senior Electrical Protection Engineer specialising in High Voltage Relay Testing & Commissioning">
+<style>
+/* ============================================================
+   ROOT VARIABLES & RESET
+   ============================================================ */
+:root {
+  --c-bg:        #020408;
+  --c-surface:   #070d14;
+  --c-card:      rgba(10,22,40,0.75);
+  --c-border:    rgba(0,180,255,0.12);
+  --c-glow:      #00b4ff;
+  --c-glow2:     #0066ff;
+  --c-accent:    #00e5ff;
+  --c-gold:      #f0c040;
+  --c-text:      #e8f4ff;
+  --c-muted:     #5a7a9a;
+  --c-white:     #ffffff;
+  --font-head:   'Segoe UI', system-ui, -apple-system, sans-serif;
+  --ease-out:    cubic-bezier(0.16,1,0.3,1);
+  --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--c-bg);
+  color:var(--c-text);
+  font-family:var(--font-head);
+  overflow-x:hidden;
+  cursor:none;
+}
+::selection{background:rgba(0,180,255,0.3);color:#fff}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+
+/* ============================================================
+   CUSTOM CURSOR
+   ============================================================ */
+#cursor{
+  position:fixed;width:12px;height:12px;
+  background:var(--c-accent);
+  border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .15s,height .15s,background .15s;
+  mix-blend-mode:screen;
+}
+#cursor-ring{
+  position:fixed;width:40px;height:40px;
+  border:1.5px solid rgba(0,229,255,0.5);
+  border-radius:50%;pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:transform .08s linear,width .2s,height .2s,border-color .2s;
+}
+body:hover #cursor{opacity:1}
+
+/* ============================================================
+   LOADING SCREEN
+   ============================================================ */
+#loader{
+  position:fixed;inset:0;z-index:10000;
+  background:var(--c-bg);
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:2rem;
+  transition:opacity .8s var(--ease-out),visibility .8s;
+}
+#loader.hide{opacity:0;visibility:hidden}
+.loader-ring{
+  width:80px;height:80px;
+  border:2px solid rgba(0,180,255,0.1);
+  border-top-color:var(--c-accent);
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+.loader-text{
+  font-size:.75rem;letter-spacing:.4em;
+  color:var(--c-muted);text-transform:uppercase;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ============================================================
+   NOISE TEXTURE OVERLAY
+   ============================================================ */
+body::before{
+  content:'';
+  position:fixed;inset:0;z-index:1;
+  pointer-events:none;
+  opacity:.025;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+/* ============================================================
+   GLOBAL ELECTRICAL BACKGROUND CANVAS
+   ============================================================ */
+#elec-bg{
+  position:fixed;inset:0;z-index:0;
+  pointer-events:none;
+  width:100%;height:100%;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 4rem;
+  background:rgba(2,4,8,0.6);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--c-border);
+  transition:padding .4s var(--ease-out);
+}
+nav.scrolled{padding:.8rem 4rem}
+.nav-logo{
+  font-size:1.1rem;font-weight:700;letter-spacing:.12em;
+  background:linear-gradient(135deg,var(--c-accent),var(--c-glow2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.nav-links{display:flex;gap:2.5rem;list-style:none}
+.nav-links a{
+  font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--c-muted);
+  position:relative;padding-bottom:4px;
+  transition:color .3s;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:0;left:0;
+  width:0;height:1px;
+  background:var(--c-accent);
+  transition:width .3s var(--ease-out);
+}
+.nav-links a:hover{color:var(--c-accent)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{
+  padding:.55rem 1.6rem;
+  border:1px solid rgba(0,229,255,0.35);
+  border-radius:40px;
+  font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--c-accent);
+  position:relative;overflow:hidden;
+  transition:color .3s,border-color .3s,box-shadow .3s;
+}
+.nav-cta:hover{
+  border-color:var(--c-accent);
+  color:#fff;
+  box-shadow:0 0 24px rgba(0,229,255,0.25);
+}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer}
+.hamburger span{width:24px;height:2px;background:var(--c-text);transition:.3s}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+#hero{
+  position:relative;height:100vh;min-height:640px;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+/* animated grid */
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,180,255,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,180,255,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  animation:gridMove 20s linear infinite;
+}
+@keyframes gridMove{to{background-position:60px 60px}}
+
+/* radial glow */
+.hero-glow{
+  position:absolute;
+  width:900px;height:900px;
+  background:radial-gradient(ellipse at center,
+    rgba(0,102,255,0.18) 0%,
+    rgba(0,180,255,0.06) 40%,
+    transparent 70%);
+  border-radius:50%;
+  top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  animation:glowPulse 6s ease-in-out infinite;
+}
+@keyframes glowPulse{
+  0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8}
+  50%{transform:translate(-50%,-50%) scale(1.1);opacity:1}
+}
+/* particles canvas */
+#particles{position:absolute;inset:0;pointer-events:none}
+
+.hero-content{
+  position:relative;z-index:2;
+  text-align:center;padding:0 2rem;
+  max-width:900px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.4rem 1.2rem;
+  border:1px solid rgba(0,229,255,0.25);
+  border-radius:40px;
+  font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--c-accent);
+  margin-bottom:2rem;
+  background:rgba(0,229,255,0.04);
+  backdrop-filter:blur(8px);
+  opacity:0;animation:fadeUp .8s var(--ease-out) .3s forwards;
+}
+.hero-badge-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c-accent);
+  box-shadow:0 0 8px var(--c-accent);
+  animation:blink 2s ease-in-out infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+
+.hero-name{
+  font-size:clamp(2.8rem,7vw,6rem);
+  font-weight:800;line-height:1.05;
+  letter-spacing:-.02em;
+  background:linear-gradient(135deg,#fff 0%,var(--c-accent) 50%,var(--c-glow2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  opacity:0;animation:fadeUp .9s var(--ease-out) .5s forwards;
+}
+.hero-title{
+  font-size:clamp(1rem,2.5vw,1.4rem);
+  color:var(--c-muted);font-weight:400;
+  letter-spacing:.05em;margin-top:1rem;
+  opacity:0;animation:fadeUp .9s var(--ease-out) .7s forwards;
+}
+.hero-title span{color:var(--c-accent)}
+.hero-divider{
+  width:80px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--c-accent),transparent);
+  margin:1.8rem auto;
+  opacity:0;animation:fadeUp .6s var(--ease-out) .9s forwards;
+}
+.hero-desc{
+  font-size:clamp(.9rem,1.5vw,1.05rem);
+  color:var(--c-muted);line-height:1.8;max-width:620px;margin:0 auto 2.5rem;
+  opacity:0;animation:fadeUp .9s var(--ease-out) 1s forwards;
+}
+.hero-cta-group{
+  display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:fadeUp .9s var(--ease-out) 1.1s forwards;
+}
+.btn-primary{
+  padding:.85rem 2.4rem;
+  background:linear-gradient(135deg,var(--c-glow2),var(--c-accent));
+  border-radius:50px;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;font-weight:600;
+  position:relative;overflow:hidden;
+  transition:transform .3s var(--ease-spring),box-shadow .3s;
+}
+.btn-primary::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.15),transparent);
+  opacity:0;transition:opacity .3s;
+}
+.btn-primary:hover{
+  transform:translateY(-3px) scale(1.02);
+  box-shadow:0 12px 40px rgba(0,102,255,0.4);
+}
+.btn-primary:hover::before{opacity:1}
+.btn-outline{
+  padding:.85rem 2.4rem;
+  border:1px solid rgba(0,229,255,0.35);
+  border-radius:50px;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c-accent);
+  transition:transform .3s var(--ease-spring),box-shadow .3s,border-color .3s,background .3s;
+}
+.btn-outline:hover{
+  transform:translateY(-3px);
+  border-color:var(--c-accent);
+  background:rgba(0,229,255,0.06);
+  box-shadow:0 8px 30px rgba(0,229,255,0.15);
+}
+.hero-scroll{
+  position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:.6rem;
+  opacity:0;animation:fadeUp .6s var(--ease-out) 1.4s forwards;
+}
+.scroll-text{font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-muted)}
+.scroll-line{
+  width:1px;height:50px;
+  background:linear-gradient(180deg,var(--c-accent),transparent);
+  animation:scrollDown 2s ease-in-out infinite;
+}
+@keyframes scrollDown{
+  0%{transform:scaleY(0);transform-origin:top}
+  50%{transform:scaleY(1);transform-origin:top}
+  51%{transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(28px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ============================================================
+   SECTION BASE
+   ============================================================ */
+section{position:relative;z-index:2;isolation:isolate}
+.section-inner{max-width:1200px;margin:0 auto;padding:4.5rem 2rem}
+.section-label{
+  font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--c-accent);margin-bottom:1rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.section-label::before{
+  content:'';width:32px;height:1px;
+  background:var(--c-accent);
+}
+.section-title{
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:800;line-height:1.1;
+  color:#fff;margin-bottom:.8rem;
+}
+.section-subtitle{
+  font-size:1rem;color:var(--c-muted);
+  line-height:1.8;max-width:600px;
+}
+
+/* reveal animation */
+.reveal{
+  opacity:0;transform:translateY(40px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
+}
+.reveal.visible{opacity:1;transform:none}
+.reveal-left{
+  opacity:0;transform:translateX(-40px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
+}
+.reveal-left.visible{opacity:1;transform:none}
+.reveal-right{
+  opacity:0;transform:translateX(40px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out);
+}
+.reveal-right.visible{opacity:1;transform:none}
+
+/* stagger children */
+.stagger > *{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .7s var(--ease-out),transform .7s var(--ease-out);
+}
+.stagger.visible > *:nth-child(1){opacity:1;transform:none;transition-delay:.05s}
+.stagger.visible > *:nth-child(2){opacity:1;transform:none;transition-delay:.15s}
+.stagger.visible > *:nth-child(3){opacity:1;transform:none;transition-delay:.25s}
+.stagger.visible > *:nth-child(4){opacity:1;transform:none;transition-delay:.35s}
+.stagger.visible > *:nth-child(5){opacity:1;transform:none;transition-delay:.45s}
+.stagger.visible > *:nth-child(6){opacity:1;transform:none;transition-delay:.55s}
+.stagger.visible > *:nth-child(7){opacity:1;transform:none;transition-delay:.65s}
+.stagger.visible > *:nth-child(8){opacity:1;transform:none;transition-delay:.75s}
+
+/* section divider */
+.section-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,rgba(0,180,255,0.2),transparent);
+  margin:0 4rem;
+}
+
+/* ============================================================
+   ABOUT
+   ============================================================ */
+#about{background:rgba(7,13,20,0.88)}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;
+  margin-top:2.5rem;
+}
+.about-visual{
+  position:relative;display:flex;align-items:center;justify-content:center;
+}
+.about-orb{
+  width:320px;height:320px;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 35% 35%,
+    rgba(0,102,255,0.4),
+    rgba(0,229,255,0.1) 50%,
+    transparent 75%);
+  border:1px solid rgba(0,229,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  animation:orbFloat 6s ease-in-out infinite;
+}
+@keyframes orbFloat{
+  0%,100%{transform:translateY(0) rotate(0deg)}
+  50%{transform:translateY(-16px) rotate(3deg)}
+}
+.about-orb::before{
+  content:'';
+  position:absolute;inset:-2px;
+  border-radius:50%;
+  border:1px solid transparent;
+  background:linear-gradient(135deg,rgba(0,229,255,0.3),transparent,rgba(0,102,255,0.3)) border-box;
+  -webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:destination-out;
+  mask-composite:exclude;
+}
+.about-initials{
+  font-size:5rem;font-weight:900;letter-spacing:-.04em;
+  background:linear-gradient(135deg,#fff,var(--c-accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.about-ring-1,.about-ring-2{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(0,229,255,0.08);
+}
+.about-ring-1{width:380px;height:380px;animation:ringRotate 20s linear infinite}
+.about-ring-2{width:440px;height:440px;animation:ringRotate 30s linear infinite reverse}
+@keyframes ringRotate{to{transform:rotate(360deg)}}
+.about-ring-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--c-accent);
+  box-shadow:0 0 10px var(--c-accent);
+  position:absolute;top:0;left:50%;transform:translate(-50%,-50%);
+}
+
+.about-text{}
+.about-intro{
+  font-size:1.08rem;line-height:1.9;
+  color:rgba(232,244,255,0.8);margin-bottom:1.2rem;
+}
+.about-intro strong{color:var(--c-accent)}
+.about-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;
+}
+.stat-card{
+  padding:1.4rem 1.6rem;
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:16px;
+  backdrop-filter:blur(12px);
+  transition:border-color .3s,transform .3s var(--ease-spring);
+}
+.stat-card:hover{border-color:rgba(0,229,255,0.3);transform:translateY(-4px)}
+.stat-number{
+  font-size:2.2rem;font-weight:800;
+  background:linear-gradient(135deg,#fff,var(--c-accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.stat-label{font-size:.72rem;color:var(--c-muted);letter-spacing:.1em;text-transform:uppercase;margin-top:.4rem}
+
+/* ============================================================
+   SKILLS
+   ============================================================ */
+#skills{
+  background:rgba(2,4,8,0.82);
+}
+.skills-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+  gap:1.2rem;margin-top:2rem;
+}
+.skill-category{
+  padding:2rem;
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:20px;
+  backdrop-filter:blur(16px);
+  position:relative;overflow:hidden;
+  transition:border-color .4s,transform .4s var(--ease-spring),box-shadow .4s;
+}
+.skill-category:hover{
+  border-color:rgba(0,229,255,0.3);
+  transform:translateY(-6px);
+  box-shadow:0 20px 60px rgba(0,102,255,0.12);
+}
+.skill-category::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--c-accent),transparent);
+  opacity:0;transition:opacity .4s;
+}
+.skill-category:hover::before{opacity:1}
+.skill-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(0,102,255,0.2),rgba(0,229,255,0.1));
+  border:1px solid rgba(0,229,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;margin-bottom:1.2rem;
+}
+.skill-cat-title{font-size:.9rem;font-weight:700;color:#fff;margin-bottom:1rem;letter-spacing:.04em}
+.skill-tags{display:flex;flex-wrap:wrap;gap:.5rem}
+.skill-tag{
+  padding:.3rem .85rem;
+  border-radius:30px;
+  font-size:.7rem;letter-spacing:.06em;
+  background:rgba(0,229,255,0.06);
+  border:1px solid rgba(0,229,255,0.15);
+  color:rgba(232,244,255,0.7);
+  transition:background .3s,border-color .3s,color .3s,transform .2s;
+}
+.skill-tag:hover{
+  background:rgba(0,229,255,0.12);
+  border-color:rgba(0,229,255,0.35);
+  color:var(--c-accent);
+  transform:scale(1.04);
+}
+
+/* skill bars */
+.skill-bars{margin-top:2.5rem}
+.skill-bar-item{margin-bottom:1.8rem}
+.skill-bar-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:.6rem;
+}
+.skill-bar-name{font-size:.82rem;color:rgba(232,244,255,0.85);letter-spacing:.04em}
+.skill-bar-pct{font-size:.72rem;color:var(--c-accent);font-weight:600}
+.skill-bar-track{
+  height:4px;background:rgba(0,180,255,0.08);
+  border-radius:4px;overflow:hidden;
+}
+.skill-bar-fill{
+  height:100%;border-radius:4px;width:0;
+  background:linear-gradient(90deg,var(--c-glow2),var(--c-accent));
+  box-shadow:0 0 10px rgba(0,229,255,0.4);
+  transition:width 1.2s var(--ease-out);
+}
+
+/* ============================================================
+   RELAYS & EQUIPMENT
+   ============================================================ */
+#equipment{background:rgba(7,13,20,0.88)}
+.relay-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:1.2rem;margin-top:2rem;
+}
+.relay-card{
+  padding:1.8rem;
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:16px;
+  backdrop-filter:blur(12px);
+  transition:border-color .3s,transform .3s var(--ease-spring);
+  perspective:600px;
+}
+.relay-card:hover{
+  border-color:rgba(0,229,255,0.25);
+  transform:translateY(-5px) rotateX(2deg);
+}
+.relay-brand{
+  font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--c-accent);margin-bottom:.8rem;
+}
+.relay-models{list-style:none}
+.relay-models li{
+  padding:.35rem 0;
+  border-bottom:1px solid rgba(0,180,255,0.06);
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.8rem;
+  color:rgba(232,244,255,0.7);
+}
+.relay-models li:last-child{border-bottom:none}
+.relay-models .model-id{color:#fff;font-weight:600;font-size:.78rem}
+.relay-models .model-type{
+  font-size:.66rem;color:var(--c-muted);
+  letter-spacing:.05em;text-align:right;
+}
+
+/* software pills */
+.software-grid{
+  display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2.5rem;
+}
+.software-pill{
+  padding:.5rem 1.2rem;
+  border-radius:40px;
+  background:rgba(0,102,255,0.08);
+  border:1px solid rgba(0,102,255,0.2);
+  font-size:.76rem;letter-spacing:.06em;color:rgba(232,244,255,0.75);
+  transition:all .3s;
+}
+.software-pill:hover{
+  background:rgba(0,229,255,0.1);
+  border-color:rgba(0,229,255,0.35);
+  color:var(--c-accent);
+  transform:translateY(-2px);
+}
+
+/* ============================================================
+   EXPERIENCE / TIMELINE
+   ============================================================ */
+#experience{background:rgba(2,4,8,0.82)}
+.timeline{
+  position:relative;margin-top:2.5rem;
+  padding-left:2rem;
+}
+.timeline::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,var(--c-accent),rgba(0,229,255,0.1));
+}
+.timeline-item{
+  position:relative;padding:0 0 2.5rem 3rem;
+}
+.timeline-item:last-child{padding-bottom:0}
+.timeline-dot{
+  position:absolute;left:-7px;top:6px;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--c-bg);
+  border:2px solid var(--c-accent);
+  box-shadow:0 0 16px rgba(0,229,255,0.4);
+}
+.timeline-dot::before{
+  content:'';
+  position:absolute;inset:3px;
+  border-radius:50%;background:var(--c-accent);
+}
+.timeline-period{
+  font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;
+  color:var(--c-accent);margin-bottom:.6rem;
+}
+.timeline-company{
+  font-size:1.2rem;font-weight:800;color:#fff;margin-bottom:.3rem;
+}
+.timeline-role{
+  font-size:.88rem;color:var(--c-muted);margin-bottom:1rem;
+  font-style:italic;
+}
+.timeline-desc{
+  font-size:.88rem;line-height:1.8;color:rgba(232,244,255,0.7);
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+#projects{background:rgba(7,13,20,0.88)}
+.projects-filter{
+  display:flex;gap:.8rem;flex-wrap:wrap;margin:1.8rem 0 1.5rem;
+}
+.filter-btn{
+  padding:.4rem 1.2rem;
+  border-radius:30px;
+  font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;
+  border:1px solid rgba(0,180,255,0.15);
+  color:var(--c-muted);background:transparent;cursor:pointer;
+  transition:all .3s;
+}
+.filter-btn.active,
+.filter-btn:hover{
+  border-color:var(--c-accent);
+  color:var(--c-accent);
+  background:rgba(0,229,255,0.06);
+}
+.projects-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));
+  gap:1.4rem;
+}
+.project-card{
+  padding:1.8rem;
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:20px;
+  backdrop-filter:blur(14px);
+  position:relative;overflow:hidden;
+  cursor:pointer;
+  transition:border-color .4s,transform .4s var(--ease-spring),box-shadow .4s;
+}
+.project-card:hover{
+  border-color:rgba(0,229,255,0.25);
+  transform:translateY(-6px);
+  box-shadow:0 24px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(0,229,255,0.08);
+}
+.project-card::after{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at var(--mx,50%) var(--my,50%),rgba(0,229,255,0.04),transparent 60%);
+  opacity:0;transition:opacity .3s;pointer-events:none;
+}
+.project-card:hover::after{opacity:1}
+.project-number{
+  font-size:.65rem;letter-spacing:.15em;color:var(--c-muted);
+  margin-bottom:.8rem;
+}
+.project-kv{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--c-accent);margin-bottom:.5rem;}
+.project-client{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.8rem;line-height:1.3}
+.project-activities{font-size:.8rem;color:rgba(232,244,255,0.6);line-height:1.7}
+.project-location{
+  display:inline-flex;align-items:center;gap:.4rem;
+  margin-top:1rem;
+  font-size:.68rem;letter-spacing:.08em;color:var(--c-muted);
+}
+.location-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:var(--c-gold);
+}
+
+/* ============================================================
+   TESTING KITS
+   ============================================================ */
+#testing{background:rgba(2,4,8,0.82)}
+.kits-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2rem;
+}
+.kit-panel{
+  padding:2rem;
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:20px;backdrop-filter:blur(14px);
+  transition:border-color .3s,transform .3s var(--ease-spring);
+}
+.kit-panel:hover{border-color:rgba(0,229,255,0.25);transform:translateY(-4px)}
+.kit-title{
+  font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--c-accent);margin-bottom:1.2rem;
+  padding-bottom:.8rem;
+  border-bottom:1px solid var(--c-border);
+}
+.kit-list{list-style:none}
+.kit-list li{
+  padding:.5rem 0;
+  font-size:.85rem;color:rgba(232,244,255,0.75);
+  border-bottom:1px solid rgba(0,180,255,0.05);
+  display:flex;align-items:center;gap:.8rem;
+}
+.kit-list li::before{
+  content:'';width:4px;height:4px;border-radius:50%;
+  background:var(--c-accent);flex-shrink:0;
+}
+.kit-list li:last-child{border-bottom:none}
+
+/* ============================================================
+   ACHIEVEMENTS / STATS COUNTER
+   ============================================================ */
+#achievements{
+  background:linear-gradient(135deg,
+    rgba(0,40,100,0.4) 0%,
+    rgba(0,10,30,0.95) 100%);
+  border-top:1px solid var(--c-border);
+  border-bottom:1px solid var(--c-border);
+}
+.achievements-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2rem;text-align:center;
+}
+.achievement-item{}
+.achievement-number{
+  font-size:clamp(2.5rem,5vw,4rem);
+  font-weight:900;line-height:1;
+  background:linear-gradient(135deg,#fff,var(--c-accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.achievement-suffix{
+  font-size:clamp(1.5rem,3vw,2.5rem);
+  font-weight:900;
+  background:linear-gradient(135deg,var(--c-accent),var(--c-glow2));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.achievement-label{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--c-muted);margin-top:.8rem;line-height:1.5;
+}
+
+/* ============================================================
+   EDUCATION
+   ============================================================ */
+#education{background:var(--c-surface)}
+.edu-card{
+  display:grid;grid-template-columns:auto 1fr;gap:2.5rem;align-items:center;
+  padding:2.5rem;
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:24px;backdrop-filter:blur(14px);
+  margin-top:2rem;
+  max-width:700px;
+  transition:border-color .3s,transform .3s var(--ease-spring);
+}
+.edu-card:hover{border-color:rgba(0,229,255,0.25);transform:translateY(-4px)}
+.edu-icon{
+  width:72px;height:72px;border-radius:20px;
+  background:linear-gradient(135deg,rgba(0,102,255,0.3),rgba(0,229,255,0.1));
+  border:1px solid rgba(0,229,255,0.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;flex-shrink:0;
+}
+.edu-degree{font-size:1rem;font-weight:700;color:#fff;margin-bottom:.4rem}
+.edu-uni{font-size:.85rem;color:var(--c-muted);margin-bottom:.5rem}
+.edu-meta{
+  display:flex;gap:1rem;flex-wrap:wrap;margin-top:.8rem;
+}
+.edu-badge{
+  padding:.25rem .8rem;border-radius:20px;
+  font-size:.68rem;letter-spacing:.1em;
+  background:rgba(0,229,255,0.06);
+  border:1px solid rgba(0,229,255,0.15);
+  color:var(--c-accent);
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact{background:rgba(2,4,8,0.82)}
+.contact-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:3rem;
+  margin-top:2.5rem;align-items:start;
+}
+.contact-info{}
+.contact-intro{
+  font-size:1rem;line-height:1.9;
+  color:rgba(232,244,255,0.7);margin-bottom:1.5rem;
+}
+.contact-items{display:flex;flex-direction:column;gap:1.2rem}
+.contact-item{
+  display:flex;align-items:center;gap:1.2rem;
+  padding:1.2rem 1.5rem;
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:14px;backdrop-filter:blur(12px);
+  transition:border-color .3s,transform .3s var(--ease-spring);
+}
+.contact-item:hover{
+  border-color:rgba(0,229,255,0.25);
+  transform:translateX(6px);
+}
+.contact-item-icon{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(135deg,rgba(0,102,255,0.2),rgba(0,229,255,0.08));
+  border:1px solid rgba(0,229,255,0.15);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;flex-shrink:0;
+}
+.contact-item-label{
+  font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--c-muted);margin-bottom:.2rem;
+}
+.contact-item-value{font-size:.88rem;color:rgba(232,244,255,0.85)}
+.contact-item-value a{transition:color .2s}
+.contact-item-value a:hover{color:var(--c-accent)}
+
+/* contact form */
+.contact-form{
+  background:var(--c-card);
+  border:1px solid var(--c-border);
+  border-radius:24px;padding:2.5rem;
+  backdrop-filter:blur(14px);
+}
+.form-title{
+  font-size:1.1rem;font-weight:700;color:#fff;
+  margin-bottom:2rem;
+}
+.form-group{margin-bottom:1.4rem}
+.form-label{
+  font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--c-muted);margin-bottom:.6rem;display:block;
+}
+.form-input{
+  width:100%;padding:.85rem 1.2rem;
+  background:rgba(0,180,255,0.04);
+  border:1px solid rgba(0,180,255,0.12);
+  border-radius:12px;
+  color:var(--c-text);font-family:inherit;font-size:.9rem;
+  outline:none;
+  transition:border-color .3s,box-shadow .3s,background .3s;
+  resize:vertical;
+}
+.form-input:focus{
+  border-color:rgba(0,229,255,0.4);
+  background:rgba(0,229,255,0.04);
+  box-shadow:0 0 0 3px rgba(0,229,255,0.06);
+}
+.form-input::placeholder{color:var(--c-muted);opacity:.5}
+.form-submit{
+  width:100%;padding:1rem;
+  background:linear-gradient(135deg,var(--c-glow2),var(--c-accent));
+  border:none;border-radius:12px;
+  color:#fff;font-family:inherit;font-size:.85rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;
+  position:relative;overflow:hidden;
+  transition:transform .3s var(--ease-spring),box-shadow .3s,opacity .3s;
+}
+.form-submit:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 40px rgba(0,102,255,0.4);
+}
+.form-submit:active{transform:translateY(0)}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{
+  background:rgba(7,13,20,0.92);
+  border-top:1px solid var(--c-border);
+  padding:2.5rem 4rem 1.5rem;
+  position:relative;overflow:hidden;
+}
+footer::before{
+  content:'';
+  position:absolute;top:-100px;left:50%;
+  width:600px;height:200px;transform:translateX(-50%);
+  background:radial-gradient(ellipse,rgba(0,102,255,0.08),transparent 70%);
+}
+.footer-inner{
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;
+  gap:3rem;align-items:end;
+}
+.footer-brand{
+  font-size:1.5rem;font-weight:800;letter-spacing:-.01em;
+  background:linear-gradient(135deg,#fff,var(--c-accent));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  margin-bottom:.6rem;
+}
+.footer-tagline{font-size:.8rem;color:var(--c-muted);margin-bottom:1.2rem}
+.footer-copy{
+  font-size:.72rem;color:rgba(90,122,154,0.6);
+  letter-spacing:.06em;padding-top:2rem;
+  border-top:1px solid var(--c-border);
+  text-align:center;margin-top:2rem;
+}
+.footer-links{display:flex;gap:2rem;list-style:none}
+.footer-links a{
+  font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--c-muted);transition:color .3s;
+}
+.footer-links a:hover{color:var(--c-accent)}
+
+/* ============================================================
+   SCROLL PROGRESS BAR
+   ============================================================ */
+#progress-bar{
+  position:fixed;top:0;left:0;height:2px;z-index:9000;
+  background:linear-gradient(90deg,var(--c-glow2),var(--c-accent));
+  width:0%;transition:width .1s linear;
+  box-shadow:0 0 8px rgba(0,229,255,0.5);
+}
+
+/* ============================================================
+   MOBILE MENU
+   ============================================================ */
+.mobile-menu{
+  position:fixed;inset:0;z-index:490;
+  background:rgba(2,4,8,0.97);
+  backdrop-filter:blur(24px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:2.5rem;
+  transform:translateY(-100%);
+  transition:transform .5s var(--ease-out);
+}
+.mobile-menu.open{transform:none}
+.mobile-menu a{
+  font-size:1.6rem;font-weight:700;color:rgba(232,244,255,0.6);
+  letter-spacing:.04em;
+  transition:color .2s;
+}
+.mobile-menu a:hover{color:var(--c-accent)}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media(max-width:900px){
+  nav{padding:1rem 2rem}
+  nav.scrolled{padding:.7rem 2rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .about-visual{order:-1}
+  .about-orb{width:240px;height:240px}
+  .about-ring-1{width:290px;height:290px}
+  .about-ring-2{width:340px;height:340px}
+  .achievements-grid{grid-template-columns:repeat(2,1fr);gap:2.5rem}
+  .contact-grid{grid-template-columns:1fr}
+  .kits-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr;text-align:center}
+  .footer-links{justify-content:center}
+}
+@media(max-width:600px){
+  .section-inner{padding:3.5rem 1.4rem}
+  .skills-grid{grid-template-columns:1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .relay-grid{grid-template-columns:1fr}
+  .achievements-grid{grid-template-columns:1fr;gap:2rem}
+  .about-stats{grid-template-columns:1fr}
+  footer{padding:3rem 1.4rem 2rem}
+}
+
+/* ============================================================
+   GLITCH EFFECT (name)
+   ============================================================ */
+@keyframes glitch{
+  0%,94%,100%{clip-path:inset(0)}
+  95%{clip-path:inset(10% 0 80% 0);transform:translateX(-4px)}
+  96%{clip-path:inset(60% 0 20% 0);transform:translateX(4px)}
+  97%{clip-path:inset(30% 0 50% 0);transform:translateX(-2px)}
+  98%{clip-path:inset(0)}
+}
+</style>
 </head>
 <body>
-  <div class="ambient-light"></div>
-  <div class="grid-overlay"></div>
-  <div class="noise-layer"></div>
 
-  <div class="particle-layer" aria-hidden="true">
-    <span style="left:6%; animation-duration:18s; animation-delay:-2s;"></span>
-    <span style="left:12%; animation-duration:15s; animation-delay:-7s; width:4px; height:4px;"></span>
-    <span style="left:20%; animation-duration:20s; animation-delay:-5s;"></span>
-    <span style="left:28%; animation-duration:17s; animation-delay:-10s; width:5px; height:5px;"></span>
-    <span style="left:36%; animation-duration:22s; animation-delay:-3s;"></span>
-    <span style="left:45%; animation-duration:16s; animation-delay:-8s; width:4px; height:4px;"></span>
-    <span style="left:54%; animation-duration:19s; animation-delay:-6s;"></span>
-    <span style="left:63%; animation-duration:14s; animation-delay:-11s; width:5px; height:5px;"></span>
-    <span style="left:72%; animation-duration:20s; animation-delay:-5s;"></span>
-    <span style="left:81%; animation-duration:17s; animation-delay:-9s; width:4px; height:4px;"></span>
-    <span style="left:90%; animation-duration:23s; animation-delay:-4s;"></span>
+<!-- ============================================================
+     LOADING SCREEN
+     ============================================================ -->
+<canvas id="elec-bg"></canvas>
+<div id="loader">
+  <div class="loader-ring"></div>
+  <div class="loader-text">Loading Portfolio</div>
+</div>
+
+<!-- CURSOR -->
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar"></div>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<nav id="navbar">
+  <div class="nav-logo">DV</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#equipment">Equipment</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:dhilipdharan.v@gmail.com" class="nav-cta">Hire Me</a>
+  <div class="hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#experience" class="mobile-link">Experience</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#equipment" class="mobile-link">Equipment</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- ============================================================
+     HERO
+     ============================================================ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <canvas id="particles"></canvas>
+
+  <div class="hero-content">
+    <h1 class="hero-name">Dhilipdharan V</h1>
+    <p class="hero-title">
+      Senior Electrical Engineer &mdash; <span>High Voltage Protection</span> &amp; Commissioning
+    </p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      7+ years of expertise in testing, configuring and commissioning high-voltage protection relays across
+      substations from 11kV to 765kV. Delivered 29+ projects across India, Nigeria and Australia.
+    </p>
+    <div class="hero-cta-group">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
   </div>
 
-  <div class="lightning-layer" aria-hidden="true">
-    <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="lightningStroke" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stop-color="rgba(255,255,255,0)" />
-          <stop offset="45%" stop-color="rgba(86,204,255,.18)" />
-          <stop offset="50%" stop-color="rgba(255,255,255,.90)" />
-          <stop offset="55%" stop-color="rgba(86,204,255,.18)" />
-          <stop offset="100%" stop-color="rgba(255,255,255,0)" />
-        </linearGradient>
-        <filter id="lightningGlow" x="-40%" y="-40%" width="180%" height="180%">
-          <feGaussianBlur stdDeviation="5" result="blur"></feGaussianBlur>
-          <feMerge>
-            <feMergeNode in="blur"></feMergeNode>
-            <feMergeNode in="SourceGraphic"></feMergeNode>
-          </feMerge>
-        </filter>
-      </defs>
-      <path d="M1180 0 L1122 110 L1170 110 L1088 250 L1140 250 L1010 480" stroke="url(#lightningStroke)" stroke-width="3.5" fill="none" filter="url(#lightningGlow)" style="animation: lightningPulse 9s ease-in-out infinite;"></path>
-      <path d="M320 0 L278 90 L315 90 L250 210 L292 210 L188 420" stroke="url(#lightningStroke)" stroke-width="3" fill="none" filter="url(#lightningGlow)" style="animation: lightningPulse 11s ease-in-out infinite 1.4s;"></path>
-    </svg>
+  <div class="hero-scroll">
+    <span class="scroll-text">Scroll</span>
+    <div class="scroll-line"></div>
   </div>
+</section>
 
-  <div class="pulse-layer" aria-hidden="true">
-    <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
-      <defs>
-        <linearGradient id="pulseStroke" x1="0%" x2="100%">
-          <stop offset="0%" stop-color="rgba(29,99,255,0)" />
-          <stop offset="50%" stop-color="rgba(29,99,255,.35)" />
-          <stop offset="100%" stop-color="rgba(40,215,255,0)" />
-        </linearGradient>
-      </defs>
-      <path d="M0,250 C240,180 320,320 520,260 C750,190 850,340 1050,270 C1250,200 1390,300 1600,240" fill="none" stroke="url(#pulseStroke)" stroke-width="2" stroke-dasharray="4 12" class="schematic-pulse"/>
-      <path d="M0,640 C210,560 360,720 560,650 C760,580 920,740 1120,670 C1320,600 1430,700 1600,630" fill="none" stroke="url(#pulseStroke)" stroke-width="2" stroke-dasharray="4 12" class="schematic-pulse" style="animation-duration:4.2s"/>
-    </svg>
-  </div>
-
-  <div class="circuit-layer" aria-hidden="true">
-    <svg viewBox="0 0 1600 900" preserveAspectRatio="none">
-      <g stroke="rgba(29,99,255,.08)" stroke-width="2" fill="none" class="schematic-line">
-        <path d="M120 170 H310 V250 H470 V210 H630" />
-        <path d="M1020 160 H1230 V260 H1430" />
-        <path d="M180 690 H390 V600 H610 V710 H790" />
-        <path d="M1040 690 H1280 V610 H1480" />
-      </g>
-      <g fill="rgba(29,99,255,.14)">
-        <circle cx="120" cy="170" r="7" class="schematic-node" />
-        <circle cx="310" cy="170" r="7" class="schematic-node" style="animation-delay:.3s" />
-        <circle cx="470" cy="250" r="7" class="schematic-node" style="animation-delay:.6s" />
-        <circle cx="630" cy="210" r="7" class="schematic-node" style="animation-delay:.9s" />
-        <circle cx="1020" cy="160" r="7" class="schematic-node" style="animation-delay:.3s" />
-        <circle cx="1230" cy="160" r="7" class="schematic-node" style="animation-delay:.8s" />
-        <circle cx="1430" cy="260" r="7" class="schematic-node" style="animation-delay:1.2s" />
-        <circle cx="180" cy="690" r="7" class="schematic-node" />
-        <circle cx="390" cy="690" r="7" class="schematic-node" style="animation-delay:.4s" />
-        <circle cx="610" cy="600" r="7" class="schematic-node" style="animation-delay:.8s" />
-        <circle cx="790" cy="710" r="7" class="schematic-node" style="animation-delay:1.1s" />
-        <circle cx="1040" cy="690" r="7" class="schematic-node" style="animation-delay:1.4s" />
-        <circle cx="1280" cy="610" r="7" class="schematic-node" style="animation-delay:1.7s" />
-        <circle cx="1480" cy="610" r="7" class="schematic-node" style="animation-delay:2s" />
-      </g>
-    </svg>
-  </div>
-
-  <nav class="nav container">
-    <div class="nav-shell glass">
-      <div class="sweep"></div>
-      <div class="brand">
-        <div class="brand-mark"></div>
-        <div class="brand-text">
-          <strong>Dhilipdharan V</strong>
-          <span>Protection, Testing &amp; Commissioning Engineer</span>
+<!-- ============================================================
+     ABOUT
+     ============================================================ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label reveal">About Me</div>
+    <h2 class="section-title reveal">Precision Engineering,<br>Delivered at Scale</h2>
+    <div class="about-grid">
+      <div class="about-visual reveal-left">
+        <div class="about-ring-2">
+          <div class="about-ring-dot" style="top:0;left:50%"></div>
+        </div>
+        <div class="about-ring-1">
+          <div class="about-ring-dot" style="top:auto;bottom:0;left:50%"></div>
+        </div>
+        <div class="about-orb">
+          <div class="about-initials">DV</div>
         </div>
       </div>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#certifications">Certifications</a>
-        <a href="#tools">Tools</a>
-        <a href="#contact" class="btn btn-primary">Contact</a>
+      <div class="about-text reveal-right">
+        <p class="about-intro">
+          I'm <strong>Dhilipdharan V</strong>, a specialist in high-voltage electrical protection relay
+          testing and commissioning with over <strong>7 years</strong> of hands-on experience across
+          substations ranging from <strong>11kV to 765kV</strong>.
+        </p>
+        <p class="about-intro">
+          My expertise spans the full protection ecosystem — from numerical relay configuration and IEC 61850
+          GOOSE communication to primary injection stability testing and disturbance recorder analysis.
+          I bring cross-brand mastery across <strong>ABB, Siemens, GE, SEL, ALSTOM, Schneider Electric</strong>
+          and more, and have delivered critical infrastructure projects across
+          <strong>India, Nigeria and Australia</strong>.
+        </p>
+        <div class="about-stats stagger">
+          <div class="stat-card">
+            <div class="stat-number">7+</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">29+</div>
+            <div class="stat-label">Major Projects</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">765kV</div>
+            <div class="stat-label">Highest Voltage Level</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">Countries Delivered</div>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
+  </div>
+</section>
 
-  <main>
-    <section class="hero container">
-      <div class="hero-shell">
-        <div class="panel glass hero-copy reveal visible hero-focus">
-          <div class="eyebrow"><span class="dot"></span> Electrical Engineering Portfolio</div>
-          <h1>
-            High-voltage <span class="hero-gradient">protection</span> engineer
-          </h1>
-          <p class="subtitle">
-            I'm Protection, Testing &amp; Commissioning Engineer focused on secondary protection testing, primary equipment validation, IEC 61850 communication, remote integration, and full commissioning delivery across substations, power plants, renewables, BESS, and heavy industrial infrastructure.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#contact">Let’s Connect</a>
-            <a class="btn btn-secondary" href="#projects">View Signature Projects</a>
-          </div>
-          <div class="metric-row">
-            <div class="metric">
-              <strong>7+ Years</strong>
-              <span>Protection testing, commissioning, logic verification, and energisation support.</span>
-            </div>
-            <div class="metric">
-              <strong>Multi-OEM</strong>
-              <span>ABB, Siemens, GE, SEL, Micom, NR, Reyrolle, Schneider, and more.</span>
-            </div>
-            <div class="metric">
-              <strong>Utility to Renewables</strong>
-              <span>Experience across substations, gas plants, solar, wind, BESS, and industrial systems.</span>
-            </div>
-          </div>
+<!-- ============================================================
+     ACHIEVEMENTS COUNTER
+     ============================================================ -->
+<section id="achievements">
+  <div class="section-inner" style="padding:3rem 2rem">
+    <div class="achievements-grid stagger">
+      <div class="achievement-item">
+        <div>
+          <span class="achievement-number" data-target="29">0</span>
+          <span class="achievement-suffix">+</span>
         </div>
+        <div class="achievement-label">Projects Commissioned<br>Across 3 Countries</div>
+      </div>
+      <div class="achievement-item">
+        <div>
+          <span class="achievement-number" data-target="765">0</span>
+          <span class="achievement-suffix">kV</span>
+        </div>
+        <div class="achievement-label">Highest Voltage Level<br>GIS Bay Extension</div>
+      </div>
+      <div class="achievement-item">
+        <div>
+          <span class="achievement-number" data-target="6">0</span>
+          <span class="achievement-suffix">+</span>
+        </div>
+        <div class="achievement-label">Relay Brands<br>Mastered</div>
+      </div>
+      <div class="achievement-item">
+        <div>
+          <span class="achievement-number" data-target="348">0</span>
+          <span class="achievement-suffix">MVA</span>
+        </div>
+        <div class="achievement-label">Largest Generator<br>Protection Commissioned</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="panel glass hero-visual reveal visible hero-focus">
-          <div class="schematic glass float hero-focus" aria-hidden="true" id="flow3d">
-            <div class="lightning-flash"></div>
-            <svg viewBox="0 0 1200 1180" width="100%" height="100%" preserveAspectRatio="xMidYMid meet">
-              <defs>
-                <linearGradient id="mainStroke" x1="0%" x2="100%">
-                  <stop offset="0%" stop-color="#1b6bff" />
-                  <stop offset="100%" stop-color="#2bd7ff" />
-                </linearGradient>
-                <linearGradient id="branchStroke" x1="0%" x2="100%">
-                  <stop offset="0%" stop-color="#7b61ff" />
-                  <stop offset="100%" stop-color="#1b6bff" />
-                </linearGradient>
-                <linearGradient id="commStroke" x1="0%" x2="100%">
-                  <stop offset="0%" stop-color="#11b886" />
-                  <stop offset="100%" stop-color="#2bd7ff" />
-                </linearGradient>
-                <linearGradient id="boltStroke" x1="0%" x2="100%">
-                  <stop offset="0%" stop-color="#ffffff" />
-                  <stop offset="100%" stop-color="#6fe7ff" />
-                </linearGradient>
-                <filter id="softGlowLarge" x="-40%" y="-40%" width="180%" height="180%">
-                  <feGaussianBlur stdDeviation="6" result="blur"></feGaussianBlur>
-                  <feMerge>
-                    <feMergeNode in="blur"></feMergeNode>
-                    <feMergeNode in="SourceGraphic"></feMergeNode>
-                  </feMerge>
-                </filter>
-                <filter id="cardShadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="rgba(16,35,61,.18)"></feDropShadow>
-                </filter>
-              </defs>
+<!-- ============================================================
+     SKILLS
+     ============================================================ -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label reveal">Expertise</div>
+    <h2 class="section-title reveal">Technical Skill Set</h2>
+    <p class="section-subtitle reveal">
+      Deep, cross-platform expertise in protection engineering — from complex relay configuration
+      to full-substation commissioning.
+    </p>
 
-              <g style="transform: translateZ(44px); transform-origin:center; animation: chartFloat 7s ease-in-out infinite, chartPulseGlow 6s ease-in-out infinite;">
-                <g fill="none" stroke="url(#mainStroke)" stroke-width="12" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
-                  <path d="M600 110 V240" />
-                  <path d="M600 330 V460" />
-                  <path d="M600 550 V680" />
-                  <path d="M600 770 V910" />
-                </g>
-
-                <g fill="none" stroke="url(#branchStroke)" stroke-width="4.2" stroke-linecap="round" stroke-dasharray="18 18" class="schematic-pulse" filter="url(#softGlowLarge)">
-                  <path d="M600 110 V240" style="animation-duration:2.8s"/>
-                  <path d="M600 330 V460" style="animation-duration:3.1s"/>
-                  <path d="M600 550 V680" style="animation-duration:3.4s"/>
-                  <path d="M600 770 V910" style="animation-duration:3.7s"/>
-                </g>
-              </g>
-
-              <g class="schematic-bolt" filter="url(#softGlowLarge)">
-                <path d="M580 56 L614 56 L595 98 L622 98 L571 162 L589 112 L564 112 Z" fill="url(#boltStroke)" opacity=".78"></path>
-                <path d="M1022 88 L1048 88 L1036 114 L1058 114 L1018 168 L1028 128 L1010 128 Z" fill="url(#boltStroke)" opacity=".62" style="animation-delay:1s"></path>
-                <path d="M144 742 L168 742 L157 767 L178 767 L139 818 L149 781 L132 781 Z" fill="url(#boltStroke)" opacity=".62" style="animation-delay:1.4s"></path>
-              </g>
-
-              <g fill="none" stroke="url(#mainStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
-                <path d="M600 285 H390 V180 H165" />
-                <path d="M600 285 H390 V255 H165" />
-                <path d="M600 285 H390 V330 H165" />
-                <path d="M600 285 H390 V405 H165" />
-                <path d="M600 285 H390 V480 H165" />
-                <path d="M600 285 H390 V555 H165" />
-              </g>
-              <g fill="none" stroke="url(#branchStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M600 285 H390 V180 H165" style="animation-duration:3.0s"/>
-                <path d="M600 285 H390 V255 H165" style="animation-duration:3.2s"/>
-                <path d="M600 285 H390 V330 H165" style="animation-duration:3.4s"/>
-                <path d="M600 285 H390 V405 H165" style="animation-duration:3.6s"/>
-                <path d="M600 285 H390 V480 H165" style="animation-duration:3.8s"/>
-                <path d="M600 285 H390 V555 H165" style="animation-duration:4.0s"/>
-              </g>
-
-              <g fill="none" stroke="url(#commStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
-                <path d="M600 285 H810 V190 H1035" />
-                <path d="M600 285 H810 V285 H1035" />
-                <path d="M600 285 H810 V380 H1035" />
-                <path d="M600 285 H810 V475 H1035" />
-              </g>
-              <g fill="none" stroke="url(#commStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M600 285 H810 V190 H1035" style="animation-duration:3.1s"/>
-                <path d="M600 285 H810 V285 H1035" style="animation-duration:3.4s"/>
-                <path d="M600 285 H810 V380 H1035" style="animation-duration:3.7s"/>
-                <path d="M600 285 H810 V475 H1035" style="animation-duration:4.0s"/>
-              </g>
-
-              <g fill="none" stroke="url(#mainStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
-                <path d="M600 735 H390 V830 H165" />
-                <path d="M600 735 H390 V930 H165" />
-                <path d="M600 735 H390 V1030 H165" />
-              </g>
-              <g fill="none" stroke="url(#branchStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M600 735 H390 V830 H165" style="animation-duration:3.3s"/>
-                <path d="M600 735 H390 V930 H165" style="animation-duration:3.7s"/>
-                <path d="M600 735 H390 V1030 H165" style="animation-duration:4.1s"/>
-              </g>
-
-              <g fill="none" stroke="url(#commStroke)" stroke-width="7" stroke-linecap="round" class="schematic-line" filter="url(#softGlowLarge)">
-                <path d="M600 735 H810 V830 H1035" />
-                <path d="M600 735 H810 V930 H1035" />
-                <path d="M600 735 H810 V1030 H1035" />
-              </g>
-              <g fill="none" stroke="url(#commStroke)" stroke-width="3.2" stroke-linecap="round" stroke-dasharray="11 11" class="schematic-pulse" filter="url(#softGlowLarge)">
-                <path d="M600 735 H810 V830 H1035" style="animation-duration:3.2s"/>
-                <path d="M600 735 H810 V930 H1035" style="animation-duration:3.6s"/>
-                <path d="M600 735 H810 V1030 H1035" style="animation-duration:4.0s"/>
-              </g>
-
-              <g>
-                <rect x="355" y="30" rx="28" ry="28" width="490" height="74" class="glass-card"></rect>
-                <rect x="365" y="160" rx="28" ry="28" width="470" height="94" class="glass-card"></rect>
-                <rect x="365" y="380" rx="28" ry="28" width="470" height="94" class="glass-card"></rect>
-                <rect x="365" y="600" rx="28" ry="28" width="470" height="94" class="glass-card"></rect>
-                <rect x="375" y="920" rx="28" ry="28" width="450" height="74" class="glass-card"></rect>
-
-                <rect x="22" y="146" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
-                <rect x="22" y="221" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
-                <rect x="22" y="296" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
-                <rect x="22" y="371" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
-                <rect x="22" y="446" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
-                <rect x="22" y="521" rx="22" ry="22" width="250" height="52" class="glass-card-soft"></rect>
-
-                <rect x="928" y="156" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
-                <rect x="928" y="251" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
-                <rect x="928" y="346" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
-                <rect x="928" y="441" rx="22" ry="22" width="248" height="56" class="glass-card-soft"></rect>
-
-                <rect x="18" y="804" rx="22" ry="22" width="262" height="58" class="glass-card-soft"></rect>
-                <rect x="18" y="904" rx="22" ry="22" width="262" height="58" class="glass-card-soft"></rect>
-                <rect x="18" y="1004" rx="22" ry="22" width="262" height="58" class="glass-card-soft"></rect>
-
-                <rect x="920" y="804" rx="22" ry="22" width="260" height="58" class="glass-card-soft"></rect>
-                <rect x="920" y="904" rx="22" ry="22" width="260" height="58" class="glass-card-soft"></rect>
-                <rect x="920" y="1004" rx="22" ry="22" width="260" height="58" class="glass-card-soft"></rect>
-              </g>
-
-              <g fill="#10233d" font-family="Inter, sans-serif" font-weight="800" style="animation: labelFlicker 5s ease-in-out infinite;">
-                <text x="600" y="76" text-anchor="middle" font-size="28">Protection &amp; Commissioning Engineering</text>
-                <text x="600" y="218" text-anchor="middle" font-size="24">Secondary Protection Testing</text>
-                <text x="600" y="438" text-anchor="middle" font-size="24">Protection Logic &amp; Analysis</text>
-                <text x="600" y="658" text-anchor="middle" font-size="24">Primary Equipment Testing</text>
-                <text x="600" y="966" text-anchor="middle" font-size="26">Completions Engineering</text>
-
-                <text x="145" y="186" text-anchor="middle" font-size="19">Line Protection</text>
-                <text x="145" y="261" text-anchor="middle" font-size="19">Feeder Protection</text>
-                <text x="145" y="336" text-anchor="middle" font-size="19">Transformer Protection</text>
-                <text x="145" y="411" text-anchor="middle" font-size="19">Busbar Protection</text>
-                <text x="145" y="486" text-anchor="middle" font-size="19">Motor Protection</text>
-                <text x="145" y="561" text-anchor="middle" font-size="19">Generator Protection</text>
-
-                <text x="1052" y="196" text-anchor="middle" font-size="19">GOOSE</text>
-                <text x="1052" y="291" text-anchor="middle" font-size="19">IEC 61850</text>
-                <text x="1052" y="386" text-anchor="middle" font-size="19">DNP / Modbus</text>
-                <text x="1052" y="481" text-anchor="middle" font-size="19">Remote Ops</text>
-
-                <text x="149" y="836" text-anchor="middle" font-size="19">Circuit Breakers</text>
-                <text x="149" y="936" text-anchor="middle" font-size="19">CT / VT</text>
-                <text x="149" y="1036" text-anchor="middle" font-size="19">Transformers</text>
-
-                <text x="1050" y="836" text-anchor="middle" font-size="19">Full Commissioning</text>
-                <text x="1050" y="936" text-anchor="middle" font-size="19">Primary Equipments</text>
-                <text x="1050" y="1036" text-anchor="middle" font-size="19">Signal Testing</text>
-              </g>
-            </svg>
-          </div>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-year">Focus</div>
-              <div>
-                <h3>Engineering Focus</h3>
-                <p>Secondary protection testing, primary equipment validation, scheme checking, IEC 61850 integration, troubleshooting, and energisation readiness.</p>
-              </div>
-            </div>
-          </div>
+    <div class="skills-grid stagger">
+      <div class="skill-category">
+        <div class="skill-icon">⚡</div>
+        <div class="skill-cat-title">Protection System Testing</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Distance Protection</span>
+          <span class="skill-tag">Differential Protection</span>
+          <span class="skill-tag">Transformer Protection</span>
+          <span class="skill-tag">Generator Protection</span>
+          <span class="skill-tag">Motor Protection</span>
+          <span class="skill-tag">Busbar Protection</span>
+          <span class="skill-tag">Feeder Protection</span>
+          <span class="skill-tag">Line Differential</span>
+          <span class="skill-tag">REF Protection</span>
+          <span class="skill-tag">OC &amp; EF Protection</span>
         </div>
       </div>
-    </section>
-
-    <section id="about" class="container reveal">
-      <div class="section-head">
-        <div>
-          <div class="section-tag">About</div>
-          <h2>Protection &amp; commissioning profile</h2>
+      <div class="skill-category">
+        <div class="skill-icon">🔌</div>
+        <div class="skill-cat-title">Switchyard &amp; Switchgear</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Current Transformers</span>
+          <span class="skill-tag">Capacitive VTs</span>
+          <span class="skill-tag">Circuit Breakers</span>
+          <span class="skill-tag">Isolators</span>
+          <span class="skill-tag">Earth Switches</span>
+          <span class="skill-tag">Lightning Arresters</span>
+          <span class="skill-tag">GIS Systems</span>
+          <span class="skill-tag">Interlock Schemes</span>
+          <span class="skill-tag">DG Auto Changeover</span>
         </div>
-        <p>
-          Electrical &amp; Electronics Engineering graduate with hands-on experience across relay testing, commissioning, control and relay scheme validation, IEC 61850 / GOOSE communication, disturbance analysis, work pack preparation, asset validation, and project handover support.
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">📡</div>
+        <div class="skill-cat-title">Communication &amp; Standards</div>
+        <div class="skill-tags">
+          <span class="skill-tag">IEC 61850</span>
+          <span class="skill-tag">GOOSE Messaging</span>
+          <span class="skill-tag">Optical Fiber Comms</span>
+          <span class="skill-tag">Carrier Communication</span>
+          <span class="skill-tag">SCADA Integration</span>
+          <span class="skill-tag">SAS Configuration</span>
+          <span class="skill-tag">Direct Transfer Schemes</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">🧪</div>
+        <div class="skill-cat-title">Testing &amp; Analysis</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Primary Injection</span>
+          <span class="skill-tag">Secondary Injection</span>
+          <span class="skill-tag">Stability Testing</span>
+          <span class="skill-tag">Sensitivity Testing</span>
+          <span class="skill-tag">Disturbance Recorder</span>
+          <span class="skill-tag">Waveform Analysis</span>
+          <span class="skill-tag">Harmonic Analysis</span>
+          <span class="skill-tag">CB Timing Testing</span>
+          <span class="skill-tag">Relay Setting Coordination</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">🏗️</div>
+        <div class="skill-cat-title">Bus Schemes &amp; Configuration</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Single Bus</span>
+          <span class="skill-tag">Single Bus + Transfer</span>
+          <span class="skill-tag">Double Bus</span>
+          <span class="skill-tag">Double Bus + Transfer</span>
+          <span class="skill-tag">One-and-Half Breaker</span>
+          <span class="skill-tag">Relay-to-Relay Comms</span>
+          <span class="skill-tag">BCU Configuration</span>
+        </div>
+      </div>
+      <div class="skill-category">
+        <div class="skill-icon">🛠️</div>
+        <div class="skill-cat-title">Project &amp; Engineering Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag">P&ID Reading</span>
+          <span class="skill-tag">Isometric Drawings</span>
+          <span class="skill-tag">ITR Validation</span>
+          <span class="skill-tag">LOSH Verification</span>
+          <span class="skill-tag">Work Pack Preparation</span>
+          <span class="skill-tag">Tri-party Walkdowns</span>
+          <span class="skill-tag">CCMS Platform</span>
+          <span class="skill-tag">Point-to-Point Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skill proficiency bars -->
+    <div class="skill-bars reveal" style="margin-top:2.5rem">
+      <div class="section-label" style="margin-bottom:1.2rem">Proficiency Levels</div>
+      <div id="skill-bars-container">
+        <div class="skill-bar-item">
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Protection Relay Testing &amp; Commissioning</span>
+            <span class="skill-bar-pct">98%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="98"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">IEC 61850 / GOOSE Configuration</span>
+            <span class="skill-bar-pct">92%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">ABB PCM / Relay Software</span>
+            <span class="skill-bar-pct">95%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Omicron Test Universe</span>
+            <span class="skill-bar-pct">96%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="96"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Siemens DIGSI 4 &amp; 5</span>
+            <span class="skill-bar-pct">88%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-header">
+            <span class="skill-bar-name">Primary Injection &amp; Stability Testing</span>
+            <span class="skill-bar-pct">94%</span>
+          </div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="94"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIENCE
+     ============================================================ -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label reveal">Career</div>
+    <h2 class="section-title reveal">Professional Experience</h2>
+    <div class="timeline reveal">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">Nov 2022 — Present</div>
+        <div class="timeline-company">Sun &amp; Jay Engineering Consultants Pvt. Ltd.</div>
+        <div class="timeline-role">Electrical Engineer — High Voltage Protection Relay Testing</div>
+        <div class="timeline-desc">
+          Leading end-to-end testing and commissioning of high-voltage protection systems including
+          primary injection testing, busbar stability, IEC 61850 GOOSE signal verification, and
+          full-substation commissioning across Australia. Key projects include Hunter Power Project (132kV),
+          Broad Sound Solar Farm (275/33kV), Wambo 2 Wind Farm, and Swanbank BESS — delivering critical
+          energy infrastructure with zero defect handovers.
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-period">May 2019 — Oct 2022</div>
+        <div class="timeline-company">POG Engineering Consultants Pvt. Ltd.</div>
+        <div class="timeline-role">Protection Engineer</div>
+        <div class="timeline-desc">
+          Performed relay configuration, secondary injection testing, and commissioning of protection
+          systems across substations from 11kV to 400kV in India and Nigeria. Managed protection of
+          generators up to 348 MVA, transformers up to 314 MVA, and delivered IEC 61850 SCADA integration
+          for major utilities including PGCIL, KPTCL, HVPNL and RRVPN. Also delivered overseas projects
+          in Nigeria (132/33kV and 330/132/33kV substations).
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROJECTS
+     ============================================================ -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label reveal">Portfolio</div>
+    <h2 class="section-title reveal">Projects &amp; Sites</h2>
+    <p class="section-subtitle reveal">
+      29 major projects delivered across India, Nigeria and Australia — spanning 11kV to 765kV infrastructure.
+    </p>
+
+    <div class="projects-filter reveal">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="australia">Australia</button>
+      <button class="filter-btn" data-filter="india">India</button>
+      <button class="filter-btn" data-filter="overseas">Overseas</button>
+    </div>
+
+    <div class="projects-grid stagger" id="projectsGrid">
+
+      <div class="project-card" data-region="australia">
+        <div class="project-number">Project 28</div>
+        <div class="project-kv">132kV</div>
+        <div class="project-client">Hunter Power Project — UGL</div>
+        <div class="project-activities">Point-to-point testing, logical schematic testing, IEC 61850 signal testing, secondary testing of SEL feeder protection relays, GE T60, SEL 487E &amp; 487B. Primary injection CTs, transformer &amp; busbar stability testing.</div>
+        <div class="project-location"><span class="location-dot"></span>Queensland, Australia</div>
+      </div>
+
+      <div class="project-card" data-region="australia">
+        <div class="project-number">Project 29</div>
+        <div class="project-kv">275 / 33kV</div>
+        <div class="project-client">Broad Sound Solar Farm — Yurika</div>
+        <div class="project-activities">Scheme checking, secondary relay testing (SEL-751, SEL 487, GE T60), primary injection busbar stability, CT/CVT/CB testing (CIBANO 500), IEC 61850 signal testing, SCADA integration, GOOSE signal testing.</div>
+        <div class="project-location"><span class="location-dot"></span>Queensland, Australia</div>
+      </div>
+
+      <div class="project-card" data-region="australia">
+        <div class="project-number">Project 27</div>
+        <div class="project-kv">33kV</div>
+        <div class="project-client">Wambo 2 Wind Farm — Yurika</div>
+        <div class="project-activities">Point-to-point testing, protection relay testing (SEL, ABB, Siemens), primary testing of current transformers and voltage transformers.</div>
+        <div class="project-location"><span class="location-dot"></span>New South Wales, Australia</div>
+      </div>
+
+      <div class="project-card" data-region="australia">
+        <div class="project-number">Project 26</div>
+        <div class="project-kv">33kV</div>
+        <div class="project-client">Swanbank BESS — Yurika</div>
+        <div class="project-activities">Testing and commissioning of Siemens feeder RMU relays (7SR5110), primary testing of circuit breakers and current transformers.</div>
+        <div class="project-location"><span class="location-dot"></span>Queensland, Australia</div>
+      </div>
+
+      <div class="project-card" data-region="australia">
+        <div class="project-number">Project 25</div>
+        <div class="project-kv">Gas Plant</div>
+        <div class="project-client">Waitsia Gas Plant 2 — Dongara</div>
+        <div class="project-activities">Completions engineer (E&I &amp; SMP discipline). Asset and ITR validation referencing P&IDs and isometric drawings, tri-party walkdowns, LOSH boundary verification, work pack preparation. Platform: CCMS Smart Completions.</div>
+        <div class="project-location"><span class="location-dot"></span>Western Australia</div>
+      </div>
+
+      <div class="project-card" data-region="india">
+        <div class="project-number">Project 18</div>
+        <div class="project-kv">765 / 400 / 220kV</div>
+        <div class="project-client">Vadodara SS — PGCIL</div>
+        <div class="project-activities">Testing and commissioning of 765kV GIS bay extension Lines 1 &amp; 2 with switched reactors. Highest voltage level project in portfolio.</div>
+        <div class="project-location"><span class="location-dot"></span>Gujarat, India</div>
+      </div>
+
+      <div class="project-card" data-region="india">
+        <div class="project-number">Project 1</div>
+        <div class="project-kv">400 / 220kV</div>
+        <div class="project-client">Karnataka Power Transmission Corp. — Nelamangala</div>
+        <div class="project-activities">IEC 61850 configuration, testing and commissioning of line distance protection (REL670, P442), bay control unit (REC670), LBB (P141).</div>
+        <div class="project-location"><span class="location-dot"></span>Karnataka, India</div>
+      </div>
+
+      <div class="project-card" data-region="india">
+        <div class="project-number">Project 2</div>
+        <div class="project-kv">400kV</div>
+        <div class="project-client">RGPPL Ratnagiri</div>
+        <div class="project-activities">Testing and commissioning of 348 MVA generator protection (G60), 314.3 MVA transformer protection (SR745, KBCH), 400kW motor protection (SR469).</div>
+        <div class="project-location"><span class="location-dot"></span>Maharashtra, India</div>
+      </div>
+
+      <div class="project-card" data-region="india">
+        <div class="project-number">Project 3</div>
+        <div class="project-kv">220 / 132 / 33kV</div>
+        <div class="project-client">GADRA — KPTCL</div>
+        <div class="project-activities">Testing and commissioning of 55.56 MVA generator protection (SEL 700G), 3×10 MVA transformer protection (P642, SEL787), line distance protection (P444, CSPC).</div>
+        <div class="project-location"><span class="location-dot"></span>Karnataka, India</div>
+      </div>
+
+      <div class="project-card" data-region="india">
+        <div class="project-number">Project 14</div>
+        <div class="project-kv">500 MW ×2</div>
+        <div class="project-client">NLC New Power Plant</div>
+        <div class="project-activities">IEC 61850 configuration and SCADA integration of Siemens (7SJ62) and Reyrolle (7SR1206) protection relays.</div>
+        <div class="project-location"><span class="location-dot"></span>Tamil Nadu, India</div>
+      </div>
+
+      <div class="project-card" data-region="india">
+        <div class="project-number">Project 24</div>
+        <div class="project-kv">220 / 132 / 33kV</div>
+        <div class="project-client">Maharajganj AIS — UPPTCL</div>
+        <div class="project-activities">SAS and gateway configuration using Siemens WinCC Gateway: SICAM A8000 PS8662.</div>
+        <div class="project-location"><span class="location-dot"></span>Uttar Pradesh, India</div>
+      </div>
+
+      <div class="project-card" data-region="overseas">
+        <div class="project-number">Project 16</div>
+        <div class="project-kv">132 / 33kV</div>
+        <div class="project-client">9th Mile Enugu SS — Nigeria</div>
+        <div class="project-activities">Testing and commissioning of complete substation including all primary equipment and protection relays.</div>
+        <div class="project-location"><span class="location-dot"></span>Enugu, Nigeria</div>
+      </div>
+
+      <div class="project-card" data-region="overseas">
+        <div class="project-number">Project 17</div>
+        <div class="project-kv">330 / 132 / 33kV</div>
+        <div class="project-client">New Kano SS — Nigeria</div>
+        <div class="project-activities">Testing and commissioning of complete substation including all primary equipment and protection relays.</div>
+        <div class="project-location"><span class="location-dot"></span>Kano, Nigeria</div>
+      </div>
+
+      <div class="project-card" data-region="overseas">
+        <div class="project-number">Project 22</div>
+        <div class="project-kv">Offshore</div>
+        <div class="project-client">Marjan Increment Projects — Offshore, L&T</div>
+        <div class="project-activities">Relay configuration and testing of SEL 451 protection relays with auto changeover scheme for offshore oil facilities.</div>
+        <div class="project-location"><span class="location-dot"></span>Mora, Offshore</div>
+      </div>
+
+      <div class="project-card" data-region="india">
+        <div class="project-number">Project 23</div>
+        <div class="project-kv">220kV</div>
+        <div class="project-client">GSS RRVPN — Bikaner</div>
+        <div class="project-activities">Relay configuration and testing of SEL487B centralised busbar protection relay.</div>
+        <div class="project-location"><span class="location-dot"></span>Rajasthan, India</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EQUIPMENT & RELAYS
+     ============================================================ -->
+<section id="equipment">
+  <div class="section-inner">
+    <div class="section-label reveal">Equipment</div>
+    <h2 class="section-title reveal">Relays &amp; Systems Handled</h2>
+    <p class="section-subtitle reveal">
+      Cross-brand proficiency across all major international protection relay manufacturers.
+    </p>
+    <div class="relay-grid stagger">
+
+      <div class="relay-card">
+        <div class="relay-brand">ABB</div>
+        <ul class="relay-models">
+          <li><span class="model-id">REG670 / REM543</span><span class="model-type">Generator</span></li>
+          <li><span class="model-id">REL670 / REL650</span><span class="model-type">Distance</span></li>
+          <li><span class="model-id">REC670 / REC650</span><span class="model-type">Bay Control</span></li>
+          <li><span class="model-id">RED670 / RED615</span><span class="model-type">Line Differential</span></li>
+          <li><span class="model-id">RET670 / RET650 / RET615</span><span class="model-type">Transformer</span></li>
+          <li><span class="model-id">REF615</span><span class="model-type">Feeder</span></li>
+        </ul>
+      </div>
+
+      <div class="relay-card">
+        <div class="relay-brand">Siemens</div>
+        <ul class="relay-models">
+          <li><span class="model-id">7SA522</span><span class="model-type">Distance</span></li>
+          <li><span class="model-id">7UT613</span><span class="model-type">Transformer</span></li>
+          <li><span class="model-id">7VK61</span><span class="model-type">LBB</span></li>
+          <li><span class="model-id">7SR5110</span><span class="model-type">Feeder</span></li>
+        </ul>
+      </div>
+
+      <div class="relay-card">
+        <div class="relay-brand">MICOM (Alstom/GE)</div>
+        <ul class="relay-models">
+          <li><span class="model-id">P342 / P343</span><span class="model-type">Generator</span></li>
+          <li><span class="model-id">P442 / P444</span><span class="model-type">Distance</span></li>
+          <li><span class="model-id">P543 / P545</span><span class="model-type">Line Differential</span></li>
+          <li><span class="model-id">P111 / P141 / P142</span><span class="model-type">Feeder</span></li>
+        </ul>
+      </div>
+
+      <div class="relay-card">
+        <div class="relay-brand">General Electric</div>
+        <ul class="relay-models">
+          <li><span class="model-id">D60</span><span class="model-type">Distance</span></li>
+          <li><span class="model-id">T60</span><span class="model-type">Transformer</span></li>
+          <li><span class="model-id">F650</span><span class="model-type">Bay Control</span></li>
+          <li><span class="model-id">G60</span><span class="model-type">Generator</span></li>
+        </ul>
+      </div>
+
+      <div class="relay-card">
+        <div class="relay-brand">SEL</div>
+        <ul class="relay-models">
+          <li><span class="model-id">SEL 700G</span><span class="model-type">Generator</span></li>
+          <li><span class="model-id">SEL-751 / 751A</span><span class="model-type">Feeder</span></li>
+          <li><span class="model-id">SEL-387E / SEL-787</span><span class="model-type">Overall Differential</span></li>
+          <li><span class="model-id">SEL 487E</span><span class="model-type">Transformer Differential</span></li>
+          <li><span class="model-id">SEL 487B</span><span class="model-type">Busbar Differential</span></li>
+        </ul>
+      </div>
+
+      <div class="relay-card">
+        <div class="relay-brand">NR / Easun Reyrolle</div>
+        <ul class="relay-models">
+          <li><span class="model-id">TPRO 4500</span><span class="model-type">Transformer</span></li>
+          <li><span class="model-id">LPRO 200</span><span class="model-type">Line Impedance</span></li>
+          <li><span class="model-id">PCS 961 / 931</span><span class="model-type">Feeder / Line</span></li>
+          <li><span class="model-id">PCS 9671</span><span class="model-type">Transformer</span></li>
+          <li><span class="model-id">PCS 915C / 915D</span><span class="model-type">Busbar</span></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Software -->
+    <div style="margin-top:2.5rem">
+      <div class="section-label reveal" style="margin-bottom:1rem">Software Proficiency</div>
+      <div class="software-grid reveal">
+        <span class="software-pill">ABB PCM v1.5–2.9</span>
+        <span class="software-pill">REBCON500 / HMI500</span>
+        <span class="software-pill">REBWIN</span>
+        <span class="software-pill">Siemens DIGSI 4</span>
+        <span class="software-pill">Siemens DIGSI 5</span>
+        <span class="software-pill">NR-PCS Explorer</span>
+        <span class="software-pill">GE EnerVista</span>
+        <span class="software-pill">ALSTOM MiCOM S1 Agile</span>
+        <span class="software-pill">SEL AcSELerator</span>
+        <span class="software-pill">Schneider S1 Studio</span>
+        <span class="software-pill">Easergy Pro</span>
+        <span class="software-pill">Omicron Test Universe 5.0</span>
+        <span class="software-pill">Doble F6 Test</span>
+        <span class="software-pill">Doble F6 Control Panel</span>
+        <span class="software-pill">Siemens WinCC (SICAM A8000)</span>
+        <span class="software-pill">Microsoft Office Suite</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TESTING KITS
+     ============================================================ -->
+<section id="testing">
+  <div class="section-inner">
+    <div class="section-label reveal">Tools</div>
+    <h2 class="section-title reveal">Testing Equipment</h2>
+    <div class="kits-grid stagger">
+      <div class="kit-panel">
+        <div class="kit-title">Secondary Injection</div>
+        <ul class="kit-list">
+          <li>Omicron CMC256 / CMC256-6 / CMC256 Plus</li>
+          <li>Omicron CMC353 / CMC356</li>
+          <li>Doble F6150</li>
+          <li>Ponovo Test Set</li>
+          <li>Megger SMRT410 / SMRT46 / SMRT36</li>
+        </ul>
+      </div>
+      <div class="kit-panel">
+        <div class="kit-title">Primary Injection &amp; Others</div>
+        <ul class="kit-list">
+          <li>Omicron CPC 100 (Primary Injection)</li>
+          <li>CB Timing Test Kit — Scope / CIBANO 500</li>
+          <li>Multimeter — Fluke / Rishabh</li>
+          <li>Primary Injection Kit — Sudarsan</li>
+          <li>CRM Kit — Scope</li>
+          <li>Insulation Resistance Tester — Kyoritsu / Fluke</li>
+          <li>Leakage Tester — Kyoritsu</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EDUCATION
+     ============================================================ -->
+
+<!-- ============================================================
+     CONTACT
+     ============================================================ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label reveal">Contact</div>
+    <h2 class="section-title reveal">Let's Work Together</h2>
+    <p class="section-subtitle reveal">
+      Available for commissioning projects, protection engineering roles, and consulting engagements in Australia and beyond.
+    </p>
+    <div class="contact-grid">
+      <div class="contact-info reveal-left">
+        <p class="contact-intro">
+          Whether you're looking for a seasoned protection engineer for your next substation commissioning
+          project or a long-term team member, I'd love to connect.
         </p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-year">2022 — Present</div>
-          <div>
-            <h3>Sun &amp; Jay Engineering Consultants Pvt. Ltd.</h3>
-            <p>Electrical Engineer — High Voltage Protection Relay Testing</p>
-            <ul>
-              <li>Testing and commissioning of protection systems, switchgear, switchyard equipment, CTs, CVTs, breakers, isolators, earth switches, and lightning arresters.</li>
-              <li>Scheme checking for relay and control panels, switchgear interlocks, yard interlocks, and DG auto changeover logic.</li>
-              <li>Commissioning delivery across projects including Hunter Power Project, Waitsia Gas Plant 2, Broad Sound Solar Farm, Wambo 2 Wind Farm, and Swanbank BESS.</li>
-            </ul>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-year">2019 — 2022</div>
-          <div>
-            <h3>POG Engineering Consultants Pvt. Ltd.</h3>
-            <p>Protection Engineer</p>
-            <ul>
-              <li>Relay configuration, testing, fault analysis, protection scheme validation, and commissioning for utilities, substations, thermal, industrial, and overseas projects.</li>
-              <li>Worked across transformer, generator, line differential, feeder, motor, distance, and busbar protection applications.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills" class="container reveal">
-      <div class="section-head">
-        <div>
-          <div class="section-tag">Skill Set</div>
-          <h2>Core engineering capabilities</h2>
-        </div>
-        
-      </div>
-      <div class="skills-grid">
-        <article class="card">
-          <h3>Protection Relay Testing</h3>
-          <p>Secondary injection testing, logic verification, relay validation, troubleshooting, and performance confirmation across multiple relay families and protection functions.</p>
-          <div class="pill-row">
-            <span class="pill">Distance</span>
-            <span class="pill">Transformer Differential</span>
-            <span class="pill">Generator</span>
-            <span class="pill">Feeder</span>
-            <span class="pill">Busbar</span>
-            <span class="pill">REF / OC / EF</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Scheme Checking &amp; Interlocks</h3>
-          <p>Control and relay panel verification, switchyard and switchgear interlocks, auto changeover schemes, functional logic checks, and energisation readiness review.</p>
-          <div class="pill-row">
-            <span class="pill">CRP / RCP</span>
-            <span class="pill">Interlocks</span>
-            <span class="pill">Logic Test</span>
-            <span class="pill">Point-to-Point</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>IEC 61850 &amp; GOOSE</h3>
-          <p>Relay-to-relay communication setup, signal validation, carrier and direct transfer schemes, SCADA integration support, and GOOSE mapping / signal verification.</p>
-          <div class="pill-row">
-            <span class="pill">GOOSE</span>
-            <span class="pill">SAS Integration</span>
-            <span class="pill">Signal Mapping</span>
-            <span class="pill">Gateway Support</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Primary Testing</h3>
-          <p>CT / VT primary injection, breaker timing, CRM, insulation resistance, leakage testing, transformer stability, and busbar stability / sensitivity testing.</p>
-          <div class="pill-row">
-            <span class="pill">CT / VT</span>
-            <span class="pill">CB Timing</span>
-            <span class="pill">Stability Test</span>
-            <span class="pill">Sensitivity Test</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Fault &amp; Disturbance Analysis</h3>
-          <p>Disturbance recorder analysis, waveform interpretation, harmonic review, sequence component review, timing analysis, and event-based troubleshooting support.</p>
-          <div class="pill-row">
-            <span class="pill">Waveform Analysis</span>
-            <span class="pill">Harmonics</span>
-            <span class="pill">Sequence Components</span>
-          </div>
-        </article>
-        <article class="card">
-          <h3>Completions &amp; Handover</h3>
-          <p>Asset and ITR validation, drawing cross-checking with P&amp;IDs and isometrics, work pack preparation, walkdowns, LOSH boundary verification, and handover readiness.</p>
-          <div class="pill-row">
-            <span class="pill">CCMS</span>
-            <span class="pill">ITR Validation</span>
-            <span class="pill">Walkdowns</span>
-            <span class="pill">Handover Packs</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="container reveal">
-      <div class="section-head">
-        <div>
-          <div class="section-tag">Relay Platforms</div>
-          <h2>Relays handled</h2>
-        </div>
-        
-      </div>
-      <div class="relay-grid">
-        <article class="card"><h3>ABB</h3><p>REG670, REM543, REL670, REL650, REC670, REC650, RED670, RED615, RET670, RET650, RET615, REF615.</p></article>
-        <article class="card"><h3>Siemens</h3><p>7SA522, 7UT613, 7VK61, 7SR5110 and associated feeder, distance, transformer, and LBB applications.</p></article>
-        <article class="card"><h3>Micom / Alstom</h3><p>P342, P343, P442, P444, P543, P545, P111, P141, P142, P642, P243 and related variants.</p></article>
-        <article class="card"><h3>GE</h3><p>D60, T60, F650, G60 and commissioning support across transformer, generator, feeder, and distance protection.</p></article>
-        <article class="card"><h3>SEL</h3><p>SEL-700G, SEL-751/751A, SEL-387E, SEL-787, SEL-487E, SEL-487B, SEL-451 and associated schemes.</p></article>
-        <article class="card"><h3>NR / Reyrolle / Others</h3><p>PCS 961, PCS 931, PCS 9671, PCS 915C/915D, TPRO 4500, LPRO 200, Schneider and Easun Reyrolle families.</p></article>
-      </div>
-    </section>
-
-    <section id="certifications" class="container reveal">
-      <div class="section-head">
-        <div>
-          <div class="section-tag">Licenses &amp; Certifications</div>
-          <h2>Professional credentials</h2>
-        </div>
-        
-      </div>
-      <div class="cert-grid">
-        <article class="cert-card">
-          <div class="cert-logo" aria-hidden="true"></div>
-          <div class="cert-title">
-            <div class="cert-badge">Engineers Australia</div>
-            <h3>Professional Electrical Engineer</h3>
-            <div class="issuer">Engineers Australia</div>
-            <div class="cert-meta">
-              <span>Issued Aug 2025</span>
-              <span>Credential ID 10819280</span>
+        <div class="contact-items stagger">
+          <div class="contact-item">
+            <div class="contact-item-icon">✉️</div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value"><a href="mailto:dhilipdharan.v@gmail.com">dhilipdharan.v@gmail.com</a></div>
             </div>
           </div>
-          <div class="cert-side">
-            <div class="cert-glow-line"></div>
-            <span class="pill">Recognised Credential</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="tools" class="container reveal">
-      <div class="section-head">
-        <div>
-          <div class="section-tag">Testing Tools</div>
-          <h2>Field instruments &amp; engineering software</h2>
-        </div>
-        
-      </div>
-      <div class="tool-grid">
-        <article class="card">
-          <h3>Testing Kits Handled</h3>
-          <ul>
-            <li>Omicron CMC256, CMC256-6, CMC256 Plus, CMC353, CMC356</li>
-            <li>Doble F6150</li>
-            <li>Ponovo</li>
-            <li>Megger SMRT410, SMRT46, SMRT36</li>
-            <li>Omicron CPC 100</li>
-            <li>CIBANO 500 / CB timing test kits</li>
-            <li>Fluke / Rishabh multimeters</li>
-            <li>Primary injection kit, CRM kit, IR testers, leakage testers</li>
-          </ul>
-        </article>
-        <article class="card">
-          <h3>Software Platforms</h3>
-          <ul>
-            <li>ABB PCM, REBCON500, HMI500, REBWIN, commissioning tools</li>
-            <li>Siemens DIGSI 4 &amp; 5</li>
-            <li>GE Enervista</li>
-            <li>NR PCS Explorer</li>
-            <li>Micom S1 Agile / Schneider S1 Studio / Easergy Pro</li>
-            <li>SEL AcSELerator</li>
-            <li>OMICRON Test Universe 5.0</li>
-            <li>Doble F6 Test / F6 Control Panel</li>
-            <li>Microsoft Office Suite</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="projects" class="container reveal">
-      <div class="section-head">
-        <div>
-          <div class="section-tag">Projects</div>
-          <h2>Signature projects</h2>
-        </div>
-        
-      </div>
-      <div class="project-grid">
-        <article class="card project-card">
-          <h3>Hunter Power Project <span class="project-badge">132kV</span></h3>
-          <p>Point-to-point testing, logical schematic testing, IEC 61850 signal checks, SEL feeder relays, GE T60, SEL 487E / 487B, protection scheme testing, CT primary injection, transformer and busbar stability testing.</p>
-        </article>
-        <article class="card project-card">
-          <h3>Waitsia Gas Plant 2 <span class="project-badge">WA</span></h3>
-          <p>Completions engineering support across E&amp;I and SMP disciplines using CCMS smart completions, asset and ITR validation, drawing verification, LOSH checks, and handover pack preparation.</p>
-        </article>
-        <article class="card project-card">
-          <h3>Broad Sound Solar Farm <span class="project-badge">275/33kV</span></h3>
-          <p>Scheme checking, relay testing for SEL and GE platforms, primary injection busbar stability, CT/CVT testing, CIBANO breaker testing, IEC 61850 integration, interlocks, and GOOSE verification.</p>
-        </article>
-        <article class="card project-card">
-          <h3>Wambo 2 Wind Farm <span class="project-badge">33kV</span></h3>
-          <p>Point-to-point verification, relay testing across SEL, ABB, and Siemens platforms, plus CT and VT primary testing for renewable generation infrastructure.</p>
-        </article>
-        <article class="card project-card">
-          <h3>Swanbank BESS <span class="project-badge">33kV</span></h3>
-          <p>Testing and commissioning of Siemens feeder RMU relays, breaker testing, and current transformer primary validation within battery energy storage infrastructure.</p>
-        </article>
-        <article class="card project-card">
-          <h3>International &amp; Utility Projects <span class="project-badge">Multi-site</span></h3>
-          <p>KPTCL, PGCIL, HVPNL, GETCL, UPPTCL, RFCL, HPCL, NLC, NTTPS, Nigeria substations, offshore oil facilities, and multiple thermal and industrial sites.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="container reveal">
-      <div class="cta">
-        <div>
-          <div class="section-tag">Dhilipdharan Venu</div>
-          <h2>Electrical / Protection &amp; Commissioning Engineer</h2>
-          <p style="color: var(--muted); line-height: 1.8; max-width: 62ch;">
-            Technical depth, field execution capability, and multi-vendor protection expertise.
-          </p>
-        </div>
-        <div class="cta-box" id="contact">
-          <h3>Contact</h3>
-          <p style="margin-top:12px;font-weight:600;">📧 Email: <a href="mailto:dhilipdharan.v@gmail.com" style="color:white;text-decoration:underline;">dhilipdharan.v@gmail.com</a></p>
-          <p style="margin-top:6px;font-weight:600;">🔗 LinkedIn: <a href="https://www.linkedin.com/in/dhilipdharan-venu-mieaust-7360811a8/" target="_blank" style="color:white;text-decoration:underline;">View Profile</a></p>
-          <div class="pill-row">
-            <span class="pill" style="background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.12); color: white;">Perth, Australia</span>
-          
-          </div>
         </div>
       </div>
-    </section>
+      <div class="contact-form reveal-right">
+        <div class="form-title">Send a Message</div>
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input type="text" class="form-input" placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Your Email</label>
+          <input type="email" class="form-input" placeholder="john@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Company / Project</label>
+          <input type="text" class="form-input" placeholder="Your company or project name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-input" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+        </div>
+        <button class="form-submit" onclick="handleFormSubmit(this)">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <footer class="container">
-      DHARANXTREME
-    </footer>
-  </main>
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">Dhilipdharan V</div>
+      <div class="footer-tagline">Electrical Protection Engineer — High Voltage Commissioning Specialist</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div style="text-align:right">
+      <a href="mailto:dhilipdharan.v@gmail.com" class="btn-primary" style="display:inline-block;font-size:.75rem">
+        📧 Email Me
+      </a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    &copy; 2026 Dhilipdharan V &mdash; All rights reserved &mdash; Perth, Western Australia
+  </div>
+</footer>
 
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.12 });
+<!-- ============================================================
+     JAVASCRIPT
+     ============================================================ -->
+<script>
+/* ---- LOADER ---- */
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hide');
+  }, 1200);
+});
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+/* ---- CUSTOM CURSOR ---- */
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+let mx = 0, my = 0, rx = 0, ry = 0;
 
-    document.querySelectorAll('.card, .metric, .cert-card').forEach((item) => {
-      item.addEventListener('mousemove', (e) => {
-        if (window.innerWidth <= 760) return;
-        const rect = item.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const rotateX = ((y / rect.height) - 0.5) * -6;
-        const rotateY = ((x / rect.width) - 0.5) * 6;
-        item.style.transform = `perspective(1400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-        item.style.setProperty('--mx', `${(x / rect.width) * 100}%`);
-        item.style.setProperty('--my', `${(y / rect.height) * 100}%`);
-      });
+document.addEventListener('mousemove', e => {
+  mx = e.clientX; my = e.clientY;
+  cursor.style.left = mx + 'px';
+  cursor.style.top = my + 'px';
+  // update card glow position
+  document.querySelectorAll('.project-card').forEach(card => {
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--mx', ((mx - rect.left) / rect.width * 100) + '%');
+    card.style.setProperty('--my', ((my - rect.top) / rect.height * 100) + '%');
+  });
+});
 
-      item.addEventListener('mouseleave', () => {
-        item.style.transform = '';
-      });
-    });
+// ring follows with lag
+function animateRing() {
+  rx += (mx - rx) * 0.08;
+  ry += (my - ry) * 0.08;
+  ring.style.left = rx + 'px';
+  ring.style.top = ry + 'px';
+  requestAnimationFrame(animateRing);
+}
+animateRing();
 
-    const flow3d = document.getElementById('flow3d');
-    if (flow3d) {
-      flow3d.addEventListener('mousemove', (e) => {
-        if (window.innerWidth <= 760) return;
-        const rect = flow3d.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        const px = x / rect.width;
-        const py = y / rect.height;
-        const rotateY = (px - 0.5) * 16;
-        const rotateX = (0.5 - py) * 12;
-        flow3d.style.transform = `perspective(2200px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-        flow3d.style.setProperty('--gx', `${px * 100}%`);
-        flow3d.style.setProperty('--gy', `${py * 100}%`);
-      });
+// cursor scale on hover
+document.querySelectorAll('a,button,.skill-tag,.project-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '20px';
+    cursor.style.height = '20px';
+    ring.style.width = '60px';
+    ring.style.height = '60px';
+    ring.style.borderColor = 'rgba(0,229,255,0.8)';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '12px';
+    cursor.style.height = '12px';
+    ring.style.width = '40px';
+    ring.style.height = '40px';
+    ring.style.borderColor = 'rgba(0,229,255,0.5)';
+  });
+});
 
-      flow3d.addEventListener('mouseleave', () => {
-        flow3d.style.transform = 'perspective(2200px) rotateX(0deg) rotateY(0deg)';
-        flow3d.style.setProperty('--gx', '50%');
-        flow3d.style.setProperty('--gy', '50%');
-      });
+/* ---- NAV ---- */
+const navbar = document.getElementById('navbar');
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+  // progress bar
+  const prog = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+  document.getElementById('progress-bar').style.width = prog + '%';
+});
+
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+document.querySelectorAll('.mobile-link').forEach(a => {
+  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+});
+
+/* ================================================================
+   GLOBAL ELECTRICAL BACKGROUND ENGINE
+   Renders on a fixed full-page canvas (#elec-bg):
+     • Floating electrical equations (Maxwell, Ohm, Power, etc.)
+     • Drifting energy particles with glow trails
+     • Procedural lightning bolts (branching, flicker, fade)
+     • Subtle electrical arc sparks
+     • Circuit-node grid dots
+   ================================================================ */
+(function() {
+  const canvas = document.getElementById('elec-bg');
+  const ctx    = canvas.getContext('2d');
+  let W, H, t = 0;
+
+  function resize() {
+    W = canvas.width  = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  /* ---------- ELECTRICAL EQUATIONS ---------- */
+  const EQUATIONS = [
+    'V = IR',
+    'P = VI',
+    'P = I²R',
+    'P = V²/R',
+    'Z = R + jX',
+    'S = P + jQ',
+    'I = V/Z',
+    'f = 1/T',
+    'XL = 2πfL',
+    'XC = 1/2πfC',
+    'P.F = cos φ',
+    'Q = CV²/2',
+    'W = ½LI²',
+    'E = mc²',
+    '∇·E = ρ/ε₀',
+    '∇×B = μ₀J',
+    '∇·B = 0',
+    '∇×E = -∂B/∂t',
+    'V_rms = V_p/√2',
+    'I_rms = I_p/√2',
+    'η = P_out/P_in',
+    'Z_total = Z₁+Z₂',
+    'I_fault = V/Z_f',
+    'CT ratio = N₁/N₂',
+    'PT ratio = V₁/V₂',
+    'kVA = kW/PF',
+    'MVA = MW/PF',
+    'Zpu = Z × MVA_base',
+    'I²t = const',
+    'τ = L/R',
+    'τ = RC',
+    'Φ = LI',
+    'e = -N·dΦ/dt',
+    'F = BIL',
+    '50Hz / 60Hz',
+    'IEC 61850',
+    'GOOSE Signal',
+    'IED Config',
+    'Distance ∝ Z',
+    'Differential ΔI',
+  ];
+
+  class EqLabel {
+    constructor() { this.init(); }
+    init() {
+      this.x     = Math.random() * W;
+      this.y     = Math.random() * H;
+      this.text  = EQUATIONS[Math.floor(Math.random() * EQUATIONS.length)];
+      this.size  = Math.random() * 7 + 8;          // 8–15 px
+      this.alpha = Math.random() * 0.13 + 0.04;    // subtle
+      this.vx    = (Math.random() - 0.5) * 0.18;
+      this.vy    = (Math.random() - 0.5) * 0.18;
+      this.life  = 0;
+      this.maxL  = Math.random() * 600 + 300;
+      this.color = Math.random() < 0.7
+        ? `rgba(0,229,255,`        // cyan
+        : Math.random() < 0.5
+          ? `rgba(0,140,255,`      // blue
+          : `rgba(180,240,255,`;   // white-blue
     }
-  </script>
+    update() {
+      this.x += this.vx;
+      this.y += this.vy;
+      this.life++;
+      if (this.life > this.maxL ||
+          this.x < -200 || this.x > W + 200 ||
+          this.y < -50  || this.y > H + 50) this.init();
+    }
+    draw() {
+      const prog = this.life / this.maxL;
+      const fade = prog < 0.1 ? prog / 0.1
+                 : prog > 0.85 ? (1 - prog) / 0.15
+                 : 1;
+      ctx.save();
+      ctx.font = `${this.size}px 'Courier New', monospace`;
+      ctx.fillStyle = this.color + (this.alpha * fade) + ')';
+      ctx.shadowColor  = 'rgba(0,229,255,0.4)';
+      ctx.shadowBlur   = 6;
+      ctx.fillText(this.text, this.x, this.y);
+      ctx.restore();
+    }
+  }
+
+  /* ---------- ENERGY PARTICLES ---------- */
+  class EPart {
+    constructor() { this.reset(); }
+    reset() {
+      this.x     = Math.random() * W;
+      this.y     = Math.random() * H;
+      this.vx    = (Math.random() - 0.5) * 0.5;
+      this.vy    = (Math.random() - 0.5) * 0.5;
+      this.r     = Math.random() * 1.8 + 0.4;
+      this.alpha = Math.random() * 0.6 + 0.2;
+      this.life  = 0;
+      this.maxL  = Math.random() * 400 + 200;
+      this.trail = [];
+    }
+    update() {
+      this.trail.push({ x: this.x, y: this.y });
+      if (this.trail.length > 12) this.trail.shift();
+      this.x += this.vx;
+      this.y += this.vy;
+      this.life++;
+      if (this.life > this.maxL ||
+          this.x < 0 || this.x > W ||
+          this.y < 0 || this.y > H) this.reset();
+    }
+    draw() {
+      const fade = this.life < 40 ? this.life / 40
+                 : this.life > this.maxL - 40 ? (this.maxL - this.life) / 40 : 1;
+      // draw trail
+      for (let i = 0; i < this.trail.length; i++) {
+        const tf = (i / this.trail.length) * fade * 0.3;
+        ctx.beginPath();
+        ctx.arc(this.trail[i].x, this.trail[i].y, this.r * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(0,200,255,${tf})`;
+        ctx.fill();
+      }
+      // core
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 3);
+      g.addColorStop(0, `rgba(200,240,255,${this.alpha * fade})`);
+      g.addColorStop(0.4, `rgba(0,229,255,${this.alpha * fade * 0.5})`);
+      g.addColorStop(1, 'transparent');
+      ctx.fillStyle = g;
+      ctx.shadowColor = 'rgba(0,229,255,0.8)';
+      ctx.shadowBlur  = 8;
+      ctx.fill();
+    }
+  }
+
+  /* ---------- LIGHTNING ---------- */
+  class Lightning {
+    constructor() { this.spawn(); }
+    spawn() {
+      // pick random edge-to-edge or top-down
+      const side = Math.random();
+      if (side < 0.5) {
+        // top → somewhere on screen
+        this.sx = Math.random() * W;
+        this.sy = 0;
+        this.ex = this.sx + (Math.random() - 0.5) * 400;
+        this.ey = Math.random() * H * 0.7;
+      } else {
+        // left/right edge
+        const fromLeft = Math.random() < 0.5;
+        this.sx = fromLeft ? 0 : W;
+        this.sy = Math.random() * H;
+        this.ex = fromLeft ? Math.random() * W * 0.6 : W - Math.random() * W * 0.6;
+        this.ey = this.sy + (Math.random() - 0.5) * 300;
+      }
+      this.life     = 0;
+      this.maxL     = Math.floor(Math.random() * 18 + 6);  // short flicker
+      this.alpha    = Math.random() * 0.55 + 0.25;
+      this.segments = this.buildBolt(this.sx, this.sy, this.ex, this.ey, 5);
+      this.branches = [];
+      // grow 1-3 branches off random segments
+      const bc = Math.floor(Math.random() * 3) + 1;
+      for (let b = 0; b < bc; b++) {
+        const si = Math.floor(Math.random() * (this.segments.length - 1));
+        const p  = this.segments[si];
+        const bex = p.x + (Math.random() - 0.5) * 120;
+        const bey = p.y + Math.random() * 80 + 20;
+        this.branches.push(this.buildBolt(p.x, p.y, bex, bey, 3));
+      }
+    }
+    buildBolt(x1, y1, x2, y2, depth) {
+      if (depth === 0 || (Math.abs(x2-x1) < 4 && Math.abs(y2-y1) < 4))
+        return [{ x: x1, y: y1 }, { x: x2, y: y2 }];
+      const mx = (x1 + x2) / 2 + (Math.random() - 0.5) * (Math.abs(x2-x1) + Math.abs(y2-y1)) * 0.4;
+      const my = (y1 + y2) / 2 + (Math.random() - 0.5) * (Math.abs(x2-x1) + Math.abs(y2-y1)) * 0.4;
+      return [
+        ...this.buildBolt(x1, y1, mx, my, depth - 1),
+        ...this.buildBolt(mx, my, x2, y2, depth - 1),
+      ];
+    }
+    drawPath(segs, lw, alpha) {
+      if (segs.length < 2) return;
+      ctx.beginPath();
+      ctx.moveTo(segs[0].x, segs[0].y);
+      for (let i = 1; i < segs.length; i++) ctx.lineTo(segs[i].x, segs[i].y);
+      // outer glow
+      ctx.strokeStyle = `rgba(0,180,255,${alpha * 0.3})`;
+      ctx.lineWidth   = lw + 3;
+      ctx.shadowColor = 'rgba(0,229,255,0.9)';
+      ctx.shadowBlur  = 20;
+      ctx.stroke();
+      // core bright line
+      ctx.strokeStyle = `rgba(200,240,255,${alpha})`;
+      ctx.lineWidth   = lw;
+      ctx.shadowBlur  = 8;
+      ctx.stroke();
+    }
+    update() { this.life++; }
+    done()   { return this.life >= this.maxL; }
+    draw() {
+      const flicker = (Math.random() > 0.3) ? this.alpha : this.alpha * 0.3;
+      const fade    = 1 - this.life / this.maxL;
+      ctx.save();
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      this.drawPath(this.segments, 1.5, flicker * fade);
+      this.branches.forEach(b => this.drawPath(b, 0.7, flicker * fade * 0.6));
+      ctx.restore();
+    }
+  }
+
+  /* ---------- ARC SPARKS ---------- */
+  class Spark {
+    constructor(x, y) {
+      this.x  = x || Math.random() * W;
+      this.y  = y || Math.random() * H;
+      this.vx = (Math.random() - 0.5) * 4;
+      this.vy = (Math.random() - 0.5) * 4 - 1;
+      this.life = 0;
+      this.maxL = Math.floor(Math.random() * 20 + 10);
+      this.r    = Math.random() * 1.5 + 0.5;
+    }
+    update() { this.x += this.vx; this.vy += 0.15; this.y += this.vy; this.life++; }
+    done()   { return this.life >= this.maxL; }
+    draw() {
+      const a = (1 - this.life / this.maxL) * 0.8;
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle   = `rgba(200,240,255,${a})`;
+      ctx.shadowColor = 'rgba(0,229,255,1)';
+      ctx.shadowBlur  = 10;
+      ctx.fill();
+    }
+  }
+
+  /* ---------- CIRCUIT-GRID DOTS ---------- */
+  const GRID_SPACING = 80;
+  function drawGrid() {
+    const pulse = 0.5 + 0.5 * Math.sin(t * 0.012);
+    for (let gx = GRID_SPACING; gx < W; gx += GRID_SPACING) {
+      for (let gy = GRID_SPACING; gy < H; gy += GRID_SPACING) {
+        const dist = Math.sqrt(
+          Math.pow(gx - mouseX, 2) + Math.pow(gy - mouseY, 2)
+        );
+        const proximity = Math.max(0, 1 - dist / 300);
+        const a = 0.03 + proximity * 0.18 + pulse * 0.02;
+        ctx.beginPath();
+        ctx.arc(gx, gy, 1 + proximity * 2, 0, Math.PI * 2);
+        ctx.fillStyle   = `rgba(0,200,255,${a})`;
+        ctx.shadowColor = 'rgba(0,229,255,0.6)';
+        ctx.shadowBlur  = proximity * 10;
+        ctx.fill();
+      }
+    }
+    ctx.shadowBlur = 0;
+  }
+
+  /* ---------- INIT ---------- */
+  const eqLabels  = Array.from({ length: 40 }, () => new EqLabel());
+  const eParts    = Array.from({ length: 80 }, () => new EPart());
+  const lightnings = [];
+  const sparks    = [];
+  let nextLightning = 60;
+  let mouseX = W / 2, mouseY = H / 2;
+
+  document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
+
+  /* ---------- MAIN LOOP ---------- */
+  function loop() {
+    t++;
+    ctx.clearRect(0, 0, W, H);
+
+    // grid dots
+    drawGrid();
+
+    // equation labels
+    eqLabels.forEach(eq => { eq.update(); eq.draw(); });
+
+    // connect nearby particles with electric arcs
+    ctx.save();
+    for (let i = 0; i < eParts.length; i++) {
+      for (let j = i + 1; j < eParts.length; j++) {
+        const dx = eParts[i].x - eParts[j].x;
+        const dy = eParts[i].y - eParts[j].y;
+        const d  = Math.sqrt(dx*dx + dy*dy);
+        if (d < 100) {
+          ctx.beginPath();
+          ctx.moveTo(eParts[i].x, eParts[i].y);
+          ctx.lineTo(eParts[j].x, eParts[j].y);
+          ctx.strokeStyle = `rgba(0,180,255,${(1 - d / 100) * 0.07})`;
+          ctx.lineWidth   = 0.5;
+          ctx.stroke();
+        }
+      }
+    }
+    ctx.restore();
+
+    // energy particles
+    eParts.forEach(p => { p.update(); p.draw(); });
+
+    // lightnings
+    nextLightning--;
+    if (nextLightning <= 0) {
+      lightnings.push(new Lightning());
+      nextLightning = Math.floor(Math.random() * 120 + 40);
+      // spawn a burst of sparks at bolt start
+      const last = lightnings[lightnings.length - 1];
+      for (let s = 0; s < 8; s++) sparks.push(new Spark(last.sx, last.sy));
+    }
+    for (let i = lightnings.length - 1; i >= 0; i--) {
+      lightnings[i].update();
+      lightnings[i].draw();
+      if (lightnings[i].done()) lightnings.splice(i, 1);
+    }
+
+    // sparks
+    for (let i = sparks.length - 1; i >= 0; i--) {
+      sparks[i].update();
+      sparks[i].draw();
+      if (sparks[i].done()) sparks.splice(i, 1);
+    }
+
+    // mouse-click lightning
+    requestAnimationFrame(loop);
+  }
+
+  // click to trigger lightning at cursor
+  document.addEventListener('click', e => {
+    const bolt = new Lightning();
+    bolt.sx = e.clientX; bolt.sy = e.clientY;
+    bolt.ex = e.clientX + (Math.random() - 0.5) * 300;
+    bolt.ey = e.clientY + Math.random() * 200 + 50;
+    bolt.segments = bolt.buildBolt(bolt.sx, bolt.sy, bolt.ex, bolt.ey, 6);
+    lightnings.push(bolt);
+    for (let s = 0; s < 12; s++) sparks.push(new Spark(e.clientX, e.clientY));
+  });
+
+  loop();
+})();
+
+/* ---- HERO PARTICLES (hero canvas overlay) ---- */
+(function() {
+  const canvas = document.getElementById('particles');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W, H;
+  function resize() { W = canvas.width = canvas.offsetWidth; H = canvas.height = canvas.offsetHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+  // simple sparse dots so hero content stays readable
+  const pts = Array.from({ length: 30 }, () => ({
+    x: Math.random(), y: Math.random(),
+    vx: (Math.random() - .5) * .0003, vy: (Math.random() - .5) * .0003,
+    r: Math.random() + .5, a: Math.random() * .35 + .1
+  }));
+  function loop() {
+    ctx.clearRect(0, 0, W, H);
+    pts.forEach(p => {
+      p.x = (p.x + p.vx + 1) % 1; p.y = (p.y + p.vy + 1) % 1;
+      ctx.beginPath(); ctx.arc(p.x * W, p.y * H, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(0,229,255,${p.a})`; ctx.fill();
+    });
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ---- SCROLL REVEAL ---- */
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      revealObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.stagger').forEach(el => {
+  revealObserver.observe(el);
+});
+
+/* ---- SKILL BARS ---- */
+const barObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.skill-bar-fill').forEach(bar => {
+        bar.style.width = bar.dataset.width + '%';
+      });
+      barObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+const barsContainer = document.getElementById('skill-bars-container');
+if (barsContainer) barObserver.observe(barsContainer);
+
+/* ---- COUNTER ANIMATION ---- */
+function animateCounter(el, target, duration = 1800) {
+  const start = performance.now();
+  function update(now) {
+    const elapsed = now - start;
+    const progress = Math.min(elapsed / duration, 1);
+    // ease out expo
+    const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+    el.textContent = Math.round(eased * target);
+    if (progress < 1) requestAnimationFrame(update);
+  }
+  requestAnimationFrame(update);
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.achievement-number[data-target]').forEach(num => {
+        animateCounter(num, parseInt(num.dataset.target));
+      });
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.4 });
+const achievements = document.getElementById('achievements');
+if (achievements) counterObserver.observe(achievements);
+
+/* ---- PROJECT FILTER ---- */
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    projectCards.forEach(card => {
+      const show = filter === 'all' || card.dataset.region === filter;
+      card.style.display = show ? 'block' : 'none';
+      if (show) {
+        card.style.animation = 'fadeUp .5s var(--ease-out) both';
+        setTimeout(() => card.style.animation = '', 600);
+      }
+    });
+  });
+});
+
+/* ---- CARD TILT ---- */
+document.querySelectorAll('.project-card,.skill-category,.relay-card').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const rx = (e.clientY - cy) / rect.height * 8;
+    const ry = (cx - e.clientX) / rect.width * 8;
+    card.style.transform = `perspective(600px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+    card.style.transition = 'transform .5s var(--ease-out)';
+    setTimeout(() => card.style.transition = '', 500);
+  });
+});
+
+/* ---- PARALLAX HERO ---- */
+const heroGlow = document.querySelector('.hero-glow');
+document.addEventListener('mousemove', e => {
+  const x = (e.clientX / window.innerWidth - .5) * 30;
+  const y = (e.clientY / window.innerHeight - .5) * 30;
+  if (heroGlow) heroGlow.style.transform = `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`;
+});
+
+/* ---- MAGNETIC BUTTONS ---- */
+document.querySelectorAll('.btn-primary,.btn-outline,.nav-cta').forEach(btn => {
+  btn.addEventListener('mousemove', e => {
+    const rect = btn.getBoundingClientRect();
+    const dx = e.clientX - (rect.left + rect.width / 2);
+    const dy = e.clientY - (rect.top + rect.height / 2);
+    btn.style.transform = `translate(${dx * 0.18}px, ${dy * 0.18}px)`;
+  });
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = '';
+    btn.style.transition = 'transform .5s var(--ease-spring)';
+    setTimeout(() => btn.style.transition = '', 500);
+  });
+});
+
+/* ---- FORM SUBMIT ---- */
+function handleFormSubmit(btn) {
+  btn.textContent = 'Message Sent ✓';
+  btn.style.background = 'linear-gradient(135deg,#00c853,#00e5ff)';
+  setTimeout(() => {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+  }, 3000);
+}
+
+/* ---- SMOOTH SCROLL NAV ---- */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
 </body>
 </html>
