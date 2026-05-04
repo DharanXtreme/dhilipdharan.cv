@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/Admin/Downloads/index_3.html -->
+<!-- saved from url=(0045)file:///C:/Users/Admin/Downloads/index_4.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +53,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 nav.sc{padding:.9rem 5rem;background:rgba(0,6,8,.8);backdrop-filter:blur(32px) saturate(180%);border-bottom:1px solid var(--c-border)}
 .nl{font-family:var(--font-d);font-size:.95rem;font-weight:900;letter-spacing:.22em;background:linear-gradient(135deg,#fff,var(--c-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nls{display:flex;gap:2.8rem;list-style:none}
-.nls a{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);position:relative;padding-bottom:4px;transition:color .3s}
+.nls a{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);position:relative;padding-bottom:4px;transition:color .3s;cursor:pointer;z-index:501;pointer-events:all}
 .nls a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--c-accent);transition:width .3s var(--ease)}
 .nls a:hover{color:var(--c-text)}.nls a:hover::after{width:100%}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:600}
@@ -105,7 +105,7 @@ section{position:relative;z-index:2;isolation:isolate}
 @keyframes rb{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
 #hc{position:absolute;inset:0;pointer-events:none;z-index:1}
 .scanline{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,.006) 2px,rgba(0,212,255,.006) 4px);z-index:10}
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:1000px}
+.hero-content{position:relative;z-index:20;text-align:center;padding:0 2rem;max-width:1000px}
 .heb{display:inline-flex;align-items:center;gap:.8rem;padding:.45rem 1.4rem;border:1px solid rgba(0,212,255,.2);border-radius:40px;font-family:var(--font-m);font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--c-accent);background:rgba(0,212,255,.03);backdrop-filter:blur(8px);margin-bottom:2.5rem;opacity:0;animation:ru .9s var(--ease) .4s forwards}
 .epulse{width:6px;height:6px;border-radius:50%;background:var(--c-green);box-shadow:0 0 10px var(--c-green);animation:pl 2s ease-in-out infinite}
 @keyframes pl{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.6);opacity:.5}}
@@ -117,10 +117,10 @@ section{position:relative;z-index:2;isolation:isolate}
 .hmv{font-family:var(--font-d);font-size:2rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--c-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
 .hml{font-family:var(--font-m);font-size:.6rem;color:var(--c-muted);letter-spacing:.18em;text-transform:uppercase;margin-top:.4rem}
 .hctas{display:flex;gap:1.2rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:ru .9s var(--ease) 1.25s forwards}
-.bg{padding:.9rem 2.5rem;background:linear-gradient(135deg,var(--c-glow2),var(--c-accent));border-radius:50px;font-family:var(--font-m);font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;color:#fff;font-weight:500;position:relative;overflow:hidden;transition:transform .3s var(--spring),box-shadow .3s}
+.bg{padding:.9rem 2.5rem;background:linear-gradient(135deg,var(--c-glow2),var(--c-accent));border-radius:50px;font-family:var(--font-m);font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;color:#fff;font-weight:500;position:relative;overflow:hidden;transition:transform .3s var(--spring),box-shadow .3s;z-index:10;pointer-events:all;cursor:pointer}
 .bg::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.18),transparent);opacity:0;transition:opacity .3s}
 .bg:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 12px 50px rgba(0,68,238,.5),0 0 30px rgba(0,212,255,.2)}.bg:hover::before{opacity:1}
-.bgh{padding:.9rem 2.5rem;border:1px solid rgba(0,212,255,.3);border-radius:50px;font-family:var(--font-m);font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-accent);transition:transform .3s var(--spring),box-shadow .3s,border-color .3s,background .3s}
+.bgh{padding:.9rem 2.5rem;border:1px solid rgba(0,212,255,.3);border-radius:50px;font-family:var(--font-m);font-size:.73rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-accent);transition:transform .3s var(--spring),box-shadow .3s,border-color .3s,background .3s;z-index:10;pointer-events:all;cursor:pointer}
 .bgh:hover{transform:translateY(-3px);border-color:var(--c-accent);background:rgba(0,212,255,.05);box-shadow:0 8px 30px rgba(0,212,255,.15)}
 .hscr{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:ru .6s var(--ease) 1.5s forwards}
 .slbl{font-family:var(--font-m);font-size:.58rem;letter-spacing:.22em;color:var(--c-muted);text-transform:uppercase}
@@ -303,13 +303,13 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
 }
 </style>
 </head>
-<body>
+<body class="">
 
 <!-- 3D BACKGROUND CANVAS -->
 <canvas id="bg3d" width="1920" height="945"></canvas>
 
 <!-- CURSOR -->
-<div id="cd" style="left: 397px; top: 425px;"></div><div id="cr" style="left: 397px; top: 425px;"></div><div id="ct" style="left: 397px; top: 425px;"></div>
+<div id="cd" style="left: 472px; top: 173px;"></div><div id="cr" style="left: 472px; top: 173px;"></div><div id="ct" style="left: 472px; top: 173px;"></div>
 
 <!-- PROGRESS -->
 <div id="pb" style="width: 0%;"></div>
@@ -336,26 +336,26 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
 <nav id="navbar" class="">
   <div class="nl">DV</div>
   <ul class="nls">
-    <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#about">About</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#skills">Skills</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#experience">Experience</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#projects">Projects</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#equipment">Equipment</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#education">Education</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#contact">Contact</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#about">About</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#skills">Skills</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#experience">Experience</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#projects">Projects</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#equipment">Equipment</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#education">Education</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#contact">Contact</a></li>
   </ul>
   <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
 </nav>
 <div class="mmenu" id="mmenu">
-  <a href="file:///C:/Users/Admin/Downloads/index_3.html#about">About</a><a href="file:///C:/Users/Admin/Downloads/index_3.html#skills">Skills</a><a href="file:///C:/Users/Admin/Downloads/index_3.html#experience">Experience</a>
-  <a href="file:///C:/Users/Admin/Downloads/index_3.html#projects">Projects</a><a href="file:///C:/Users/Admin/Downloads/index_3.html#equipment">Equipment</a>
-  <a href="file:///C:/Users/Admin/Downloads/index_3.html#education">Education</a><a href="file:///C:/Users/Admin/Downloads/index_3.html#contact">Contact</a>
+  <a href="file:///C:/Users/Admin/Downloads/index_4.html#about">About</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#skills">Skills</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#experience">Experience</a>
+  <a href="file:///C:/Users/Admin/Downloads/index_4.html#projects">Projects</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#equipment">Equipment</a>
+  <a href="file:///C:/Users/Admin/Downloads/index_4.html#education">Education</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#contact">Contact</a>
 </div>
 
 <!-- ═══════════════════════════════════════ HERO ═══════════════ -->
 <section id="hero">
   <div class="hero-grid" style="transform: perspective(700px) rotateX(10deg) translateY(0px);"></div>
-  <div class="hero-radial" style="transform: translate(calc(-50% - 11.7292px), calc(-50% - 1.25661px));"></div>
+  <div class="hero-radial" style="transform: translate(calc(-50% - 10.1667px), calc(-50% - 7.92328px));"></div>
   <canvas id="hc" width="300" height="150"></canvas>
   <div class="scanline"></div>
 
@@ -409,8 +409,8 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
       <div><div class="hmv">765kV</div><div class="hml">Max Voltage</div></div>
     </div>
     <div class="hctas">
-      <a href="file:///C:/Users/Admin/Downloads/index_3.html#projects" class="bg">View Projects</a>
-      <a href="file:///C:/Users/Admin/Downloads/index_3.html#contact" class="bgh">Get In Touch</a>
+      <a href="file:///C:/Users/Admin/Downloads/index_4.html#projects" class="bg" style="">View Projects</a>
+      <a href="file:///C:/Users/Admin/Downloads/index_4.html#contact" class="bgh">Get In Touch</a>
     </div>
   </div>
   <div class="hscr"><span class="slbl">Scroll</span><div class="sms"><div class="sw"></div></div></div>
@@ -723,9 +723,9 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
       <div class="ftg">Electrical Protection Engineer — 11kV to 765kV</div>
     </div>
     <ul class="fn">
-      <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#about">About</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_3.html#skills">Skills</a></li>
-      <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#projects">Projects</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_3.html#equipment">Equipment</a></li>
-      <li><a href="file:///C:/Users/Admin/Downloads/index_3.html#education">Education</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_3.html#contact">Contact</a></li>
+      <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#about">About</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_4.html#skills">Skills</a></li>
+      <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#projects">Projects</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_4.html#equipment">Equipment</a></li>
+      <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#education">Education</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_4.html#contact">Contact</a></li>
     </ul>
   </div>
   <div class="fc">© 2025 Dhilipdharan V — All Rights Reserved</div>
@@ -755,7 +755,21 @@ hbg.addEventListener('click',()=>{mop=!mop;mm.classList.toggle('open',mop);const
 mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mop=false;mm.classList.remove('open');hbg.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''})}));
 
 /* ── SMOOTH SCROLL ───────────────────────── */
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}}));
+document.querySelectorAll('a[href^="#"]').forEach(function(link){
+  link.addEventListener('click',function(e){
+    var href=this.getAttribute('href');
+    if(!href||href==='#')return;
+    var target=document.querySelector(href);
+    if(target){
+      e.preventDefault();
+      e.stopPropagation();
+      var navEl=document.getElementById('navbar');
+      var navH=navEl?navEl.offsetHeight:0;
+      var top=target.getBoundingClientRect().top+window.pageYOffset-navH-8;
+      window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+    }
+  });
+});
 
 /* ── REVEAL ──────────────────────────────── */
 const io=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -40px 0px'});
@@ -930,7 +944,10 @@ window.addEventListener('scroll',()=>{const y=scrollY;if(hgrid)hgrid.style.trans
     requestAnimationFrame(loop);
   })();
 
-  document.addEventListener('click',e=>{const b=new Arc();b.sx=e.clientX;b.sy=e.clientY;b.ex=e.clientX+(Math.random()-.5)*350;b.ey=e.clientY+Math.random()*220+60;b.segs=b.build(b.sx,b.sy,b.ex,b.ey,5);arcs.push(b)});
+  document.addEventListener('click',function(e){
+    if(e.target.tagName==='A'||e.target.tagName==='BUTTON'||e.target.closest('a')||e.target.closest('button'))return;
+    const b=new Arc();b.sx=e.clientX;b.sy=e.clientY;b.ex=e.clientX+(Math.random()-.5)*350;b.ey=e.clientY+Math.random()*220+60;b.segs=b.build(b.sx,b.sy,b.ex,b.ey,5);arcs.push(b);
+  });
 })();
 </script>
 
