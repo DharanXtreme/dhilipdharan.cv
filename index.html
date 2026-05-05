@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/Admin/Downloads/index_4.html -->
+<!-- saved from url=(0045)file:///C:/Users/Admin/Downloads/index_6.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dhilipdharan V — Electrical Protection Engineer</title>
 <meta name="description" content="Senior Electrical Protection Engineer — High Voltage Relay Testing &amp; Commissioning 11kV–765kV">
 <link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./index_files/css2" rel="stylesheet">
+<link href="./Dhilipdharan V — Electrical Protection Engineer_files/css2" rel="stylesheet">
 <style>
 :root{
   --c-bg:#000608;--c-surface:#030c14;--c-card:rgba(4,16,30,0.75);
@@ -23,9 +23,9 @@ body{background:var(--c-bg);color:var(--c-text);font-family:var(--font-b);overfl
 a{color:inherit;text-decoration:none}
 
 /* CURSOR */
-#cd{position:fixed;width:8px;height:8px;background:var(--c-accent);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);box-shadow:0 0 18px var(--c-accent)}
-#cr{position:fixed;width:36px;height:36px;border:1px solid rgba(0,212,255,.55);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),border-color .25s}
-#ct{position:fixed;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.05),transparent 70%);pointer-events:none;z-index:99997;transform:translate(-50%,-50%)}
+#cd{position:fixed;left:0;top:0;width:8px;height:8px;background:var(--c-accent);border-radius:50%;pointer-events:none !important;z-index:99999;transform:translate(-50%,-50%);box-shadow:0 0 18px var(--c-accent);will-change:transform}
+#cr{position:fixed;left:0;top:0;width:36px;height:36px;border:1px solid rgba(0,212,255,.55);border-radius:50%;pointer-events:none !important;z-index:99998;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),border-color .25s;will-change:transform}
+#ct{position:fixed;left:0;top:0;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.05),transparent 70%);pointer-events:none !important;z-index:99997;transform:translate(-50%,-50%);will-change:transform}
 .ch #cr{width:58px;height:58px;border-color:var(--c-accent)}
 
 /* PROGRESS */
@@ -42,14 +42,14 @@ a{color:inherit;text-decoration:none}
 /* loader SVG icon */
 .loader-icon{margin-bottom:.5rem}
 
-/* 3D WEBGL CANVAS */
-#bg3d{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%}
+/* 3D TRANSMISSION CANVAS */
+#bg3d{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;mix-blend-mode:screen;opacity:0.92}
 
 /* grain */
 body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5rem;transition:padding .4s var(--ease),background .4s}
+nav{position:fixed;top:0;left:0;right:0;z-index:9100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5rem;transition:padding .4s var(--ease),background .4s;pointer-events:all}
 nav.sc{padding:.9rem 5rem;background:rgba(0,6,8,.8);backdrop-filter:blur(32px) saturate(180%);border-bottom:1px solid var(--c-border)}
 .nl{font-family:var(--font-d);font-size:.95rem;font-weight:900;letter-spacing:.22em;background:linear-gradient(135deg,#fff,var(--c-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nls{display:flex;gap:2.8rem;list-style:none}
@@ -64,7 +64,7 @@ nav.sc{padding:.9rem 5rem;background:rgba(0,6,8,.8);backdrop-filter:blur(32px) s
 .mmenu a:hover{color:var(--c-accent);text-shadow:0 0 30px rgba(0,212,255,.4)}
 
 /* SECTION BASE */
-section{position:relative;z-index:2;isolation:isolate}
+section{position:relative;z-index:2}
 .si{max-width:1280px;margin:0 auto;padding:6rem 3rem}
 .sey{font-family:var(--font-m);font-size:.66rem;letter-spacing:.28em;text-transform:uppercase;color:var(--c-accent);margin-bottom:.8rem;display:flex;align-items:center;gap:.8rem}
 .sey::before{content:'';width:28px;height:1px;background:var(--c-accent)}
@@ -303,13 +303,13 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
 }
 </style>
 </head>
-<body class="">
+<body>
 
 <!-- 3D BACKGROUND CANVAS -->
 <canvas id="bg3d" width="1920" height="945"></canvas>
 
 <!-- CURSOR -->
-<div id="cd" style="left: 472px; top: 173px;"></div><div id="cr" style="left: 472px; top: 173px;"></div><div id="ct" style="left: 472px; top: 173px;"></div>
+<div id="cd" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1279px), calc(-50% + 186px)); left: 0px; top: 0px;"></div><div id="cr" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1279px), calc(-50% + 186px)); left: 0px; top: 0px;"></div><div id="ct" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1279px), calc(-50% + 186px)); left: 0px; top: 0px;"></div>
 
 <!-- PROGRESS -->
 <div id="pb" style="width: 0%;"></div>
@@ -336,26 +336,26 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
 <nav id="navbar" class="">
   <div class="nl">DV</div>
   <ul class="nls">
-    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#about">About</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#skills">Skills</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#experience">Experience</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#projects">Projects</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#equipment">Equipment</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#education">Education</a></li>
-    <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#contact">Contact</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#about">About</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#skills">Skills</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#experience">Experience</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#projects">Projects</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#equipment">Equipment</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#education">Education</a></li>
+    <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#contact">Contact</a></li>
   </ul>
   <div class="hbg" id="hbg"><span></span><span></span><span></span></div>
 </nav>
 <div class="mmenu" id="mmenu">
-  <a href="file:///C:/Users/Admin/Downloads/index_4.html#about">About</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#skills">Skills</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#experience">Experience</a>
-  <a href="file:///C:/Users/Admin/Downloads/index_4.html#projects">Projects</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#equipment">Equipment</a>
-  <a href="file:///C:/Users/Admin/Downloads/index_4.html#education">Education</a><a href="file:///C:/Users/Admin/Downloads/index_4.html#contact">Contact</a>
+  <a href="file:///C:/Users/Admin/Downloads/index_5.html#about">About</a><a href="file:///C:/Users/Admin/Downloads/index_5.html#skills">Skills</a><a href="file:///C:/Users/Admin/Downloads/index_5.html#experience">Experience</a>
+  <a href="file:///C:/Users/Admin/Downloads/index_5.html#projects">Projects</a><a href="file:///C:/Users/Admin/Downloads/index_5.html#equipment">Equipment</a>
+  <a href="file:///C:/Users/Admin/Downloads/index_5.html#education">Education</a><a href="file:///C:/Users/Admin/Downloads/index_5.html#contact">Contact</a>
 </div>
 
 <!-- ═══════════════════════════════════════ HERO ═══════════════ -->
 <section id="hero">
   <div class="hero-grid" style="transform: perspective(700px) rotateX(10deg) translateY(0px);"></div>
-  <div class="hero-radial" style="transform: translate(calc(-50% - 10.1667px), calc(-50% - 7.92328px));"></div>
+  <div class="hero-radial" style="transform: translate(calc(-50% + 6.64583px), calc(-50% - 7.57937px));"></div>
   <canvas id="hc" width="300" height="150"></canvas>
   <div class="scanline"></div>
 
@@ -409,8 +409,8 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
       <div><div class="hmv">765kV</div><div class="hml">Max Voltage</div></div>
     </div>
     <div class="hctas">
-      <a href="file:///C:/Users/Admin/Downloads/index_4.html#projects" class="bg" style="">View Projects</a>
-      <a href="file:///C:/Users/Admin/Downloads/index_4.html#contact" class="bgh">Get In Touch</a>
+      <a href="file:///C:/Users/Admin/Downloads/index_5.html#projects" class="bg">View Projects</a>
+      <a href="file:///C:/Users/Admin/Downloads/index_5.html#contact" class="bgh">Get In Touch</a>
     </div>
   </div>
   <div class="hscr"><span class="slbl">Scroll</span><div class="sms"><div class="sw"></div></div></div>
@@ -463,10 +463,10 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
     <polyline points="0,60 120,60 140,20 160,100 180,40 200,80 220,60 400,60 420,30 440,90 460,60 1440,60" stroke="#00d4ff" stroke-width="1.5" fill="none"></polyline>
   </svg>
   <div class="sr stg vis" id="statsec">
-    <div><div><span class="sn" data-t="30">30</span><span class="ss">+</span></div><div class="sl">Projects Commissioned<br>Across 3 Countries</div></div>
-    <div><div><span class="sn" data-t="765">765</span><span class="ss">kV</span></div><div class="sl">Highest Voltage Level<br>GIS Bay Extension</div></div>
-    <div><div><span class="sn" data-t="6">6</span><span class="ss">+</span></div><div class="sl">Relay Brands<br>Mastered</div></div>
-    <div><div><span class="sn" data-t="348">348</span><span class="ss">MVA</span></div><div class="sl">Largest Generator<br>Protection Commissioned</div></div>
+    <div><div><span class="sn" data-t="30">0</span><span class="ss">+</span></div><div class="sl">Projects Commissioned<br>Across 3 Countries</div></div>
+    <div><div><span class="sn" data-t="765">0</span><span class="ss">kV</span></div><div class="sl">Highest Voltage Level<br>GIS Bay Extension</div></div>
+    <div><div><span class="sn" data-t="6">0</span><span class="ss">+</span></div><div class="sl">Relay Brands<br>Mastered</div></div>
+    <div><div><span class="sn" data-t="348">0</span><span class="ss">MVA</span></div><div class="sl">Largest Generator<br>Protection Commissioned</div></div>
   </div>
 </div>
 
@@ -483,10 +483,10 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
   </svg>
 
   <div class="si">
-    <div class="sey rv vis">Expertise</div>
-    <h2 class="stl rv vis">Technical Skill Set</h2>
-    <p class="sd rv vis">Deep, cross-platform expertise in protection engineering — from complex relay configuration to full-substation commissioning.</p>
-    <div class="shg stg vis">
+    <div class="sey rv">Expertise</div>
+    <h2 class="stl rv">Technical Skill Set</h2>
+    <p class="sd rv">Deep, cross-platform expertise in protection engineering — from complex relay configuration to full-substation commissioning.</p>
+    <div class="shg stg">
       <div class="shc"><div class="ski">⚡</div><div class="skt">Protection System Testing</div><div class="sktgs"><span class="sktg">Distance Protection</span><span class="sktg">Differential Protection</span><span class="sktg">Transformer Protection</span><span class="sktg">Generator Protection</span><span class="sktg">Motor Protection</span><span class="sktg">Busbar Protection</span><span class="sktg">Feeder Protection</span><span class="sktg">Line Differential</span><span class="sktg">REF Protection</span><span class="sktg">OC &amp; EF Protection</span></div></div>
       <div class="shc"><div class="ski">🔌</div><div class="skt">Switchyard &amp; Switchgear</div><div class="sktgs"><span class="sktg">Current Transformers</span><span class="sktg">Capacitive VTs</span><span class="sktg">Circuit Breakers</span><span class="sktg">Isolators</span><span class="sktg">Earth Switches</span><span class="sktg">Lightning Arresters</span><span class="sktg">GIS Systems</span><span class="sktg">Interlock Schemes</span><span class="sktg">DG Auto Changeover</span></div></div>
       <div class="shc"><div class="ski">📡</div><div class="skt">Communication &amp; Standards</div><div class="sktgs"><span class="sktg">IEC 61850</span><span class="sktg">GOOSE Messaging</span><span class="sktg">Optical Fiber Comms</span><span class="sktg">Carrier Communication</span><span class="sktg">SCADA Integration</span><span class="sktg">SAS Configuration</span><span class="sktg">Direct Transfer Schemes</span></div></div>
@@ -494,14 +494,14 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
       <div class="shc"><div class="ski">🏗️</div><div class="skt">Bus Schemes &amp; Config</div><div class="sktgs"><span class="sktg">Single Bus</span><span class="sktg">Single Bus + Transfer</span><span class="sktg">Double Bus</span><span class="sktg">Double Bus + Transfer</span><span class="sktg">One-and-Half Breaker</span><span class="sktg">Relay-to-Relay Comms</span><span class="sktg">BCU Configuration</span></div></div>
       <div class="shc"><div class="ski">🛠️</div><div class="skt">Project &amp; Engineering</div><div class="sktgs"><span class="sktg">P&amp;ID Reading</span><span class="sktg">Isometric Drawings</span><span class="sktg">ITR Validation</span><span class="sktg">LOSH Verification</span><span class="sktg">Work Pack Preparation</span><span class="sktg">Tri-party Walkdowns</span><span class="sktg">CCMS Platform</span><span class="sktg">Point-to-Point Testing</span></div></div>
     </div>
-    <div class="prw rv vis" id="prw">
+    <div class="prw rv" id="prw">
       <div style="margin-bottom:1.8rem"><div class="sey" style="margin-top:2.5rem">Proficiency Levels</div></div>
-      <div class="bi"><div class="bh"><span class="bn">Protection Relay Testing &amp; Commissioning</span><span class="bp">98%</span></div><div class="bt"><div class="bf" data-w="98" style="width: 98%;"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Omicron Test Universe</span><span class="bp">96%</span></div><div class="bt"><div class="bf" data-w="96" style="width: 96%;"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">ABB PCM / Relay Software</span><span class="bp">95%</span></div><div class="bt"><div class="bf" data-w="95" style="width: 95%;"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Primary Injection &amp; Stability Testing</span><span class="bp">94%</span></div><div class="bt"><div class="bf" data-w="94" style="width: 94%;"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">IEC 61850 / GOOSE Configuration</span><span class="bp">92%</span></div><div class="bt"><div class="bf" data-w="92" style="width: 92%;"></div></div></div>
-      <div class="bi"><div class="bh"><span class="bn">Siemens DIGSI 4 &amp; 5</span><span class="bp">88%</span></div><div class="bt"><div class="bf" data-w="88" style="width: 88%;"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Protection Relay Testing &amp; Commissioning</span><span class="bp">98%</span></div><div class="bt"><div class="bf" data-w="98"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Omicron Test Universe</span><span class="bp">96%</span></div><div class="bt"><div class="bf" data-w="96"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">ABB PCM / Relay Software</span><span class="bp">95%</span></div><div class="bt"><div class="bf" data-w="95"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Primary Injection &amp; Stability Testing</span><span class="bp">94%</span></div><div class="bt"><div class="bf" data-w="94"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">IEC 61850 / GOOSE Configuration</span><span class="bp">92%</span></div><div class="bt"><div class="bf" data-w="92"></div></div></div>
+      <div class="bi"><div class="bh"><span class="bn">Siemens DIGSI 4 &amp; 5</span><span class="bp">88%</span></div><div class="bt"><div class="bf" data-w="88"></div></div></div>
     </div>
   </div>
 </section>
@@ -525,9 +525,9 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
   </svg>
 
   <div class="si">
-    <div class="sey rv vis">Career</div>
-    <h2 class="stl rv vis">Professional Experience</h2>
-    <div class="tl rv vis">
+    <div class="sey rv">Career</div>
+    <h2 class="stl rv">Professional Experience</h2>
+    <div class="tl rv">
       <div class="tli">
         <div class="tld"></div>
         <div class="tlp">Nov 2022 — Present</div>
@@ -571,10 +571,10 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
   </svg>
 
   <div class="si">
-    <div class="sey rv vis">Track Record</div>
-    <h2 class="stl rv vis">Projects &amp; Clients</h2>
-    <p class="sd rv vis">30 major infrastructure projects across India, Nigeria and Australia — from 11kV distribution to 765kV GIS transmission.</p>
-    <div class="pctrl stg vis">
+    <div class="sey rv">Track Record</div>
+    <h2 class="stl rv">Projects &amp; Clients</h2>
+    <p class="sd rv">30 major infrastructure projects across India, Nigeria and Australia — from 11kV distribution to 765kV GIS transmission.</p>
+    <div class="pctrl stg">
       <button class="fb active" data-f="all">All Projects</button>
       <button class="fb" data-f="australia">Australia</button>
       <button class="fb" data-f="india">India</button>
@@ -621,10 +621,10 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
   </svg>
 
   <div class="si">
-    <div class="sey rv vis">Arsenal</div>
-    <h2 class="stl rv vis">Relays &amp; Test Equipment</h2>
-    <p class="sd rv vis">Multi-brand mastery across protection relay families and precision testing platforms.</p>
-    <div class="rb stg vis">
+    <div class="sey rv">Arsenal</div>
+    <h2 class="stl rv">Relays &amp; Test Equipment</h2>
+    <p class="sd rv">Multi-brand mastery across protection relay families and precision testing platforms.</p>
+    <div class="rb stg">
       <div class="rc"><div class="rbr">ABB</div><ul class="rl2"><li><span class="rmd">REG670/REM543</span>Generator protection</li><li><span class="rmd">REL670/REL650</span>Distance protection</li><li><span class="rmd">REC670/REC650</span>Bay control &amp; protection</li><li><span class="rmd">RED670/RED615</span>Line differential</li><li><span class="rmd">RET670/650/615</span>Transformer protection</li><li><span class="rmd">REF615</span>Feeder protection</li></ul></div>
       <div class="rc"><div class="rbr">Siemens</div><ul class="rl2"><li><span class="rmd">7SA522</span>Distance protection</li><li><span class="rmd">7UT613/7UT86</span>Transformer protection</li><li><span class="rmd">7VK61</span>LBB protection</li><li><span class="rmd">7SR5110/7SR2203</span>Feeder RMU relays</li><li><span class="rmd">7SJ62/7SJ85</span>Feeder / Bay Control IED</li><li><span class="rmd">7SK8031/7SK8011</span>Motor protection</li></ul></div>
       <div class="rc"><div class="rbr">MiCOM / Alstom</div><ul class="rl2"><li><span class="rmd">P342/P343</span>Generator protection</li><li><span class="rmd">P442/P444</span>Distance protection</li><li><span class="rmd">P543/P545</span>Line differential</li><li><span class="rmd">P111/P141/P142</span>Feeder protection</li><li><span class="rmd">P642</span>Transformer/Generator</li></ul></div>
@@ -632,14 +632,14 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
       <div class="rc"><div class="rbr">SEL</div><ul class="rl2"><li><span class="rmd">SEL 700G</span>Generator protection</li><li><span class="rmd">SEL-751A</span>Feeder protection</li><li><span class="rmd">SEL-387E/SEL-787</span>Overall differential</li><li><span class="rmd">SEL 487B/487E</span>Busbar protection</li><li><span class="rmd">SEL 451</span>Distance / Auto changeover</li></ul></div>
       <div class="rc"><div class="rbr">NR / ZIV / Others</div><ul class="rl2"><li><span class="rmd">PCS 961/931</span>Feeder / Line impedance</li><li><span class="rmd">PCS 9671</span>Transformer protection</li><li><span class="rmd">PCS 915C/915D</span>Busbar relay</li><li><span class="rmd">IRLF/8IDV/7IRV/8ZLV</span>ZIV protection &amp; BCU</li><li><span class="rmd">TPRO 4500/LPRO 200</span>Easun Reyrolle</li></ul></div>
     </div>
-    <div class="sey rv vis" style="margin-top:4rem">Test Equipment</div>
-    <div class="kr stg vis">
+    <div class="sey rv" style="margin-top:4rem">Test Equipment</div>
+    <div class="kr stg">
       <div class="kb"><div class="kbt">Secondary Injection</div><ul class="kbl"><li>Omicron CMC256, CMC256-6, CMC256 Plus</li><li>Omicron CMC353 and CMC356</li><li>Doble F6150</li><li>Ponovo Test Sets</li><li>Megger SMRT410, SMRT46, SMRT36</li></ul></div>
       <div class="kb"><div class="kbt">Primary Injection</div><ul class="kbl"><li>CPC 100 (Omicron)</li><li>CB Timing Test Kit (Scope)</li><li>CIBANO 500 (Omicron)</li><li>Primary Injection Kit (Sudarsan)</li><li>CRM Kit (Scope)</li><li>Insulation Resistance Tester (Kyoritsu / Fluke)</li><li>Leakage Tester (Kyoritsu)</li><li>Multimeter (Fluke / Rishabh)</li></ul></div>
       <div class="kb"><div class="kbt">Software &amp; Platforms</div><ul class="kbl"><li>ABB PCM (v1.5–2.9), REBCON500, HMI500</li><li>Siemens DIGSI 4 &amp; 5</li><li>Omicron Test Universe 5.0</li><li>Doble F6 Test / F6 Control Panel</li><li>GE EnerVista, Alstom MiCOM S1 Agile</li><li>SEL AcSELerator, Schneider Easergy Pro</li><li>NR PCS Explorer, CCMS Smart Completions</li></ul></div>
     </div>
-    <div class="sey rv vis" style="margin-top:3rem">Software Proficiency</div>
-    <div class="swch stg vis"><span class="swc">ABB PCM v2.9</span><span class="swc">DIGSI 4 &amp; 5</span><span class="swc">Omicron Test Universe 5</span><span class="swc">Doble F6 Test</span><span class="swc">GE EnerVista</span><span class="swc">MiCOM S1 Agile</span><span class="swc">SEL AcSELerator</span><span class="swc">Schneider S1 Studio</span><span class="swc">Easergy Pro</span><span class="swc">NR PCS Explorer</span><span class="swc">REBCON500</span><span class="swc">HMI500 / REBWIN</span><span class="swc">CCMS Smart Completions</span><span class="swc">SICAM A8000</span><span class="swc">MS Office Suite</span></div>
+    <div class="sey rv" style="margin-top:3rem">Software Proficiency</div>
+    <div class="swch stg"><span class="swc">ABB PCM v2.9</span><span class="swc">DIGSI 4 &amp; 5</span><span class="swc">Omicron Test Universe 5</span><span class="swc">Doble F6 Test</span><span class="swc">GE EnerVista</span><span class="swc">MiCOM S1 Agile</span><span class="swc">SEL AcSELerator</span><span class="swc">Schneider S1 Studio</span><span class="swc">Easergy Pro</span><span class="swc">NR PCS Explorer</span><span class="swc">REBCON500</span><span class="swc">HMI500 / REBWIN</span><span class="swc">CCMS Smart Completions</span><span class="swc">SICAM A8000</span><span class="swc">MS Office Suite</span></div>
   </div>
 </section>
 
@@ -656,9 +656,9 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
   </svg>
 
   <div class="si">
-    <div class="sey rv vis">Qualifications</div>
-    <h2 class="stl rv vis">Education &amp; Credentials</h2>
-    <div class="ecg stg vis">
+    <div class="sey rv">Qualifications</div>
+    <h2 class="stl rv">Education &amp; Credentials</h2>
+    <div class="ecg stg">
       <div class="edc">
         <div class="cir"><div class="cico">🎓</div><div><div class="cbr">Bachelor of Engineering</div></div></div>
         <div class="cmt">Electrical &amp; Electronics Engineering</div>
@@ -687,10 +687,10 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
   </svg>
 
   <div class="si">
-    <div class="sey rv vis">Connect</div>
-    <h2 class="stl rv vis">Get In Touch</h2>
+    <div class="sey rv">Connect</div>
+    <h2 class="stl rv">Get In Touch</h2>
     <div class="cw">
-      <div class="rl vis">
+      <div class="rl">
         <p class="ci">Based in Australia with international project experience across India, Nigeria, and the Middle East. Available for discussion on complex protection engineering challenges.</p>
         <div class="cls">
           <a class="cl" href="mailto:dhilip@universalenergy.com.au">
@@ -699,7 +699,7 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
           </a>
         </div>
       </div>
-      <div class="ccard rr vis">
+      <div class="ccard rr">
         <div class="cct">Send a Message</div>
         <div class="fr"><label class="fl">Name</label><input type="text" class="fi" placeholder="Your name"></div>
         <div class="fr"><label class="fl">Email</label><input type="email" class="fi" placeholder="your@email.com"></div>
@@ -723,9 +723,9 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
       <div class="ftg">Electrical Protection Engineer — 11kV to 765kV</div>
     </div>
     <ul class="fn">
-      <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#about">About</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_4.html#skills">Skills</a></li>
-      <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#projects">Projects</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_4.html#equipment">Equipment</a></li>
-      <li><a href="file:///C:/Users/Admin/Downloads/index_4.html#education">Education</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_4.html#contact">Contact</a></li>
+      <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#about">About</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_5.html#skills">Skills</a></li>
+      <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#projects">Projects</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_5.html#equipment">Equipment</a></li>
+      <li><a href="file:///C:/Users/Admin/Downloads/index_5.html#education">Education</a></li><li><a href="file:///C:/Users/Admin/Downloads/index_5.html#contact">Contact</a></li>
     </ul>
   </div>
   <div class="fc">© 2025 Dhilipdharan V — All Rights Reserved</div>
@@ -735,9 +735,18 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
 <script>
 /* ── CURSOR ─────────────────────────────── */
 const CD=document.getElementById('cd'),CR=document.getElementById('cr'),CT=document.getElementById('ct');
-let mx=0,my=0,rx=0,ry=0;
-document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;CD.style.left=mx+'px';CD.style.top=my+'px';CT.style.left=mx+'px';CT.style.top=my+'px'});
-(function cl(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;CR.style.left=rx+'px';CR.style.top=ry+'px';requestAnimationFrame(cl)})();
+let mx=window.innerWidth/2,my=window.innerHeight/2,rx=window.innerWidth/2,ry=window.innerHeight/2;
+/* ensure cursor elements never block clicks */
+[CD,CR,CT].forEach(el=>{if(el){el.style.pointerEvents='none';el.style.userSelect='none';}});
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  CD.style.transform='translate(calc('+mx+'px - 50%), calc('+my+'px - 50%))';
+  CT.style.transform='translate(calc('+mx+'px - 50%), calc('+my+'px - 50%))';
+  /* reset fixed positioning to use transform instead */
+  CD.style.left='0';CD.style.top='0';
+  CT.style.left='0';CT.style.top='0';
+});
+(function cl(){rx+=(mx-rx)*.1;ry+=(my-ry)*.1;CR.style.transform='translate(calc('+rx+'px - 50%), calc('+ry+'px - 50%))';CR.style.left='0';CR.style.top='0';requestAnimationFrame(cl)})();
 document.querySelectorAll('a,button,.fb,.cl,.pc,.rc,.shc,.edc,.crc').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('ch'));el.addEventListener('mouseleave',()=>document.body.classList.remove('ch'))});
 
 /* ── LOADER ──────────────────────────────── */
@@ -805,109 +814,275 @@ document.addEventListener('mousemove',e=>{if(hrad){const x=(e.clientX/innerWidth
 window.addEventListener('scroll',()=>{const y=scrollY;if(hgrid)hgrid.style.transform=`perspective(700px) rotateX(10deg) translateY(${y*.28}px)`;document.querySelectorAll('.cnode').forEach((n,i)=>n.style.transform=`translateY(${y*(0.04+i*.015)}px)`)});
 
 /* ════════════════════════════════════════════════════════════════
-   3D WEBGL BACKGROUND (three.js-style via raw WebGL)
+   3D ELECTRICAL TRANSMISSION RINGS — Advanced Canvas Background
+   Scroll-reactive · Cinematic electric look · Fixed behind content
    ════════════════════════════════════════════════════════════════ */
 (function(){
-  const canvas=document.getElementById('bg3d');
-  const gl=canvas.getContext('webgl',{alpha:true,antialias:true});
-  if(!gl)return;
+  const canvas = document.getElementById('bg3d');
+  const ctx = canvas.getContext('2d');
+  if(!ctx) return;
 
-  let W,H;
-  function resize(){W=canvas.width=innerWidth;H=canvas.height=innerHeight;gl.viewport(0,0,W,H)}
-  resize();window.addEventListener('resize',resize);
+  let W, H, scrollY_val = 0, mouseX = 0, mouseY = 0;
 
-  // Vertex shader
-  const vsrc=`
-    attribute vec3 aPos;
-    attribute float aSize;
-    attribute vec3 aColor;
-    uniform mat4 uMVP;
-    uniform float uTime;
-    varying vec3 vColor;
-    varying float vAlpha;
-    void main(){
-      vec3 p=aPos;
-      p.y+=sin(uTime*.6+aPos.x*2.0)*0.08;
-      p.x+=cos(uTime*.4+aPos.z*1.5)*0.06;
-      gl_Position=uMVP*vec4(p,1.0);
-      gl_PointSize=aSize*(1.0+0.3*sin(uTime+aPos.x*5.0));
-      vColor=aColor;
-      vAlpha=0.4+0.4*sin(uTime*.8+aPos.y*3.0);
-    }`;
-  const fsrc=`
-    precision mediump float;
-    varying vec3 vColor;
-    varying float vAlpha;
-    void main(){
-      vec2 uv=gl_PointCoord-vec2(0.5);
-      float d=length(uv);
-      if(d>0.5)discard;
-      float alpha=vAlpha*(1.0-d*2.0);
-      gl_FragColor=vec4(vColor,alpha);
-    }`;
+  function resize(){
+    W = canvas.width = window.innerWidth;
+    H = canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+  window.addEventListener('scroll', () => { scrollY_val = window.scrollY; });
+  document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 
-  function compileShader(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s}
-  const prog=gl.createProgram();
-  gl.attachShader(prog,compileShader(gl.VERTEX_SHADER,vsrc));
-  gl.attachShader(prog,compileShader(gl.FRAGMENT_SHADER,fsrc));
-  gl.linkProgram(prog);gl.useProgram(prog);
-
-  // Generate particles
-  const N=320;
-  const pos=new Float32Array(N*3),sizes=new Float32Array(N),colors=new Float32Array(N*3);
-  for(let i=0;i<N;i++){
-    pos[i*3]=(Math.random()-0.5)*4;
-    pos[i*3+1]=(Math.random()-0.5)*3;
-    pos[i*3+2]=(Math.random()-0.5)*4-1;
-    sizes[i]=Math.random()*3+1;
-    const t=Math.random();
-    if(t<0.6){colors[i*3]=0;colors[i*3+1]=0.82;colors[i*3+2]=1}      // cyan
-    else if(t<0.8){colors[i*3]=0;colors[i*3+1]=0.27;colors[i*3+2]=0.93} // blue
-    else if(t<0.9){colors[i*3]=1;colors[i*3+1]=0.72;colors[i*3+2]=0}   // amber
-    else{colors[i*3]=0;colors[i*3+1]=1;colors[i*3+2]=0.67}             // green
+  /* ── 3D math helpers ── */
+  const PI2 = Math.PI * 2;
+  function project(x, y, z, cx, cy, fov) {
+    const zz = z + fov;
+    if(zz <= 0) return null;
+    const scale = fov / zz;
+    return { x: cx + x * scale, y: cy + y * scale, scale };
   }
 
-  function createBuf(data,attr,size){
-    const buf=gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
-    gl.bufferData(gl.ARRAY_BUFFER,data,gl.STATIC_DRAW);
-    const loc=gl.getAttribLocation(prog,attr);
-    gl.enableVertexAttribArray(loc);
-    gl.vertexAttribPointer(loc,size,gl.FLOAT,false,0,0);
+  /* ── Ring definitions ── */
+  const rings = [
+    { radius:320, tilt:0.30, speed:0.0018, phase:0,      color:'0,212,255',  segs:120, width:1.4, dotR:3,   zOff:0    },
+    { radius:220, tilt:-0.22,speed:0.0028, phase:1.2,    color:'0,68,238',   segs:90,  width:1.0, dotR:2.5, zOff:-60  },
+    { radius:460, tilt:0.15, speed:0.0012, phase:2.5,    color:'0,255,170',  segs:140, width:0.7, dotR:2,   zOff:80   },
+    { radius:160, tilt:0.55, speed:0.0042, phase:0.7,    color:'255,183,0',  segs:70,  width:0.9, dotR:2,   zOff:30   },
+    { radius:560, tilt:-0.10,speed:0.0008, phase:3.8,    color:'0,130,255',  segs:160, width:0.5, dotR:1.5, zOff:-120 },
+    { radius:110, tilt:1.10, speed:0.0065, phase:1.9,    color:'0,212,255',  segs:50,  width:1.2, dotR:2.8, zOff:-30  },
+    { radius:390, tilt:-0.42,speed:0.0020, phase:4.4,    color:'100,200,255',segs:110, width:0.6, dotR:1.8, zOff:50   },
+    { radius:260, tilt:0.78, speed:0.0033, phase:0.3,    color:'0,68,238',   segs:80,  width:0.8, dotR:2.2, zOff:-80  },
+  ];
+
+  /* ── Energy arcs between ring nodes ── */
+  const arcPool = [];
+  let arcTimer = 0;
+  function spawnArc(r1, r2, cx, cy) {
+    const angle1 = Math.random() * PI2;
+    const angle2 = Math.random() * PI2;
+    arcPool.push({ r1, r2, a1: angle1, a2: angle2, life: 0, maxLife: 28 + Math.random()*20, color: r1.color });
   }
-  createBuf(pos,'aPos',3);
-  createBuf(sizes,'aSize',1);
-  createBuf(colors,'aColor',3);
 
-  const uMVP=gl.getUniformLocation(prog,'uMVP');
-  const uTime=gl.getUniformLocation(prog,'uTime');
+  /* ── Flowing energy particles on rings ── */
+  const flowParticles = rings.map(r => {
+    return Array.from({length: 6}, () => ({
+      angle: Math.random() * PI2,
+      speed: (0.005 + Math.random()*0.012) * (Math.random()>.5?1:-1),
+      size: 1.5 + Math.random()*2.5,
+      brightness: 0.6 + Math.random()*0.4
+    }));
+  });
 
-  // Simple perspective matrix
-  function perspective(fov,aspect,near,far){
-    const f=1/Math.tan(fov/2),nf=1/(near-far);
-    return new Float32Array([f/aspect,0,0,0,0,f,0,0,0,0,(far+near)*nf,-1,0,0,2*far*near*nf,0]);
+  /* ── Cinematic vignette overlay ── */
+  let vigGrad = null;
+  function buildVignette() {
+    vigGrad = ctx.createRadialGradient(W/2,H/2,H*0.2, W/2,H/2,H*0.85);
+    vigGrad.addColorStop(0,'rgba(0,0,0,0)');
+    vigGrad.addColorStop(1,'rgba(0,6,8,0.72)');
   }
-  function multiply(a,b){const out=new Float32Array(16);for(let i=0;i<4;i++)for(let j=0;j<4;j++){let s=0;for(let k=0;k<4;k++)s+=a[i*4+k]*b[k*4+j];out[i*4+j]=s}return out}
-  function rotY(angle){const c=Math.cos(angle),s=Math.sin(angle);return new Float32Array([c,0,s,0,0,1,0,0,-s,0,c,0,0,0,0,1])}
-  function rotX(angle){const c=Math.cos(angle),s=Math.sin(angle);return new Float32Array([1,0,0,0,0,c,-s,0,0,s,c,0,0,0,0,1])}
-  function translate(x,y,z){return new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,x,y,z,1])}
+  buildVignette();
+  window.addEventListener('resize', buildVignette);
 
-  gl.enable(gl.BLEND);gl.blendFunc(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA);
-
-  let t=0,mxR=0,myR=0;
-  document.addEventListener('mousemove',e=>{mxR=(e.clientX/W-.5)*.3;myR=(e.clientY/H-.5)*.2});
+  let t = 0;
 
   (function loop(){
-    t+=0.008;
-    gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
-    const proj=perspective(Math.PI/4,W/H,.1,20);
-    const view=translate(0,0,-3);
-    const rot=multiply(rotX(myR+Math.sin(t*.15)*.08),rotY(t*.1+mxR));
-    const mvp=multiply(proj,multiply(view,rot));
-    gl.uniformMatrix4fv(uMVP,false,mvp);
-    gl.uniform1f(uTime,t);
-    gl.drawArrays(gl.POINTS,0,N);
     requestAnimationFrame(loop);
+    t += 1;
+    ctx.clearRect(0, 0, W, H);
+
+    /* scroll + mouse influence */
+    const scrollInfluence = scrollY_val * 0.0003;
+    const mx = (mouseX / W - 0.5) * 0.18;
+    const my = (mouseY / H - 0.5) * 0.12;
+
+    const cx = W / 2;
+    const cy = H / 2 + scrollY_val * 0.04;
+    const fov = 600;
+
+    /* ── Draw rings ── */
+    rings.forEach((ring, ri) => {
+      const angle = t * ring.speed + ring.phase + scrollInfluence;
+      // tilt axes react subtly to mouse & scroll
+      const tiltX = ring.tilt + my * 0.4 + scrollInfluence * 0.3;
+      const tiltY = mx * 0.5;
+
+      const pts = [];
+      const segCount = ring.segs;
+
+      for(let i = 0; i <= segCount; i++){
+        const a = (i / segCount) * PI2;
+        const lx = Math.cos(a + angle) * ring.radius;
+        const ly = Math.sin(a + angle) * ring.radius;
+
+        // 3D tilt (rotateX by tiltX, then rotateY by tiltY)
+        const y3d = ly * Math.cos(tiltX) - ring.zOff * Math.sin(tiltX);
+        let z3d = ly * Math.sin(tiltX) + ring.zOff * Math.cos(tiltX);
+        const x3d = lx * Math.cos(tiltY) + z3d * Math.sin(tiltY);
+        z3d = -lx * Math.sin(tiltY) + z3d * Math.cos(tiltY);
+
+        const p = project(x3d, y3d, z3d, cx, cy, fov);
+        if(p) pts.push({...p, a});
+      }
+
+      if(pts.length < 2) return;
+
+      // Depth-based opacity
+      const baseAlpha = 0.12 + ring.width * 0.06;
+
+      // Draw ring stroke — segmented with depth variation
+      for(let i = 0; i < pts.length - 1; i++){
+        const p0 = pts[i], p1 = pts[i+1];
+        const depthAlpha = Math.min(1, Math.max(0.03, p0.scale * 1.2));
+        const electricPulse = 0.5 + 0.5 * Math.sin(t * 0.04 + p0.a * 3 + ri);
+
+        ctx.beginPath();
+        ctx.moveTo(p0.x, p0.y);
+        ctx.lineTo(p1.x, p1.y);
+        ctx.strokeStyle = `rgba(${ring.color},${baseAlpha * depthAlpha * electricPulse})`;
+        ctx.lineWidth = ring.width * p0.scale * 0.8;
+        ctx.shadowBlur = 0;
+        ctx.stroke();
+      }
+
+      // Glow pass — draw the ring again with bloom
+      ctx.save();
+      ctx.shadowBlur = 18;
+      ctx.shadowColor = `rgba(${ring.color},0.35)`;
+      ctx.beginPath();
+      pts.forEach((p,i) => {
+        if(i===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y);
+      });
+      ctx.strokeStyle = `rgba(${ring.color},0.06)`;
+      ctx.lineWidth = ring.width * 2.5;
+      ctx.stroke();
+      ctx.restore();
+
+      // Node dots at ring vertices (every ~30 segments)
+      const dotInterval = Math.max(1, Math.floor(segCount / 12));
+      pts.forEach((p, i) => {
+        if(i % dotInterval !== 0) return;
+        const pulse = 0.5 + 0.5 * Math.sin(t * 0.06 + i * 0.8 + ri * 1.3);
+        const dotSize = ring.dotR * p.scale * pulse;
+        if(dotSize < 0.3) return;
+
+        ctx.save();
+        ctx.shadowBlur = 12 * pulse;
+        ctx.shadowColor = `rgba(${ring.color},0.9)`;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, dotSize, 0, PI2);
+        ctx.fillStyle = `rgba(${ring.color},${0.5 + 0.5*pulse})`;
+        ctx.fill();
+        ctx.restore();
+      });
+
+      // Flow particles riding the ring
+      flowParticles[ri].forEach(fp => {
+        fp.angle += fp.speed * (1 + scrollInfluence * 2);
+        const fa = fp.angle;
+        const flx = Math.cos(fa) * ring.radius;
+        const fly = Math.sin(fa) * ring.radius;
+        const fy3d = fly * Math.cos(tiltX) - ring.zOff * Math.sin(tiltX);
+        let fz3d = fly * Math.sin(tiltX) + ring.zOff * Math.cos(tiltX);
+        const fx3d = flx * Math.cos(tiltY) + fz3d * Math.sin(tiltY);
+        fz3d = -flx * Math.sin(tiltY) + fz3d * Math.cos(tiltY);
+        const fp2d = project(fx3d, fy3d, fz3d, cx, cy, fov);
+        if(!fp2d) return;
+
+        const glow = ctx.createRadialGradient(fp2d.x,fp2d.y,0, fp2d.x,fp2d.y, fp.size*fp2d.scale*4);
+        glow.addColorStop(0, `rgba(${ring.color},${fp.brightness * fp2d.scale})`);
+        glow.addColorStop(1, `rgba(${ring.color},0)`);
+        ctx.beginPath();
+        ctx.arc(fp2d.x, fp2d.y, fp.size * fp2d.scale * 4, 0, PI2);
+        ctx.fillStyle = glow;
+        ctx.fill();
+
+        ctx.save();
+        ctx.shadowBlur = 20;
+        ctx.shadowColor = `rgba(${ring.color},1)`;
+        ctx.beginPath();
+        ctx.arc(fp2d.x, fp2d.y, fp.size * fp2d.scale, 0, PI2);
+        ctx.fillStyle = `rgba(255,255,255,${fp.brightness * Math.min(1,fp2d.scale*2)})`;
+        ctx.fill();
+        ctx.restore();
+      });
+    });
+
+    /* ── Inter-ring energy arcs ── */
+    arcTimer--;
+    if(arcTimer <= 0){
+      const r1 = rings[Math.floor(Math.random()*rings.length)];
+      const r2 = rings[Math.floor(Math.random()*rings.length)];
+      if(r1 !== r2) spawnArc(r1, r2, cx, cy);
+      arcTimer = 35 + Math.random() * 55;
+    }
+
+    for(let ai = arcPool.length-1; ai >= 0; ai--){
+      const arc = arcPool[ai];
+      arc.life++;
+      if(arc.life > arc.maxLife){ arcPool.splice(ai,1); continue; }
+      const prog = arc.life / arc.maxLife;
+      const arcAlpha = Math.sin(prog * Math.PI) * 0.55;
+
+      // Compute start/end 3D positions
+      function ringPoint(ring, angle) {
+        const scrollInf2 = scrollInfluence;
+        const ang = angle + t * ring.speed + ring.phase + scrollInf2;
+        const lx = Math.cos(ang) * ring.radius;
+        const ly = Math.sin(ang) * ring.radius;
+        const tX = ring.tilt + my*0.4 + scrollInf2*0.3;
+        const tY = mx*0.5;
+        const y3d = ly*Math.cos(tX)-ring.zOff*Math.sin(tX);
+        let z3d = ly*Math.sin(tX)+ring.zOff*Math.cos(tX);
+        const x3d = lx*Math.cos(tY)+z3d*Math.sin(tY);
+        z3d = -lx*Math.sin(tY)+z3d*Math.cos(tY);
+        return project(x3d, y3d, z3d, cx, cy, fov);
+      }
+
+      const p1 = ringPoint(arc.r1, arc.a1);
+      const p2 = ringPoint(arc.r2, arc.a2);
+      if(!p1||!p2) continue;
+
+      // Jagged lightning path
+      const segs = 8;
+      const pts2 = [p1];
+      for(let si=1;si<segs;si++){
+        const ft = si/segs;
+        const bx = p1.x + (p2.x-p1.x)*ft + (Math.random()-0.5)*60*(1-Math.abs(ft-0.5)*2);
+        const by = p1.y + (p2.y-p1.y)*ft + (Math.random()-0.5)*40*(1-Math.abs(ft-0.5)*2);
+        pts2.push({x:bx,y:by});
+      }
+      pts2.push(p2);
+
+      ctx.save();
+      ctx.shadowBlur = 20;
+      ctx.shadowColor = `rgba(${arc.color},0.8)`;
+      ctx.beginPath();
+      pts2.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));
+      ctx.strokeStyle = `rgba(${arc.color},${arcAlpha})`;
+      ctx.lineWidth = 0.8 + Math.random()*0.6;
+      ctx.stroke();
+
+      // Core bright channel
+      ctx.lineWidth = 0.3;
+      ctx.strokeStyle = `rgba(200,240,255,${arcAlpha*0.7})`;
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    /* ── Central energy core glow ── */
+    const corePulse = 0.7 + 0.3*Math.sin(t*0.05);
+    const coreGrad = ctx.createRadialGradient(cx,cy,0,cx,cy,200*corePulse);
+    coreGrad.addColorStop(0,`rgba(0,80,200,0.07)`);
+    coreGrad.addColorStop(0.4,`rgba(0,212,255,0.03)`);
+    coreGrad.addColorStop(1,`rgba(0,0,0,0)`);
+    ctx.fillStyle = coreGrad;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 200*corePulse, 0, PI2);
+    ctx.fill();
+
+    /* ── Cinematic vignette ── */
+    ctx.fillStyle = vigGrad;
+    ctx.fillRect(0, 0, W, H);
   })();
 })();
 
