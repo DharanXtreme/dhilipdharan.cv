@@ -1,24 +1,52 @@
 <!DOCTYPE html>
-<!-- saved from url=(0045)file:///C:/Users/Admin/Downloads/index_6.html -->
+<!-- saved from url=(0045)file:///C:/Users/Admin/Downloads/index_4.html -->
 <html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dhilipdharan V — Electrical Protection Engineer</title>
 <meta name="description" content="Senior Electrical Protection Engineer — High Voltage Relay Testing &amp; Commissioning 11kV–765kV">
 <link rel="preconnect" href="https://fonts.googleapis.com/">
-<link href="./Dhilipdharan V — Electrical Protection Engineer_files/css2" rel="stylesheet">
+<link href="file:///C:/Users/Admin/Downloads/index_files/css2" rel="stylesheet">
 <style>
 :root{
-  --c-bg:#000608;--c-surface:#030c14;--c-card:rgba(4,16,30,0.75);
-  --c-border:rgba(0,210,255,0.1);--c-glow:#00d4ff;--c-glow2:#0044ee;
+  --c-bg:transparent;--c-surface:transparent;--c-card:rgba(4,16,30,0.08);
+  --c-border:rgba(0,210,255,0.18);--c-glow:#00d4ff;--c-glow2:#0044ee;
   --c-accent:#00d4ff;--c-amber:#ffb700;--c-green:#00ffaa;
-  --c-text:#ddf0ff;--c-muted:#3a607e;
+  --c-text:#ddf0ff;--c-muted:#5a80a0;
   --font-d:'Orbitron',sans-serif;--font-b:'Space Grotesk',sans-serif;--font-m:'JetBrains Mono',monospace;
   --ease:cubic-bezier(0.16,1,0.3,1);--spring:cubic-bezier(0.34,1.56,0.64,1);
+  /* Glass variables */
+  --glass-bg: rgba(2, 12, 28, 0.12);
+  --glass-border: rgba(0, 212, 255, 0.15);
+  --glass-blur: blur(18px) saturate(160%);
+  --glass-shadow: 0 8px 40px rgba(0,0,0,0.18), inset 0 1px 0 rgba(0,212,255,0.08);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--c-bg);color:var(--c-text);font-family:var(--font-b);overflow-x:hidden;cursor:none}
+body{background:#000608;color:var(--c-text);font-family:var(--font-b);overflow-x:hidden;cursor:none}
+
+/* ═══════════════════════════════════════════════════
+   GLOBAL GLASS OVERRIDES — all sections fully transparent
+   so the 3D tower background shows top to bottom
+   ═══════════════════════════════════════════════════ */
+section,#about,#skills,#experience,#projects,#equipment,#education,#contact{background:transparent !important;}
+.sdiv{background:linear-gradient(90deg,transparent,rgba(0,212,255,.12),transparent)}
+.sband{background:rgba(0,10,30,0.08) !important;backdrop-filter:blur(18px) saturate(160%) !important;-webkit-backdrop-filter:blur(18px) saturate(160%) !important;border-top:1px solid rgba(0,212,255,0.14) !important;border-bottom:1px solid rgba(0,212,255,0.14) !important}
+.ii,.shc,.tlb,.pc,.rc,.kb,.edc,.crc{background:rgba(2,12,28,0.10) !important;backdrop-filter:blur(18px) saturate(160%) !important;-webkit-backdrop-filter:blur(18px) saturate(160%) !important;border-color:rgba(0,212,255,0.15) !important;box-shadow:0 8px 40px rgba(0,0,0,0.12),inset 0 1px 0 rgba(0,212,255,0.07) !important}
+.ii:hover,.shc:hover,.pc:hover,.rc:hover,.kb:hover,.edc:hover,.crc:hover{background:rgba(2,20,48,0.20) !important;border-color:rgba(0,212,255,0.30) !important;box-shadow:0 20px 60px rgba(0,60,150,0.16),inset 0 1px 0 rgba(0,212,255,0.12) !important}
+nav.sc{background:rgba(0,6,8,0.20) !important;backdrop-filter:blur(32px) saturate(180%) !important;-webkit-backdrop-filter:blur(32px) saturate(180%) !important;border-bottom:1px solid rgba(0,212,255,0.14) !important}
+#loader{background:rgba(0,6,8,0.88) !important}
+.mmenu{background:rgba(0,6,8,0.52) !important;backdrop-filter:blur(40px) !important;-webkit-backdrop-filter:blur(40px) !important}
+.fb{background:rgba(0,10,25,0.12) !important;backdrop-filter:blur(12px) !important;-webkit-backdrop-filter:blur(12px) !important}
+.fb.active,.fb:hover{background:rgba(0,212,255,0.08) !important}
+.sktg{background:rgba(0,212,255,0.04) !important;backdrop-filter:blur(8px) !important}
+.sktg:hover{background:rgba(0,212,255,0.10) !important}
+.bt{background:rgba(0,212,255,0.04) !important}
+.cl{background:rgba(2,12,28,0.10) !important;backdrop-filter:blur(18px) saturate(160%) !important;-webkit-backdrop-filter:blur(18px) saturate(160%) !important}
+.heb{background:rgba(0,212,255,0.03) !important;backdrop-filter:blur(12px) !important;-webkit-backdrop-filter:blur(12px) !important}
+.swc{background:rgba(0,212,255,0.04) !important;backdrop-filter:blur(8px) !important}
+.swc:hover{background:rgba(0,212,255,0.10) !important}
+.sms{background:rgba(0,12,25,0.15) !important;backdrop-filter:blur(8px) !important}
 ::selection{background:rgba(0,212,255,0.25);color:#fff}
 a{color:inherit;text-decoration:none}
 
@@ -43,14 +71,14 @@ a{color:inherit;text-decoration:none}
 .loader-icon{margin-bottom:.5rem}
 
 /* 3D TRANSMISSION CANVAS */
-#bg3d{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;mix-blend-mode:screen;opacity:0.92}
+#bg3d{position:fixed;inset:0;z-index:0;pointer-events:none;width:100%;height:100%;opacity:1}
 
 /* grain */
 body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:9100;display:flex;align-items:center;justify-content:space-between;padding:1.4rem 5rem;transition:padding .4s var(--ease),background .4s;pointer-events:all}
-nav.sc{padding:.9rem 5rem;background:rgba(0,6,8,.8);backdrop-filter:blur(32px) saturate(180%);border-bottom:1px solid var(--c-border)}
+nav.sc{padding:.9rem 5rem;background:rgba(0,6,8,.35);backdrop-filter:blur(32px) saturate(180%);border-bottom:1px solid var(--c-border)}
 .nl{font-family:var(--font-d);font-size:.95rem;font-weight:900;letter-spacing:.22em;background:linear-gradient(135deg,#fff,var(--c-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .nls{display:flex;gap:2.8rem;list-style:none}
 .nls a{font-family:var(--font-m);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--c-muted);position:relative;padding-bottom:4px;transition:color .3s;cursor:pointer;z-index:501;pointer-events:all}
@@ -58,7 +86,7 @@ nav.sc{padding:.9rem 5rem;background:rgba(0,6,8,.8);backdrop-filter:blur(32px) s
 .nls a:hover{color:var(--c-text)}.nls a:hover::after{width:100%}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:600}
 .hbg span{width:24px;height:1.5px;background:var(--c-text);display:block;transition:.3s}
-.mmenu{position:fixed;inset:0;z-index:490;background:rgba(0,6,8,.97);backdrop-filter:blur(32px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3rem;transform:translateX(100%);transition:transform .6s var(--ease)}
+.mmenu{position:fixed;inset:0;z-index:490;background:rgba(0,6,8,.75);backdrop-filter:blur(32px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3rem;transform:translateX(100%);transition:transform .6s var(--ease)}
 .mmenu.open{transform:none}
 .mmenu a{font-family:var(--font-d);font-size:1.8rem;font-weight:700;color:rgba(221,240,255,.45);letter-spacing:.08em;transition:color .2s,text-shadow .2s}
 .mmenu a:hover{color:var(--c-accent);text-shadow:0 0 30px rgba(0,212,255,.4)}
@@ -132,7 +160,7 @@ section{position:relative;z-index:2}
 @keyframes nf{0%,100%{transform:translateY(0) translateX(0)}25%{transform:translateY(-20px) translateX(10px)}75%{transform:translateY(10px) translateX(-8px)}}
 
 /* ABOUT */
-#about{background:linear-gradient(180deg,var(--c-bg),var(--c-surface))}
+#about{background:transparent !important}
 .aw{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center;margin-top:3rem}
 .ocon{position:relative;display:flex;align-items:center;justify-content:center;width:360px;height:360px}
 .ocore{position:absolute;inset:0;border-radius:50%;background:radial-gradient(ellipse at 40% 35%,rgba(0,70,220,.5),rgba(0,150,255,.12) 45%,transparent 70%);border:1px solid rgba(0,212,255,.15);display:flex;align-items:center;justify-content:center;animation:of 7s ease-in-out infinite}
@@ -149,14 +177,14 @@ section{position:relative;z-index:2}
 .abio p{font-size:1.03rem;line-height:2;color:rgba(221,240,255,.72);margin-bottom:1.4rem}
 .abio strong{color:#fff;font-weight:600}.abio em{color:var(--c-accent);font-style:normal}
 .igrid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem}
-.ii{display:flex;gap:.8rem;align-items:flex-start;padding:1.1rem 1.4rem;background:rgba(0,18,40,.6);border:1px solid var(--c-border);border-radius:14px;backdrop-filter:blur(12px);transition:border-color .3s,transform .3s var(--spring)}
+.ii{display:flex;gap:.8rem;align-items:flex-start;padding:1.1rem 1.4rem;background:rgba(0,18,40,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:14px;backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);transition:border-color .3s,transform .3s var(--spring);box-shadow:0 4px 16px rgba(0,0,0,0.08),inset 0 1px 0 rgba(0,212,255,0.06)}
 .ii:hover{border-color:rgba(0,212,255,.25);transform:translateY(-3px)}
 .iico{font-size:1.2rem;line-height:1;flex-shrink:0;margin-top:.1rem}
 .ilb{font-family:var(--font-m);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-muted);margin-bottom:.3rem}
 .iva{font-size:.86rem;color:var(--c-text)}
 
 /* STATS BAND */
-.sband{background:linear-gradient(135deg,rgba(0,28,80,.5),rgba(0,8,28,.92));border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);overflow:hidden;position:relative}
+.sband{background:rgba(0,10,30,.08);border-top:1px solid var(--c-border);border-bottom:1px solid var(--c-border);overflow:hidden;position:relative;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%)}
 .sband::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(0,68,238,.12),transparent 60%)}
 .sr{display:grid;grid-template-columns:repeat(4,1fr);max-width:1280px;margin:0 auto;padding:3.5rem 3rem;gap:2rem;text-align:center;position:relative;z-index:1}
 .sn{font-family:var(--font-d);font-size:clamp(2.4rem,5vw,3.8rem);font-weight:900;line-height:1;background:linear-gradient(135deg,#fff,var(--c-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
@@ -164,9 +192,9 @@ section{position:relative;z-index:2}
 .sl{font-family:var(--font-m);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-muted);margin-top:.8rem;line-height:1.6}
 
 /* SKILLS */
-#skills{background:var(--c-bg)}
+#skills{background:transparent !important}
 .shg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
-.shc{padding:2.2rem;background:rgba(2,10,20,.82);border:1px solid var(--c-border);border-radius:24px;backdrop-filter:blur(18px);position:relative;overflow:hidden;transition:border-color .4s,transform .4s var(--spring),box-shadow .4s;cursor:default}
+.shc{padding:2.2rem;background:rgba(2,10,20,0.10);border:1px solid rgba(0,212,255,0.15);border-radius:24px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);position:relative;overflow:hidden;transition:border-color .4s,transform .4s var(--spring),box-shadow .4s;cursor:default}
 .shc::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(0,212,255,.05),transparent 70%);top:-60px;right:-60px;transition:opacity .3s;opacity:0}
 .shc:hover{border-color:rgba(0,212,255,.32);transform:translateY(-8px) scale(1.01);box-shadow:0 24px 80px rgba(0,68,238,.16)}.shc:hover::before{opacity:1}
 .ski{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,rgba(0,68,238,.3),rgba(0,212,255,.1));border:1px solid rgba(0,212,255,.2);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.4rem}
@@ -179,11 +207,11 @@ section{position:relative;z-index:2}
 .bh{display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem}
 .bn{font-size:.84rem;color:rgba(221,240,255,.78)}
 .bp{font-family:var(--font-m);font-size:.73rem;color:var(--c-accent);letter-spacing:.08em}
-.bt{height:6px;background:rgba(0,212,255,.07);border-radius:3px;overflow:hidden;position:relative}
+.bt{height:6px;background:rgba(0,212,255,.05);border-radius:3px;overflow:hidden;position:relative}
 .bf{height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,var(--c-glow2),var(--c-accent));box-shadow:0 0 10px rgba(0,212,255,.4);transition:width 1.4s var(--ease)}
 
 /* EXPERIENCE */
-#experience{background:linear-gradient(180deg,var(--c-surface),var(--c-bg))}
+#experience{background:transparent !important}
 .tl{margin-top:3.5rem;position:relative;padding-left:3rem}
 .tl::before{content:'';position:absolute;left:.8rem;top:0;bottom:0;width:1px;background:linear-gradient(180deg,var(--c-accent),var(--c-glow2),transparent)}
 .tli{position:relative;margin-bottom:3.5rem}
@@ -194,17 +222,17 @@ section{position:relative;z-index:2}
 .tlp{font-family:var(--font-m);font-size:.68rem;letter-spacing:.15em;color:var(--c-accent);text-transform:uppercase;margin-bottom:.6rem}
 .tlc{font-family:var(--font-d);font-size:1.25rem;font-weight:700;color:#fff;margin-bottom:.4rem}
 .tlr{font-size:.98rem;color:var(--c-muted);margin-bottom:1.2rem;font-weight:400}
-.tlb{padding:1.8rem 2rem;background:rgba(2,10,22,.72);border:1px solid var(--c-border);border-radius:20px;backdrop-filter:blur(14px);transition:border-color .3s}
+.tlb{padding:1.8rem 2rem;background:rgba(2,10,22,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:20px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);transition:border-color .3s;box-shadow:0 8px 30px rgba(0,0,0,0.10),inset 0 1px 0 rgba(0,212,255,0.06)}
 .tli:hover .tlb{border-color:rgba(0,212,255,.22)}
 .tlt{font-size:.88rem;line-height:1.85;color:rgba(221,240,255,.6)}
 
 /* PROJECTS */
-#projects{background:var(--c-bg)}
+#projects{background:transparent !important}
 .pctrl{display:flex;gap:.8rem;flex-wrap:wrap;margin:2.5rem 0 2rem}
-.fb{padding:.48rem 1.35rem;border-radius:30px;font-family:var(--font-m);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--c-border);color:var(--c-muted);background:transparent;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.fb{padding:.48rem 1.35rem;border-radius:30px;font-family:var(--font-m);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(0,212,255,0.16);color:var(--c-muted);background:rgba(0,10,25,0.12);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);cursor:pointer;transition:background .2s,border-color .2s,color .2s}
 .fb.active,.fb:hover{background:rgba(0,212,255,.08);border-color:rgba(0,212,255,.3);color:var(--c-accent)}
 .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.2rem}
-.pc{padding:2rem;background:rgba(2,10,22,.82);border:1px solid var(--c-border);border-radius:20px;backdrop-filter:blur(14px);position:relative;overflow:hidden;transition:border-color .4s,transform .4s var(--spring),box-shadow .4s;cursor:default}
+.pc{padding:2rem;background:rgba(2,10,22,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:20px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);position:relative;overflow:hidden;transition:border-color .4s,transform .4s var(--spring),box-shadow .4s;cursor:default;box-shadow:0 4px 24px rgba(0,0,0,0.10),inset 0 1px 0 rgba(0,212,255,0.06)}
 .pc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at var(--mx,50%) var(--my,50%),rgba(0,212,255,.04),transparent 60%);opacity:0;transition:opacity .3s}
 .pc:hover{border-color:rgba(0,212,255,.25);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,60,150,.2)}.pc:hover::after{opacity:1}
 .pn{font-family:var(--font-m);font-size:.63rem;letter-spacing:.15em;color:var(--c-muted);margin-bottom:.8rem}
@@ -215,9 +243,9 @@ section{position:relative;z-index:2}
 .ld{width:5px;height:5px;border-radius:50%;background:var(--c-amber);box-shadow:0 0 6px var(--c-amber)}
 
 /* EQUIPMENT */
-#equipment{background:var(--c-surface)}
+#equipment{background:transparent !important}
 .rb{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:1.2rem;margin-top:2.5rem}
-.rc{padding:1.8rem;background:rgba(2,10,22,.72);border:1px solid var(--c-border);border-radius:18px;backdrop-filter:blur(14px);transition:border-color .3s,transform .3s var(--spring)}
+.rc{padding:1.8rem;background:rgba(2,10,22,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:18px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);transition:border-color .3s,transform .3s var(--spring);box-shadow:0 4px 24px rgba(0,0,0,0.08),inset 0 1px 0 rgba(0,212,255,0.06)}
 .rc:hover{border-color:rgba(0,212,255,.25);transform:translateY(-5px)}
 .rbr{font-family:var(--font-d);font-size:.92rem;font-weight:700;color:#fff;margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--c-border);letter-spacing:.05em}
 .rl2{list-style:none;display:flex;flex-direction:column;gap:.5rem}
@@ -225,7 +253,7 @@ section{position:relative;z-index:2}
 .rl2 li:last-child{border-bottom:none}
 .rmd{font-family:var(--font-m);font-size:.73rem;color:var(--c-accent);white-space:nowrap;flex-shrink:0;min-width:90px}
 .kr{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:1.2rem;margin-top:2.5rem}
-.kb{padding:1.8rem;background:rgba(2,10,22,.72);border:1px solid var(--c-border);border-radius:18px;backdrop-filter:blur(14px);transition:border-color .3s,transform .3s var(--spring)}
+.kb{padding:1.8rem;background:rgba(2,10,22,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:18px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);transition:border-color .3s,transform .3s var(--spring);box-shadow:0 4px 24px rgba(0,0,0,0.08),inset 0 1px 0 rgba(0,212,255,0.06)}
 .kb:hover{border-color:rgba(0,212,255,.25);transform:translateY(-4px)}
 .kbt{font-family:var(--font-m);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--c-accent);margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--c-border)}
 .kbl{list-style:none}
@@ -237,10 +265,10 @@ section{position:relative;z-index:2}
 .swc:hover{background:rgba(0,212,255,.1);border-color:rgba(0,212,255,.3);color:#fff;transform:translateY(-2px)}
 
 /* EDUCATION */
-#education{background:var(--c-bg)}
+#education{background:transparent !important}
 .ecg{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2.5rem}
-.edc,.crc{padding:2.5rem;background:rgba(2,10,22,.72);border:1px solid var(--c-border);border-radius:24px;backdrop-filter:blur(14px);transition:border-color .3s,transform .3s var(--spring),box-shadow .3s}
-.edc:hover,.crc:hover{border-color:rgba(0,212,255,.25);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,60,150,.12)}
+.edc,.crc{padding:2.5rem;background:rgba(2,10,22,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:24px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);transition:border-color .3s,transform .3s var(--spring),box-shadow .3s;box-shadow:0 4px 24px rgba(0,0,0,0.08),inset 0 1px 0 rgba(0,212,255,0.06)}
+.edc:hover,.crc:hover{border-color:rgba(0,212,255,.25);transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,60,150,.10)}
 .cir{display:flex;align-items:center;gap:1.2rem;margin-bottom:1.8rem}
 .cico{width:68px;height:68px;border-radius:18px;background:linear-gradient(135deg,rgba(0,68,238,.3),rgba(0,212,255,.1));border:1px solid rgba(0,212,255,.2);display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0}
 .cbr{font-family:var(--font-m);font-size:.63rem;letter-spacing:.15em;color:var(--c-accent);text-transform:uppercase}
@@ -253,27 +281,27 @@ section{position:relative;z-index:2}
 .cid{font-family:var(--font-m);font-size:.7rem;color:rgba(221,240,255,.35);margin-top:1rem;padding:1rem;background:rgba(0,212,255,.03);border-radius:8px;letter-spacing:.05em}
 
 /* CONTACT */
-#contact{background:var(--c-surface)}
+#contact{background:transparent !important}
 .cw{display:grid;grid-template-columns:1fr 1fr;gap:4rem;margin-top:3rem;align-items:start}
 .ci{font-size:.98rem;line-height:1.9;color:rgba(221,240,255,.62);margin-bottom:2rem}
 .cls{display:flex;flex-direction:column;gap:1rem}
-.cl{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.6rem;background:rgba(2,10,22,.72);border:1px solid var(--c-border);border-radius:14px;backdrop-filter:blur(12px);transition:border-color .3s,transform .3s var(--spring)}
+.cl{display:flex;align-items:center;gap:1.2rem;padding:1.2rem 1.6rem;background:rgba(2,10,22,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:14px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);transition:border-color .3s,transform .3s var(--spring);box-shadow:0 4px 16px rgba(0,0,0,0.08),inset 0 1px 0 rgba(0,212,255,0.06)}
 .cl:hover{border-color:rgba(0,212,255,.25);transform:translateX(8px)}
 .cci{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(0,68,238,.25),rgba(0,212,255,.08));border:1px solid rgba(0,212,255,.15);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
 .cll{font-family:var(--font-m);font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-muted);margin-bottom:.2rem}
 .clv{font-size:.86rem;color:var(--c-text)}
-.ccard{padding:2.5rem;background:rgba(2,10,22,.72);border:1px solid var(--c-border);border-radius:24px;backdrop-filter:blur(14px)}
+.ccard{padding:2.5rem;background:rgba(2,10,22,0.10);border:1px solid rgba(0,212,255,0.14);border-radius:24px;backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 4px 24px rgba(0,0,0,0.08),inset 0 1px 0 rgba(0,212,255,0.06)}
 .cct{font-family:var(--font-d);font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:2rem}
 .fr{margin-bottom:1.4rem}
 .fl{font-family:var(--font-m);font-size:.63rem;letter-spacing:.15em;text-transform:uppercase;color:var(--c-muted);display:block;margin-bottom:.6rem}
-.fi{width:100%;padding:.88rem 1.2rem;background:rgba(0,212,255,.03);border:1px solid rgba(0,212,255,.1);border-radius:12px;color:var(--c-text);font-family:var(--font-b);font-size:.88rem;outline:none;transition:border-color .3s,box-shadow .3s;resize:vertical}
+.fi{width:100%;padding:.88rem 1.2rem;background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.12);border-radius:12px;color:var(--c-text);font-family:var(--font-b);font-size:.88rem;outline:none;transition:border-color .3s,box-shadow .3s;resize:vertical}
 .fi:focus{border-color:rgba(0,212,255,.35);box-shadow:0 0 0 3px rgba(0,212,255,.05)}
 .fi::placeholder{color:var(--c-muted);opacity:.45}
 .fsb{width:100%;padding:1rem;background:linear-gradient(135deg,var(--c-glow2),var(--c-accent));border:none;border-radius:12px;color:#fff;font-family:var(--font-m);font-size:.78rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:transform .3s var(--spring),box-shadow .3s}
 .fsb:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,68,238,.4)}
 
 /* FOOTER */
-footer{background:rgba(0,3,8,.96);border-top:1px solid var(--c-border);padding:3rem 5rem 2rem;position:relative;overflow:hidden}
+footer{background:rgba(0,3,8,0.14);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-top:1px solid rgba(0,212,255,0.14);padding:3rem 5rem 2rem;position:relative;overflow:hidden}
 footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;height:180px;transform:translateX(-50%);background:radial-gradient(ellipse,rgba(0,68,238,.07),transparent 70%)}
 .fi2{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:2rem}
 .fbn{font-family:var(--font-d);font-size:1.35rem;font-weight:900;background:linear-gradient(135deg,#fff,var(--c-accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.4rem}
@@ -309,7 +337,7 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
 <canvas id="bg3d" width="1920" height="945"></canvas>
 
 <!-- CURSOR -->
-<div id="cd" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1279px), calc(-50% + 186px)); left: 0px; top: 0px;"></div><div id="cr" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1279px), calc(-50% + 186px)); left: 0px; top: 0px;"></div><div id="ct" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1279px), calc(-50% + 186px)); left: 0px; top: 0px;"></div>
+<div id="cd" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1231px), calc(-50% + 247px)); left: 0px; top: 0px;"></div><div id="cr" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1231px), calc(-50% + 247px)); left: 0px; top: 0px;"></div><div id="ct" style="pointer-events: none; user-select: none; transform: translate(calc(-50% + 1231px), calc(-50% + 247px)); left: 0px; top: 0px;"></div>
 
 <!-- PROGRESS -->
 <div id="pb" style="width: 0%;"></div>
@@ -355,7 +383,7 @@ footer::before{content:'';position:absolute;top:-60px;left:50%;width:500px;heigh
 <!-- ═══════════════════════════════════════ HERO ═══════════════ -->
 <section id="hero">
   <div class="hero-grid" style="transform: perspective(700px) rotateX(10deg) translateY(0px);"></div>
-  <div class="hero-radial" style="transform: translate(calc(-50% + 6.64583px), calc(-50% - 7.57937px));"></div>
+  <div class="hero-radial" style="transform: translate(calc(-50% + 5.64583px), calc(-50% - 5.96561px));"></div>
   <canvas id="hc" width="300" height="150"></canvas>
   <div class="scanline"></div>
 
@@ -814,15 +842,16 @@ document.addEventListener('mousemove',e=>{if(hrad){const x=(e.clientX/innerWidth
 window.addEventListener('scroll',()=>{const y=scrollY;if(hgrid)hgrid.style.transform=`perspective(700px) rotateX(10deg) translateY(${y*.28}px)`;document.querySelectorAll('.cnode').forEach((n,i)=>n.style.transform=`translateY(${y*(0.04+i*.015)}px)`)});
 
 /* ════════════════════════════════════════════════════════════════
-   3D ELECTRICAL TRANSMISSION RINGS — Advanced Canvas Background
-   Scroll-reactive · Cinematic electric look · Fixed behind content
+   3D ELECTRICAL TRANSMISSION TOWER — Ultra High-End Canvas BG
+   Full 3D perspective · Scroll parallax · Corona discharge
+   Catenary power lines · Real-time lightning · Cinematic grade
    ════════════════════════════════════════════════════════════════ */
 (function(){
   const canvas = document.getElementById('bg3d');
   const ctx = canvas.getContext('2d');
   if(!ctx) return;
 
-  let W, H, scrollY_val = 0, mouseX = 0, mouseY = 0;
+  let W, H, scrollY_val = 0, scrollVel = 0, lastScroll = 0, mouseX = 0, mouseY = 0;
 
   function resize(){
     W = canvas.width = window.innerWidth;
@@ -830,257 +859,550 @@ window.addEventListener('scroll',()=>{const y=scrollY;if(hgrid)hgrid.style.trans
   }
   resize();
   window.addEventListener('resize', resize);
-  window.addEventListener('scroll', () => { scrollY_val = window.scrollY; });
+  window.addEventListener('scroll', () => {
+    scrollVel = window.scrollY - lastScroll;
+    lastScroll = scrollY_val;
+    scrollY_val = window.scrollY;
+  });
   document.addEventListener('mousemove', e => { mouseX = e.clientX; mouseY = e.clientY; });
 
-  /* ── 3D math helpers ── */
-  const PI2 = Math.PI * 2;
-  function project(x, y, z, cx, cy, fov) {
-    const zz = z + fov;
-    if(zz <= 0) return null;
-    const scale = fov / zz;
-    return { x: cx + x * scale, y: cy + y * scale, scale };
+  /* ─── 3D PROJECTION ─── */
+  const FOV = 800;
+  function project3D(x, y, z) {
+    const dz = z + FOV;
+    if(dz <= 0.001) return null;
+    const scale = FOV / dz;
+    return {
+      x: W * 0.5 + x * scale,
+      y: H * 0.72 + y * scale,
+      scale,
+      z
+    };
   }
 
-  /* ── Ring definitions ── */
-  const rings = [
-    { radius:320, tilt:0.30, speed:0.0018, phase:0,      color:'0,212,255',  segs:120, width:1.4, dotR:3,   zOff:0    },
-    { radius:220, tilt:-0.22,speed:0.0028, phase:1.2,    color:'0,68,238',   segs:90,  width:1.0, dotR:2.5, zOff:-60  },
-    { radius:460, tilt:0.15, speed:0.0012, phase:2.5,    color:'0,255,170',  segs:140, width:0.7, dotR:2,   zOff:80   },
-    { radius:160, tilt:0.55, speed:0.0042, phase:0.7,    color:'255,183,0',  segs:70,  width:0.9, dotR:2,   zOff:30   },
-    { radius:560, tilt:-0.10,speed:0.0008, phase:3.8,    color:'0,130,255',  segs:160, width:0.5, dotR:1.5, zOff:-120 },
-    { radius:110, tilt:1.10, speed:0.0065, phase:1.9,    color:'0,212,255',  segs:50,  width:1.2, dotR:2.8, zOff:-30  },
-    { radius:390, tilt:-0.42,speed:0.0020, phase:4.4,    color:'100,200,255',segs:110, width:0.6, dotR:1.8, zOff:50   },
-    { radius:260, tilt:0.78, speed:0.0033, phase:0.3,    color:'0,68,238',   segs:80,  width:0.8, dotR:2.2, zOff:-80  },
+  /* ─── TOWER GEOMETRY BUILDER ─── */
+  // A 3D lattice transmission tower: main legs, cross-braces, arm crossbars, insulator strings
+  function buildTower(cx, gy, cz, scale) {
+    // scale controls tower size
+    const S = scale;
+    const pts = {}; // named 3D points
+
+    // Ground level leg spread
+    const GL = 1.1 * S; // half-width at ground
+    const TL = 0.22 * S; // half-width at tower top (waist)
+    const TH = 3.8 * S; // total tower height
+    const WH = 2.2 * S; // waist height (narrowest point)
+    const AH = 3.0 * S; // arm height
+    const AH2 = 3.4 * S; // upper arm height
+    const AW = 1.8 * S; // arm half-width (power line attachment)
+    const AW2 = 1.2 * S;
+
+    // Base corners (4 legs)
+    pts.bl  = [cx - GL, gy,       cz - GL]; // back-left
+    pts.br  = [cx + GL, gy,       cz - GL]; // back-right
+    pts.fl  = [cx - GL, gy,       cz + GL]; // front-left
+    pts.fr  = [cx + GL, gy,       cz + GL]; // front-right
+
+    // Waist corners
+    pts.wl  = [cx - TL, gy - WH,  cz]; // waist-left (side view)
+    pts.wr  = [cx + TL, gy - WH,  cz];
+
+    // Full tower from side — simplify to left/right silhouette:
+    pts.wbl = [cx - TL, gy - WH,  cz - TL];
+    pts.wbr = [cx + TL, gy - WH,  cz - TL];
+    pts.wfl = [cx - TL, gy - WH,  cz + TL];
+    pts.wfr = [cx + TL, gy - WH,  cz + TL];
+
+    // Upper body (straight column above waist)
+    const UCW = TL * 0.9;
+    pts.utbl = [cx - UCW, gy - AH,  cz - UCW];
+    pts.utbr = [cx + UCW, gy - AH,  cz - UCW];
+    pts.utfl = [cx - UCW, gy - AH,  cz + UCW];
+    pts.utfr = [cx + UCW, gy - AH,  cz + UCW];
+
+    // Top cross arms (horizontal)
+    pts.aLL  = [cx - AW,  gy - AH,  cz]; // left arm tip
+    pts.aRR  = [cx + AW,  gy - AH,  cz]; // right arm tip
+    pts.aLL2 = [cx - AW2, gy - AH2, cz]; // upper left arm
+    pts.aRR2 = [cx + AW2, gy - AH2, cz];
+    pts.apex = [cx,        gy - TH,  cz]; // very top
+
+    // Arm ends for insulator attachment (power lines hang from here)
+    const wireH = gy - AH + 0.18 * S;
+    pts.wireL  = [cx - AW,  wireH, cz];
+    pts.wireR  = [cx + AW,  wireH, cz];
+    pts.wireL2 = [cx - AW2, gy - AH2 + 0.1*S, cz];
+    pts.wireR2 = [cx + AW2, gy - AH2 + 0.1*S, cz];
+    pts.wireC  = [cx,        gy - TH + 0.05*S, cz]; // top center (ground wire)
+
+    return pts;
+  }
+
+  /* ─── TOWER SCENE SETUP ─── */
+  // Multiple towers at varying Z depths, spread across scene
+  const towerDefs = [
+    { cx: -520, gz: -1200, scale: 140, layer: 0 },
+    { cx:  180, gz: -900,  scale: 115, layer: 1 },
+    { cx:  780, gz: -600,  scale: 90,  layer: 2 },
+    { cx: -150, gz: -300,  scale: 72,  layer: 3 },
+    { cx:  520, gz:  0,    scale: 58,  layer: 4 },
+    { cx: -700, gz:  300,  scale: 46,  layer: 5 },
   ];
 
-  /* ── Energy arcs between ring nodes ── */
-  const arcPool = [];
-  let arcTimer = 0;
-  function spawnArc(r1, r2, cx, cy) {
-    const angle1 = Math.random() * PI2;
-    const angle2 = Math.random() * PI2;
-    arcPool.push({ r1, r2, a1: angle1, a2: angle2, life: 0, maxLife: 28 + Math.random()*20, color: r1.color });
+  // Build all towers
+  const towers = towerDefs.map(def => ({
+    ...def,
+    pts: buildTower(def.cx, 0, def.gz, def.scale)
+  }));
+
+  /* ─── CATENARY CURVE ─── */
+  // Real catenary: y = a * cosh(x/a) - a
+  function catenaryPoints(x1, y1, z1, x2, y2, z2, sag, numPts) {
+    const pts = [];
+    for(let i = 0; i <= numPts; i++) {
+      const t = i / numPts;
+      const ix = x1 + (x2 - x1) * t;
+      const iz = z1 + (z2 - z1) * t;
+      // Parabolic sag approximation
+      const sagY = sag * 4 * t * (1 - t);
+      const iy = y1 + (y2 - y1) * t + sagY;
+      pts.push([ix, iy, iz]);
+    }
+    return pts;
   }
 
-  /* ── Flowing energy particles on rings ── */
-  const flowParticles = rings.map(r => {
-    return Array.from({length: 6}, () => ({
-      angle: Math.random() * PI2,
-      speed: (0.005 + Math.random()*0.012) * (Math.random()>.5?1:-1),
-      size: 1.5 + Math.random()*2.5,
-      brightness: 0.6 + Math.random()*0.4
-    }));
-  });
+  /* ─── DRAW TOWER STRUCTURE ─── */
+  function drawTower(tower, scrollOff, alpha) {
+    const P = tower.pts;
+    const zOff = scrollOff * 0.3;
 
-  /* ── Cinematic vignette overlay ── */
+    function p(key) {
+      const pt = P[key];
+      return project3D(pt[0], pt[1] - scrollOff * 0.08, pt[2] + zOff);
+    }
+
+    function line(a, b, color, lw, blur) {
+      const pa = p(a), pb = p(b);
+      if(!pa || !pb) return;
+      ctx.save();
+      if(blur){ ctx.shadowBlur = blur; ctx.shadowColor = color; }
+      ctx.strokeStyle = color;
+      ctx.lineWidth = lw * pa.scale * 0.7;
+      ctx.globalAlpha = alpha * Math.min(1, pa.scale * 1.4);
+      ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pb.x, pb.y); ctx.stroke();
+      ctx.restore();
+    }
+
+    const SC = tower.scale / 140; // normalized size
+    const baseColor = `rgba(0,180,255,${alpha * 0.7})`;
+    const glowColor = `rgba(0,212,255,${alpha * 0.4})`;
+    const steelColor = `rgba(60,160,220,${alpha * 0.5})`;
+    const lw = 1.2;
+
+    // ── MAIN LEGS (tapered) ──
+    line('bl','wbl',baseColor,lw*1.8,0);
+    line('br','wbr',baseColor,lw*1.8,0);
+    line('fl','wfl',baseColor,lw*1.8,0);
+    line('fr','wfr',baseColor,lw*1.8,0);
+
+    // Legs to upper body
+    line('wbl','utbl',baseColor,lw*1.5,0);
+    line('wbr','utbr',baseColor,lw*1.5,0);
+    line('wfl','utfl',baseColor,lw*1.5,0);
+    line('wfr','utfr',baseColor,lw*1.5,0);
+
+    // Upper body to arms
+    line('utbl','aLL',baseColor,lw,0);
+    line('utbr','aRR',baseColor,lw,0);
+    line('utfl','aLL',baseColor,lw*0.8,0);
+    line('utfr','aRR',baseColor,lw*0.8,0);
+
+    // Cross-arms
+    line('aLL','aRR',baseColor,lw*1.4,3);
+    line('aLL2','aRR2',baseColor,lw*1.2,2);
+
+    // Upper arms to apex
+    line('aLL2','apex',baseColor,lw,0);
+    line('aRR2','apex',baseColor,lw,0);
+
+    // ── CROSS BRACING ──
+    // Lower body X braces
+    line('bl','wbr',steelColor,lw*0.6,0);
+    line('br','wbl',steelColor,lw*0.6,0);
+    line('fl','wfr',steelColor,lw*0.6,0);
+    line('fr','wfl',steelColor,lw*0.6,0);
+
+    // Side braces
+    line('bl','fl',steelColor,lw*0.8,0);
+    line('br','fr',steelColor,lw*0.8,0);
+    line('wbl','wfl',steelColor,lw*0.7,0);
+    line('wbr','wfr',steelColor,lw*0.7,0);
+    line('utbl','utfl',steelColor,lw*0.6,0);
+    line('utbr','utfr',steelColor,lw*0.6,0);
+
+    // Mid cross braces
+    line('wbl','utbr',steelColor,lw*0.5,0);
+    line('wbr','utbl',steelColor,lw*0.5,0);
+
+    // ── INSULATOR STRINGS (hanging from arm tips) ──
+    function drawInsulator(pKey, color) {
+      const pp = p(pKey);
+      if(!pp) return;
+      const insLen = 18 * SC * pp.scale;
+      const insW = 3 * SC * pp.scale;
+      ctx.save();
+      ctx.globalAlpha = alpha * 0.6 * Math.min(1, pp.scale * 2);
+      ctx.shadowBlur = 6; ctx.shadowColor = color;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.2;
+      // Draw insulator discs
+      for(let d = 0; d < 4; d++) {
+        const dy = (d / 3) * insLen;
+        ctx.beginPath();
+        ctx.arc(pp.x, pp.y + dy, insW * (1 - d*0.15), 0, Math.PI*2);
+        ctx.stroke();
+      }
+      ctx.restore();
+    }
+    drawInsulator('wireL','rgba(0,212,255,0.8)');
+    drawInsulator('wireR','rgba(0,212,255,0.8)');
+    drawInsulator('wireL2','rgba(0,180,255,0.6)');
+    drawInsulator('wireR2','rgba(0,180,255,0.6)');
+
+    // ── GLOW PASS (re-draw key lines with bloom) ──
+    ctx.save();
+    ctx.shadowBlur = 20;
+    ctx.shadowColor = 'rgba(0,180,255,0.5)';
+    ctx.globalAlpha = alpha * 0.15;
+    ctx.strokeStyle = 'rgba(0,212,255,0.9)';
+    ctx.lineWidth = 3;
+    const paLL = p('aLL'), paRR = p('aRR');
+    if(paLL && paRR){
+      ctx.beginPath(); ctx.moveTo(paLL.x, paLL.y); ctx.lineTo(paRR.x, paRR.y); ctx.stroke();
+    }
+    const papex = p('apex');
+    if(paLL && papex){
+      ctx.beginPath(); ctx.moveTo(paLL.x, paLL.y); ctx.lineTo(papex.x, papex.y); ctx.stroke();
+    }
+    if(paRR && papex){
+      ctx.beginPath(); ctx.moveTo(paRR.x, paRR.y); ctx.lineTo(papex.x, papex.y); ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  /* ─── DRAW POWER LINES BETWEEN TOWERS ─── */
+  function drawPowerLines(tA, tB, scrollOff, alpha, t_time) {
+    const zOff = scrollOff * 0.3;
+
+    function wpt(tower, key) {
+      const pt = tower.pts[key];
+      return project3D(pt[0], pt[1] - scrollOff * 0.08, pt[2] + zOff);
+    }
+
+    const wireKeys = ['wireL','wireR','wireL2','wireR2','wireC'];
+    const wireColors = [
+      'rgba(0,210,255,__)',
+      'rgba(0,210,255,__)',
+      'rgba(0,160,255,__)',
+      'rgba(0,160,255,__)',
+      'rgba(0,255,160,__)',
+    ];
+    const wireSags = [0.12, 0.12, 0.09, 0.09, 0.07]; // relative sag factor
+
+    wireKeys.forEach((key, wi) => {
+      const pA_3d = tA.pts[key];
+      const pB_3d = tB.pts[key];
+      if(!pA_3d || !pB_3d) return;
+
+      const sagScale = (tA.scale + tB.scale) * 0.5 / 140;
+      const sag3D = wireSags[wi] * (tA.scale + tB.scale) * 0.5;
+
+      const numPts = 24;
+      const cat3D = catenaryPoints(
+        pA_3d[0], pA_3d[1], pA_3d[2],
+        pB_3d[0], pB_3d[1], pB_3d[2],
+        sag3D, numPts
+      );
+
+      // Project all catenary points
+      const projPts = cat3D.map(pt =>
+        project3D(pt[0], pt[1] - scrollOff * 0.08, pt[2] + zOff)
+      ).filter(Boolean);
+
+      if(projPts.length < 2) return;
+
+      const baseAlpha = alpha * (0.5 + 0.3 * Math.sin(t_time * 0.02 + wi * 1.3));
+      const wColor = wireColors[wi].replace('__', baseAlpha.toFixed(2));
+
+      // Glow pass
+      ctx.save();
+      ctx.shadowBlur = 14;
+      ctx.shadowColor = wireColors[wi].replace('__', '0.6');
+      ctx.strokeStyle = wColor;
+      ctx.lineWidth = 1.2 * projPts[0].scale;
+      ctx.globalAlpha = 0.6;
+      ctx.beginPath();
+      projPts.forEach((p, i) => i===0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
+      ctx.stroke();
+      ctx.restore();
+
+      // Core bright wire
+      ctx.save();
+      ctx.shadowBlur = 4;
+      ctx.shadowColor = wColor;
+      ctx.strokeStyle = `rgba(180,240,255,${baseAlpha * 0.5})`;
+      ctx.lineWidth = 0.4 * projPts[0].scale;
+      ctx.beginPath();
+      projPts.forEach((p, i) => i===0 ? ctx.moveTo(p.x,p.y) : ctx.lineTo(p.x,p.y));
+      ctx.stroke();
+      ctx.restore();
+
+      // Corona discharge sparks along wire
+      if(Math.random() < 0.004 && key !== 'wireC') {
+        const si = Math.floor(Math.random() * projPts.length);
+        const sp = projPts[si];
+        if(sp) {
+          coronaPool.push({
+            x: sp.x, y: sp.y, scale: sp.scale,
+            vx: (Math.random()-0.5)*1.5,
+            vy: -Math.random()*1.5-0.5,
+            life: 0, maxLife: 20 + Math.random()*15,
+            color: wireColors[wi].replace('__','1')
+          });
+        }
+      }
+    });
+  }
+
+  /* ─── CORONA DISCHARGE PARTICLES ─── */
+  const coronaPool = [];
+
+  function updateDrawCorona() {
+    for(let i = coronaPool.length-1; i >= 0; i--) {
+      const c = coronaPool[i];
+      c.life++;
+      if(c.life > c.maxLife){ coronaPool.splice(i,1); continue; }
+      c.x += c.vx; c.y += c.vy; c.vy *= 0.95; c.vx *= 0.97;
+      const prog = c.life / c.maxLife;
+      const alpha = Math.sin(prog * Math.PI) * 0.9;
+      ctx.save();
+      ctx.shadowBlur = 12; ctx.shadowColor = c.color;
+      ctx.beginPath();
+      ctx.arc(c.x, c.y, 1.5 * c.scale, 0, Math.PI*2);
+      ctx.fillStyle = c.color.replace('1)', `${alpha})`);
+      ctx.fill();
+      ctx.restore();
+    }
+  }
+
+  /* ─── LIGHTNING ARC SYSTEM ─── */
+  class LightningBolt {
+    constructor(x1, y1, x2, y2, depth, color) {
+      this.color = color;
+      this.segs = this.subdivide(x1, y1, x2, y2, depth);
+      this.life = 0;
+      this.maxLife = 18 + Math.random() * 20;
+    }
+    subdivide(x1, y1, x2, y2, d) {
+      if(d === 0) return [[x1,y1],[x2,y2]];
+      const mx = (x1+x2)*0.5 + (Math.random()-0.5) * 80;
+      const my = (y1+y2)*0.5 + (Math.random()-0.5) * 50;
+      return [...this.subdivide(x1,y1,mx,my,d-1), ...this.subdivide(mx,my,x2,y2,d-1)];
+    }
+    draw() {
+      this.life++;
+      const prog = this.life / this.maxLife;
+      const a = Math.sin(prog * Math.PI) * 0.85;
+      ctx.save();
+      ctx.shadowBlur = 24; ctx.shadowColor = this.color.replace('__',`${a*0.8}`);
+      ctx.strokeStyle = this.color.replace('__',`${a}`);
+      ctx.lineWidth = 0.7;
+      ctx.beginPath();
+      this.segs.forEach((p,i) => i===0 ? ctx.moveTo(p[0],p[1]) : ctx.lineTo(p[0],p[1]));
+      ctx.stroke();
+      ctx.shadowBlur = 6;
+      ctx.strokeStyle = `rgba(200,240,255,${a*0.5})`;
+      ctx.lineWidth = 0.25;
+      ctx.beginPath();
+      this.segs.forEach((p,i) => i===0 ? ctx.moveTo(p[0],p[1]) : ctx.lineTo(p[0],p[1]));
+      ctx.stroke();
+      ctx.restore();
+    }
+    done() { return this.life >= this.maxLife; }
+  }
+  const lightningBolts = [];
+  let lightningTimer = 120;
+
+  /* ─── ATMOSPHERIC FOG / GROUND HAZE ─── */
+  function drawAtmosphere(scrollOff) {
+    // Horizon glow
+    const hy = H * 0.72 - scrollOff * 0.04;
+    const hg = ctx.createLinearGradient(0, hy - 160, 0, hy + 80);
+    hg.addColorStop(0, 'rgba(0,6,8,0)');
+    hg.addColorStop(0.5, 'rgba(0,40,80,0.03)');
+    hg.addColorStop(1, 'rgba(0,60,120,0.06)');
+    ctx.fillStyle = hg;
+    ctx.fillRect(0, hy - 160, W, 240);
+
+    // Ground fog layer
+    const fg = ctx.createLinearGradient(0, hy, 0, hy + 200);
+    fg.addColorStop(0, 'rgba(0,20,40,0.08)');
+    fg.addColorStop(1, 'rgba(0,6,8,0)');
+    ctx.fillStyle = fg;
+    ctx.fillRect(0, hy, W, 200);
+
+    // Depth haze bands (atmospheric perspective)
+    for(let d = 0; d < 4; d++) {
+      const dz = 300 + d * 300;
+      const p = project3D(0, 0, -dz - scrollOff * 0.1);
+      if(!p) continue;
+      const lineY = p.y;
+      const bh = ctx.createLinearGradient(0, lineY - 8, 0, lineY + 8);
+      bh.addColorStop(0, 'rgba(0,20,60,0)');
+      bh.addColorStop(0.5, `rgba(0,30,80,${0.04 + d*0.01})`);
+      bh.addColorStop(1, 'rgba(0,20,60,0)');
+      ctx.fillStyle = bh;
+      ctx.fillRect(0, lineY - 8, W, 16);
+    }
+  }
+
+  /* ─── BACKGROUND STAR FIELD ─── */
+  const stars = Array.from({length: 120}, () => ({
+    x: Math.random() * 2 - 0.5,
+    y: Math.random() * 0.6,
+    r: Math.random() * 1.2 + 0.2,
+    a: Math.random() * 0.35 + 0.05,
+    twinkle: Math.random() * Math.PI * 2,
+    col: Math.random() > 0.7 ? '180,220,255' : '200,230,255'
+  }));
+
+  function drawStars(scrollOff, t_time) {
+    stars.forEach(s => {
+      const tw = 0.7 + 0.3 * Math.sin(t_time * 0.01 + s.twinkle);
+      const sx = s.x * W;
+      const sy = s.y * H - scrollOff * 0.015;
+      ctx.beginPath();
+      ctx.arc(sx, sy, s.r * tw, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(${s.col},${s.a * tw})`;
+      ctx.fill();
+    });
+  }
+
+  /* ─── ELECTRIC FIELD LINES ─── */
+  // Subtle arcing field lines between tower arm tips
+  function drawFieldLines(tower, scrollOff, t_time, alpha) {
+    const zOff = scrollOff * 0.3;
+    const keys = ['wireL','wireR'];
+    const ppts = keys.map(k => {
+      const pt = tower.pts[k];
+      return project3D(pt[0], pt[1] - scrollOff*0.08, pt[2] + zOff);
+    }).filter(Boolean);
+    if(ppts.length < 2) return;
+
+    const numLines = 3;
+    for(let li = 0; li < numLines; li++) {
+      const phase = t_time * 0.018 + li * 2.1;
+      const mid = {
+        x: (ppts[0].x + ppts[1].x) * 0.5 + Math.sin(phase) * 20,
+        y: (ppts[0].y + ppts[1].y) * 0.5 - 30 + Math.cos(phase * 0.7) * 15
+      };
+      const a = (0.03 + 0.02 * Math.sin(phase * 1.3)) * alpha;
+      ctx.save();
+      ctx.shadowBlur = 10; ctx.shadowColor = 'rgba(0,200,255,0.4)';
+      ctx.strokeStyle = `rgba(0,200,255,${a})`;
+      ctx.lineWidth = 0.6 * ppts[0].scale;
+      ctx.beginPath();
+      ctx.moveTo(ppts[0].x, ppts[0].y);
+      ctx.quadraticCurveTo(mid.x, mid.y, ppts[1].x, ppts[1].y);
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  /* ─── VIGNETTE ─── */
   let vigGrad = null;
   function buildVignette() {
-    vigGrad = ctx.createRadialGradient(W/2,H/2,H*0.2, W/2,H/2,H*0.85);
-    vigGrad.addColorStop(0,'rgba(0,0,0,0)');
-    vigGrad.addColorStop(1,'rgba(0,6,8,0.72)');
+    vigGrad = ctx.createRadialGradient(W/2, H/2, H*0.15, W/2, H/2, H*0.9);
+    vigGrad.addColorStop(0, 'rgba(0,0,0,0)');
+    vigGrad.addColorStop(1, 'rgba(0,6,8,0.38)');
   }
   buildVignette();
   window.addEventListener('resize', buildVignette);
 
-  let t = 0;
+  /* ─── SCROLL SMOOTHING ─── */
+  let smoothScroll = 0;
 
+  /* ─── MAIN LOOP ─── */
+  let t_time = 0;
   (function loop(){
     requestAnimationFrame(loop);
-    t += 1;
+    t_time++;
+    smoothScroll += (scrollY_val - smoothScroll) * 0.06;
+
     ctx.clearRect(0, 0, W, H);
 
-    /* scroll + mouse influence */
-    const scrollInfluence = scrollY_val * 0.0003;
-    const mx = (mouseX / W - 0.5) * 0.18;
-    const my = (mouseY / H - 0.5) * 0.12;
+    // Draw star field
+    drawStars(smoothScroll, t_time);
 
-    const cx = W / 2;
-    const cy = H / 2 + scrollY_val * 0.04;
-    const fov = 600;
+    // Draw atmospheric haze
+    drawAtmosphere(smoothScroll);
 
-    /* ── Draw rings ── */
-    rings.forEach((ring, ri) => {
-      const angle = t * ring.speed + ring.phase + scrollInfluence;
-      // tilt axes react subtly to mouse & scroll
-      const tiltX = ring.tilt + my * 0.4 + scrollInfluence * 0.3;
-      const tiltY = mx * 0.5;
+    // ── Compute draw order: towers from farthest to nearest ──
+    const sorted = [...towers].sort((a,b) => a.gz - b.gz);
 
-      const pts = [];
-      const segCount = ring.segs;
+    // Draw power lines BETWEEN consecutive towers (back to front)
+    for(let i = 0; i < sorted.length - 1; i++) {
+      const tA = sorted[i], tB = sorted[i+1];
+      // Depth-based alpha for lines
+      const avgZ = (tA.gz + tB.gz) * 0.5;
+      const lineAlpha = Math.max(0.06, Math.min(0.7, 0.04 + (avgZ + 1500) / 2500));
+      drawPowerLines(tA, tB, smoothScroll, lineAlpha, t_time);
+    }
 
-      for(let i = 0; i <= segCount; i++){
-        const a = (i / segCount) * PI2;
-        const lx = Math.cos(a + angle) * ring.radius;
-        const ly = Math.sin(a + angle) * ring.radius;
-
-        // 3D tilt (rotateX by tiltX, then rotateY by tiltY)
-        const y3d = ly * Math.cos(tiltX) - ring.zOff * Math.sin(tiltX);
-        let z3d = ly * Math.sin(tiltX) + ring.zOff * Math.cos(tiltX);
-        const x3d = lx * Math.cos(tiltY) + z3d * Math.sin(tiltY);
-        z3d = -lx * Math.sin(tiltY) + z3d * Math.cos(tiltY);
-
-        const p = project(x3d, y3d, z3d, cx, cy, fov);
-        if(p) pts.push({...p, a});
-      }
-
-      if(pts.length < 2) return;
-
-      // Depth-based opacity
-      const baseAlpha = 0.12 + ring.width * 0.06;
-
-      // Draw ring stroke — segmented with depth variation
-      for(let i = 0; i < pts.length - 1; i++){
-        const p0 = pts[i], p1 = pts[i+1];
-        const depthAlpha = Math.min(1, Math.max(0.03, p0.scale * 1.2));
-        const electricPulse = 0.5 + 0.5 * Math.sin(t * 0.04 + p0.a * 3 + ri);
-
-        ctx.beginPath();
-        ctx.moveTo(p0.x, p0.y);
-        ctx.lineTo(p1.x, p1.y);
-        ctx.strokeStyle = `rgba(${ring.color},${baseAlpha * depthAlpha * electricPulse})`;
-        ctx.lineWidth = ring.width * p0.scale * 0.8;
-        ctx.shadowBlur = 0;
-        ctx.stroke();
-      }
-
-      // Glow pass — draw the ring again with bloom
-      ctx.save();
-      ctx.shadowBlur = 18;
-      ctx.shadowColor = `rgba(${ring.color},0.35)`;
-      ctx.beginPath();
-      pts.forEach((p,i) => {
-        if(i===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y);
-      });
-      ctx.strokeStyle = `rgba(${ring.color},0.06)`;
-      ctx.lineWidth = ring.width * 2.5;
-      ctx.stroke();
-      ctx.restore();
-
-      // Node dots at ring vertices (every ~30 segments)
-      const dotInterval = Math.max(1, Math.floor(segCount / 12));
-      pts.forEach((p, i) => {
-        if(i % dotInterval !== 0) return;
-        const pulse = 0.5 + 0.5 * Math.sin(t * 0.06 + i * 0.8 + ri * 1.3);
-        const dotSize = ring.dotR * p.scale * pulse;
-        if(dotSize < 0.3) return;
-
-        ctx.save();
-        ctx.shadowBlur = 12 * pulse;
-        ctx.shadowColor = `rgba(${ring.color},0.9)`;
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, dotSize, 0, PI2);
-        ctx.fillStyle = `rgba(${ring.color},${0.5 + 0.5*pulse})`;
-        ctx.fill();
-        ctx.restore();
-      });
-
-      // Flow particles riding the ring
-      flowParticles[ri].forEach(fp => {
-        fp.angle += fp.speed * (1 + scrollInfluence * 2);
-        const fa = fp.angle;
-        const flx = Math.cos(fa) * ring.radius;
-        const fly = Math.sin(fa) * ring.radius;
-        const fy3d = fly * Math.cos(tiltX) - ring.zOff * Math.sin(tiltX);
-        let fz3d = fly * Math.sin(tiltX) + ring.zOff * Math.cos(tiltX);
-        const fx3d = flx * Math.cos(tiltY) + fz3d * Math.sin(tiltY);
-        fz3d = -flx * Math.sin(tiltY) + fz3d * Math.cos(tiltY);
-        const fp2d = project(fx3d, fy3d, fz3d, cx, cy, fov);
-        if(!fp2d) return;
-
-        const glow = ctx.createRadialGradient(fp2d.x,fp2d.y,0, fp2d.x,fp2d.y, fp.size*fp2d.scale*4);
-        glow.addColorStop(0, `rgba(${ring.color},${fp.brightness * fp2d.scale})`);
-        glow.addColorStop(1, `rgba(${ring.color},0)`);
-        ctx.beginPath();
-        ctx.arc(fp2d.x, fp2d.y, fp.size * fp2d.scale * 4, 0, PI2);
-        ctx.fillStyle = glow;
-        ctx.fill();
-
-        ctx.save();
-        ctx.shadowBlur = 20;
-        ctx.shadowColor = `rgba(${ring.color},1)`;
-        ctx.beginPath();
-        ctx.arc(fp2d.x, fp2d.y, fp.size * fp2d.scale, 0, PI2);
-        ctx.fillStyle = `rgba(255,255,255,${fp.brightness * Math.min(1,fp2d.scale*2)})`;
-        ctx.fill();
-        ctx.restore();
-      });
+    // Draw towers back-to-front
+    sorted.forEach(tower => {
+      const refPt = project3D(tower.cx, 0, tower.gz);
+      if(!refPt) return;
+      const depthAlpha = Math.max(0.05, Math.min(0.85, (tower.gz + 1400) / 1800));
+      drawTower(tower, smoothScroll, depthAlpha);
+      drawFieldLines(tower, smoothScroll, t_time, depthAlpha);
     });
 
-    /* ── Inter-ring energy arcs ── */
-    arcTimer--;
-    if(arcTimer <= 0){
-      const r1 = rings[Math.floor(Math.random()*rings.length)];
-      const r2 = rings[Math.floor(Math.random()*rings.length)];
-      if(r1 !== r2) spawnArc(r1, r2, cx, cy);
-      arcTimer = 35 + Math.random() * 55;
+    // Corona discharge
+    updateDrawCorona();
+
+    // ── Lightning ──
+    lightningTimer--;
+    if(lightningTimer <= 0) {
+      // Random wire-to-wire or wire-to-ground arc
+      const tower = towers[Math.floor(Math.random() * towers.length)];
+      const refP = project3D(tower.cx, 0, tower.gz);
+      if(refP) {
+        const armPt = project3D(tower.pts.wireL[0], tower.pts.wireL[1], tower.pts.wireL[2]);
+        const armPt2 = project3D(tower.pts.wireR[0], tower.pts.wireR[1], tower.pts.wireR[2]);
+        if(armPt && armPt2) {
+          const col = Math.random() > 0.5 ? 'rgba(0,200,255,__)' : 'rgba(100,180,255,__)';
+          if(Math.random() > 0.5) {
+            // Wire to wire
+            lightningBolts.push(new LightningBolt(armPt.x,armPt.y,armPt2.x,armPt2.y,4,col));
+          } else {
+            // Wire to ground
+            lightningBolts.push(new LightningBolt(
+              armPt.x, armPt.y,
+              armPt.x + (Math.random()-0.5)*100, refP.y + Math.random()*40,
+              4, col
+            ));
+          }
+        }
+      }
+      lightningTimer = 80 + Math.random() * 200;
+    }
+    for(let i = lightningBolts.length-1; i >= 0; i--) {
+      lightningBolts[i].draw();
+      if(lightningBolts[i].done()) lightningBolts.splice(i, 1);
     }
 
-    for(let ai = arcPool.length-1; ai >= 0; ai--){
-      const arc = arcPool[ai];
-      arc.life++;
-      if(arc.life > arc.maxLife){ arcPool.splice(ai,1); continue; }
-      const prog = arc.life / arc.maxLife;
-      const arcAlpha = Math.sin(prog * Math.PI) * 0.55;
-
-      // Compute start/end 3D positions
-      function ringPoint(ring, angle) {
-        const scrollInf2 = scrollInfluence;
-        const ang = angle + t * ring.speed + ring.phase + scrollInf2;
-        const lx = Math.cos(ang) * ring.radius;
-        const ly = Math.sin(ang) * ring.radius;
-        const tX = ring.tilt + my*0.4 + scrollInf2*0.3;
-        const tY = mx*0.5;
-        const y3d = ly*Math.cos(tX)-ring.zOff*Math.sin(tX);
-        let z3d = ly*Math.sin(tX)+ring.zOff*Math.cos(tX);
-        const x3d = lx*Math.cos(tY)+z3d*Math.sin(tY);
-        z3d = -lx*Math.sin(tY)+z3d*Math.cos(tY);
-        return project(x3d, y3d, z3d, cx, cy, fov);
-      }
-
-      const p1 = ringPoint(arc.r1, arc.a1);
-      const p2 = ringPoint(arc.r2, arc.a2);
-      if(!p1||!p2) continue;
-
-      // Jagged lightning path
-      const segs = 8;
-      const pts2 = [p1];
-      for(let si=1;si<segs;si++){
-        const ft = si/segs;
-        const bx = p1.x + (p2.x-p1.x)*ft + (Math.random()-0.5)*60*(1-Math.abs(ft-0.5)*2);
-        const by = p1.y + (p2.y-p1.y)*ft + (Math.random()-0.5)*40*(1-Math.abs(ft-0.5)*2);
-        pts2.push({x:bx,y:by});
-      }
-      pts2.push(p2);
-
-      ctx.save();
-      ctx.shadowBlur = 20;
-      ctx.shadowColor = `rgba(${arc.color},0.8)`;
-      ctx.beginPath();
-      pts2.forEach((p,i)=>i===0?ctx.moveTo(p.x,p.y):ctx.lineTo(p.x,p.y));
-      ctx.strokeStyle = `rgba(${arc.color},${arcAlpha})`;
-      ctx.lineWidth = 0.8 + Math.random()*0.6;
-      ctx.stroke();
-
-      // Core bright channel
-      ctx.lineWidth = 0.3;
-      ctx.strokeStyle = `rgba(200,240,255,${arcAlpha*0.7})`;
-      ctx.stroke();
-      ctx.restore();
-    }
-
-    /* ── Central energy core glow ── */
-    const corePulse = 0.7 + 0.3*Math.sin(t*0.05);
-    const coreGrad = ctx.createRadialGradient(cx,cy,0,cx,cy,200*corePulse);
-    coreGrad.addColorStop(0,`rgba(0,80,200,0.07)`);
-    coreGrad.addColorStop(0.4,`rgba(0,212,255,0.03)`);
-    coreGrad.addColorStop(1,`rgba(0,0,0,0)`);
-    ctx.fillStyle = coreGrad;
-    ctx.beginPath();
-    ctx.arc(cx, cy, 200*corePulse, 0, PI2);
-    ctx.fill();
-
-    /* ── Cinematic vignette ── */
+    // Vignette overlay
     ctx.fillStyle = vigGrad;
     ctx.fillRect(0, 0, W, H);
   })();
